@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <div className="bg-white border-b">
-      <div className="container mx-auto px-4 md:px-10 py-3 flex justify-between items-center">
+      <div className="container mx-auto px-4 md:px-10 py-4 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
           <Image
@@ -25,39 +25,39 @@ const Navbar = () => {
         </div>
 
         {/* Navigation Links */}
-        <div className="hidden md:flex space-x-6">
+        <div className="hidden md:flex space-x-8 font-medium">
           <button
-            className="text-gray-600 hover:text-gray-900"
+            className="text-black/60 hover:text-accent"
             onClick={() => navigateTo("/home")}
           >
             Home
           </button>
           <button
-            className="text-gray-600 hover:text-gray-900"
+            className="text-black/60 hover:text-accent"
             onClick={() => navigateTo("/news")}
           >
             News
           </button>
           <button
-            className="text-gray-600 hover:text-gray-900"
+            className="text-black/60 hover:text-accent"
             onClick={() => navigateTo("/investments")}
           >
             Platinum Investments
           </button>
           <button
-            className="text-gray-600 hover:text-gray-900"
+            className="text-black/60 hover:text-accent"
             onClick={() => navigateTo("/community")}
           >
             Community
           </button>
           <button
-            className="text-gray-600 hover:text-gray-900"
+            className="text-black/60 hover:text-accent"
             onClick={() => navigateTo("/data")}
           >
             Data
           </button>
           <button
-            className="text-gray-600 hover:text-gray-900"
+            className="text-black/60 hover:text-accent"
             onClick={() => navigateTo("/101")}
           >
             Platinum 101
@@ -67,7 +67,7 @@ const Navbar = () => {
         {/* Login Button */}
         <div>
           <button
-            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+            className="bg-accent text-white px-5 py-2 rounded-sm hover:bg-accent/90"
             onClick={() => navigateTo("/login")}
           >
             Login
