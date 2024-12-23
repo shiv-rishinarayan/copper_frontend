@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../public/logo.jpg";
+// import logo from "../../public/logo.jpg";
 const PlatinumLivePrice = () => {
   const dummyPlatinumPrice = [
     {
@@ -15,9 +15,15 @@ const PlatinumLivePrice = () => {
         Live Platinum Price
       </h2>
 
-      <div className="bg-accent/10 p-3 py-4 w-full border border-accent/30 rounded-md flex justify-between items-center">
-        <div className="h-10 md:h-14">
-          <img className="w-auto h-full scale-125" src={logo} alt="Logo" />
+      <div className="bg-accent/30 p-3 py-4 w-full border border-accent/30 rounded-md flex justify-between items-center">
+        <div className="h-8 md:h-10">
+          {" "}
+          {/* Adjust the container height */}
+          <img
+            className="w-16 h-16 md:w-28 md:h-12" // Adjust the width and height
+            src="/logo.jpg"
+            alt="Logo"
+          />
         </div>
 
         <div className="w-[60%] pr-1">
@@ -29,10 +35,10 @@ const PlatinumLivePrice = () => {
         </div>
       </div>
 
-      <div className="mt-1 bg-accent/10 p-3 py-4 w-full border border-accent/30 rounded-md flex justify-between items-center">
+      <div className="mt-1 bg-accent/30 p-3 py-4 w-full border border-accent/30 rounded-md flex justify-between items-center">
         <div>
           <h3 className="text-xs md:text-sm font-bold text-green">
-            Uranium Spot Price
+            Platinum Spot Price
           </h3>
         </div>
 
