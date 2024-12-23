@@ -94,7 +94,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative overflow-hidden px-5 sm:px-8 md:px-20 lg:px-32 xl:px-40 w-full h-fit py-20 md:h-[65vh] flex items-center justify-start mb-14 bg-black">
+    <div className="relative overflow-hidden px-5 sm:px-8 md:px-20 lg:px-32 xl:px-40 w-full h-fit py-20 md:h-[70vh] flex items-center justify-start mb-14 bg-black">
       {/* Background video and black overlay */}
       <div className="absolute inset-0">
         <video
@@ -112,10 +112,10 @@ const Hero = () => {
       </div>
 
       {/* Text content */}
-      <div className="relative z-10 text-white w-full sm:w-[90%] md:w-[80%] lg:w-[76%]">
+      <div className="relative z-10 text-white w-full sm:w-[90%] md:w-[80%] lg:w-[77%]">
         {/* Heading */}
         <motion.h1
-          className="text-[30px] sm:text-[37px] md:text-[48px] lg:text-[56px] frank font-extrabold capitalize tracking-[-1px] leading-[36px] sm:leading-[46px] md:leading-[58px] drop-shadow-md"
+          className="text-[30px] sm:text-[37px] md:text-[48px] lg:text-[57px]  font-extrabold capitalize tracking-[-1px]  md:leading-[67px] drop-shadow-md"
           variants={textVariants}
           initial="hidden"
           animate="visible"
