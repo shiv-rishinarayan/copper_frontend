@@ -5,7 +5,7 @@ const home = () => {
   return (
     <div>
       <Navbar />
-      
+      <h1>Checking</h1>
     </div>
   );
 };
