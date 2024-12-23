@@ -4,6 +4,7 @@ import StockNews from "@/components/Home/StockNews";
 import Navbar from "@/components/Navbar";
 import PopularIntradayReturn from "@/components/Home/PopularIntradayReturn";
 import React from "react";
+import Footer from "@/components/Footer";
 
 const home = () => {
   return (
@@ -21,6 +22,11 @@ const home = () => {
         <div className="w-full md:w-[26%]">
           <PopularIntradayReturn />
         </div>
+      </div>
+
+      {/* footer -------------------------------------------------------------------------------------------- */}
+      <div className="mt-24">
+        <Footer />
       </div>
     </div>
   );
