@@ -2,6 +2,7 @@ import Hero from "@/components/Home/Hero";
 import LatestNews from "@/components/Home/LatestNews";
 import StockNews from "@/components/Home/StockNews";
 import Navbar from "@/components/Navbar";
+import PopularIntradayReturn from "@/components/Home/PopularIntradayReturn";
 import React from "react";
 
 const home = () => {
@@ -17,7 +18,9 @@ const home = () => {
           <StockNews />
         </div>
         {/* right  */}
-        <div className="w-full md:w-[28%]"></div>
+        <div className="w-full md:w-[28%]">
+          <PopularIntradayReturn />
+        </div>
       </div>
     </div>
   );
