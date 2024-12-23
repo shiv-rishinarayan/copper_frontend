@@ -22,6 +22,13 @@ const home = () => {
         </div>
         {/* right  */}
         <div className="w-full md:w-[26%]">
+          <div className="mb-12">
+            <PlatinumLivePrice />
+          </div>
+          {/* <div>
+            <PlatinumTradingviewChart />
+          </div> */}
+
           <PopularIntradayReturn />
         </div>
       </div>
