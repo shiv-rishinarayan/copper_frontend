@@ -13,12 +13,12 @@ const home = () => {
 
       <div className="flex justify-between flex-wrap px-3 md:px-10 lg:px-16 py-12">
         {/* left  */}
-        <div className="w-full md:w-[68%] flex flex-col space-y-20">
+        <div className="w-full md:w-[66%] flex flex-col space-y-20">
           <LatestNews />
           <StockNews />
         </div>
         {/* right  */}
-        <div className="w-full md:w-[28%]">
+        <div className="w-full md:w-[26%]">
           <PopularIntradayReturn />
         </div>
       </div>
