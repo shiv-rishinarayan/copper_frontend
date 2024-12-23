@@ -2,6 +2,8 @@ import Hero from "@/components/Home/Hero";
 import LatestNews from "@/components/Home/LatestNews";
 import Navbar from "@/components/Navbar";
 import PopularIntradayReturn from "@/components/Home/PopularIntradayReturn";
+import PlatinumLivePrice from "@/components/Home/PlatinumLivePrice";
+import PlatinumTradingviewChart from "@/components/Home/PlatinumTradingviewChart";
 import React from "react";
 
 const home = () => {
@@ -17,7 +19,7 @@ const home = () => {
         </div>
         {/* right  */}
         <div className="w-full md:w-[28%]">
-          <PopularIntradayReturn />
+          <PlatinumLivePrice />
         </div>
       </div>
     </div>
