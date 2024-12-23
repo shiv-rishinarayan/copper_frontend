@@ -89,7 +89,7 @@ const Hero = () => {
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = 0.6; // Set the playback rate to slow down the video
+      videoRef.current.playbackRate = 0.5; // Set the playback rate to slow down the video
     }
   }, []);
 
@@ -99,7 +99,7 @@ const Hero = () => {
       <div className="absolute inset-0">
         <video
           ref={videoRef}
-          src="/heroBG-5.mp4"
+          src="/heroBG-6.mp4"
           autoPlay
           loop
           muted
