@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-white border-b">
+    <div className="bg-white border-b cambay">
       <div className="container mx-auto px-4 md:px-10 py-4 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
@@ -49,6 +49,12 @@ const Navbar = () => {
             onClick={() => navigateTo("/community")}
           >
             Community
+          </button>
+          <button
+            className="text-black/60 hover:text-accent"
+            onClick={() => navigateTo("/videos")}
+          >
+            Videos
           </button>
           <button
             className="text-black/60 hover:text-accent"
