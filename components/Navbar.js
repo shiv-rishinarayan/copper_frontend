@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
@@ -7,6 +7,27 @@ import { FaBars, FaTimes } from "react-icons/fa";
 const Navbar = () => {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [showNavbar, setShowNavbar] = useState(true);
+
+  // Function to handle scrolling behavior
+  const handleScroll = () => {
+    if (window.scrollY > lastScrollY) {
+      // Scrolling down
+      setShowNavbar(false);
+    } else {
+      // Scrolling up
+      setShowNavbar(true);
+    }
+    setLastScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
 
   const navigateTo = (path) => {
     setMenuOpen(false); // Close menu on navigation
@@ -21,7 +42,13 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-white border-b">
+    <div
+      className={`bg-white border-b transition-transform duration-300 ease-in-out ${
+        showNavbar
+          ? "fixed top-0 left-0 w-full z-50"
+          : "transform -translate-y-full"
+      }`}
+    >
       <div className="container mx-auto px-2 lg:px-10 py-5 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
