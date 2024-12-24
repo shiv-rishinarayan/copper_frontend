@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import PopularIntradayReturn from "@/components/Home/PopularIntradayReturn";
 import PlatinumLivePrice from "@/components/Home/PlatinumLivePrice";
 import PlatinumTradingviewChart from "@/components/Home/PlatinumTradingviewChart";
+import StayAhead from "@/components/Home/StayAhead";
 import React from "react";
 import Footer from "@/components/Footer";
 
@@ -31,6 +32,10 @@ const home = () => {
 
           <PopularIntradayReturn />
         </div>
+      </div>
+      {/* Stay ahead section */}
+      <div className="my-14">
+        <StayAhead />
       </div>
 
       {/* footer -------------------------------------------------------------------------------------------- */}
