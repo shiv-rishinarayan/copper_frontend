@@ -6,8 +6,14 @@ import PopularIntradayReturn from "@/components/Home/PopularIntradayReturn";
 import PlatinumLivePrice from "@/components/Home/PlatinumLivePrice";
 import PlatinumTradingviewChart from "@/components/Home/PlatinumTradingviewChart";
 import StayAhead from "@/components/Home/StayAhead";
+import PressReleaseNews from "@/components/Home/PressReleaseNews";
+import PopularTools from "@/components/Home/PopularTools";
+import MostPopularNews from "@/components/Home/MostPopularNews";
+import Substacks from "@/components/Home/Substacks";
+import DailyNewsletterAd from "@/components/Home/DailyNewsletterAd";
 import React from "react";
 import Footer from "@/components/Footer";
+import Footer2 from "@/components/Footer2";
 
 const home = () => {
   return (
@@ -20,17 +26,17 @@ const home = () => {
         <div className="w-full md:w-[66%] flex flex-col space-y-20">
           <LatestNews />
           <StockNews />
+          <PressReleaseNews />
+          <MostPopularNews />
         </div>
         {/* right  */}
-        <div className="w-full md:w-[26%]">
-          <div className="mb-12">
-            <PlatinumLivePrice />
-          </div>
-          {/* <div>
-            <PlatinumTradingviewChart />
-          </div> */}
-
+        <div className="w-full md:w-[26%] space-y-20">
+          <PlatinumLivePrice />
+          {/* <PlatinumTradingviewChart /> */}
           <PopularIntradayReturn />
+          <PopularTools />
+          <DailyNewsletterAd />
+          <Substacks />
         </div>
       </div>
       {/* Stay ahead section */}
@@ -41,6 +47,7 @@ const home = () => {
       {/* footer -------------------------------------------------------------------------------------------- */}
       <div className="-mt-14">
         <Footer />
+        <Footer2 />
       </div>
     </div>
   );
