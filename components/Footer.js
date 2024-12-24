@@ -14,7 +14,7 @@ const Footer = () => {
       {/* Video Background */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
-        src="/HeroBG-5.mp4" // Replace with your video path
+        src="/FooterBG.mp4" // Replace with your video path
         autoPlay
         loop
         muted
