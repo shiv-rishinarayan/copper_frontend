@@ -158,7 +158,7 @@ const StayAhead = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="bg-accent p-4 sm:p-8 py-8 sm:py-16 relative overflow-hidden"
+      className="bg-accent p-4 sm:p-8 py-12 sm:py-20 relative overflow-hidden"
     >
       {/* Decorative Background Lines */}
       <div className="absolute inset-0 pointer-events-none">
@@ -169,7 +169,7 @@ const StayAhead = () => {
         >
           <path
             d="M0,600 Q250,500 500,600 T1000,600 V1000 H0 Z"
-            className="fill-secondary/60"
+            className="fill-white/20"
           />
         </svg>
       </div>
@@ -178,17 +178,17 @@ const StayAhead = () => {
         {/* Left Section - Subscription */}
         <div className="md:w-2/6 sm:p-8 rounded-lg flex flex-col justify-between">
           <div>
-            <h1 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-6 cambay text-white">
+            <h1 className="text-xl sm:text-3xl font-bold mb-3 sm:mb-6 cambay text-white">
               Stay ahead with real-time platinum news, price and analysis
             </h1>
-            <p className="text-sm text-white/80 mb-4 sm:mb-8">
+            <p className="text-sm text-white/80 font-medium mb-4 sm:mb-8">
               Sign up for Platinum Tracker's All Access to gain Access to
               Platinum Tracker's full suite of research tools
             </p>
           </div>
           <Link
             href="/signup"
-            className="bg-secondary hover:bg-secondary/90 lg:bg-accent lg:hover:bg-accent/90 text-center text-white font-bold py-2.5 sm:py-3 px-4 sm:px-6 rounded w-full text-sm"
+            className="bg-white hover:bg-white/90 lg:bg-white lg:hover:bg-white/90 text-center text-accent font-bold py-2.5 sm:py-3 px-4 sm:px-6 rounded w-full text-sm"
           >
             SUBSCRIBE TODAY
           </Link>
