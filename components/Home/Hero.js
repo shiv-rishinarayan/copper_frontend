@@ -121,7 +121,13 @@ const Hero = () => {
           animate="visible"
         >
           Stay ahead with real-time{" "}
-          <span className="text-accent">Platinum news, price And analysis</span>
+          {/* <span className="text-accent">Platinum news, price And analysis</span> */}
+          <span
+            className="text-accent"
+            style={{ textShadow: "1px 1px 1px rgba(255, 255, 255, 0.8)" }}
+          >
+            Platinum news, price and analysis
+          </span>
         </motion.h1>
 
         {/* PlatinumPrice component */}
