@@ -39,7 +39,7 @@ function TradingViewWidget() {
     <div
       className="tradingview-widget-container"
       ref={container}
-      style={{ height: "500px", width: "100%" }} // Ensure height is explicitly set
+      style={{ height: "100%", width: "100%" }} // Ensure height is explicitly set
     >
       <div className="tradingview-widget-copyright">
         {/* Optional: You can add links here to TradingView */}
