@@ -99,7 +99,7 @@ const Hero = () => {
       <div className="absolute inset-0">
         <video
           ref={videoRef}
-          src="/heroBG-6.mp4"
+          src="/HeroBG.mp4"
           autoPlay
           loop
           muted
