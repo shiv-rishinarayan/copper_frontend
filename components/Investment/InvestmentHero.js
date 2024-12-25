@@ -12,9 +12,9 @@ const InvestmentHero = () => {
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-black/50 bg-opacity-70 "></div>
 
-      <div className="relative container px-4 sm:px-6 md:px-12 z-10 pt-14 md:pt-12">
+      <div className="max-w-7xl mx-auto relative container px-4 sm:px-6 md:px-12 z-10 pt-14 md:pt-12">
         <div className="w-full md:w-[60%] lg:w-[53%]">
-          <h1 className="text-2xl sm:text-3xl md:text-[3rem] lg:text-[3.2rem] font-extrabold text-white leading-tight sm:leading-[1.15]">
+          <h1 className="text-2xl sm:text-3xl md:text-[3rem] lg:text-[3.1rem] font-bold text-white leading-tight sm:leading-[1.15]">
             Elevate Your Portfolio with{" "}
             <span className="text-accent">Platinum Investment Strategies</span>
           </h1>
