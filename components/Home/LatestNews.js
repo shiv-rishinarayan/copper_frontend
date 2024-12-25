@@ -56,9 +56,9 @@ const LatestNews = () => {
         Latest Platinum News
       </h1>
 
-      <div className="flex space-x-5 justify-between items-start">
+      <div className="flex flex-wrap md:flex-nowrap gap-5">
         {/* Featured News */}
-        <div className="w-[53%]">
+        <div className="w-full md:w-[53%]">
           <a
             href={newsData[0].link}
             className="bg-white rounded-sm overflow-hidden block group transition-shadow duration-300"
@@ -66,9 +66,9 @@ const LatestNews = () => {
             <img
               src={newsData[0].imageUrl}
               alt={newsData[0].title}
-              className="w-full h-[317px] object-cover group-hover:opacity-90"
+              className="w-full h-[250px] md:h-[317px] object-cover group-hover:opacity-90"
             />
-            <div className="">
+            <div>
               <h2 className="group-hover:underline text-[18px] text-primary leading-6 mt-1">
                 {newsData[0].title}
               </h2>
@@ -78,7 +78,7 @@ const LatestNews = () => {
         </div>
 
         {/* Other News */}
-        <div className="w-[45%] grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="w-full md:w-[45%] grid grid-cols-1 sm:grid-cols-2 gap-4">
           {newsData.slice(1).map((news, index) => (
             <a
               key={index}
@@ -90,7 +90,7 @@ const LatestNews = () => {
                 alt={news.title}
                 className="w-full h-28 object-cover group-hover:opacity-90"
               />
-              <div className="">
+              <div>
                 <h2 className="group-hover:underline text-[16px] text-primary mt-1 leading-6">
                   {news.title.substring(0, 43)}...
                 </h2>
