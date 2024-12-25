@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import DailyNewsletterAd from "@/components/Home/DailyNewsletterAd";
 import LatestNews from "@/components/Home/LatestNews";
 import StockNews from "@/components/Home/PressReleaseNews";
@@ -28,6 +29,10 @@ const news = () => {
           <DailyNewsletterAd />
           <Substacks />
         </div>
+      </div>
+
+      <div className="mt-20">
+        <Footer />
       </div>
     </div>
   );

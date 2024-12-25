@@ -24,13 +24,13 @@ const Footer = () => {
           <div className="container mx-auto flex flex-col justify-between lg:flex-row">
             {/* Text Content */}
             <div className="text-start lg:w-1/2 flex flex-col justify-center">
-              <h1 className="text-2xl sm:text-[1.5rem] md:text-4xl font-semibold mb-6 leading-tight frank">
-                Everything You Need to Navigate the Uranium Market – All in One
+              <h1 className="text-2xl sm:text-[1.5rem] md:text-4xl font-semibold mb-6 md:leading-7 frank">
+                Everything You Need to Navigate the Platinum Market – All in One
                 Place
               </h1>
               <p className="text-xs sm:text-[13px] md:text-[14.5px] mb-8 text-white/70 leading-5 font-normal">
                 With demand for clean energy on the rise, many investors are
-                looking for the next big opportunity in uranium. We're here to
+                looking for the next big opportunity in platinum. We're here to
                 help. Sign up to receive our best insights and updates every
                 week.
               </p>
