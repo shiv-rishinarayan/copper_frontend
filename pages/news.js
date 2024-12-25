@@ -6,7 +6,7 @@ import Substacks from "@/components/Home/Substacks";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/News/Hero";
 import React from "react";
-
+import MoreNews from "@/components/News/MoreNews";
 const news = () => {
   return (
     <div>
@@ -29,6 +29,8 @@ const news = () => {
           <Substacks />
         </div>
       </div>
+      {/* Footer */}
+      <MoreNews />
     </div>
   );
 };
