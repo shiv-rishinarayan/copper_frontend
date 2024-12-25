@@ -4,6 +4,11 @@ import React from "react";
 import { useRouter } from "next/router";
 import TabsSection from "@/components/VideosPage/TabSection";
 import Footer from "@/components/Footer";
+import VAll from "@/components/VideosPage/VAll";
+import VFeatured from "@/components/VideosPage/VFeatured";
+import VEducation from "@/components/VideosPage/VEducation";
+import VCompany from "@/components/VideosPage/VCompany";
+import VPodcasts from "@/components/VideosPage/VPodcasts";
 
 const videos = () => {
   const { query } = useRouter();
@@ -16,11 +21,11 @@ const videos = () => {
       <div>
         <TabsSection />
         <div className="mt-6">
-          {currentTab === "all" && <div>All</div>}
-          {currentTab === "featured" && <div>All</div>}
-          {currentTab === "company" && <div>All</div>}
-          {currentTab === "podcasts" && <div>All</div>}
-          {currentTab === "education" && <div>All</div>}
+          {currentTab === "all" && <VAll />}
+          {currentTab === "featured" && <VFeatured />}
+          {currentTab === "company" && <VCompany />}
+          {currentTab === "podcasts" && <VPodcasts />}
+          {currentTab === "education" && <VEducation />}
         </div>
       </div>
 
