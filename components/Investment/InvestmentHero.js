@@ -3,17 +3,18 @@ import React from "react";
 const InvestmentHero = () => {
   return (
     <div
-      className="relative w-full bg-secondary/0 py-16 md:py-32 lg:py-48 bg-cover bg-top"
+      className="relative w-full bg-secondary/0 py-16 md:py-32 lg:py-44 bg-cover bg-top"
       style={{
-        backgroundImage: "url(/investmenthero1.png)",
+        backgroundImage:
+          "url(https://www.garfieldrefining.com/wp-content/uploads/2021/07/platinum-scaled.jpeg)",
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-secondary bg-opacity-40 md:bg-opacity-20"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-black/50 bg-opacity-70 "></div>
 
-      <div className="relative container px-4 sm:px-6 md:px-12 z-10 pt-14 md:pt-0">
+      <div className="relative container px-4 sm:px-6 md:px-12 z-10 pt-14 md:pt-12">
         <div className="w-full md:w-[60%] lg:w-[53%]">
-          <h1 className="text-2xl sm:text-3xl md:text-[3rem] lg:text-[3.15rem] font-bold text-primary/90 leading-tight sm:leading-[1.1]">
+          <h1 className="text-2xl sm:text-3xl md:text-[3rem] lg:text-[3.2rem] font-extrabold text-white leading-tight sm:leading-[1.15]">
             Elevate Your Portfolio with{" "}
             <span className="text-accent">Platinum Investment Strategies</span>
           </h1>
