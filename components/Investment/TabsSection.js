@@ -38,7 +38,7 @@ const TabsSection = () => {
 
   return (
     <div className="bg-white border-t border-gray-200">
-      <div className="container mx-auto px-3 md:px-12">
+      <div className="container px-3 md:px-12">
         <ul className="flex flex-wrap justify-start items-center gap-x-3 sm:gap-x-5 py-6 bg-white shadow-sm">
           {tabs.map((tab, index) => (
             <li
