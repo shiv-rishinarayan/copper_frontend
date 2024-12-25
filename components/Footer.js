@@ -24,7 +24,7 @@ const Footer = () => {
           <div className="container mx-auto flex flex-col justify-between lg:flex-row">
             {/* Text Content */}
             <div className="text-start lg:w-1/2 flex flex-col justify-center">
-              <h1 className="text-2xl sm:text-[1.5rem] md:text-4xl font-semibold mb-6 md:leading-7 frank">
+              <h1 className="text-2xl sm:text-[1.5rem] md:text-4xl font-semibold mb-6 md:leading-14 frank">
                 Everything You Need to Navigate the Platinum Market – All in One
                 Place
               </h1>
