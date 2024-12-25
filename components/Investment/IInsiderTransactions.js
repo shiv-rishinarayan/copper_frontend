@@ -3,7 +3,7 @@ import React from "react";
 const IInsiderTransactions = () => {
   return (
     <div className="px-3 md:px-12 py-5 md:py-5">
-      <h1 className="cambay text-3xl  font-semibold">Insider Transactions</h1>
+      <h1 className="cambay text-xl sm:text-3xl  font-semibold">Insider Transactions</h1>
 
       {/* content  */}
       <div className="mt-5">

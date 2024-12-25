@@ -3,7 +3,7 @@ import React from "react";
 const IStockScreener = () => {
   return (
     <div className="px-3 md:px-12 py-5 md:py-5">
-      <h1 className="cambay text-3xl  font-semibold">Stock Screener</h1>
+      <h1 className="cambay text-xl sm:text-3xl  font-semibold">Stock Screener</h1>
 
       {/* content  */}
       <div className="mt-5">
