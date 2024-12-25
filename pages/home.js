@@ -13,7 +13,6 @@ import Substacks from "@/components/Home/Substacks";
 import DailyNewsletterAd from "@/components/Home/DailyNewsletterAd";
 import React from "react";
 import Footer from "@/components/Footer";
-import Footer2 from "@/components/Footer2";
 
 const home = () => {
   return (
@@ -47,7 +46,6 @@ const home = () => {
       {/* footer -------------------------------------------------------------------------------------------- */}
       <div className="-mt-14">
         <Footer />
-        <Footer2 />
       </div>
     </div>
   );
