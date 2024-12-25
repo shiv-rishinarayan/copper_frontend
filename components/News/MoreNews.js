@@ -107,17 +107,11 @@ const MoreNews = () => {
   }, []);
 
   return (
-    <div className="px-3 md:px-10 lg:px-16 py-8">
+    <div className="px-3 md:px-10 lg:px-16 py-12 md:py-24 bg-secondary/10 mt-10">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-2">
           More News
         </h2>
-        <Link
-          href="/news"
-          className="text-sm text-blue-600 hover:text-blue-700 transition-colors"
-        >
-          View All →
-        </Link>
       </div>
 
       {loading ? (
@@ -126,7 +120,7 @@ const MoreNews = () => {
           <span className="ml-3 text-gray-800 font-semibold">Loading...</span>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 gap-x-7">
           {news.slice(0, 9).map((item) => (
             <Link
               key={item.id}
@@ -134,7 +128,7 @@ const MoreNews = () => {
               className="flex items-start space-x-4 pb-4 border-b group"
             >
               <div className="flex-grow">
-                <h3 className="text-md font-bold text-gray-800 group-hover:text-blue-600 transition-colors leading-tight">
+                <h3 className="text-md font-bold text-gray-800 group-hover:text-accent transition-colors leading-tight">
                   {item.title}
                 </h3>
                 <span className="text-xs text-gray-500 mt-2 block">

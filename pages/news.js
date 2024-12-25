@@ -35,7 +35,7 @@ const news = () => {
       <MoreNews />
 
       {/* Footer Section */}
-      <div className="mt-20">
+      <div className="mt-0">
         <Footer />
       </div>
     </div>
