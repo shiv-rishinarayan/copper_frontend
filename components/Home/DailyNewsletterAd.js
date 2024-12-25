@@ -9,7 +9,7 @@ const DailyNewsletterAd = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-accent to-white/10 rounded-lg p-8 mt-4">
+    <div className="bg-gradient-to-b from-accent to-accent/50 rounded-lg p-8 mt-4">
       {/* Heading Section */}
       <h2 className="text-white text-3xl font-semibold cambay">
         Receive our <span className="text-white">FREE</span>
@@ -22,7 +22,7 @@ const DailyNewsletterAd = () => {
       <div className="mt-6">
         <button
           onClick={handleSubscribe}
-          className="w-full text-sm bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-[10px] rounded transition-colors duration-200"
+          className="w-full text-sm bg-white hover:bg-white/80 text-black font-bold py-[10px] rounded transition-colors duration-200"
         >
           SUBSCRIBE TODAY
         </button>
