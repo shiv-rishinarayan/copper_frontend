@@ -39,12 +39,12 @@ const TabsSection = () => {
   return (
     <div className="bg-white border-t border-gray-200">
       <div className="container mx-auto px-3 md:px-12">
-        <ul className="flex flex-wrap items-center gap-x-5 py-6 bg-white shadow-sm">
+        <ul className="flex flex-wrap justify-start items-center gap-x-3 sm:gap-x-5 py-6 bg-white shadow-sm">
           {tabs.map((tab, index) => (
             <li
               key={index}
               onClick={() => handleTabClick(index, tab.query)}
-              className={`cursor-pointer font-medium text-sm  px-4 py-2 rounded-full mb-2 md:mb-0 ${
+              className={`cursor-pointer font-medium text-[12.5px] sm:text-sm px-2.5 sm:px-4 py-1 sm:py-2 rounded-full mb-2 md:mb-0 ${
                 activeTab === index
                   ? "text-white bg-accent"
                   : "text-gray-700 hover:text-gray-900"
