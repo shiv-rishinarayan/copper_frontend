@@ -3,7 +3,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import Navbar from "@/components/Navbar";
 import Footer2 from "@/components/Footer2";
-
+import { useRouter } from "next/navigation";
 const validationSchema = Yup.object().shape({
   fullName: Yup.string()
     .min(2, "Full name must be at least 2 characters")
@@ -24,12 +24,12 @@ const validationSchema = Yup.object().shape({
     "You must accept the terms and conditions"
   ),
 });
-
 const Signup = () => {
   const handleSubmit = (values, { setSubmitting }) => {
     console.log(values);
     setSubmitting(false);
   };
+  const router = useRouter();
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -173,6 +173,7 @@ const Signup = () => {
                       type="submit"
                       disabled={isSubmitting}
                       className="w-full bg-accent text-white py-2 rounded-sm hover:bg-accent"
+                      onClick={() => router.push("/emailsent")}
                     >
                       Create Account
                     </button>
