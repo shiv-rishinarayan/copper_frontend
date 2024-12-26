@@ -42,34 +42,6 @@ const DashboardLayout = () => {
                   <p className="text-gray-600">john.doe@example.com</p>
                 </div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
-                <div className="bg-gray-50 p-4 lg:p-6 rounded-md">
-                  <h4 className="text-medium font-semibold mb-4 text-gray-800">
-                    Account Statistics
-                  </h4>
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600">Watched Stocks</span>
-                      <span className="font-medium">24</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600">Analysis Created</span>
-                      <span className="font-medium">156</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-gray-50 p-4 lg:p-6 rounded-md">
-                  <h4 className="text-medium font-semibold mb-4 text-gray-800">
-                    Recent Activity
-                  </h4>
-                  <div className="space-y-3">
-                    <div className="text-gray-600">Added AAPL to watchlist</div>
-                    <div className="text-gray-600">
-                      Updated screening criteria
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         );
