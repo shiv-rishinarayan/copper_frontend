@@ -14,9 +14,9 @@ const DataHero = () => {
 
       <div className="max-w-7xl mx-auto relative container px-4 sm:px-6 md:px-12 z-10 pt-14 md:pt-12">
         <div className="w-full md:w-[60%] lg:w-[55%]">
-            
           <h1 className="text-2xl sm:text-3xl md:text-[3rem] lg:text-[3.1rem] font-bold text-white leading-tight sm:leading-[1.15]">
-            Discover the data you need to analyse and research Platinum
+            Discover the data you need to analyse and{" "}
+            <span className="text-accent">Research Platinum</span>
           </h1>
         </div>
       </div>
