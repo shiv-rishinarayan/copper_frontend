@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { formatDistanceToNow } from "date-fns"; // Importing date-fns function for relative time
 import { IoIosTimer } from "react-icons/io";
 
-export default function Home() {
+const Hero = () => {
   const [news, setNews] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -19,7 +19,7 @@ export default function Home() {
 
     // Auto-scroll logic
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % news.length); // Move to the next slide every 3 seconds
+      setCurrentIndex((prev) => (prev + 1) % news.length);
     }, 4000); // Adjust the interval time as needed (3000ms = 3 seconds)
 
     // Clear interval when the component unmounts
@@ -103,4 +103,6 @@ export default function Home() {
       </div>
     </div>
   );
-}
+};
+
+export default Hero;
