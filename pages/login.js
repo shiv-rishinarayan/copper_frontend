@@ -1,99 +1,8 @@
-// import React from "react";
-
-// const Login = () => {
-//   return (
-//     <div className="h-screen flex">
-//       {/* Left Side with Image and Overlay */}
-//       <div className="relative w-1/2 h-full">
-//         <img
-//           src="https://media.istockphoto.com/id/482601021/photo/platinum.jpg?s=612x612&w=0&k=20&c=jPAVbe8OIjT7AuiXIWHudn-YLUEAgojThL_mXHk9088=" // Replace with your image URL
-//           alt="Background"
-//           className="w-full h-full object-cover"
-//         />
-//         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-//         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-10">
-//           {/* Logo */}
-//           <div className="absolute top-5 left-5">
-//             <img
-//               src="/logo.jpg" // Replace with your logo URL
-//               alt="Logo"
-//               className="w-24 h-10"
-//             />
-//           </div>
-//           <h1 className="text-4xl font-bold mb-4">
-//             Welcome to Platinum Tracker
-//           </h1>
-//           <p className="text-base max-w-xl mb-6">
-//             Track and manage your data effortlessly with Platinum Tracker. Log
-//             in to access your account and stay organized.
-//           </p>
-//         </div>
-//       </div>
-
-//       {/* Right Side with Login Form */}
-//       <div className="w-1/2 h-full flex flex-col justify-center px-10">
-//         <div className="max-w-md mx-auto w-full">
-//           {" "}
-//           {/* Increased max-width */}
-//           <h2 className="text-3xl cambay font-semibold mb-6">Login</h2>
-//           <form className="space-y-4">
-//             <div>
-//               <input
-//                 type="email"
-//                 placeholder="Email Address"
-//                 className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2"
-//               />
-//             </div>
-//             <div>
-//               <input
-//                 type="password"
-//                 placeholder="Password"
-//                 className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2"
-//               />
-//             </div>
-//             <div className="flex justify-between items-center">
-//               <label className="flex items-center space-x-2">
-//                 <input
-//                   type="checkbox"
-//                   className="h-4 w-4 text-accent focus:ring-accent border-gray-300 rounded"
-//                 />
-//                 <span className="text-sm">Remember Me</span>
-//               </label>
-//               <a href="#" className="text-sm text-accent hover:underline">
-//                 Forgot Password?
-//               </a>
-//             </div>
-//             <button
-//               type="submit"
-//               className="w-full bg-accent text-white py-2 rounded-sm hover:bg-accent"
-//             >
-//               Login
-//             </button>
-//           </form>
-//           <p className="text-sm text-center mt-6">
-//             Don't have an account?{" "}
-//             <a href="#" className="text-accent hover:underline">
-//               Sign Up
-//             </a>
-//           </p>
-//         </div>
-
-//         {/* Footer at the Center Right Below Login Form */}
-//         <div className="flex justify-center items-center mt-10 text-gray-500 text-sm absolute bottom-5 right-5">
-//           © Platinum Tracker - All Rights Reserved.
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Login;
 import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Navbar from "@/components/Navbar";
 import Footer2 from "@/components/Footer2";
-
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email address")
@@ -114,9 +23,7 @@ const Login = () => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow mt-16">
-        {" "}
         <div className="flex flex-col lg:flex-row h-[calc(100vh-4rem)]">
-          {" "}
           <div className="relative w-full lg:w-1/2 h-full hidden lg:block">
             <img
               src="https://media.istockphoto.com/id/482601021/photo/platinum.jpg?s=612x612&w=0&k=20&c=jPAVbe8OIjT7AuiXIWHudn-YLUEAgojThL_mXHk9088="
@@ -200,7 +107,7 @@ const Login = () => {
                         <span className="text-sm">Remember Me</span>
                       </label>
                       <a
-                        href="#"
+                        href="/reset-password"
                         className="text-sm text-accent hover:underline"
                       >
                         Forgot Password?
