@@ -5,7 +5,7 @@ import { BsGraphDown } from "react-icons/bs";
 
 export default function Custom404() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+    <div className="flex flex-col items-center justify-center min-h-screen  text-black">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -28,11 +28,11 @@ export default function Custom404() {
         <p className="mb-4 text-gray-400">
           Platinum prices don’t wait—head back to the dashboard!
         </p>
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 hover:bg-gray-100 hover:text-secondary transition-all duration-500 ease-in-out p-2 rounded">
           <AiOutlineStock className="text-accent text-4xl" />
           <Link href="/" legacyBehavior>
             <a className="text-lg font-semibold text-accent transition-all">
-              Return to Dashboard
+              Return to Home
             </a>
           </Link>
         </div>
