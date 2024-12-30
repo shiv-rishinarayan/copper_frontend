@@ -3,21 +3,23 @@ import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 import { FaCheckCircle } from "react-icons/fa";
-import { VERIFY_EMAIL_API } from "@/src/api/authAPI";
-import useAxios from "@/src/network/useAxios";
+import { BASE_URL, VERIFY_EMAIL_API } from "@/src/api/authAPI";
+// import useAxios from "@/src/network/useAxios";
+import axios from "axios";
 
 const VerifyEmail = () => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  const axiosCreate = useAxios();
+  // const axiosCreate = useAxios();
+
+  const { uid, token } = router.query;
 
   const handleVerifyEmail = async () => {
     setIsLoading(true);
     try {
       // Simulate API call to verify email
-      const response = await axiosCreate.get(
-        `${VERIFY_EMAIL_API}/${uid}/${token}`
-      );
+      // const response = await axiosCreate.get(`${VERIFY_EMAIL_API}/${uid}/${token}`);
+      const response = await axios.get(`${BASE_URL}${VERIFY_EMAIL_API}/${uid}/${token}`);
 
     if (!response.ok) {
         throw new Error("Failed to verify email");

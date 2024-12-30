@@ -5,8 +5,9 @@ import * as Yup from "yup";
 import { IoMailOutline, IoArrowBack } from "react-icons/io5";
 import Footer2 from "@/components/Footer2";
 import Link from "next/link";
-import { FORGOT_PASSWORD_API } from "@/src/api/authAPI";
-import useAxios from "@/src/network/useAxios";
+import { BASE_URL, FORGOT_PASSWORD_API } from "@/src/api/authAPI";
+// import useAxios from "@/src/network/useAxios";
+import axios from "axios";
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email address")
@@ -16,7 +17,7 @@ const validationSchema = Yup.object().shape({
 const ResetPassword = () => {
   const [submitted, setSubmitted] = useState(false);
   const router = useRouter();
-  const axiosCreate = useAxios();
+  // const axiosCreate = useAxios();
 
   const handleSubmit = async (values, { setSubmitting }) => {
     console.log("Reset email submitted: ", values.email);
@@ -26,7 +27,7 @@ const ResetPassword = () => {
       let data = {
         email: values.email
       }
-      const res = await axiosCreate.post(FORGOT_PASSWORD_API, data);
+      const res = await axios.post(BASE_URL+FORGOT_PASSWORD_API, data);
       if (res.data.message) {
         toast.success(res?.data?.message)
         router.push('./login')

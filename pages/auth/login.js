@@ -4,8 +4,9 @@ import * as Yup from "yup";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useRouter } from "next/router";
-import { LOGIN_API } from "@/src/api/authAPI";
-import useAxios from "@/src/network/useAxios";
+import { BASE_URL, LOGIN_API } from "@/src/api/authAPI";
+// import useAxios from "@/src/network/useAxios";
+import axios from "axios";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -19,7 +20,7 @@ const validationSchema = Yup.object().shape({
 
 const Login = () => {
   const router = useRouter();
-  const axiosCreate = useAxios();
+  // const axiosCreate = useAxios();
 
   const handleSubmit = async (values, { setSubmitting }) => {
     setSubmitting(false);
@@ -28,7 +29,7 @@ const Login = () => {
         email: values.email,
         password: values.password
       }
-      const res = await axiosCreate.post(LOGIN_API, data);
+      const res = await axios.post(BASE_URL+LOGIN_API, data);
       console.log("res ---- " + JSON.stringify(res))
       router.push("/")
       toast.success("Registration successfully")

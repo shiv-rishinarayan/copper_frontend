@@ -5,9 +5,10 @@ import Navbar from "@/components/Navbar";
 import Footer2 from "@/components/Footer2";
 import { useRouter } from "next/router"; // Use next/router instead of next/navigation
 import Footer from "@/components/Footer";
-import useAxios from "@/src/network/useAxios";
-import { SIGNUP_API } from "@/src/api/authAPI";
+// import useAxios from "@/src/network/useAxios";
+import { BASE_URL, SIGNUP_API } from "@/src/api/authAPI";
 import { toast } from "react-hot-toast";
+import axios from "axios";
 
 
 const validationSchema = Yup.object().shape({
@@ -33,18 +34,19 @@ const validationSchema = Yup.object().shape({
 
 const Signup = () => {
   const router = useRouter();
-  const axiosCreate = useAxios();
+  // const axiosCreate = useAxios();
 
   const handleSubmit = async (values, { setSubmitting }) => {
     setSubmitting(false);
     try {
       let data = {
-        fullName: values.fullName,
+        name: values.fullName,
         email: values.email,
         password: values.password,
         confirmPassword: values.confirmPassword,
       }
-      const res = await axiosCreate.post(SIGNUP_API, data);
+      
+      const res = await axios.post(BASE_URL+SIGNUP_API, data);
       console.log("res ---- " + JSON.stringify(res))
       router.push("./email-sent")
       toast.success("Registration successfully")
@@ -54,6 +56,14 @@ const Signup = () => {
     }
     
   };
+
+  // const res = await fetch("https://platinumdjango-production.up.railway.app/auth/signup/", {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(data),
+      // });
 
   return (
     <div className="flex flex-col min-h-screen">

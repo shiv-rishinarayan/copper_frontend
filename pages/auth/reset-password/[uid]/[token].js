@@ -3,14 +3,16 @@ import { useRouter } from "next/router"; // For navigation
 import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 import { FaSpinner } from "react-icons/fa";
-import useAxios from "@/src/network/useAxios";
+// import useAxios from "@/src/network/useAxios";
+import { BASE_URL } from "@/src/api/authAPI";
+import axios from "axios";
 
 const NewPassword = () => {
     const [newPassword, setNewPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter(); // Next.js router
-    const axiosCreate = useAxios();
+    // const axiosCreate = useAxios();
 
     const { uid, token } = router.query;
 
@@ -31,7 +33,7 @@ const NewPassword = () => {
                 new_password: newPassword
             }
             // Simulate an API call to update the password
-            const response = await axiosCreate.post(RESET_PASSWORD_API, data);
+            const response = await axios.post(BASE_URL+RESET_PASSWORD_API, data);
             if (response.data.message) {
                 toast.success(response.data.message, {
                     position: "top-right",
