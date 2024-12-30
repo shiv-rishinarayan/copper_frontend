@@ -23,8 +23,8 @@ const ResetPassword = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <main className="flex-grow mt-16">
-        <div className="flex h-[calc(100vh-4rem)]">
+      <main className="flex-grow mt-">
+        <div className="flex min-h-screen">
           <div className="w-full flex flex-col justify-center px-10">
             <div className="max-w-md mx-auto w-full">
               {submitted ? (
@@ -48,10 +48,10 @@ const ResetPassword = () => {
                 </div>
               ) : (
                 <>
-                  <h2 className="text-3xl cambay font-semibold mb-6">
+                  <h2 className="text-3xl cambay font-semibold mb-4">
                     Reset Password
                   </h2>
-                  <p className="text-gray-600 mb-8">
+                  <p className="text-gray-600 mb-9">
                     Enter your email address below, and we'll help you get back
                     on track with a secure password reset process.
                   </p>
@@ -79,7 +79,7 @@ const ResetPassword = () => {
                               onChange={handleChange}
                               onBlur={handleBlur}
                               value={values.email}
-                              className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 pr-10"
+                              className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 pr-10 placeholder:text-black/40 placeholder:text-sm"
                             />
                             <IoMailOutline className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                           </div>
@@ -92,7 +92,7 @@ const ResetPassword = () => {
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="w-full bg-accent text-white py-2 rounded-sm hover:bg-accent"
+                          className="w-full bg-accent text-white py-2 rounded-sm hover:bg-accent/90 transition-all duration-300 ease-in-out"
                         >
                           Send Reset Link
                         </button>
@@ -105,7 +105,6 @@ const ResetPassword = () => {
           </div>
         </div>
       </main>
-      <Footer2 />
     </div>
   );
 };

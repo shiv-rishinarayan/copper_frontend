@@ -42,10 +42,10 @@ const Signup = () => {
               alt="Background"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+            <div className="absolute inset-0 bg-black bg-opacity-75"></div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-10">
               <h1 className="text-4xl font-bold mb-4">Join Platinum Tracker</h1>
-              <p className="text-base max-w-xl mb-6">
+              <p className="text-base max-w-xl text-white/80 tracking-wide">
                 Create your account today and start managing your data with our
                 powerful tracking tools.
               </p>
@@ -75,7 +75,7 @@ const Signup = () => {
                   handleSubmit,
                   isSubmitting,
                 }) => (
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-5">
                     <div>
                       <input
                         type="text"
@@ -84,7 +84,7 @@ const Signup = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.fullName}
-                        className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2"
+                        className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 placeholder:text-black/40 placeholder:text-sm"
                       />
                       {errors.fullName && touched.fullName && (
                         <div className="text-red-500 text-sm mt-1">
@@ -101,7 +101,7 @@ const Signup = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.email}
-                        className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2"
+                        className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 placeholder:text-black/40 placeholder:text-sm"
                       />
                       {errors.email && touched.email && (
                         <div className="text-red-500 text-sm mt-1">
@@ -118,7 +118,7 @@ const Signup = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.password}
-                        className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2"
+                        className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 placeholder:text-black/40 placeholder:text-sm"
                       />
                       {errors.password && touched.password && (
                         <div className="text-red-500 text-sm mt-1">
@@ -135,7 +135,7 @@ const Signup = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.confirmPassword}
-                        className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2"
+                        className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 placeholder:text-black/40 placeholder:text-sm"
                       />
                       {errors.confirmPassword && touched.confirmPassword && (
                         <div className="text-red-500 text-sm mt-1">
@@ -144,7 +144,7 @@ const Signup = () => {
                       )}
                     </div>
 
-                    <div className="flex items-start space-x-2">
+                    <div className="flex items-start space-x-2 pt-7">
                       <input
                         type="checkbox"
                         name="termsAccepted"
@@ -172,7 +172,7 @@ const Signup = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-accent text-white py-2 rounded-sm hover:bg-accent"
+                      className="w-full bg-accent text-white py-2 rounded-sm hover:bg-accent/90 transition-all duration-300 ease-in-out"
                       onClick={() => router.push("/emailsent")}
                     >
                       Create Account
@@ -182,7 +182,7 @@ const Signup = () => {
               </Formik>
               <p className="text-sm text-center mt-6">
                 Already have an account?{" "}
-                <a href="/login" className="text-accent hover:underline">
+                <a href="/auth/login" className="text-accent hover:underline">
                   Login
                 </a>
               </p>
