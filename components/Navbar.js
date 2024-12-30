@@ -73,7 +73,7 @@ const Navbar = () => {
 
         <button
           className="bg-accent hidden lg:block text-white px-5 py-2 rounded-sm hover:bg-accent/90"
-          onClick={() => navigateTo("/login")}
+          onClick={() => navigateTo("/auth/login")}
         >
           Login
         </button>
@@ -129,7 +129,7 @@ const Navbar = () => {
 
         <button
           className="bg-accent text-white px-5 py-2 rounded-sm hover:bg-accent/90"
-          onClick={() => navigateTo("/login")}
+          onClick={() => navigateTo("/auth/login")}
         >
           Login
         </button>
