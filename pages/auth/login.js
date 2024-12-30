@@ -3,6 +3,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import Navbar from "@/components/Navbar";
 import Footer2 from "@/components/Footer2";
+import Footer from "@/components/Footer";
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email address")
@@ -133,7 +134,7 @@ const Login = () => {
           </div>
         </div>
       </main>
-      <Footer2 />
+      <Footer />
     </div>
   );
 };

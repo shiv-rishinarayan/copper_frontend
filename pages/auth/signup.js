@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import Navbar from "@/components/Navbar";
 import Footer2 from "@/components/Footer2";
 import { useRouter } from "next/navigation";
+import Footer from "@/components/Footer";
 const validationSchema = Yup.object().shape({
   fullName: Yup.string()
     .min(2, "Full name must be at least 2 characters")
@@ -190,7 +191,7 @@ const Signup = () => {
           </div>
         </div>
       </main>
-      <Footer2 />
+      <Footer />
     </div>
   );
 };
