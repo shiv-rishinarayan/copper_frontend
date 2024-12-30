@@ -5,6 +5,10 @@ import Navbar from "@/components/Navbar";
 import Footer2 from "@/components/Footer2";
 import { useRouter } from "next/router"; // Use next/router instead of next/navigation
 import Footer from "@/components/Footer";
+import useAxios from "@/src/network/useAxios";
+import { SIGNUP_API } from "@/src/api/authAPI";
+import { toast } from "react-hot-toast";
+
 
 const validationSchema = Yup.object().shape({
   fullName: Yup.string()
@@ -28,12 +32,28 @@ const validationSchema = Yup.object().shape({
 });
 
 const Signup = () => {
-  const handleSubmit = (values, { setSubmitting }) => {
-    console.log(values);
-    setSubmitting(false);
-  };
+  const router = useRouter();
+  const axiosCreate = useAxios();
 
-  const router = useRouter(); // Use router from next/router
+  const handleSubmit = async (values, { setSubmitting }) => {
+    setSubmitting(false);
+    try {
+      let data = {
+        fullName: values.fullName,
+        email: values.email,
+        password: values.password,
+        confirmPassword: values.confirmPassword,
+      }
+      const res = await axiosCreate.post(SIGNUP_API, data);
+      console.log("res ---- " + JSON.stringify(res))
+      router.push("./email-sent")
+      toast.success("Registration successfully")
+    } catch (error) {
+      console.error("Error during Registration: ", error);
+      toast.error("Something went wrong, please try again.")
+    }
+    
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -70,7 +90,6 @@ const Signup = () => {
                 validationSchema={validationSchema}
                 onSubmit={(values, { setSubmitting }) => {
                   handleSubmit(values, { setSubmitting });
-                  router.push("/emailsent"); // Navigate after submission
                 }}
               >
                 {({

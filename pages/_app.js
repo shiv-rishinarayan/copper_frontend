@@ -1,7 +1,16 @@
 import "@/styles/globals.css";
+import { ToastContainer } from 'react-toastify';
+import { Toaster } from "react-hot-toast";
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Toaster position="top-right" reverseOrder={false} />
+      <Component {...pageProps} />
+      <ToastContainer />
+    </>
+  );
 }
 
 // import { useState, useEffect } from "react";

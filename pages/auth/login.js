@@ -4,6 +4,8 @@ import * as Yup from "yup";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useRouter } from "next/router";
+import { LOGIN_API } from "@/src/api/authAPI";
+import useAxios from "@/src/network/useAxios";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -16,11 +18,24 @@ const validationSchema = Yup.object().shape({
 });
 
 const Login = () => {
-  const router = useRouter();  // Initialize router
+  const router = useRouter();
+  const axiosCreate = useAxios();
 
-  const handleSubmit = (values, { setSubmitting }) => {
-    console.log(values);
+  const handleSubmit = async (values, { setSubmitting }) => {
     setSubmitting(false);
+    try {
+      let data = {
+        email: values.email,
+        password: values.password
+      }
+      const res = await axiosCreate.post(LOGIN_API, data);
+      console.log("res ---- " + JSON.stringify(res))
+      router.push("/")
+      toast.success("Registration successfully")
+    } catch (error) {
+      console.error("Error during Registration: ", error);
+      toast.error("Something went wrong, please try again.")
+    }
   };
 
   return (
@@ -111,7 +126,7 @@ const Login = () => {
                         <span className="text-sm">Remember Me</span>
                       </label>
                       <span
-                        onClick={() => router.push("/auth/reset-password")}
+                        onClick={() => router.push("./forgot-password")}
                         className="text-sm text-accent hover:underline cursor-pointer"
                       >
                         Forgot Password?
@@ -130,7 +145,7 @@ const Login = () => {
               <p className="text-sm text-center mt-6">
                 Don't have an account?{" "}
                 <span
-                  onClick={() => router.push("/auth/signup")}
+                  onClick={() => router.push("./signup")}
                   className="text-accent hover:underline cursor-pointer"
                 >
                   Sign Up
