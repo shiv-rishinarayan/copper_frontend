@@ -2,8 +2,9 @@ import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Navbar from "@/components/Navbar";
-import Footer2 from "@/components/Footer2";
 import Footer from "@/components/Footer";
+import { useRouter } from "next/router";
+
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email address")
@@ -15,6 +16,8 @@ const validationSchema = Yup.object().shape({
 });
 
 const Login = () => {
+  const router = useRouter();  // Initialize router
+
   const handleSubmit = (values, { setSubmitting }) => {
     console.log(values);
     setSubmitting(false);
@@ -107,12 +110,12 @@ const Login = () => {
                         />
                         <span className="text-sm">Remember Me</span>
                       </label>
-                      <a
-                        href="/auth/reset-password"
-                        className="text-sm text-accent hover:underline"
+                      <span
+                        onClick={() => router.push("/auth/reset-password")}
+                        className="text-sm text-accent hover:underline cursor-pointer"
                       >
                         Forgot Password?
-                      </a>
+                      </span>
                     </div>
                     <button
                       type="submit"
@@ -126,9 +129,12 @@ const Login = () => {
               </Formik>
               <p className="text-sm text-center mt-6">
                 Don't have an account?{" "}
-                <a href="/auth/signup" className="text-accent hover:underline">
+                <span
+                  onClick={() => router.push("/auth/signup")}
+                  className="text-accent hover:underline cursor-pointer"
+                >
                   Sign Up
-                </a>
+                </span>
               </p>
             </div>
           </div>

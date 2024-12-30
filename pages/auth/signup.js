@@ -3,8 +3,9 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import Navbar from "@/components/Navbar";
 import Footer2 from "@/components/Footer2";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router"; // Use next/router instead of next/navigation
 import Footer from "@/components/Footer";
+
 const validationSchema = Yup.object().shape({
   fullName: Yup.string()
     .min(2, "Full name must be at least 2 characters")
@@ -25,12 +26,14 @@ const validationSchema = Yup.object().shape({
     "You must accept the terms and conditions"
   ),
 });
+
 const Signup = () => {
   const handleSubmit = (values, { setSubmitting }) => {
     console.log(values);
     setSubmitting(false);
   };
-  const router = useRouter();
+
+  const router = useRouter(); // Use router from next/router
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -65,7 +68,10 @@ const Signup = () => {
                   termsAccepted: false,
                 }}
                 validationSchema={validationSchema}
-                onSubmit={handleSubmit}
+                onSubmit={(values, { setSubmitting }) => {
+                  handleSubmit(values, { setSubmitting });
+                  router.push("/emailsent"); // Navigate after submission
+                }}
               >
                 {({
                   values,
@@ -174,7 +180,6 @@ const Signup = () => {
                       type="submit"
                       disabled={isSubmitting}
                       className="w-full bg-accent text-white py-2 rounded-sm hover:bg-accent/90 transition-all duration-300 ease-in-out"
-                      onClick={() => router.push("/emailsent")}
                     >
                       Create Account
                     </button>
@@ -183,9 +188,12 @@ const Signup = () => {
               </Formik>
               <p className="text-sm text-center mt-6">
                 Already have an account?{" "}
-                <a href="/auth/login" className="text-accent hover:underline">
+                <button
+                  onClick={() => router.push("/auth/login")}
+                  className="text-accent hover:underline"
+                >
                   Login
-                </a>
+                </button>
               </p>
             </div>
           </div>
