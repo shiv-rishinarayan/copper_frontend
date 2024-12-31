@@ -34,7 +34,7 @@ const Substacks = () => {
 
   return (
     <div>
-      <h2 className="flex items-center text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-2 mb-4">
+      <h2 className="flex items-center text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-1 mb-3">
         Platinum Substacks
       </h2>
       {loading ? (
@@ -44,7 +44,7 @@ const Substacks = () => {
         </div>
       ) : (
         <div className="space-y-6">
-          {platinumPosts.slice(0, 3).map((post) => (
+          {platinumPosts.slice(0, 4).map((post) => (
             <Link
               key={post.id}
               href={post.url}
