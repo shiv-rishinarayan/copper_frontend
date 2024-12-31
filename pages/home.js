@@ -24,7 +24,7 @@ const home = () => {
       <Hero />
 
       {/* 3 cols  */}
-      <div className="flex justify-between flex-wrap px-3 md:px-10 lg:px-16 py-12 mb-10">
+      <div className="flex justify-between flex-wrap px-3 md:px-10 lg:px-16 py-12 mb-7">
         {/* 1  */}
         <div className="w-full md:w-[22%] flex flex-col space-y-16 ">
           <div>
