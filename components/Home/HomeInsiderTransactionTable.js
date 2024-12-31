@@ -7,7 +7,7 @@ const HomeInsiderTransactionTable = () => {
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const rowsPerPage = 10;
+  const rowsPerPage = 15;
 
   // Fetch data from API
   useEffect(() => {
@@ -64,6 +64,16 @@ const HomeInsiderTransactionTable = () => {
     return hasDollarSign ? `$${result}` : result;
   };
 
+  const getColorClass = (value, tradeType) => {
+    const num = parseFloat(value.replace(/[^\d.-]/g, ""));
+    if (isNaN(num)) return "";
+
+    if (tradeType === "S - Sale" || num < 0) {
+      return "text-red-500";
+    }
+    return "text-green-500";
+  };
+
   const startIndex = (currentPage - 1) * rowsPerPage;
   const dataToShow = insiderTransactionsData.slice(
     startIndex,
@@ -80,26 +90,14 @@ const HomeInsiderTransactionTable = () => {
 
   return (
     <div>
-      <div className="flex justify-between border-b border-black1/20 pb-2 mb-4">
-        <h2 className="flex items-center text-[1rem] md:text-[1.1rem] font-bold text-black1/80 capitalize">
-          Recent Uranium Company Insider Transactions
-        </h2>
-        <a
-          href="/investments?tab=insiderTransactions"
-          className="text-green hover:text-green2 text-sm font-bold frank"
-        >
-          view more &nbsp; &gt;
-        </a>
-      </div>
-
       {loading ? (
         <div className="text-white">Loading...</div>
       ) : error ? (
         <div className="text-red-500">{error}</div>
       ) : insiderTransactionsData.length > 0 ? (
-        <div className="overflow-x-auto bg-white">
-          <table className="w-full uranium-stocks-table min-w-[600px] mb-8">
-            <thead className="bg-bg text-date/50 font-semibold border-b border-date/10">
+        <div className="overflow-x-auto  custom-scrollbar-hidden">
+          <table className="w-full mb-8">
+            <thead className="bg-bg text-black/60 font-semibold border-b border-date/10">
               <tr>
                 {[
                   "Country",
@@ -122,47 +120,65 @@ const HomeInsiderTransactionTable = () => {
                 ))}
               </tr>
             </thead>
-            <tbody className="bg-bg text-black1/90">
-              {dataToShow.map((data) => (
-                <tr
-                  key={data.id}
-                  className="hover:bg-green/10 py-2 border-b border-date/10 text-[13px] text-start"
-                >
-                  <td
-                    className="px-4 py-[10px] scale-90"
-                    dangerouslySetInnerHTML={{
-                      __html: getCountryFlag(data.country),
-                    }}
-                  />
-                  <td className="px-5 py-[10px] font-semibold">
-                    {data.company_name || "N/A"}
-                  </td>
-                  <td className="px-4 py-[10px]">
-                    {data.insider_name || "N/A"}
-                  </td>
-                  <td className="px-5 py-[10px] text-[14px]">
-                    {data.title || "N/A"}
-                  </td>
-                  <td className="px-5 py-[10px] text-[14px]">
-                    {data.trade_type || "N/A"}
-                  </td>
-                  <td className="px-4 py-[10px] text-black">
-                    {formatLargeNumber(data.price || "0.00", data.trade_type)}
-                  </td>
-                  <td className="px-4 py-[10px]">
-                    {formatLargeNumber(data.qty || "0", data.trade_type)}
-                  </td>
-                  <td className="px-5 py-[10px]">
-                    {formatLargeNumber(data.value || "0.00")}
-                  </td>
-                  <td className="px-4 py-[10px]">
-                    {formatLargeNumber(data.owned || "0")}
-                  </td>
-                  <td className="px-4 py-[10px]">
-                    {data.transaction_date || "N/A"}
-                  </td>
-                </tr>
-              ))}
+            <tbody className=" text-black1/90">
+              {dataToShow.map((data) => {
+                const isNegativeTransaction =
+                  data.trade_type === "S - Sale" ||
+                  parseFloat(data.value.replace(/[^\d.-]/g, "")) < 0;
+
+                return (
+                  <tr
+                    key={data.id}
+                    className="hover:bg-accent/10 py-2 border-b border-date/10 text-[13px] text-start"
+                  >
+                    <td
+                      className="px-4 py-[10px] scale-90"
+                      dangerouslySetInnerHTML={{
+                        __html: getCountryFlag(data.country),
+                      }}
+                    />
+                    <td className="px-5 py-[10px] font-semibold">
+                      {data.company_name || "N/A"}
+                    </td>
+                    <td className="px-4 py-[10px]">
+                      {data.insider_name || "N/A"}
+                    </td>
+                    <td className="px-5 py-[10px] text-[14px]">
+                      {data.title || "N/A"}
+                    </td>
+                    <td className="px-5 py-[10px] text-[14px]">
+                      {data.trade_type || "N/A"}
+                    </td>
+                    <td className="px-4 py-[10px] text-black">
+                      {formatLargeNumber(data.price || "0.00", data.trade_type)}
+                    </td>
+                    <td
+                      className={`px-4 py-[10px] ${
+                        isNegativeTransaction
+                          ? "text-red-500"
+                          : getColorClass(data.qty, data.trade_type)
+                      }`}
+                    >
+                      {formatLargeNumber(data.qty || "0", data.trade_type)}
+                    </td>
+                    <td
+                      className={`px-5 py-[10px] ${
+                        isNegativeTransaction
+                          ? "text-red-500"
+                          : getColorClass(data.value)
+                      }`}
+                    >
+                      {formatLargeNumber(data.value || "0.00")}
+                    </td>
+                    <td className="px-4 py-[10px]">
+                      {formatLargeNumber(data.owned || "0")}
+                    </td>
+                    <td className="px-4 py-[10px]">
+                      {data.transaction_date || "N/A"}
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
           {/* <div className="flex justify-between items-center mt-4">
@@ -186,7 +202,7 @@ const HomeInsiderTransactionTable = () => {
           </div> */}
         </div>
       ) : (
-        <div className="text-white text-start w-full">No data available</div>
+        <div className="text-black text-start w-full">No data available</div>
       )}
     </div>
   );
