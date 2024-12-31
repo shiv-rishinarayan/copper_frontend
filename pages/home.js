@@ -13,6 +13,8 @@ import Substacks from "@/components/Home/Substacks";
 import DailyNewsletterAd from "@/components/Home/DailyNewsletterAd";
 import React from "react";
 import Footer from "@/components/Footer";
+import TVPlatinum from "@/components/Home/TVPlatinum";
+import TVPalladium from "@/components/Home/TVPalladium ";
 
 const home = () => {
   return (
@@ -24,7 +26,7 @@ const home = () => {
       <div className="flex justify-between flex-wrap px-3 md:px-10 lg:px-16 py-12 mb-10">
         {/* 1  */}
         <div className="w-full md:w-[22%] flex flex-col space-y-20 bg-red-400">
-          chart
+          <TVPlatinum />
         </div>
 
         {/* 2  */}
@@ -34,7 +36,7 @@ const home = () => {
 
         {/* 3  */}
         <div className="w-full md:w-[22%] flex flex-col space-y-20  bg-red-400">
-          chart
+          <TVPalladium />
         </div>
       </div>
 
