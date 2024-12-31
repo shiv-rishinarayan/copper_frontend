@@ -34,7 +34,7 @@ const Substacks = () => {
 
   return (
     <div>
-      <h2 className="flex items-center text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-2 mb-4">
+      <h2 className="flex items-center text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-1 mb-3">
         Platinum Substacks
       </h2>
       {loading ? (

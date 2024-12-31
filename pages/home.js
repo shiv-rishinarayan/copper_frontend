@@ -25,18 +25,50 @@ const home = () => {
       {/* 3 cols  */}
       <div className="flex justify-between flex-wrap px-3 md:px-10 lg:px-16 py-12 mb-10">
         {/* 1  */}
-        <div className="w-full md:w-[22%] flex flex-col space-y-20 bg-red-400">
-          <TVPlatinum />
+        <div className="w-full md:w-[22%] flex flex-col space-y-16 ">
+          <div>
+            <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
+              Platinum Price Chart
+            </h1>
+            <TVPlatinum />
+          </div>
+
+          <div>
+            <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
+              Platinum Price Chart
+            </h1>
+            <TVPlatinum />
+          </div>
+
+          <div>
+            <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
+              Platinum Price Chart
+            </h1>
+            <TVPlatinum />
+          </div>
         </div>
 
         {/* 2  */}
-        <div className="w-full md:w-[50%] flex flex-col space-y-20  bg-red-400">
+        <div className="w-full md:w-[50%] flex flex-col space-y-20  ">
           table
         </div>
 
         {/* 3  */}
-        <div className="w-full md:w-[22%] flex flex-col space-y-20  bg-red-400">
-          <TVPalladium />
+        <div className="w-full md:w-[22%] flex flex-col space-y-16  ">
+          <div>
+            <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
+              Palladium Price Chart
+            </h1>
+            <TVPalladium />
+          </div>
+
+          <div>
+            <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
+              Palladium Price Chart
+            </h1>
+            <TVPalladium />
+          </div>
+          <Substacks />
         </div>
       </div>
 
@@ -56,7 +88,7 @@ const home = () => {
           <PopularIntradayReturn />
           <PopularTools />
           <DailyNewsletterAd />
-          <Substacks />
+          {/* <Substacks /> */}
         </div>
       </div>
       {/* Stay ahead section */}
