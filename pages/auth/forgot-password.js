@@ -8,6 +8,8 @@ import Link from "next/link";
 import { BASE_URL, FORGOT_PASSWORD_API } from "@/src/api/authAPI";
 // import useAxios from "@/src/network/useAxios";
 import axios from "axios";
+import toast from "react-hot-toast";
+
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email address")
@@ -21,19 +23,19 @@ const ResetPassword = () => {
 
   const handleSubmit = async (values, { setSubmitting }) => {
     console.log("Reset email submitted: ", values.email);
-    setSubmitted(true);
     setSubmitting(false);
     try {
       let data = {
         email: values.email
       }
       const res = await axios.post(BASE_URL+FORGOT_PASSWORD_API, data);
+      console.log(res)
       if (res.data.message) {
         toast.success(res?.data?.message)
         router.push('./login')
       }
     } catch (error) {
-      setIsLoading(false);
+      setSubmitting(true);
       toast.error(error?.response?.data?.error ?? "Failed to send reset link. Please try again.");
     }
   };
@@ -56,7 +58,7 @@ const ResetPassword = () => {
                     your spam folder if you don't see it in your inbox.
                   </p>
                   <button
-                    onClick={() => router.push("/login")}
+                    onClick={() => router.push("./login")}
                     className="flex items-center justify-center space-x-2 text-accent hover:text-accent-dark mx-auto"
                   >
                     <IoArrowBack className="w-5 h-5" />

@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { GetUserData } from "@/src/utils/GetUserData";
 
 const Navbar = () => {
   const router = useRouter();
+  const userData = GetUserData();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    if(userData?.email){
+      setIsLoggedIn(true)
+    }
+  }, []);
 
   const navigateTo = (path) => {
     setMenuOpen(false); // Close menu on navigation
@@ -71,12 +80,21 @@ const Navbar = () => {
           ))}
         </div>
 
-        <button
-          className="bg-accent hidden lg:block text-white px-5 py-2 rounded-sm hover:bg-accent/90"
-          onClick={() => navigateTo("/auth/login")}
-        >
-          Login
-        </button>
+        {isLoggedIn ?
+          <button
+            className="bg-accent hidden lg:block text-white px-5 py-2 rounded-sm hover:bg-accent/90"
+            onClick={() => navigateTo("/auth/login")}
+          >
+            Profile
+          </button>
+        :
+          <button
+            className="bg-accent hidden lg:block text-white px-5 py-2 rounded-sm hover:bg-accent/90"
+            onClick={() => navigateTo("/auth/login")}
+          >
+            Login
+          </button>
+        }
 
         {/* Mobile Menu Toggle */}
         <div className="lg:hidden">
@@ -127,12 +145,21 @@ const Navbar = () => {
           </button>
         ))}
 
-        <button
-          className="bg-accent text-white px-5 py-2 rounded-sm hover:bg-accent/90"
-          onClick={() => navigateTo("/auth/login")}
-        >
-          Login
-        </button>
+        {isLoggedIn ? 
+          <button
+            className="bg-accent text-white px-5 py-2 rounded-sm hover:bg-accent/90"
+            onClick={() => navigateTo("/auth/login")}
+          >
+            Profile
+          </button>
+        :
+          <button
+            className="bg-accent text-white px-5 py-2 rounded-sm hover:bg-accent/90"
+            onClick={() => navigateTo("/auth/login")}
+          >
+            Login
+          </button>
+        }
       </motion.div>
     </div>
   );

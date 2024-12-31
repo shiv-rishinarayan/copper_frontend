@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 import { FaSpinner } from "react-icons/fa";
 // import useAxios from "@/src/network/useAxios";
-import { BASE_URL } from "@/src/api/authAPI";
+import { BASE_URL, RESET_PASSWORD_API } from "@/src/api/authAPI";
 import axios from "axios";
 
 const NewPassword = () => {
@@ -32,13 +32,12 @@ const NewPassword = () => {
                 token: token,
                 new_password: newPassword
             }
+
+            console.log(data)
             // Simulate an API call to update the password
             const response = await axios.post(BASE_URL+RESET_PASSWORD_API, data);
             if (response.data.message) {
-                toast.success(response.data.message, {
-                    position: "top-right",
-                    autoClose: 3000
-                });
+                toast.success(response.data.message);
                 setNewPassword("");
                 setConfirmPassword("");
                 router.push("./../../login");

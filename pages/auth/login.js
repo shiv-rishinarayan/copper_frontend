@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { BASE_URL, LOGIN_API } from "@/src/api/authAPI";
 // import useAxios from "@/src/network/useAxios";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -29,14 +30,29 @@ const Login = () => {
         email: values.email,
         password: values.password
       }
-      const res = await axios.post(BASE_URL+LOGIN_API, data);
-      console.log("res ---- " + JSON.stringify(res))
-      router.push("/")
-      toast.success("Registration successfully")
+      const res = await axios.post(BASE_URL + LOGIN_API, data);
+      console.log("res ---- ", JSON.stringify(res?.data));
+  
+      if (res?.data) {
+        let userData = {
+          id: res?.data?.user?.id,
+          email: res?.data?.user?.email,
+          name: res?.data?.user?.name,
+          access_token: res?.data?.access,
+        };
+  
+        document.cookie = `userData=${encodeURIComponent(JSON.stringify(userData))}; path=/;`;
+        router.push("/");
+        toast.success("Login successfully");
+      }
     } catch (error) {
-      console.error("Error during Registration: ", error);
-      toast.error("Something went wrong, please try again.")
-    }
+      console.error("Error during Login: ", error);
+      if (error.response) {
+        toast.error(error.response.data?.message || "Invalid login credentials.");
+      } else {
+        toast.error("Something went wrong, please try again.");
+      }
+    } 
   };
 
   return (

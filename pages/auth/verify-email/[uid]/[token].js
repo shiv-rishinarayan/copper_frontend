@@ -20,15 +20,12 @@ const VerifyEmail = () => {
       // Simulate API call to verify email
       // const response = await axiosCreate.get(`${VERIFY_EMAIL_API}/${uid}/${token}`);
       const response = await axios.get(`${BASE_URL}${VERIFY_EMAIL_API}/${uid}/${token}`);
-
-    if (!response.ok) {
-        throw new Error("Failed to verify email");
-    }
-
-    toast.success("Email verified successfully!");
-    router.push("./../../login");
+      if(response?.data){
+        toast.success(response?.data?.message ?? "Email verified successfully!");
+        router.push("./../../login");
+      }
     } catch (error) {
-      toast.error("Failed to verify email. Please try again.");
+      toast.error(error?.response?.data?.error ?? "Failed to verify email. Please try again.");
     } finally {
       setIsLoading(false);
     }
