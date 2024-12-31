@@ -13,6 +13,7 @@ import Substacks from "@/components/Home/Substacks";
 import DailyNewsletterAd from "@/components/Home/DailyNewsletterAd";
 import React from "react";
 import Footer from "@/components/Footer";
+import HomeInsiderTransactionTable from "@/components/Home/HomeInsiderTransactionTable";
 
 const home = () => {
   return (
@@ -28,8 +29,8 @@ const home = () => {
         </div>
 
         {/* 2  */}
-        <div className="w-full md:w-[50%] flex flex-col space-y-20  bg-red-400">
-          table
+        <div className="w-full md:w-[50%] flex flex-col space-y-20 ">
+          <HomeInsiderTransactionTable />
         </div>
 
         {/* 3  */}
