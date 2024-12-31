@@ -15,6 +15,7 @@ import React from "react";
 import Footer from "@/components/Footer";
 import TVPlatinum from "@/components/Home/TVPlatinum";
 import TVPalladium from "@/components/Home/TVPalladium ";
+import PlainNews from "@/components/Home/PlainNews";
 
 const home = () => {
   return (
@@ -49,8 +50,9 @@ const home = () => {
         </div>
 
         {/* 2  */}
-        <div className="w-full md:w-[50%] flex flex-col space-y-20  ">
-          table
+        <div className="w-full md:w-[45%] flex flex-col space-y-20  ">
+          <h1>table</h1>
+          <PlainNews />
         </div>
 
         {/* 3  */}
