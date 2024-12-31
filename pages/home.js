@@ -47,6 +47,7 @@ const home = () => {
             </h1>
             <TVPlatinum />
           </div>
+          <DailyNewsletterAd />
         </div>
 
         {/* 2  */}
@@ -78,7 +79,7 @@ const home = () => {
       <div className="flex justify-between flex-wrap px-3 md:px-10 lg:px-16 py-12">
         {/* left  */}
         <div className="w-full md:w-[66%] flex flex-col space-y-20">
-          <LatestNews />
+          {/* <LatestNews /> */}
           <StockNews />
           <PressReleaseNews />
           <MostPopularNews />
@@ -89,7 +90,7 @@ const home = () => {
           {/* <PlatinumTradingviewChart /> */}
           <PopularIntradayReturn />
           <PopularTools />
-          <DailyNewsletterAd />
+          {/* <DailyNewsletterAd /> */}
           {/* <Substacks /> */}
         </div>
       </div>
