@@ -44,7 +44,7 @@ const Substacks = () => {
         </div>
       ) : (
         <div className="space-y-6">
-          {platinumPosts.slice(0, 3).map((post) => (
+          {platinumPosts.slice(0, 4).map((post) => (
             <Link
               key={post.id}
               href={post.url}
