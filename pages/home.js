@@ -20,6 +20,25 @@ const home = () => {
       <Navbar />
       <Hero />
 
+      {/* 3 cols  */}
+      <div className="flex justify-between flex-wrap px-3 md:px-10 lg:px-16 py-12 mb-10">
+        {/* 1  */}
+        <div className="w-full md:w-[22%] flex flex-col space-y-20 bg-red-400">
+          chart
+        </div>
+
+        {/* 2  */}
+        <div className="w-full md:w-[50%] flex flex-col space-y-20  bg-red-400">
+          table
+        </div>
+
+        {/* 3  */}
+        <div className="w-full md:w-[22%] flex flex-col space-y-20  bg-red-400">
+          chart
+        </div>
+      </div>
+
+      {/* 2 cols  */}
       <div className="flex justify-between flex-wrap px-3 md:px-10 lg:px-16 py-12">
         {/* left  */}
         <div className="w-full md:w-[66%] flex flex-col space-y-20">
