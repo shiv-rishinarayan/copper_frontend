@@ -7,7 +7,7 @@ const HomeInsiderTransactionTable = () => {
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const rowsPerPage = 15;
+  const rowsPerPage = 8;
 
   // Fetch data from API
   useEffect(() => {

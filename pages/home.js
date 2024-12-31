@@ -55,19 +55,22 @@ const home = () => {
 
         {/* 2  */}
 
-        <div className="w-full md:w-[45%] flex flex-col">
-          <div className="flex justify-between items-center mb-3 border-b border-black/10 pb-1">
-            <h1 className="text-[21px] cambay font-bold">
-              Recent Platinum Company Insider Transactions
-            </h1>
-            <Link
-              href="/investments"
-              className="text-[14px] text-accent hover:underline"
-            >
-              view more &nbsp; &gt;
-            </Link>
+        <div className="w-full md:w-[45%] flex flex-col space-y-14">
+          <div>
+            <div className="flex justify-between items-center mb-3 border-b border-black/10 pb-1">
+              <h1 className="text-[21px] cambay font-bold">
+                Recent Platinum Company Insider Transactions
+              </h1>
+              <Link
+                href="/investments"
+                className="text-[14px] text-accent hover:underline"
+              >
+                view more &nbsp; &gt;
+              </Link>
+            </div>
+            <HomeInsiderTransactionTable />
           </div>
-          <HomeInsiderTransactionTable />
+          <PlainNews />
         </div>
 
         {/* 3  */}

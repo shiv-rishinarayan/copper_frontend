@@ -2,15 +2,15 @@ import React from "react";
 import { IoTimerOutline } from "react-icons/io5";
 
 const newsData = [
-  {
-    title:
-      "Platinum Prices Surge Amid Global Supply Concerns and Market Pressures",
-    excerpt:
-      "Global platinum supply faces challenges due to labor strikes and operational disruptions.",
-    imageUrl: "https://example.com/platinum-prices-surge.jpg",
-    time: "3 hours ago",
-    link: "/news/platinum-prices-surge",
-  },
+  //   {
+  //     title:
+  //       "Platinum Prices Surge Amid Global Supply Concerns and Market Pressures",
+  //     excerpt:
+  //       "Global platinum supply faces challenges due to labor strikes and operational disruptions.",
+  //     imageUrl: "https://example.com/platinum-prices-surge.jpg",
+  //     time: "3 hours ago",
+  //     link: "/news/platinum-prices-surge",
+  //   },
   {
     title:
       "Platinum's Expanding Role in Green Technology and Sustainable Innovations",
@@ -76,7 +76,7 @@ const PlainNews = () => {
 
         <div className="flex flex-wrap md:flex-nowrap gap-5">
           <div className="w-full grid grid-cols-1 gap-3">
-            {newsData.slice(0, 6).map((news, index) => (
+            {newsData.slice(0, 5).map((news, index) => (
               <a
                 key={index}
                 href={news.link}
