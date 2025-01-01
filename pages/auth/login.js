@@ -4,6 +4,10 @@ import * as Yup from "yup";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useRouter } from "next/router";
+import { BASE_URL, LOGIN_API } from "@/src/api/authAPI";
+// import useAxios from "@/src/network/useAxios";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -16,11 +20,39 @@ const validationSchema = Yup.object().shape({
 });
 
 const Login = () => {
-  const router = useRouter();  // Initialize router
+  const router = useRouter();
+  // const axiosCreate = useAxios();
 
-  const handleSubmit = (values, { setSubmitting }) => {
-    console.log(values);
+  const handleSubmit = async (values, { setSubmitting }) => {
     setSubmitting(false);
+    try {
+      let data = {
+        email: values.email,
+        password: values.password
+      }
+      const res = await axios.post(BASE_URL + LOGIN_API, data);
+      console.log("res ---- ", JSON.stringify(res?.data));
+  
+      if (res?.data) {
+        let userData = {
+          id: res?.data?.user?.id,
+          email: res?.data?.user?.email,
+          name: res?.data?.user?.name,
+          access_token: res?.data?.access,
+        };
+  
+        document.cookie = `userData=${encodeURIComponent(JSON.stringify(userData))}; path=/;`;
+        router.push("/");
+        toast.success("Login successfully");
+      }
+    } catch (error) {
+      console.error("Error during Login: ", error);
+      if (error.response) {
+        toast.error(error.response.data?.message || "Invalid login credentials.");
+      } else {
+        toast.error("Something went wrong, please try again.");
+      }
+    } 
   };
 
   return (
@@ -111,7 +143,7 @@ const Login = () => {
                         <span className="text-sm">Remember Me</span>
                       </label>
                       <span
-                        onClick={() => router.push("/auth/reset-password")}
+                        onClick={() => router.push("./forgot-password")}
                         className="text-sm text-accent hover:underline cursor-pointer"
                       >
                         Forgot Password?
@@ -130,7 +162,7 @@ const Login = () => {
               <p className="text-sm text-center mt-6">
                 Don't have an account?{" "}
                 <span
-                  onClick={() => router.push("/auth/signup")}
+                  onClick={() => router.push("./signup")}
                   className="text-accent hover:underline cursor-pointer"
                 >
                   Sign Up
