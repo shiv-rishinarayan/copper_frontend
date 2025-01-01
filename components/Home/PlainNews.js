@@ -66,7 +66,8 @@ const PlainNews = () => {
             {newsData.slice(0, 10).map((news, index) => (
               <a
                 key={index}
-                href={news.link}
+                target="_blank"
+                href={news.url}
                 className="bg-white border-b border-black/10 pb-4 rounded-sm overflow-hidden block group transition-shadow duration-300"
               >
                 <div>

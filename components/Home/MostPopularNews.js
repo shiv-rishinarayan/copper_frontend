@@ -30,7 +30,9 @@ const MostPopularNews = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {news.map((item, index) => (
           <Link
-            href={`/news/${item.site_name}/${item.id}`}
+            // href={`/news/${item.site_name}/${item.id}`}
+            href={item.url}
+            target="_blank"
             key={item.id}
             className="flex group w-full border-b border-gray-300 pb-4"
           >
