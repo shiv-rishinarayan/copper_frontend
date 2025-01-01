@@ -32,7 +32,7 @@ const home = () => {
       {/* 3 cols  */}
       <div className="flex justify-between flex-wrap px-3 md:px-10 lg:px-12 py-12 mb-7">
         {/* 1  */}
-        <div className="w-full md:w-[24%] flex flex-col space-y-5">
+        <div className="w-full md:w-[24%] flex flex-col space-y-10">
           <div>
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
               Ruthenium Price Chart

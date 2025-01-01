@@ -1,72 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { IoTimerOutline } from "react-icons/io5";
-
-const newsData = [
-  //   {
-  //     title:
-  //       "Platinum Prices Surge Amid Global Supply Concerns and Market Pressures",
-  //     excerpt:
-  //       "Global platinum supply faces challenges due to labor strikes and operational disruptions.",
-  //     imageUrl: "https://example.com/platinum-prices-surge.jpg",
-  //     time: "3 hours ago",
-  //     link: "/news/platinum-prices-surge",
-  //   },
-  {
-    title:
-      "Platinum's Expanding Role in Green Technology and Sustainable Innovations",
-    excerpt:
-      "Demand for platinum rises as it becomes essential for hydrogen fuel cell technology.",
-    imageUrl: "https://example.com/platinum-green-tech.jpg",
-    time: "6 hours ago",
-    link: "/news/platinum-green-tech",
-  },
-  {
-    title:
-      "South Africa's Platinum Mines Grapple with Energy Challenges and Outages",
-    excerpt:
-      "Power outages affect production in one of the largest platinum-producing regions.",
-    imageUrl: "https://example.com/south-africa-platinum.jpg",
-    time: "8 hours ago",
-    link: "/news/south-africa-platinum",
-  },
-  {
-    title:
-      "New Platinum Discovery in Canada Sparks Excitement and Exploration Boom",
-    excerpt:
-      "Significant reserves found in Quebec could reshape the platinum market.",
-    imageUrl: "https://example.com/platinum-discovery-canada.jpg",
-    time: "10 hours ago",
-    link: "/news/platinum-discovery-canada",
-  },
-  {
-    title:
-      "Platinum Jewelry Demand Rebounds as Post-Pandemic Consumer Confidence Grows",
-    excerpt:
-      "Sales of platinum jewelry increase as consumer confidence improves globally.",
-    imageUrl: "https://example.com/platinum-jewelry-demand.jpg",
-    time: "12 hours ago",
-    link: "/news/platinum-jewelry-demand",
-  },
-  {
-    title:
-      "Automotive Industry Fuels Platinum Demand for Catalytic Converters and Emission Control",
-    excerpt:
-      "Platinum remains a critical component in reducing vehicle emissions.",
-    imageUrl: "https://example.com/platinum-catalytic-converters.jpg",
-    time: "14 hours ago",
-    link: "/news/platinum-catalytic-converters",
-  },
-  {
-    title: "Rising Investment Interest in Platinum ETFs Amid Market Volatility",
-    excerpt:
-      "Investors flock to platinum exchange-traded funds amid market volatility.",
-    imageUrl: "https://example.com/platinum-etfs.jpg",
-    time: "15 hours ago",
-    link: "/news/platinum-etfs",
-  },
-];
+import axios from "axios";
 
 const PlainNews = () => {
+  const [newsData, setNewsData] = useState([]); // State to hold news data
+  const [loading, setLoading] = useState(true); // State for loading status
+  const [error, setError] = useState(null); // State to handle errors
+
+  useEffect(() => {
+    const fetchNewsData = async () => {
+      try {
+        setLoading(true); // Set loading to true before fetching data
+        const response = await axios.get(
+          "https://platinumdjango-production.up.railway.app/api/platinum_news/"
+        ); // Replace with your API URL
+        const data = response.data;
+
+        if (data && Array.isArray(data) && data.length > 0) {
+          setNewsData(data); // Set data if valid
+        } else {
+          setNewsData([]); // Set empty array if data is empty or invalid
+        }
+      } catch (err) {
+        setError("Failed to fetch news data"); // Set error message if the API call fails
+      } finally {
+        setLoading(false); // Set loading to false after data is fetched
+      }
+    };
+
+    fetchNewsData();
+  }, []); // Empty dependency array to fetch data only once on component mount
+
+  // Function to format the date
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  };
+
+  // Conditional rendering based on loading, error, and data
+  if (loading) {
+    return <div>Loading...</div>; // Show loading message while data is being fetched
+  }
+
+  if (error) {
+    return <div>{error}</div>; // Show error message if API call fails
+  }
+
+  if (!newsData || newsData.length === 0) {
+    return <div>No data available</div>; // Show no data message if no valid data
+  }
+
   return (
     <div>
       <div className="">
@@ -76,7 +63,7 @@ const PlainNews = () => {
 
         <div className="flex flex-wrap md:flex-nowrap gap-5">
           <div className="w-full grid grid-cols-1 gap-3">
-            {newsData.slice(0, 5).map((news, index) => (
+            {newsData.slice(0, 6).map((news, index) => (
               <a
                 key={index}
                 href={news.link}
@@ -90,7 +77,8 @@ const PlainNews = () => {
                     {/* <span>
                       <IoTimerOutline className="text-sm" />
                     </span>{" "} */}
-                    {news.time}
+                    {news.date && formatDate(news.date)}{" "}
+                    {/* Format and display date */}
                   </p>
                 </div>
               </a>
