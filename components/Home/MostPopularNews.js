@@ -13,7 +13,7 @@ const MostPopularNews = () => {
         );
         const data = await response.json();
         // Slice to get news starting from 6th item and limit to 8 items
-        setNews(data.slice(5, 13));
+        setNews(data.slice(0, 8));
       } catch (error) {
         console.error("Error fetching news:", error);
       }

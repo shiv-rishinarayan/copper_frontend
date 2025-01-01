@@ -59,7 +59,7 @@ const home = () => {
 
         {/* 2  */}
 
-        <div className="w-full md:w-[40%] flex flex-col space-y-12">
+        <div className="w-full md:w-[40%] flex flex-col space-y-14">
           <div>
             {/* <div className="flex justify-between items-center mb-3 border-b border-black/10 pb-1">
               <h1 className="text-[21px] cambay font-bold">
