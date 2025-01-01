@@ -12,7 +12,7 @@ const PlainNews = () => {
       try {
         setLoading(true); // Set loading to true before fetching data
         const response = await axios.get(
-          "https://platinumdjango-production.up.railway.app/api/platinum_news/"
+          "https://platinumdjango-production.up.railway.app/api/platinum_news/?news_type=platinum"
         ); // Replace with your API URL
         const data = response.data;
 
