@@ -104,8 +104,8 @@ const home = () => {
         {/* left  */}
         <div className="w-full md:w-[66%] flex flex-col space-y-20">
           {/* <LatestNews /> */}
-          <StockNews />
           <PressReleaseNews />
+          <StockNews />
           <MostPopularNews />
         </div>
         {/* right  */}
