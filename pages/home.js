@@ -22,6 +22,7 @@ import HomeInsiderTransactionTable from "@/components/Home/HomeInsiderTransactio
 import ChartIridium from "@/components/Home/ChartIridium";
 import ChartRhodium from "@/components/Home/ChartRhodium";
 import ChartRuthenium from "@/components/Home/ChartRuthenium";
+import HomePGMPrice from "@/components/Home/HomePGMPrice";
 
 const home = () => {
   return (
@@ -60,7 +61,7 @@ const home = () => {
 
         <div className="w-full md:w-[40%] flex flex-col space-y-12">
           <div>
-            <div className="flex justify-between items-center mb-3 border-b border-black/10 pb-1">
+            {/* <div className="flex justify-between items-center mb-3 border-b border-black/10 pb-1">
               <h1 className="text-[21px] cambay font-bold">
                 Recent Platinum Company Insider Transactions
               </h1>
@@ -71,7 +72,11 @@ const home = () => {
                 view more &nbsp; &gt;
               </Link>
             </div>
-            <HomeInsiderTransactionTable />
+            <HomeInsiderTransactionTable /> */}
+            <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
+              Prices
+            </h1>
+            <HomePGMPrice />
           </div>
           <PlainNews />
         </div>

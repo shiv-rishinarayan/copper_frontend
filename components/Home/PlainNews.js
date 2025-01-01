@@ -63,7 +63,7 @@ const PlainNews = () => {
 
         <div className="flex flex-wrap md:flex-nowrap gap-5">
           <div className="w-full grid grid-cols-1 gap-3">
-            {newsData.slice(0, 6).map((news, index) => (
+            {newsData.slice(0, 11).map((news, index) => (
               <a
                 key={index}
                 href={news.link}
