@@ -9,7 +9,7 @@ const MostPopularNews = () => {
     const fetchNews = async () => {
       try {
         const response = await fetch(
-          "https://web-production-d96b.up.railway.app/api/news-articles/?limit=30"
+          "https://platinumdjango-production.up.railway.app/api/platinum_news/"
         );
         const data = await response.json();
         // Slice to get news starting from 6th item and limit to 8 items
@@ -58,7 +58,7 @@ const MostPopularNews = () => {
               {/* Image fixed to the right */}
               <img
                 src={item.image_url}
-                alt={item.title}
+                alt={item.title.substring(0, 10)}
                 className="w-20 h-16 object-cover group-hover:opacity-70 bg-black ml-4"
               />
             </div>
