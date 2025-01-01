@@ -19,6 +19,9 @@ import TVPlatinum from "@/components/Home/TVPlatinum";
 import TVPalladium from "@/components/Home/TVPalladium ";
 import PlainNews from "@/components/Home/PlainNews";
 import HomeInsiderTransactionTable from "@/components/Home/HomeInsiderTransactionTable";
+import ChartIridium from "@/components/Home/ChartIridium";
+import ChartRhodium from "@/components/Home/ChartRhodium";
+import ChartRuthenium from "@/components/Home/ChartRuthenium";
 import HomePGMPrice from "@/components/Home/HomePGMPrice";
 
 const home = () => {
@@ -28,35 +31,35 @@ const home = () => {
       <Hero />
 
       {/* 3 cols  */}
-      <div className="flex justify-between flex-wrap px-3 md:px-10 lg:px-16 py-12 mb-7">
+      <div className="flex justify-between flex-wrap px-3 md:px-10 lg:px-12 py-12 mb-7">
         {/* 1  */}
-        <div className="w-full md:w-[22%] flex flex-col space-y-16 ">
+        <div className="w-full md:w-[24%] flex flex-col space-y-10">
           <div>
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
-              Platinum Price Chart
+              Ruthenium Price Chart
             </h1>
-            <TVPlatinum />
+            <ChartRuthenium />
           </div>
 
           <div>
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
-              Platinum Price Chart
+              Iridium Price Chart
             </h1>
-            <TVPlatinum />
+            <ChartIridium />
           </div>
 
           <div>
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
-              Platinum Price Chart
+              Rhodium Price Chart
             </h1>
-            <TVPlatinum />
+            <ChartRhodium />
           </div>
           <DailyNewsletterAd />
         </div>
 
         {/* 2  */}
 
-        <div className="w-full md:w-[45%] flex flex-col space-y-14">
+        <div className="w-full md:w-[40%] flex flex-col space-y-12">
           <div>
             {/* <div className="flex justify-between items-center mb-3 border-b border-black/10 pb-1">
               <h1 className="text-[21px] cambay font-bold">
@@ -71,7 +74,7 @@ const home = () => {
             </div>
             <HomeInsiderTransactionTable /> */}
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
-              Prices Table
+              Prices
             </h1>
             <HomePGMPrice />
           </div>
@@ -79,12 +82,12 @@ const home = () => {
         </div>
 
         {/* 3  */}
-        <div className="w-full md:w-[22%] flex flex-col space-y-16  ">
+        <div className="w-full md:w-[24%] flex flex-col space-y-14  ">
           <div>
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
-              Palladium Price Chart
+              Platinum Price Chart
             </h1>
-            <TVPalladium />
+            <TVPlatinum />
           </div>
 
           <div>
@@ -98,7 +101,7 @@ const home = () => {
       </div>
 
       {/* 2 cols  */}
-      <div className="flex justify-between flex-wrap px-3 md:px-10 lg:px-16 py-12">
+      <div className="flex justify-between flex-wrap px-3 md:px-10 lg:px-12 py-12">
         {/* left  */}
         <div className="w-full md:w-[66%] flex flex-col space-y-20">
           {/* <LatestNews /> */}
