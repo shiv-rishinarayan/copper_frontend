@@ -19,6 +19,7 @@ import TVPlatinum from "@/components/Home/TVPlatinum";
 import TVPalladium from "@/components/Home/TVPalladium ";
 import PlainNews from "@/components/Home/PlainNews";
 import HomeInsiderTransactionTable from "@/components/Home/HomeInsiderTransactionTable";
+import HomePGMPrice from "@/components/Home/HomePGMPrice";
 
 const home = () => {
   return (
@@ -57,7 +58,7 @@ const home = () => {
 
         <div className="w-full md:w-[45%] flex flex-col space-y-14">
           <div>
-            <div className="flex justify-between items-center mb-3 border-b border-black/10 pb-1">
+            {/* <div className="flex justify-between items-center mb-3 border-b border-black/10 pb-1">
               <h1 className="text-[21px] cambay font-bold">
                 Recent Platinum Company Insider Transactions
               </h1>
@@ -68,7 +69,11 @@ const home = () => {
                 view more &nbsp; &gt;
               </Link>
             </div>
-            <HomeInsiderTransactionTable />
+            <HomeInsiderTransactionTable /> */}
+            <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
+              Prices Table
+            </h1>
+            <HomePGMPrice />
           </div>
           <PlainNews />
         </div>
