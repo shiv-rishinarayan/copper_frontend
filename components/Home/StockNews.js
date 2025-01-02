@@ -195,11 +195,11 @@ const StockNews = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-9 gap-6">
         {/* Featured Release on the left, spanning 4 columns */}
-        <a className="col-span-5">
+        <a href={newsData[0].url} target="_blank" className="col-span-5">
           {newsData[0] && (
             <div
               className="overflow-hidden group cursor-pointer"
-              onClick={() => handleNavigate(newsData[0].id)}
+              // onClick={() => handleNavigate(newsData[0].id)}
             >
               <img
                 src={newsData[0].image_url || "/no-image.png"}
@@ -231,10 +231,12 @@ const StockNews = () => {
         {/* Vertical List of Smaller Press Releases on the right, spanning 4 columns */}
         <a className="col-span-4 space-y-3">
           {newsData.slice(1, 5).map((news) => (
-            <div
+            <a
+              href={news.url}
+              target="_blank"
               key={news.id}
               className="flex items-center overflow-hidden group cursor-pointer border-b border-black/10 pb-2"
-              onClick={() => handleNavigate(news.id)}
+              // onClick={() => handleNavigate(news.id)}
             >
               <div>
                 <div className="mb-2">
@@ -254,7 +256,7 @@ const StockNews = () => {
                   {formatDate(news.date)}
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </a>
       </div>
