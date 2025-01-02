@@ -8,6 +8,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/News/Hero";
 import React from "react";
 import MoreNews from "@/components/News/MoreNews";
+import PopularIntradayReturn from "@/components/Home/PopularIntradayReturn";
 
 const news = () => {
   return (
@@ -28,6 +29,7 @@ const news = () => {
         <div className="w-full md:w-[26%] space-y-20">
           <DailyNewsletterAd />
           <Substacks />
+          <PopularIntradayReturn />
         </div>
       </div>
 
