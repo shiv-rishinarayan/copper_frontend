@@ -12,8 +12,8 @@ const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    if(userData?.email){
-      setIsLoggedIn(true)
+    if (userData?.email) {
+      setIsLoggedIn(true);
     }
   }, []);
 
@@ -47,7 +47,7 @@ const Navbar = () => {
         {/* Desktop Navigation Links */}
         <div className="hidden lg:flex lg:space-x-8 font-medium">
           {[
-            { name: "Home", path: "/home" },
+            { name: "Home", path: "/" },
             { name: "News", path: "/news" },
             { name: "Platinum Investments", path: "/investments" },
             { name: "Community", path: "/community" },
@@ -80,21 +80,21 @@ const Navbar = () => {
           ))}
         </div>
 
-        {isLoggedIn ?
+        {isLoggedIn ? (
           <button
             className="bg-accent hidden lg:block text-white px-5 py-2 rounded-sm hover:bg-accent/90"
             onClick={() => navigateTo("/auth/login")}
           >
             Profile
           </button>
-        :
+        ) : (
           <button
             className="bg-accent hidden lg:block text-white px-5 py-2 rounded-sm hover:bg-accent/90"
             onClick={() => navigateTo("/auth/login")}
           >
             Login
           </button>
-        }
+        )}
 
         {/* Mobile Menu Toggle */}
         <div className="lg:hidden">
@@ -124,7 +124,7 @@ const Navbar = () => {
         transition={{ type: "spring", stiffness: 70, damping: 20 }}
       >
         {[
-          { name: "Home", path: "/home" },
+          { name: "Home", path: "/" },
           { name: "News", path: "/news" },
           { name: "Platinum Investments", path: "/investments" },
           { name: "Community", path: "/community" },
@@ -145,21 +145,21 @@ const Navbar = () => {
           </button>
         ))}
 
-        {isLoggedIn ? 
+        {isLoggedIn ? (
           <button
             className="bg-accent text-white px-5 py-2 rounded-sm hover:bg-accent/90"
             onClick={() => navigateTo("/auth/login")}
           >
             Profile
           </button>
-        :
+        ) : (
           <button
             className="bg-accent text-white px-5 py-2 rounded-sm hover:bg-accent/90"
             onClick={() => navigateTo("/auth/login")}
           >
             Login
           </button>
-        }
+        )}
       </motion.div>
     </div>
   );
