@@ -195,7 +195,7 @@ const StockNews = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-9 gap-6">
         {/* Featured Release on the left, spanning 4 columns */}
-        <div className="col-span-5">
+        <a className="col-span-5">
           {newsData[0] && (
             <div
               className="overflow-hidden group cursor-pointer"
@@ -229,7 +229,7 @@ const StockNews = () => {
         </a>
 
         {/* Vertical List of Smaller Press Releases on the right, spanning 4 columns */}
-        <div className="col-span-4 space-y-3">
+        <a className="col-span-4 space-y-3">
           {newsData.slice(1, 5).map((news) => (
             <div
               key={news.id}
