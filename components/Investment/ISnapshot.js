@@ -156,10 +156,10 @@ const ISnapshot = () => {
 
       {/* content */}
       <div className="mt-1 md:mt-5">
-        <div className="w-full rounded-md bg-accent/10 p-4">
+        <div className="w-full rounded-md bg-secondary/10 p-4 md:p-7">
           {isModalOpen && (
             <div
-              className="fixed inset-0 flex items-center justify-center bg-black1/50 z-50 transition-colors"
+              className="fixed inset-0 flex items-center justify-center bg-black/50 z-50 transition-colors"
               onClick={closeModal}
             >
               <div
