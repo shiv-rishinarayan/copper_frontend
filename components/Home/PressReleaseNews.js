@@ -59,12 +59,10 @@ const PressRelease = () => {
         {/* Vertical List of Smaller Press Releases on the right, spanning 4 columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 gap-x-7">
           {pressReleases.slice(0, 8).map((release) => (
-            <a
+            <div
               key={release.id}
               className="flex  overflow-hidden group cursor-pointer border-b border-black/10 pb-4"
-              // onClick={() => handleNavigate(release.id)}
-              href={release.url}
-              target="_blank"
+              onClick={() => handleNavigate(release.id)}
             >
               <div>
                 <h3 className="text-[15px] leading-6 mb-1 font-medium group-hover:underline">
@@ -76,7 +74,7 @@ const PressRelease = () => {
                   {release.date} {/* Directly displaying the raw date string */}
                 </div>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>
