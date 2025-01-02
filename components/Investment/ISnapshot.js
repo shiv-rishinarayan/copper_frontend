@@ -231,7 +231,7 @@ const ISnapshot = () => {
                       <span
                         className={`inline-flex ${
                           stock.intraday_change >= 0
-                            ? "text-green"
+                            ? "text-green-500"
                             : "text-red-500"
                         }`}
                       >
@@ -240,7 +240,7 @@ const ISnapshot = () => {
                       <span
                         className={`inline-flex ${
                           stock.intraday_percentage >= 0
-                            ? "text-green"
+                            ? "text-green-500"
                             : "text-red-500"
                         }`}
                       >
