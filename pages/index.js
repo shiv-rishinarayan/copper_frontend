@@ -33,12 +33,12 @@ const home = () => {
       {/* 3 cols  */}
       <div className="flex justify-between flex-wrap px-3 md:px-10 lg:px-12 py-12 mb-7">
         {/* 1  */}
-        <div className="w-full md:w-[24%] flex flex-col space-y-10">
+        <div className="w-full md:w-[24%] flex flex-col space-y-14">
           <div>
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
-              Ruthenium Price Chart
+              Platinum Price Chart
             </h1>
-            <ChartRuthenium />
+            <TVPlatinum />
           </div>
 
           <div>
@@ -85,16 +85,15 @@ const home = () => {
         <div className="w-full md:w-[24%] flex flex-col space-y-14  ">
           <div>
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
-              Platinum Price Chart
-            </h1>
-            <TVPlatinum />
-          </div>
-
-          <div>
-            <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
               Palladium Price Chart
             </h1>
             <TVPalladium />
+          </div>
+          <div>
+            <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
+              Ruthenium Price Chart
+            </h1>
+            <ChartRuthenium />
           </div>
           <Substacks />
         </div>
@@ -105,8 +104,8 @@ const home = () => {
         {/* left  */}
         <div className="w-full md:w-[66%] flex flex-col space-y-20">
           {/* <LatestNews /> */}
-          <StockNews />
           <PressReleaseNews />
+          <StockNews />
           <MostPopularNews />
         </div>
         {/* right  */}
