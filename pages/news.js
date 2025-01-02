@@ -1,7 +1,7 @@
 import Footer from "@/components/Footer";
 import DailyNewsletterAd from "@/components/Home/DailyNewsletterAd";
 import LatestNews from "@/components/Home/LatestNews";
-import StockNews from "@/components/Home/PressReleaseNews";
+import StockNews from "@/components/Home/StockNews";
 import PressReleaseNews from "@/components/Home/PressReleaseNews";
 import Substacks from "@/components/Home/Substacks";
 import Navbar from "@/components/Navbar";
@@ -21,8 +21,8 @@ const news = () => {
         {/* left */}
         <div className="w-full md:w-[66%] flex flex-col space-y-20">
           <LatestNews />
-          <StockNews />
           <PressReleaseNews />
+          <StockNews />
         </div>
         {/* right */}
         <div className="w-full md:w-[26%] space-y-20">
