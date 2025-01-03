@@ -91,6 +91,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Loader from "../Loader";
 
 const MoreNews = () => {
   const [news, setNews] = useState([]);
@@ -127,9 +128,8 @@ const MoreNews = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-32">
-        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-800"></div>
-        <span className="ml-3 text-gray-800 font-semibold">Loading...</span>
+      <div className="flex justify-center items-center ">
+        <Loader />
       </div>
     );
   }
