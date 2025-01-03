@@ -172,7 +172,7 @@ const LatestNews = () => {
         Latest Platinum News
       </h1>
 
-      <div className="flex flex-wrap md:flex-nowrap gap-5">
+      <div className="flex flex-wrap md:flex-nowrap ">
         {/* Full News Section */}
         <div className="w-full md:w-[65%] space-y-4">
           {newsData.slice(0, 5).map((news, index) => (
@@ -184,7 +184,7 @@ const LatestNews = () => {
               className="bg-white rounded-sm overflow-hidden block group transition-shadow duration-300"
             >
               <div>
-                <h2 className="group-hover:underline text-[18px] text-primary leading-6 mt-1 line-clamp-1">
+                <h2 className="group-hover:underline font-medium text-[15px] text-primary leading-6 mt-1 line-clamp-1">
                   {news.title}
                 </h2>
                 <p className="text-gray-500 text-xs mt-2">
@@ -211,7 +211,7 @@ const LatestNews = () => {
               className="bg-white rounded-sm overflow-hidden block group transition-shadow duration-300"
             >
               <div>
-                <h2 className="group-hover:underline text-[16px] text-primary mt-1 leading-6">
+                <h2 className="group-hover:underline font-medium text-[15px] text-primary mt-1 leading-6">
                   {news.title.length > 43
                     ? `${news.title.substring(0, 43)}...`
                     : news.title}
@@ -236,7 +236,7 @@ const LatestNews = () => {
               className="bg-white rounded-sm overflow-hidden block group transition-shadow duration-300"
             >
               <div>
-                <h2 className="group-hover:underline text-[16px] text-primary mt-1 leading-6">
+                <h2 className="group-hover:underline text-[15px] font-medium text-primary mt-1 leading-6">
                   {news.title.length > 43
                     ? `${news.title.substring(0, 43)}...`
                     : news.title}
