@@ -195,16 +195,12 @@ const PlatinumLivePrice = () => {
     return <div>Loading...</div>;
   }
 
-  // Extract values with fallback to 0.00 if they are null or undefined
-  const platinumSpotPrice = platinumData.price
-    ? parseFloat(platinumData.price).toFixed(2)
-    : "0.00";
-  const change = platinumData.price_change
-    ? parseFloat(platinumData.price_change).toFixed(2)
-    : "0.00";
-  const changePercentage = platinumData.price_change_percent
-    ? parseFloat(platinumData.price_change_percent).toFixed(2)
-    : "0.00";
+  // Extract and format the values with 2 decimal points
+  const platinumSpotPrice = parseFloat(platinumData.price).toFixed(2);
+  const change = parseFloat(platinumData.price_change).toFixed(2);
+  const changePercentage = parseFloat(
+    platinumData.price_change_percent
+  ).toFixed(2);
 
   return (
     <div className="text-center">
