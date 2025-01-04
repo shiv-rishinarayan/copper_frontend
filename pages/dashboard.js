@@ -8,8 +8,11 @@ import {
   FaBars,
 } from "react-icons/fa";
 import { MdSpaceDashboard } from "react-icons/md";
+import { toast } from "react-hot-toast";
+import { useRouter } from "next/router";
 
 const DashboardLayout = () => {
+  const router = useRouter();
   const [activeTab, setActiveTab] = React.useState("profile");
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
 
@@ -129,7 +132,13 @@ const DashboardLayout = () => {
       default:
         return null;
     }
-  };
+  };  
+  
+  const handleLogout = () => {
+    document.cookie = "userData=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+    router.push("/")
+    toast.success("Logged out successfully");
+  }
 
   return (
     <div className="h-screen w-full bg-gray-100 overflow-hidden">
@@ -181,7 +190,7 @@ const DashboardLayout = () => {
             </div>
             <button
               className="w-full flex items-center space-x-3 px-6 py-3 text-red-600 hover:bg-red-50 transition-colors mt-2 border-t"
-              onClick={() => console.log("Logout clicked")}
+              onClick={handleLogout}
             >
               <FaSignOutAlt className="text-lg" />
               <span className="font-medium">Logout</span>
