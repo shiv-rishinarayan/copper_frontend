@@ -42,6 +42,106 @@
 
 // export default PlatinumPrice;
 
+// import React, { useState, useEffect } from "react";
+
+// const PlatinumPrice = () => {
+//   const [platinumData, setPlatinumData] = useState(null);
+
+//   useEffect(() => {
+//     // Fetch data from the API
+//     fetch("https://platinumdjango-production.up.railway.app/api/pgm-prices/")
+//       .then((response) => response.json())
+//       .then((data) => {
+//         setPlatinumData(data.platinum_price);
+//       })
+//       .catch((error) => console.error("Error fetching data:", error));
+//   }, []);
+
+//   // If platinumData is not yet available, render a loading state or a fallback
+//   if (!platinumData) {
+//     return <div>Loading...</div>;
+//   }
+
+//   // Extract and format the required values
+//   const platinumSpotPrice = platinumData.price.toFixed(2);
+//   const changePercentage = platinumData.price_change_percent.toFixed(2);
+//   const change = platinumData.price_change.toFixed(2);
+
+//   // Format the change to display the dollar sign before the negative sign if necessary
+//   const formattedChange = change >= 0 ? `+$${change}` : `$${change}`;
+
+//   return (
+//     <div className="flex flex-col lg:flex-row gap-4 lg:gap-10 mt-4 rounded-lg max-w-3xl">
+//       {/* Large Screen Layout */}
+//       <div className="hidden lg:flex flex-row gap-10">
+//         {/* Platinum Spot Price */}
+//         <div className="text-center lg:text-left">
+//           <h2 className="text-base font-bold text-white">
+//             Platinum Spot Price
+//           </h2>
+//           <p className="text-base mt-1">${platinumSpotPrice}</p>
+//         </div>
+//         {/* Change Percentage */}
+//         <div className="text-center lg:text-left">
+//           <h2 className="text-base font-bold text-white">Change %</h2>
+//           <p
+//             className={`text-base mt-1 ${
+//               changePercentage >= 0 ? "text-green-400" : "text-red-400"
+//             }`}
+//           >
+//             {changePercentage >= 0
+//               ? `+${changePercentage}%`
+//               : `${changePercentage}%`}
+//           </p>
+//         </div>
+//         {/* Change in Dollars */}
+//         <div className="text-center lg:text-left">
+//           <h2 className="text-base font-bold text-white">Change</h2>
+//           <p
+//             className={`text-base mt-1 ${
+//               change >= 0 ? "text-green-400" : "text-red-400"
+//             }`}
+//           >
+//             {formattedChange}
+//           </p>
+//         </div>
+//       </div>
+
+//       {/* Small Screen Layout */}
+//       <div className="lg:hidden space-y-2">
+//         <p className="text-base font-bold text-white">
+//           Platinum Spot Price:{" "}
+//           <span className="font-normal">${platinumSpotPrice}</span>
+//         </p>
+//         <p className="text-base font-bold text-white">
+//           Change %:{" "}
+//           <span
+//             className={`${
+//               changePercentage >= 0 ? "text-green-400" : "text-red-400"
+//             } font-normal`}
+//           >
+//             {changePercentage >= 0
+//               ? `+${changePercentage}%`
+//               : `${changePercentage}%`}
+//           </span>
+//         </p>
+//         <p className="text-base font-bold text-white">
+//           Change:{" "}
+//           <span
+//             className={`${
+//               change >= 0 ? "text-green-400" : "text-red-400"
+//             } font-normal`}
+//           >
+//             {formattedChange}
+//           </span>
+//         </p>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default PlatinumPrice;
+
 import React, { useState, useEffect } from "react";
 
 const PlatinumPrice = () => {
@@ -52,7 +152,11 @@ const PlatinumPrice = () => {
     fetch("https://platinumdjango-production.up.railway.app/api/pgm-prices/")
       .then((response) => response.json())
       .then((data) => {
-        setPlatinumData(data.platinum_price);
+        // Find the Platinum data from the response
+        const platinumInfo = data.find(
+          (metal) => metal.pgm_name === "Platinum"
+        );
+        setPlatinumData(platinumInfo);
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
@@ -62,13 +166,19 @@ const PlatinumPrice = () => {
     return <div>Loading...</div>;
   }
 
-  // Extract and format the required values
-  const platinumSpotPrice = platinumData.price.toFixed(2);
-  const changePercentage = platinumData.price_change_percent.toFixed(2);
-  const change = platinumData.price_change.toFixed(2);
+  // Extract and format the required values, with fallback to 0.00 if data is invalid
+  const platinumSpotPrice = platinumData.price
+    ? parseFloat(platinumData.price).toFixed(2)
+    : "0.00";
+  const changePercentage = platinumData.price_change_percent
+    ? parseFloat(platinumData.price_change_percent).toFixed(2)
+    : "0.00";
+  const change = platinumData.price_change
+    ? parseFloat(platinumData.price_change).toFixed(2)
+    : "0.00";
 
   // Format the change to display the dollar sign before the negative sign if necessary
-  const formattedChange = change >= 0 ? `+$${change}` : `$${change}`;
+  const formattedChange = `$${parseFloat(change) > 0 ? "+" + change : change}`;
 
   return (
     <div className="flex flex-col lg:flex-row gap-4 lg:gap-10 mt-4 rounded-lg max-w-3xl">
@@ -81,28 +191,30 @@ const PlatinumPrice = () => {
           </h2>
           <p className="text-base mt-1">${platinumSpotPrice}</p>
         </div>
-        {/* Change Percentage */}
-        <div className="text-center lg:text-left">
-          <h2 className="text-base font-bold text-white">Change %</h2>
-          <p
-            className={`text-base mt-1 ${
-              changePercentage >= 0 ? "text-green-400" : "text-red-400"
-            }`}
-          >
-            {changePercentage >= 0
-              ? `+${changePercentage}%`
-              : `${changePercentage}%`}
-          </p>
-        </div>
         {/* Change in Dollars */}
         <div className="text-center lg:text-left">
           <h2 className="text-base font-bold text-white">Change</h2>
           <p
             className={`text-base mt-1 ${
-              change >= 0 ? "text-green-400" : "text-red-400"
+              parseFloat(change) > 0 ? "text-green-400" : "text-red-400"
             }`}
           >
             {formattedChange}
+          </p>
+        </div>
+        {/* Change Percentage */}
+        <div className="text-center lg:text-left">
+          <h2 className="text-base font-bold text-white">% Change</h2>
+          <p
+            className={`text-base mt-1 ${
+              parseFloat(changePercentage) > 0
+                ? "text-green-400"
+                : "text-red-400"
+            }`}
+          >
+            {parseFloat(changePercentage) > 0
+              ? `+${changePercentage}%`
+              : `${changePercentage}%`}
           </p>
         </div>
       </div>
@@ -113,26 +225,29 @@ const PlatinumPrice = () => {
           Platinum Spot Price:{" "}
           <span className="font-normal">${platinumSpotPrice}</span>
         </p>
-        <p className="text-base font-bold text-white">
-          Change %:{" "}
-          <span
-            className={`${
-              changePercentage >= 0 ? "text-green-400" : "text-red-400"
-            } font-normal`}
-          >
-            {changePercentage >= 0
-              ? `+${changePercentage}%`
-              : `${changePercentage}%`}
-          </span>
-        </p>
+
         <p className="text-base font-bold text-white">
           Change:{" "}
           <span
             className={`${
-              change >= 0 ? "text-green-400" : "text-red-400"
+              parseFloat(change) > 0 ? "text-green-400" : "text-red-400"
             } font-normal`}
           >
             {formattedChange}
+          </span>
+        </p>
+        <p className="text-base font-bold text-white">
+          Change %:{" "}
+          <span
+            className={`${
+              parseFloat(changePercentage) > 0
+                ? "text-green-400"
+                : "text-red-400"
+            } font-normal`}
+          >
+            {parseFloat(changePercentage) > 0
+              ? `+${changePercentage}%`
+              : `${changePercentage}%`}
           </span>
         </p>
       </div>
