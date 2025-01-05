@@ -6,6 +6,7 @@ import DPricePremium from "@/components/Data/DPricePremium";
 import DDemandDatabase from "@/components/Data/DDemandDatabase";
 import TabsSection from "@/components/Data/TabSection";
 import Footer from "@/components/Footer";
+import DSupply from "@/components/Data/DSupply";
 
 const Data = () => {
   const { query } = useRouter();
@@ -21,6 +22,7 @@ const Data = () => {
         <div className="mt-6">
           {currentTab === "priceandpremiums" && <DPricePremium />}
           {currentTab === "demanddatabase" && <DDemandDatabase />}
+          {currentTab === "supply" && <DSupply />}
         </div>
       </div>
 

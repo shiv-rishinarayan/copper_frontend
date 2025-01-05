@@ -5,6 +5,7 @@ const TabsSection = () => {
   const tabs = [
     { name: "Price & Premiums", query: "priceandpremiums" },
     { name: "Demand Database", query: "demanddatabase" },
+    { name: "Supply", query: "supply" },
   ];
 
   const router = useRouter();
