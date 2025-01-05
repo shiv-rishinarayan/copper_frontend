@@ -30,9 +30,22 @@ const DPricePremium = () => {
     },
     {
       id: 4,
-      image:
-        "/data-price-premiums/PlatinumPriceInKeyDevelopedMarketCurrencies.jpg",
-      title: "Platinum Price In Key Developed Market Currencies",
+      image: "/data-price-premiums/PlatinumPriceSince1976.jpg",
+      title: "Platinum Price Since 1976",
+      source: "Source: Bloomberg, WPIC Research",
+      path: "/charts/chart-3",
+    },
+    {
+      id: 5,
+      image: "/data-price-premiums/PlatinumVsEquityIndices.jpg",
+      title: "Platinum vs. Equity Indices",
+      source: "Source: Bloomberg, WPIC Research",
+      path: "/charts/chart-3",
+    },
+    {
+      id: 6,
+      image: "/data-price-premiums/PreciousMetalsPricePerformanceSince1995.jpg",
+      title: "Precious Metals Price Performance Since 1995",
       source: "Source: Bloomberg, WPIC Research",
       path: "/charts/chart-3",
     },
@@ -59,7 +72,7 @@ const DPricePremium = () => {
       {/* Content */}
       <div className="mt-1 md:mt-5">
         <div className="w-full rounded-md">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-14">
             {charts.map((chart) => (
               <div
                 key={chart.id}
