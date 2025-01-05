@@ -49,6 +49,47 @@ const DPricePremium = () => {
       source: "Source: Bloomberg, WPIC Research",
       path: "/charts/chart-3",
     },
+
+    {
+      id: 9,
+      image:
+        "/data-price-premiums/MarketEconomicFactorsAreDirectionallyTrendingFavourablyForPlatinumPrices1.jpg",
+      title: "Market Economic Factors: ZAR US$",
+      source: "Source: Bloomberg, WPIC Research",
+      path: "/charts/chart-3",
+    },
+    {
+      id: 10,
+      image:
+        "/data-price-premiums/MarketEconomicFactorsAreDirectionallyTrendingFavourablyForPlatinumPrices2.jpg",
+      title: "Market Economic Factors: Interest Rates",
+      source: "Source: Bloomberg, WPIC Research",
+      path: "/charts/chart-3",
+    },
+    {
+      id: 11,
+      image:
+        "/data-price-premiums/MarketEconomicFactorsAreDirectionallyTrendingFavourablyForPlatinumPrices3.jpg",
+      title: "Market Economic Factors: Gold",
+      source: "Source: Bloomberg, WPIC Research",
+      path: "/charts/chart-3",
+    },
+    {
+      id: 7,
+      image:
+        "/data-price-premiums/PlatinumVsVariousAssetOver5YearWindowsAnnualisedReturns.jpg",
+      title:
+        "Platinum vs. Various Asset Over 5 Year Windows Annualised Returns",
+      source: "Source: Bloomberg, WPIC Research",
+      path: "/charts/chart-3",
+    },
+    {
+      id: 8,
+      image: "/data-price-premiums/PGMBasketPricesSupportLevels.jpg",
+      title: "PGM Basket Prices Support Levels",
+      source: "Source: Bloomberg, WPIC Research",
+      path: "/charts/chart-3",
+    },
   ];
 
   const handleNavigation = (path) => {
