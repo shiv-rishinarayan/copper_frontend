@@ -8,6 +8,8 @@ const charts = [
     title: "Platinum Price In Key Emerging Market Currencies",
     source: "Bloomberg, WPIC Research",
     path: "/DataPricePremiums/1",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
   },
   {
     id: 2,
@@ -16,6 +18,8 @@ const charts = [
     title: "Precious Metals Price Performance Over 1-40 Year Periods",
     source: "Bloomberg, WPIC Research",
     path: "/DataPricePremiums/2",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
   },
   {
     id: 3,
@@ -24,6 +28,8 @@ const charts = [
     title: "Platinum Price In Key Developed Market Currencies",
     source: "Bloomberg, WPIC Research",
     path: "/DataPricePremiums/3",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
   },
   {
     id: 4,
@@ -31,6 +37,8 @@ const charts = [
     title: "Platinum Price Since 1976",
     source: "Bloomberg, WPIC Research",
     path: "/DataPricePremiums/4",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
   },
   {
     id: 5,
@@ -38,6 +46,8 @@ const charts = [
     title: "Platinum vs. Equity Indices",
     source: "Bloomberg, WPIC Research",
     path: "/DataPricePremiums/5",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
   },
   {
     id: 6,
@@ -45,6 +55,8 @@ const charts = [
     title: "Precious Metals Price Performance Since 1995",
     source: "Bloomberg, WPIC Research",
     path: "/DataPricePremiums/6",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
   },
   {
     id: 7,
@@ -53,6 +65,8 @@ const charts = [
     title: "Platinum vs. Various Asset Over 5 Year Windows Annualised Returns",
     source: "Bloomberg, WPIC Research",
     path: "/DataPricePremiums/7",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
   },
   {
     id: 8,
@@ -60,6 +74,8 @@ const charts = [
     title: "PGM Basket Prices Support Levels",
     source: "Bloomberg, WPIC Research",
     path: "/DataPricePremiums/8",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
   },
   {
     id: 9,
@@ -68,6 +84,8 @@ const charts = [
     title: "Market Economic Factors: ZAR US$",
     source: "Bloomberg, WPIC Research",
     path: "/DataPricePremiums/9",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
   },
   {
     id: 10,
@@ -76,6 +94,8 @@ const charts = [
     title: "Market Economic Factors: Interest Rates",
     source: "Bloomberg, WPIC Research",
     path: "/DataPricePremiums/10",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
   },
   {
     id: 11,
@@ -84,6 +104,8 @@ const charts = [
     title: "Market Economic Factors: Gold",
     source: "Bloomberg, WPIC Research",
     path: "/DataPricePremiums/11",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
   },
 ];
 
@@ -114,22 +136,25 @@ const DPricePremium = () => {
             onClick={() => handleNavigation(chart.path)}
             className="block cursor-pointer"
           >
-            <h3 className="font-medium text-black/90 text-lg lg:text-xl">
-              {chart.title}
-            </h3>
-            <p className="mt-1 mb-1 font-medium text-black/50 text-sm">
-              Source:{" "}
-              <span className="hover:text-accent transition-all duration-200">
-                {chart.source}
-              </span>
-            </p>
-            <div className="w-full h-[200px] md:h-[300px] flex items-center justify-center">
+            <div className="-ml-2 w-full h-[200px] md:h-[300px] flex items-center justify-center">
               <img
                 src={chart.image}
                 alt={`Chart ${chart.id}`}
                 className="w-full h-full object-contain rounded-lg"
               />
             </div>
+            <h3 className=" font-medium text-black/90 text-lg lg:text-xl">
+              {chart.title}
+            </h3>
+            <p className="mt-1.5 mb-1 font-medium text-black/50 text-sm">
+              Source:{" "}
+              <span className="hover:text-accent transition-all duration-200 text-sm">
+                {chart.source}
+              </span>
+            </p>
+            <p className="mt-1.5 text-black/80 text-[15px]">
+              {chart.description.substring(0, 120)}...
+            </p>
           </div>
         ))}
       </div>

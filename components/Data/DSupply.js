@@ -11,6 +11,8 @@ const DSupply = () => {
       title: "Annual Total Supply And Changes 2023 To 2025",
       source: "Metals Focus Prepared For World Platinum Investment Council",
       path: "/DataSupply/1",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
     },
     {
       id: 2,
@@ -18,6 +20,8 @@ const DSupply = () => {
       title: "Changes In Supply, 2023 vs. 2024",
       source: "Metals Focus Prepared For World Platinum Investment Council",
       path: "/DataSupply/2",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
     },
     {
       id: 3,
@@ -25,6 +29,8 @@ const DSupply = () => {
       title: "Platinum Supply",
       source: "Metals Focus Prepared For World Platinum Investment Council",
       path: "/DataSupply/3",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
     },
     {
       id: 4,
@@ -32,6 +38,8 @@ const DSupply = () => {
       title: "South African Average Platinum Production Forecasts",
       source: "Metals Focus 2022 to 2024F, Company data,WPIC 2025F and after",
       path: "/DataSupply/4",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
     },
   ];
 
@@ -61,27 +69,25 @@ const DSupply = () => {
                 onClick={() => handleNavigation(chart.path)}
                 className="block cursor-pointer"
               >
-                {/* Chart title */}
-                <h3 className="font-medium text-black/90 text-lg lg:text-xl">
-                  {chart.title}
-                </h3>
-
-                {/* Source text */}
-                <p className="mt-1 mb-1 font-medium text-black/50 text-sm">
-                  Source:{" "}
-                  <span className="text-black/50 hover:text-accent transition-all duration-200">
-                    {chart.source}
-                  </span>
-                </p>
-
-                {/* Chart image */}
-                <div className="w-full h-[200px] md:h-[300px] flex items-center justify-center -ml-2">
+                <div className="-ml-2 w-full h-[200px] md:h-[300px] flex items-center justify-center">
                   <img
                     src={chart.image}
                     alt={`Chart ${chart.id}`}
                     className="w-full h-full object-contain rounded-lg"
                   />
                 </div>
+                <h3 className=" font-medium text-black/90 text-lg lg:text-xl">
+                  {chart.title}
+                </h3>
+                <p className="mt-1.5 mb-1 font-medium text-black/50 text-sm">
+                  Source:{" "}
+                  <span className="hover:text-accent transition-all duration-200 text-sm">
+                    {chart.source}
+                  </span>
+                </p>
+                <p className="mt-1.5 text-black/80 text-[15px]">
+                  {chart.description.substring(0, 120)}...
+                </p>
               </div>
             ))}
           </div>
