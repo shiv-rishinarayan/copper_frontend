@@ -1,8 +1,11 @@
-import React from "react";
 import { useRouter } from "next/router";
+import DataBreadcrumb from "@/components/Data/DataBreadcrumb";
+import React from "react";
+import Footer from "@/components/Footer";
 
-const DDemandDatabase = () => {
+const ChartSubpage = () => {
   const router = useRouter();
+  const { chartId } = router.query;
 
   const charts = [
     {
@@ -84,62 +87,31 @@ const DDemandDatabase = () => {
     },
   ];
 
-  const handleNavigation = (path) => {
-    router.push(path);
-  };
+  const chart = charts.find((item) => item.id === parseInt(chartId));
+
+  if (!chart) {
+    return <p>Loading...</p>; // Optional: Add a better loading state
+  }
 
   return (
-    <div className="px-3 md:px-12 py-5 md:py-5">
-      <div className="mb-9 md:mb-16">
-        <h1 className="cambay text-[22px] sm:text-2xl font-semibold">
-          Demand Database
-        </h1>
-        <p className="text-black/80 mt-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
-          explicabo eum nulla non sint voluptatibus voluptas animi deserunt quo,
-          veniam, ex exercitationem distinctio odio, reiciendis quibusdam
-          expedita adipisci iste aperiam!
-        </p>
-      </div>
+    <div>
+      <DataBreadcrumb title={chart.title} />
 
-      {/* Content */}
-      <div className="mt-1 md:mt-5">
-        <div className="w-full rounded-md">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-14">
-            {charts.map((chart) => (
-              <div
-                key={chart.id}
-                onClick={() => handleNavigation(chart.path)}
-                className="block cursor-pointer"
-              >
-                {/* Chart title */}
-                <h3 className="font-medium text-black/90 text-lg lg:text-xl">
-                  {chart.title}
-                </h3>
-
-                {/* Source text */}
-                <p className="mt-1 mb-1 font-medium text-black/50 text-sm">
-                  Source:{" "}
-                  <span className="text-black/50 hover:text-accent transition-all duration-200">
-                    {chart.source}
-                  </span>
-                </p>
-
-                {/* Chart image */}
-                <div className="w-full h-[200px] md:h-[300px] flex items-center justify-center -ml-2">
-                  <img
-                    src={chart.image}
-                    alt={`Chart ${chart.id}`}
-                    className="w-full h-full object-contain rounded-lg"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+      <div className="px-6 py-10 md:px-20 mt-14 mb-10">
+        <h1 className="text-2xl font-bold">{chart.title}</h1>
+        <p className="text-gray-500 mt-2">Source: {chart.source}</p>
+        <div className="mt-6 w-full md:w-[70%] h-full mx-auto flex justify-center items-center">
+          <img
+            src={chart.image}
+            alt={chart.title}
+            className="w-full h-auto rounded-lg object-contain"
+          />
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 };
 
-export default DDemandDatabase;
+export default ChartSubpage;
