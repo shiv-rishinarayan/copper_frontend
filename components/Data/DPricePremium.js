@@ -9,7 +9,7 @@ const DPricePremium = () => {
       id: 1,
       image: "/data-price-premiums/PlatinumInKeyEmergingMarketCurrencies.jpg",
       title: "Platinum Price In Key Emerging Market Currencies",
-      source: "Source: Bloomberg, WPIC Research",
+      source: "Bloomberg, WPIC Research",
       path: "/charts/platinum-emerging-market-currencies",
     },
     {
@@ -17,7 +17,7 @@ const DPricePremium = () => {
       image:
         "/data-price-premiums/PreciousMetalsPricePerformanceOver1-40YearPeriods.jpg",
       title: "Precious Metals Price Performance Over 1-40 Year Periods",
-      source: "Source: Bloomberg, WPIC Research",
+      source: "Bloomberg, WPIC Research",
       path: "/charts/chart-2",
     },
     {
@@ -25,28 +25,28 @@ const DPricePremium = () => {
       image:
         "/data-price-premiums/PlatinumPriceInKeyDevelopedMarketCurrencies.jpg",
       title: "Platinum Price In Key Developed Market Currencies",
-      source: "Source: Bloomberg, WPIC Research",
+      source: "Bloomberg, WPIC Research",
       path: "/charts/chart-3",
     },
     {
       id: 4,
       image: "/data-price-premiums/PlatinumPriceSince1976.jpg",
       title: "Platinum Price Since 1976",
-      source: "Source: Bloomberg, WPIC Research",
+      source: "Bloomberg, WPIC Research",
       path: "/charts/chart-3",
     },
     {
       id: 5,
       image: "/data-price-premiums/PlatinumVsEquityIndices.jpg",
       title: "Platinum vs. Equity Indices",
-      source: "Source: Bloomberg, WPIC Research",
+      source: "Bloomberg, WPIC Research",
       path: "/charts/chart-3",
     },
     {
       id: 6,
       image: "/data-price-premiums/PreciousMetalsPricePerformanceSince1995.jpg",
       title: "Precious Metals Price Performance Since 1995",
-      source: "Source: Bloomberg, WPIC Research",
+      source: "Bloomberg, WPIC Research",
       path: "/charts/chart-3",
     },
 
@@ -55,7 +55,7 @@ const DPricePremium = () => {
       image:
         "/data-price-premiums/MarketEconomicFactorsAreDirectionallyTrendingFavourablyForPlatinumPrices1.jpg",
       title: "Market Economic Factors: ZAR US$",
-      source: "Source: Bloomberg, WPIC Research",
+      source: "Bloomberg, WPIC Research",
       path: "/charts/chart-3",
     },
     {
@@ -63,7 +63,7 @@ const DPricePremium = () => {
       image:
         "/data-price-premiums/MarketEconomicFactorsAreDirectionallyTrendingFavourablyForPlatinumPrices2.jpg",
       title: "Market Economic Factors: Interest Rates",
-      source: "Source: Bloomberg, WPIC Research",
+      source: "Bloomberg, WPIC Research",
       path: "/charts/chart-3",
     },
     {
@@ -71,7 +71,7 @@ const DPricePremium = () => {
       image:
         "/data-price-premiums/MarketEconomicFactorsAreDirectionallyTrendingFavourablyForPlatinumPrices3.jpg",
       title: "Market Economic Factors: Gold",
-      source: "Source: Bloomberg, WPIC Research",
+      source: "Bloomberg, WPIC Research",
       path: "/charts/chart-3",
     },
     {
@@ -80,14 +80,14 @@ const DPricePremium = () => {
         "/data-price-premiums/PlatinumVsVariousAssetOver5YearWindowsAnnualisedReturns.jpg",
       title:
         "Platinum vs. Various Asset Over 5 Year Windows Annualised Returns",
-      source: "Source: Bloomberg, WPIC Research",
+      source: "Bloomberg, WPIC Research",
       path: "/charts/chart-3",
     },
     {
       id: 8,
       image: "/data-price-premiums/PGMBasketPricesSupportLevels.jpg",
       title: "PGM Basket Prices Support Levels",
-      source: "Source: Bloomberg, WPIC Research",
+      source: "Bloomberg, WPIC Research",
       path: "/charts/chart-3",
     },
   ];
