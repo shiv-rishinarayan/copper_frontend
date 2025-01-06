@@ -10,7 +10,7 @@ const DPricePremium = () => {
       image: "/data-price-premiums/PlatinumInKeyEmergingMarketCurrencies.jpg",
       title: "Platinum Price In Key Emerging Market Currencies",
       source: "Bloomberg, WPIC Research",
-      path: "/charts/platinum-emerging-market-currencies",
+      path: "",
     },
     {
       id: 2,

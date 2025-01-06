@@ -10,28 +10,28 @@ const DSupply = () => {
       image: "/data-supply/AnnualTotalSuppyAndChanges2023To2025.jpg",
       title: "Annual Total Supply And Changes 2023 To 2025",
       source: "Metals Focus Prepared For World Platinum Investment Council",
-      path: "/charts/",
+      path: "/DataSupply/1",
     },
     {
       id: 2,
       image: "/data-supply/ChangesInSupply,2023Vs2024.jpg",
       title: "Changes In Supply, 2023 vs. 2024",
       source: "Metals Focus Prepared For World Platinum Investment Council",
-      path: "/charts/",
+      path: "/DataSupply/2",
     },
     {
       id: 3,
       image: "/data-supply/PlatinumSupply.jpg",
       title: "Platinum Supply",
       source: "Metals Focus Prepared For World Platinum Investment Council",
-      path: "/charts/",
+      path: "/DataSupply/3",
     },
     {
       id: 4,
       image: "/data-supply/SouthAfricaAveragrPlatinumProductionForecasts.jpg",
       title: "South African Average Platinum Production Forecasts",
-      source: "Metals Focus 2022 to 2024F, Company data,WPIC 2025F and after ",
-      path: "/charts/",
+      source: "Metals Focus 2022 to 2024F, Company data,WPIC 2025F and after",
+      path: "/DataSupply/4",
     },
   ];
 
