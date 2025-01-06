@@ -47,11 +47,11 @@ const ChartSubpage = () => {
       <div className="px-6 py-10 md:px-20 mt-14 mb-10">
         <h1 className="text-2xl font-bold">{chart.title}</h1>
         <p className="text-gray-500 mt-2">Source: {chart.source}</p>
-        <div className="mt-6 w-full md:w-[70%] h-full mx-auto -ml-3 flex justify-center items-center">
+        <div className="mt-6 w-full md:w-[70%] h-full mx-auto flex justify-center items-center">
           <img
             src={chart.image}
             alt={chart.title}
-            className="w-full h-auto rounded-lg object-contain mx-auto"
+            className="w-full h-auto rounded-lg object-contain"
           />
         </div>
       </div>
