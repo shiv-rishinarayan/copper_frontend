@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-
+import DataDemandPlatinumSupplyTable from "./DataDemandPlatinumSupplyTable";
 const charts = [
   {
     id: 1,
@@ -157,6 +157,10 @@ const DPricePremium = () => {
             </p>
           </div>
         ))}
+      </div>
+
+      <div className="mt-20">
+        <DataDemandPlatinumSupplyTable />
       </div>
     </div>
   );
