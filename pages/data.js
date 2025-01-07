@@ -7,6 +7,7 @@ import DDemandDatabase from "@/components/Data/DDemandDatabase";
 import TabsSection from "@/components/Data/TabSection";
 import Footer from "@/components/Footer";
 import DSupply from "@/components/Data/DSupply";
+import DWPICSupply from "@/components/Data/DWPICSupply";
 
 const Data = () => {
   const { query } = useRouter();
@@ -23,6 +24,7 @@ const Data = () => {
           {currentTab === "priceandpremiums" && <DPricePremium />}
           {currentTab === "demanddatabase" && <DDemandDatabase />}
           {currentTab === "supply" && <DSupply />}
+          {currentTab === "wpicsupply" && <DWPICSupply />}
         </div>
       </div>
 

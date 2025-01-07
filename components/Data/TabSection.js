@@ -6,6 +6,7 @@ const TabsSection = () => {
     { name: "Price & Premiums", query: "priceandpremiums" },
     { name: "Demand Database", query: "demanddatabase" },
     { name: "Supply", query: "supply" },
+    { name: "WPIC Supply Demand Estimates", query: "wpicsupply" },
   ];
 
   const router = useRouter();
