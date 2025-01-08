@@ -10,7 +10,7 @@ const charts = [
     source: "WPIC Platinum Quarterly Q3 2024, Metals Focus",
     path: "/DataWPICSupplyDemand/1",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
+      "2025 Outlook: Fundamentals are entrenched as both supply and demand see minor changes. Annual Total Supply And Changes 2023 To 2025f (koz)",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const charts = [
     source: "WPIC Platinum Quarterly Q3 2024, Metals Focus",
     path: "/DataWPICSupplyDemand/2",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
+      "2025 Outlook: Fundamentals are entrenched as both supply and demand see minor changes. Annual Total Demand And Changes 2023 To 2025f (koz)",
   },
   {
     id: 3,
