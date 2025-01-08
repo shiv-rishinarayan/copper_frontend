@@ -89,6 +89,15 @@ const ChartSubpage = () => {
       description:
         "Fundamentals: Higher-for-longer ice demand entrenched in the drivetrain transition. Drivetrain transition: Higher-for-longer ICE and hybrid well established, Decelerating BEV growth 2024: Cost and Infrastructure, 2025 growth: Hybridisation complements BEV to meet CO2 reductions",
     },
+    {
+      id: 9,
+      image: "/WPIC-supply-demand-estimates/PGMMarketBalance.jpg",
+      title: "PGM Market Balance",
+      source: "PGM Market Report",
+      path: "/DataWPICSupplyDemand/9",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
+    },
   ];
 
   const chart = charts.find((item) => item.id === parseInt(chartId));
