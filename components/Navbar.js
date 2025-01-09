@@ -53,7 +53,7 @@ const Navbar = () => {
             { name: "Community", path: "/community" },
             { name: "Videos", path: "/videos" },
             { name: "Data", path: "/data" },
-            { name: "Platinum 101", path: "/P101" },
+            { name: "PGM 101", path: "/P101" },
           ].map((link, index) => (
             <div key={index} className="relative group">
               <motion.button
@@ -130,7 +130,7 @@ const Navbar = () => {
           { name: "Community", path: "/community" },
           { name: "Videos", path: "/videos" },
           { name: "Data", path: "/data" },
-          { name: "Platinum 101", path: "/P101" },
+          { name: "PGM 101", path: "/P101" },
         ].map((link, index) => (
           <button
             key={index}
