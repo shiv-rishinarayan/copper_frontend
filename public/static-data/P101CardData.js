@@ -343,13 +343,13 @@ const cardData = [
         content: [
           "Osmium’s unique qualities support a range of practical and innovative uses:",
           "• Precision components:",
-          "  o Used in fountain pen nibs, styluses, and instrument pivots, where wear resistance is essential.",
+          "  Used in fountain pen nibs, styluses, and instrument pivots, where wear resistance is essential.",
           "• Electronics:",
-          "  o Serves as a robust alternative to gold for plating in electronic products due to its conductivity and durability.",
+          "  Serves as a robust alternative to gold for plating in electronic products due to its conductivity and durability.",
           "• Environmental applications:",
-          "  o Functions as a catalyst in fuel cells, contributing to cleaner energy solutions.",
+          "  Functions as a catalyst in fuel cells, contributing to cleaner energy solutions.",
           "• Forensic science:",
-          "  o Osmium tetroxide is employed to stain fingerprints and DNA samples, aiding in criminal investigations.",
+          "  Osmium tetroxide is employed to stain fingerprints and DNA samples, aiding in criminal investigations.",
         ],
       },
       {
