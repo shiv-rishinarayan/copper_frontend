@@ -5,12 +5,12 @@ const PressRelease = () => {
   const router = useRouter();
   const [pressReleases, setPressReleases] = useState([]);
 
+  const BASEURL = process.env.NEXT_PUBLIC_API_BASEURL;
+
   // Fetch the press releases from the API
   useEffect(() => {
     const fetchPressReleases = async () => {
-      const res = await fetch(
-        "https://platinumdjango-production.up.railway.app/api/press-releases/"
-      );
+      const res = await fetch(`${BASEURL}/api/press-releases/`);
       const data = await res.json();
       setPressReleases(data);
     };

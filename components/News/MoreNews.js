@@ -98,12 +98,12 @@ const MoreNews = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const BASEURL = process.env.NEXT_PUBLIC_API_BASEURL;
+
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await fetch(
-          "https://platinumdjango-production.up.railway.app/api/platinum_news/"
-        );
+        const response = await fetch(`${BASEURL}/api/platinum_news/`);
         if (!response.ok) {
           throw new Error("Failed to fetch news");
         }

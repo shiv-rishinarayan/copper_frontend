@@ -107,6 +107,15 @@ const charts = [
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
   },
+  {
+    id: 12,
+    image: "/data-price-premiums/PlatinumPalladiumAndRhodiumPrices.jpg",
+    title: "Platinum, Palladium And Rhodium Prices",
+    source: "PGM Market Report",
+    path: "/DataPricePremiums/12",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
+  },
 ];
 
 const DPricePremium = () => {

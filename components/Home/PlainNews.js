@@ -7,12 +7,14 @@ const PlainNews = () => {
   const [loading, setLoading] = useState(true); // State for loading status
   const [error, setError] = useState(null); // State to handle errors
 
+  const BASEURL = process.env.NEXT_PUBLIC_API_BASEURL;
+
   useEffect(() => {
     const fetchNewsData = async () => {
       try {
         setLoading(true); // Set loading to true before fetching data
         const response = await axios.get(
-          "https://platinumdjango-production.up.railway.app/api/platinum_news/?news_type=platinum"
+          `${BASEURL}/api/platinum_news/?news_type=platinum`
         ); // Replace with your API URL
         const data = response.data;
 
