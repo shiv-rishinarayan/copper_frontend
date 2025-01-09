@@ -2,7 +2,7 @@ const cardData = [
   {
     id: "1",
     href: "/platinum101/1",
-    image: "/P101imgs/platinum.jpg",
+    image: "/P101imgs/platinum.png",
     title: "Platinum",
     description:
       "Platinum is renowned for its exceptional resistance to corrosion, even at high temperatures, classifying it as a 'noble metal'. This inertness stems from its stable atomic structure, making it unreactive to most substances. Beyond its robust nature, platinum acts as an effective catalyst, crucial in reducing vehicle emissions and facilitating various industrial processes. Its high melting point, malleability, and ductility further contribute to its versatility, making it valuable in jewelry, laboratory equipment, medical devices, and electrical components.",
@@ -65,7 +65,7 @@ const cardData = [
   {
     id: "2",
     href: "/palladium101/2",
-    image: "/P101imgs/palladium.jpg",
+    image: "/P101imgs/palladium.png",
     title: "Palladium",
     description:
       "Palladium, a silvery-white metal of the platinum group, is prized for its excellent corrosion resistance and crucial role in reducing vehicle emissions through catalytic converters. This catalytic activity extends to various industrial processes like chemical production and petroleum refining. Beyond its industrial uses, palladium finds applications in jewelry, often alloyed with gold to create white gold, as well as in electronics for components like capacitors and in dentistry for durable and biocompatible fillings and crowns. Compared to platinum, palladium is less dense and has a lower melting point.",
