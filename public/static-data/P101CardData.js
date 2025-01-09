@@ -3,6 +3,7 @@ const cardData = [
     id: "1",
     href: "/platinum101/1",
     image: "/P101imgs/platinum.png",
+    video: "/P101imgs/platinum.gif",
     title: "Platinum",
     description:
       "Platinum is renowned for its exceptional resistance to corrosion, even at high temperatures, classifying it as a 'noble metal'. This inertness stems from its stable atomic structure, making it unreactive to most substances. Beyond its robust nature, platinum acts as an effective catalyst, crucial in reducing vehicle emissions and facilitating various industrial processes. Its high melting point, malleability, and ductility further contribute to its versatility, making it valuable in jewelry, laboratory equipment, medical devices, and electrical components.",
@@ -66,6 +67,7 @@ const cardData = [
     id: "2",
     href: "/palladium101/2",
     image: "/P101imgs/palladium.png",
+    video: "/P101imgs/platinum.gif",
     title: "Palladium",
     description:
       "Palladium, a silvery-white metal of the platinum group, is prized for its excellent corrosion resistance and crucial role in reducing vehicle emissions through catalytic converters. This catalytic activity extends to various industrial processes like chemical production and petroleum refining. Beyond its industrial uses, palladium finds applications in jewelry, often alloyed with gold to create white gold, as well as in electronics for components like capacitors and in dentistry for durable and biocompatible fillings and crowns. Compared to platinum, palladium is less dense and has a lower melting point.",
@@ -129,6 +131,7 @@ const cardData = [
     id: "3",
     href: "/rhodium101/3",
     image: "/P101imgs/rhodium.jpg",
+    video: "/P101imgs/platinum.gif",
     title: "Rhodium",
     description:
       "Rhodium is known for its cool-gray color, extreme hardness, and exceptional resistance to corrosion. It shares several qualities with its platinum group metal (PGM) counterparts, platinum and palladium, including high catalytic activity, high melting point, temperature stability, and corrosion resistance. Rhodium’s hardness also makes it an excellent alloying agent, often used to harden platinum for various industrial applications. It plays a key role in automotive emission control, chemical industries, and industrial processes, particularly in glass production and catalytic converters.",
@@ -186,6 +189,7 @@ const cardData = [
     id: "4",
     href: "/iridium101/4",
     image: "/P101imgs/iridium.jpg",
+    video: "/P101imgs/platinum.gif",
     title: "Iridium",
     description:
       "Iridium, a white metal with a subtle yellowish hue, is the rarest of the platinum group metals (PGMs). Known for its exceptional properties, iridium is the second densest element, surpassed only by osmium, and is the most corrosion-resistant metal known. Its high melting point, temperature stability, and exceptional hardness make it indispensable for high-temperature applications, including the crucibles used in growing crystals for laser technology.",
@@ -249,6 +253,7 @@ const cardData = [
     id: "5",
     href: "/ruthenium101/5",
     image: "/P101imgs/ruthenium.jpg",
+    video: "/P101imgs/platinum.gif",
     title: "Ruthenium",
     description:
       "Ruthenium, a cool white metal, is prized for its hardness, brittleness, and exceptional catalytic properties. Often used as an alloying agent, ruthenium enhances the strength and durability of platinum and palladium for jewelry and electrical applications. Its resistance to corrosion and stability under varying conditions make it indispensable across industries like electronics, chemicals, and aerospace. With notable applications in data storage, fuel production, and advanced alloys, ruthenium's versatility continues to drive innovation.",
@@ -323,6 +328,7 @@ const cardData = [
     id: "6",
     href: "/osmium101/6",
     image: "/P101imgs/osmium.jpg",
+    video: "/P101imgs/platinum.gif",
     title: "Osmium",
     description:
       "Osmium, the densest known substance, is celebrated for its extreme hardness, exceptional resistance to wear, and high melting point. Its unique characteristics make it indispensable for precision instruments, electronic plating, and catalytic applications. Often alloyed with platinum group metals, osmium enhances performance in specialized applications, supporting industries like electronics, environmental technology, and forensic science.",
