@@ -1,8 +1,7 @@
 import P101Breadcrumb from "@/components/P101/P101Breadcrumb";
-import { useRouter } from "next/router";
-import cardData from "@/public/static-data/P101CardData"; // Adjust the import path
 import Image from "next/image";
 import Footer from "@/components/Footer";
+import GlossaryAccordion from "@/components/P101/GlossaryAccordion";
 
 const glossary = () => {
   return (
@@ -43,7 +42,9 @@ const glossary = () => {
         </div>
 
         {/* accordions  */}
-        <div className="py-10"></div>
+        <div className="mt-4">
+          <GlossaryAccordion />
+        </div>
       </div>
 
       {/* footer */}

@@ -42,6 +42,7 @@ const P101Cards = () => {
             </div>
           ))}
 
+          {/* glossary card  */}
           <div
             onClick={() => router.push("/platinum101/glossary")}
             className="card relative group w-full h-[360px] overflow-hidden rounded-t-[1.7rem] flex flex-col border border-date/20 cursor-pointer"
@@ -61,7 +62,7 @@ const P101Cards = () => {
                   PGM Glossary
                 </h2>
                 <p className="text-[15px] text-left text-lightgray group-hover:text-lightgray transition-colors duration-500">
-                Glossary of Terms for Platinum Group Metals (PGM)...
+                  Glossary of Terms for Platinum Group Metals (PGM)...
                 </p>
               </div>
             </div>
