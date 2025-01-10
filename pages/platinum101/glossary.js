@@ -35,14 +35,18 @@ const glossary = () => {
                 PGM Glossary
               </h1>
               <p className="text-[17px] text-gray-200 mb-4 pl-[2px]">
-                Glossary of Terms for Platinum Group Metals (PGM)
+                Glossary of Terms for Platinum Group Metals (PGM). A
+                Comprehensive Guide to Understanding Key Concepts,
+                Terminologies, and Processes in Mining, Metallurgy, and Advanced
+                Technologies—Covering Applications in Catalysis, Renewable
+                Energy, and Sustainable Practices for a Smarter Future.
               </p>
             </div>
           </div>
         </div>
 
         {/* accordions  */}
-        <div className="mt-4">
+        <div className="mt-4 pb-12">
           <GlossaryAccordion />
         </div>
       </div>
