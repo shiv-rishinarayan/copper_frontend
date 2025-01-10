@@ -147,6 +147,150 @@ const data = [
     content:
       "A process used to separate PGMs and other valuable minerals from unwanted materials by using bubbles to carry the desired particles to the surface.",
   },
+  {
+    title: "Geological Survey",
+    content:
+      "The study and mapping of rock formations to identify potential mineral deposits.",
+  },
+  {
+    title: "Gross Demand",
+    content:
+      "A measure of the intensity of use in a given application or market.",
+  },
+  {
+    title: "Heap Leaching",
+    content:
+      "A method of extracting metals by piling up crushed ore and applying chemical solutions to dissolve the desired elements.",
+  },
+
+  {
+    title: "Hydrometallurgical Recycling",
+    content:
+      "A chemical-based process for extracting metals from secondary materials, such as scrap or spent catalysts.",
+  },
+  {
+    title: "Hydrogen Economy",
+    content:
+      "A vision for an energy system that uses hydrogen as a key fuel source, heavily reliant on PGMs in fuel cells and electrolysis.",
+  },
+  {
+    title: "Hybrid Vehicle",
+    content:
+      "A vehicle that combines an internal combustion engine with an electric motor, often utilizing PGMs in its systems.",
+  },
+  {
+    title: "Iridium",
+    content:
+      "A rare PGM used in catalysts, electrochemical applications, and high-temperature materials.",
+  },
+
+  {
+    title: "Life Cycle Assessment (LCA)",
+    content:
+      "A method to evaluate the environmental impacts of a product over its entire lifecycle, from mining to disposal.",
+  },
+  {
+    title: "Leaching",
+    content:
+      "A process used in metallurgy to dissolve valuable metals from ore using chemical solutions.",
+  },
+  {
+    title: "Merensky Reef",
+    content:
+      "A geological layer in South Africa rich in PGMs and other valuable minerals.",
+  },
+  {
+    title: "Mine Development",
+    content:
+      "The preparation of an ore deposit for commercial extraction, including building infrastructure and access tunnels.",
+  },
+  {
+    title: "Mine Tailings",
+    content:
+      "Residual materials left after ore extraction, often requiring management to prevent environmental hazards.",
+  },
+  {
+    title: "Osmium",
+    content: "A dense, rare PGM often used in alloys and chemical research.",
+  },
+  {
+    title: "Overburden",
+    content:
+      "The layer of soil and rock that lies above an ore body and must be removed to access the ore.",
+  },
+  {
+    title: "Palladium",
+    content:
+      "A key PGM widely used in catalytic converters, electronics, and hydrogen fuel cells.",
+  },
+  {
+    title: "Photovoltaic (PV)",
+    content:
+      "Solar energy technology that often incorporates PGMs in specialized components.",
+  },
+  {
+    title: "Primary Supply",
+    content: "Metal obtained through mining operations.",
+  },
+  {
+    title: "Processing Plant",
+    content:
+      "A facility where ore is crushed, milled, and treated to extract valuable metals.",
+  },
+  {
+    title: "Recycling Rate",
+    content:
+      "The percentage of a material recovered and reused from end-of-life products, crucial for PGMs due to their scarcity.",
+  },
+  {
+    title: "Refining",
+    content:
+      "The final step in the mining process, where impurities are removed from the extracted metals to achieve high purity levels.",
+  },
+  {
+    title: "Secondary Recovery",
+    content:
+      "The extraction of PGMs from recycled materials as opposed to primary mining from the earth.",
+  },
+  {
+    title: "Shredding",
+    content:
+      "The initial step in recycling, where materials are broken down into smaller pieces to facilitate sorting and processing.",
+  },
+  {
+    title: "Smelting",
+    content:
+      "A process that heats ores to extract metals, often used in the production of PGMs.",
+  },
+  {
+    title: "Stoping",
+    content:
+      "A mining technique used to extract ore from underground deposits by cutting chambers or voids within the rock.",
+  },
+  {
+    title: "Sustainability Standards",
+    content:
+      "Industry benchmarks for minimizing environmental and social impacts of mining operations.",
+  },
+  {
+    title: "Tailings",
+    content:
+      "Residual material left after ore extraction, often requiring careful management to prevent environmental damage.",
+  },
+  {
+    title: "Thrifting",
+    content: "Using less metal in order to reduce costs.",
+  },
+  {
+    title: "Urban Mining",
+    content:
+      "The practice of recovering valuable metals like PGMs from urban waste streams, such as scrap electronics or catalytic converters.",
+  },
+  {
+    title: "Zero Waste Mining",
+    content:
+      "A sustainable mining practice aiming to use all by-products and minimize waste.",
+  },
 ];
 
 export default data;
