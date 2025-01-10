@@ -53,6 +53,7 @@ const Navbar = () => {
             { name: "Community", path: "/community" },
             { name: "Videos", path: "/videos" },
             { name: "Data", path: "/data" },
+            { name: "Calendar", path: "/calendar" },
             { name: "PGM 101", path: "/P101" },
           ].map((link, index) => (
             <div key={index} className="relative group">
@@ -130,6 +131,7 @@ const Navbar = () => {
           { name: "Community", path: "/community" },
           { name: "Videos", path: "/videos" },
           { name: "Data", path: "/data" },
+          { name: "Calendar", path: "/calendar" },
           { name: "PGM 101", path: "/P101" },
         ].map((link, index) => (
           <button
