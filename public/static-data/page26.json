@@ -1,0 +1,64 @@
+{
+    "ruthenium_demand": {
+      "title": "Global industrial demand for ruthenium",
+      "units": "thousand ounces",
+      "categories": {
+        "chemical": {
+          "2022": 393,
+          "2023": 427,
+          "2024": 508
+        },
+        "electrical": {
+          "2022": 369,
+          "2023": 309,
+          "2024": 323
+        },
+        "electrochemical": {
+          "2022": 131,
+          "2023": 133,
+          "2024": 132
+        },
+        "other": {
+          "2022": 134,
+          "2023": 139,
+          "2024": 142
+        }
+      },
+      "total_demand": {
+        "2022": 1027,
+        "2023": 1008,
+        "2024": 1105
+      }
+    },
+    "iridium_demand": {
+      "title": "Global industrial demand for iridium",
+      "units": "thousand ounces",
+      "categories": {
+        "chemical": {
+          "2022": 25,
+          "2023": 27,
+          "2024": 32
+        },
+        "electrical": {
+          "2022": 35,
+          "2023": 33,
+          "2024": 38
+        },
+        "electrochemical": {
+          "2022": 92,
+          "2023": 104,
+          "2024": 108
+        },
+        "other": {
+          "2022": 60,
+          "2023": 60,
+          "2024": 59
+        }
+      },
+      "total_demand": {
+        "2022": 212,
+        "2023": 224,
+        "2024": 237
+      }
+    }
+}

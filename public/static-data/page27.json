@@ -1,0 +1,39 @@
+{
+    "palladium_demand": {
+      "title": "Global industrial demand for palladium",
+      "units": "thousand ounces",
+      "categories": {
+        "chemical": {
+          "2022": 599,
+          "2023": 543,
+          "2024": 535
+        },
+        "dental_and_biomedical": {
+          "2022": 190,
+          "2023": 193,
+          "2024": 193
+        },
+        "electrical": {
+          "2022": 544,
+          "2023": 511,
+          "2024": 524
+        },
+        "pollution_control": {
+          "2022": 120,
+          "2023": 135,
+          "2024": 132
+        },
+        "other": {
+          "2022": 83,
+          "2023": 97,
+          "2024": 88
+        }
+      },
+      "total_demand": {
+        "2022": 1536,
+        "2023": 1479,
+        "2024": 1472
+      }
+    }
+  }
+  

@@ -1,0 +1,148 @@
+{
+    "market_data": {
+      "units": "thousand ounces",
+      "supply": {
+        "primary_supply": {
+          "2019": {
+            "South_Africa": 606,
+            "Russia": 68,
+            "North_America": 24,
+            "Zimbabwe": 40,
+            "Others": 7,
+            "total_primary": 745
+          },
+          "2020": {
+            "South_Africa": 483,
+            "Russia": 58,
+            "North_America": 22,
+            "Zimbabwe": 43,
+            "Others": 6,
+            "total_primary": 612
+          },
+          "2021": {
+            "South_Africa": 645,
+            "Russia": 53,
+            "North_America": 17,
+            "Zimbabwe": 42,
+            "Others": 6,
+            "total_primary": 763
+          },
+          "2022": {
+            "South_Africa": 570,
+            "Russia": 54,
+            "North_America": 20,
+            "Zimbabwe": 43,
+            "Others": 6,
+            "total_primary": 693
+          },
+          "2023": {
+            "South_Africa": 559,
+            "Russia": 70,
+            "North_America": 20,
+            "Zimbabwe": 46,
+            "Others": 6,
+            "total_primary": 701
+          },
+          "2024": {
+            "South_Africa": 574,
+            "Russia": 59,
+            "North_America": 21,
+            "Zimbabwe": 44,
+            "Others": 6,
+            "total_primary": 704
+          }
+        },
+        "secondary_supply": {
+          "2019": {
+            "automotive": 356,
+            "total_secondary": 356
+          },
+          "2020": {
+            "automotive": 338,
+            "total_secondary": 338
+          },
+          "2021": {
+            "automotive": 361,
+            "total_secondary": 361
+          },
+          "2022": {
+            "automotive": 334,
+            "total_secondary": 334
+          },
+          "2023": {
+            "automotive": 285,
+            "total_secondary": 285
+          },
+          "2024": {
+            "automotive": 295,
+            "total_secondary": 295
+          }
+        },
+        "combined_supply": {
+          "2019": 1101,
+          "2020": 950,
+          "2021": 1124,
+          "2022": 1027,
+          "2023": 986,
+          "2024": 999
+        }
+      },
+      "demand": {
+        "2019": {
+          "automotive": 1031,
+          "chemical": 56,
+          "electrical_and_electronics": 6,
+          "glass": 52,
+          "other": 22,
+          "total_demand": 1167,
+          "movement_in_stocks": -66
+        },
+        "2020": {
+          "automotive": 961,
+          "chemical": 55,
+          "electrical_and_electronics": 7,
+          "glass": 10,
+          "other": 6,
+          "total_demand": 1039,
+          "movement_in_stocks": -89
+        },
+        "2021": {
+          "automotive": 956,
+          "chemical": 57,
+          "electrical_and_electronics": 7,
+          "glass": -7,
+          "other": 12,
+          "total_demand": 1025,
+          "movement_in_stocks": 99
+        },
+        "2022": {
+          "automotive": 946,
+          "chemical": 67,
+          "electrical_and_electronics": 5,
+          "glass": -24,
+          "other": 16,
+          "total_demand": 1010,
+          "movement_in_stocks": 17
+        },
+        "2023": {
+          "automotive": 989,
+          "chemical": 81,
+          "electrical_and_electronics": 6,
+          "glass": 18,
+          "other": 17,
+          "total_demand": 1111,
+          "movement_in_stocks": -125
+        },
+        "2024": {
+          "automotive": 931,
+          "chemical": 92,
+          "electrical_and_electronics": 6,
+          "glass": 18,
+          "other": 17,
+          "total_demand": 1064,
+          "movement_in_stocks": -65
+        }
+      }
+    }
+  }
+  

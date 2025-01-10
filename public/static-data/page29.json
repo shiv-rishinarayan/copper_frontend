@@ -1,0 +1,194 @@
+{
+    "platinum_market_data": {
+      "units": "thousand troy ounces",
+      "years": {
+        "2019": {
+          "primary_supply": {
+            "South_Africa": 4344,
+            "Russia": 721,
+            "North_America": 367,
+            "Zimbabwe": 451,
+            "Others": 154,
+            "total_primary": 6037
+          },
+          "secondary_supply": {
+            "automotive": 1389,
+            "electrical_and_electronics": 40,
+            "jewellery": 663,
+            "total_secondary": 2092,
+            "total_combined_supply": 8129
+          },
+          "demand": {
+            "automotive": 2589,
+            "chemical": 662,
+            "dental_and_biomedical": 254,
+            "electrical_and_electronics": 216,
+            "glass": 490,
+            "investment": 1131,
+            "jewellery": 2073,
+            "petroleum": 262,
+            "pollution_control": 190,
+            "other": 542,
+            "total_demand": 8409,
+            "movement_in_stocks": -280
+          }
+        },
+        "2020": {
+          "primary_supply": {
+            "South_Africa": 3243,
+            "Russia": 699,
+            "North_America": 334,
+            "Zimbabwe": 482,
+            "Others": 205,
+            "total_primary": 4963
+          },
+          "secondary_supply": {
+            "automotive": 1157,
+            "electrical_and_electronics": 37,
+            "jewellery": 506,
+            "total_secondary": 1700,
+            "total_combined_supply": 6663
+          },
+          "demand": {
+            "automotive": 2024,
+            "chemical": 614,
+            "dental_and_biomedical": 218,
+            "electrical_and_electronics": 227,
+            "glass": 560,
+            "investment": 1022,
+            "jewellery": 1657,
+            "petroleum": 285,
+            "pollution_control": 181,
+            "other": 417,
+            "total_demand": 7205,
+            "movement_in_stocks": -542
+          }
+        },
+        "2021": {
+          "primary_supply": {
+            "South_Africa": 4609,
+            "Russia": 638,
+            "North_America": 279,
+            "Zimbabwe": 465,
+            "Others": 222,
+            "total_primary": 6213
+          },
+          "secondary_supply": {
+            "automotive": 1236,
+            "electrical_and_electronics": 43,
+            "jewellery": 367,
+            "total_secondary": 1646,
+            "total_combined_supply": 7859
+          },
+          "demand": {
+            "automotive": 2410,
+            "chemical": 670,
+            "dental_and_biomedical": 224,
+            "electrical_and_electronics": 263,
+            "glass": 836,
+            "investment": -28,
+            "jewellery": 1468,
+            "petroleum": 223,
+            "pollution_control": 214,
+            "other": 444,
+            "total_demand": 6724,
+            "movement_in_stocks": 1135
+          }
+        },
+        "2022": {
+          "primary_supply": {
+            "South_Africa": 3965,
+            "Russia": 450,
+            "North_America": 280,
+            "Zimbabwe": 488,
+            "Others": 203,
+            "total_primary": 5386
+          },
+          "secondary_supply": {
+            "automotive": 1205,
+            "electrical_and_electronics": 39,
+            "jewellery": 273,
+            "total_secondary": 1517,
+            "total_combined_supply": 6903
+          },
+          "demand": {
+            "automotive": 2747,
+            "chemical": 695,
+            "dental_and_biomedical": 251,
+            "electrical_and_electronics": 247,
+            "glass": 708,
+            "investment": -565,
+            "jewellery": 1391,
+            "petroleum": 240,
+            "pollution_control": 234,
+            "other": 483,
+            "total_demand": 6431,
+            "movement_in_stocks": 472
+          }
+        },
+        "2023": {
+          "primary_supply": {
+            "South_Africa": 4001,
+            "Russia": 780,
+            "North_America": 288,
+            "Zimbabwe": 515,
+            "Others": 207,
+            "total_primary": 5791
+          },
+          "secondary_supply": {
+            "automotive": 1036,
+            "electrical_and_electronics": 37,
+            "jewellery": 227,
+            "total_secondary": 1300,
+            "total_combined_supply": 7091
+          },
+          "demand": {
+            "automotive": 3342,
+            "chemical": 647,
+            "dental_and_biomedical": 264,
+            "electrical_and_electronics": 195,
+            "glass": 776,
+            "investment": 46,
+            "jewellery": 1361,
+            "petroleum": 174,
+            "pollution_control": 275,
+            "other": 529,
+            "total_demand": 7609,
+            "movement_in_stocks": -518
+          }
+        },
+        "2024": {
+          "primary_supply": {
+            "South_Africa": 3979,
+            "Russia": 660,
+            "North_America": 303,
+            "Zimbabwe": 530,
+            "Others": 209,
+            "total_primary": 5681
+          },
+          "secondary_supply": {
+            "automotive": 1071,
+            "electrical_and_electronics": 41,
+            "jewellery": 223,
+            "total_secondary": 1335,
+            "total_combined_supply": 7016
+          },
+          "demand": {
+            "automotive": 3299,
+            "chemical": 643,
+            "dental_and_biomedical": 273,
+            "electrical_and_electronics": 221,
+            "glass": 721,
+            "investment": 120,
+            "jewellery": 1343,
+            "petroleum": 180,
+            "pollution_control": 279,
+            "other": 535,
+            "total_demand": 7614,
+            "movement_in_stocks": -598
+          }
+        }
+      }
+    }
+  }
+  

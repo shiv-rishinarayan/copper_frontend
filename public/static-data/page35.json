@@ -1,0 +1,125 @@
+{
+  "primary_supply": {
+    "year": 2019,
+    "supplies": {
+      "South Africa": 2571,
+      "Russia": 2987,
+      "North America": 1042,
+      "Zimbabwe": 379,
+      "Others": 140
+    },
+    "total": 7119
+  },
+  "secondary_supply": {
+    "year": 2019,
+    "supplies": {
+      "Automotive": 2916,
+      "Electrical & electronics": 477,
+      "Jewellery": 12
+    },
+    "total": 3405
+  },
+  "combined_supply": 10524,
+  "demand": {
+    "year": 2019,
+    "supplies": {
+      "Automotive": 9675,
+      "Chemical": null,
+      "Dental & biomedical": null,
+      "Electrical & electronics": null,
+      "Investment": null,
+      "Jewellery": null,
+      "Pollution control": null,
+      "Other": null
+    },
+    "total": null
+  },
+  "movement_in_stocks": {
+    "2020": {
+      "Automotive": 1975,
+      "Chemical": 2636,
+      "Dental & biomedical": 990,
+      "Electrical & electronics": 410,
+      "Investment": 185,
+      "Jewellery": 6196
+    },
+    "2021": {
+      "Automotive": 2645,
+      "Chemical": 2689,
+      "Dental & biomedical": 908,
+      "Electrical & electronics": 392,
+      "Investment": 212,
+      "Jewellery": 6846
+    },
+    "2022": {
+      "Automotive": 2276,
+      "Chemical": 2305,
+      "Dental & biomedical": 2700,
+      "Electrical & electronics": 832,
+      "Investment": 409,
+      "Jewellery": 6026
+    },
+    "2023": {
+      "Automotive": 2347,
+      "Chemical": 2300,
+      "Dental & biomedical": 2600,
+      "Electrical & electronics": 863,
+      "Investment": 427,
+      "Jewellery": 6547
+    },
+    "2024": {
+      "Automotive": 2300,
+      "Chemical": 2700,
+      "Dental & biomedical": 2600,
+      "Electrical & electronics": 901,
+      "Investment": 432,
+      "Jewellery": 6454
+    }
+  },
+  "future_demand": {
+    "2022": {
+      "Automotive": 2728,
+      "Chemical": 455,
+      "Dental & biomedical": 10,
+      "Electrical & electronics": 3193,
+      "Investment": 9219
+    },
+    "2023": {
+      "Automotive": 2334,
+      "Chemical": 463,
+      "Dental & biomedical": 10,
+      "Electrical & electronics": 2807,
+      "Investment": 9354
+    },
+    "2024": {
+      "Automotive": 2450,
+      "Chemical": 460,
+      "Dental & biomedical": 9,
+      "Electrical & electronics": 2919,
+      "Investment": 9373
+    }
+  },
+  "stock_changes": {
+    "2022": {
+      "Automotive": 8460,
+      "Chemical": 599,
+      "Dental & biomedical": 190,
+      "Electrical & electronics": 544,
+      "Investment": -109
+    },
+    "2023": {
+      "Automotive": 8745,
+      "Chemical": 543,
+      "Dental & biomedical": 193,
+      "Electrical & electronics": 511,
+      "Investment": 61
+    },
+    "2024": {
+      "Automotive": 8145,
+      "Chemical": 535,
+      "Dental & biomedical": 185,
+      "Electrical & electronics": 524,
+      "Investment": 29
+    }
+  }
+}
