@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
+import { FaPlay } from "react-icons/fa";
+import Loader from "../Loader";
 
 const VideoList = ({ category }) => {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentVideoUrl, setCurrentVideoUrl] = useState(null);
+  const modalRef = useRef(null);
 
   const BASEURL = process.env.NEXT_PUBLIC_API_BASEURL;
 
@@ -12,7 +17,6 @@ const VideoList = ({ category }) => {
     const fetchVideos = async () => {
       try {
         setLoading(true);
-        // Replace with your actual API endpoint
         const response = await axios.get(`${BASEURL}/api/videos`);
         const filteredVideos =
           category === "All"
@@ -29,46 +33,133 @@ const VideoList = ({ category }) => {
     };
 
     fetchVideos();
-  }, [category]);
+  }, [category, BASEURL]);
 
-  if (loading) return <div>Loading...</div>;
+  const getEmbedUrl = (url) => {
+    const videoId = getYouTubeId(url);
+    return `https://www.youtube.com/embed/${videoId}`;
+  };
+
+  const getThumbnailUrl = (url) => {
+    const videoId = getYouTubeId(url);
+    return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+  };
+
+  const openModal = (videoUrl) => {
+    setCurrentVideoUrl(videoUrl);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setCurrentVideoUrl(null);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        closeModal();
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  if (loading)
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {videos.map((video) => (
-        <div
-          key={video.id}
-          className="bg-white rounded-lg shadow-md overflow-hidden"
-        >
-          <div className="aspect-w-16 aspect-h-9">
-            <iframe
-              src={`https://www.youtube.com/embed/${getYouTubeId(
-                video.video_link
-              )}`}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full"
-            ></iframe>
-          </div>
-          <div className="p-4">
-            <h3 className="font-bold text-lg mb-2">{video.title}</h3>
-            <p className="text-sm text-gray-600 mb-2">{video.channel_name}</p>
-            <p className="text-sm text-gray-500">{formatDate(video.date)}</p>
+    <div className="bg-gray- rounded-md mb-7">
+      <h2 className="frank text-[1rem] md:text-[1.25rem] lg:mb-6 font-semibold inter tracking-tight text-black1/90">
+        {category} Videos
+      </h2>
+
+      <div className="mt-7 flex justify-between flex-wrap gap-x-10 gap-y-8">
+        {videos.map((video) => (
+          <div
+            key={video.id}
+            className="w-[250px] cursor-pointer"
+            onClick={() => openModal(video.video_link)}
+          >
+            <div
+              className="w-full h-[133px] mb-3 bg-cover bg-center rounded-lg"
+              style={{
+                backgroundImage: `url(${getThumbnailUrl(video.video_link)})`,
+              }}
+            >
+              <div className="flex items-center justify-center w-full h-full bg-black1 bg-opacity-30 rounded-lg">
+                <span className="text-white text-xl">
+                  <FaPlay />
+                </span>
+              </div>
+            </div>
+            <div className="flex gap-x-2 items-center -mt-1">
+              <p className="text-[12px] text-date">
+                {video.channel_name || "Unknown Channel"}
+              </p>
+              <span className="mt-[-6px] text-date"> | </span>
+              <p className="text-[12px] text-date">
+                {formatDate(video.date) || "Unknown Date"}
+              </p>
+            </div>
+            <h1 className="mt-[3px] text-[15px] leading-[24px] font-medium text-black1/90">
+              {video.title || "No Title Available"}
+            </h1>
             {video.company_name !== "NA" && (
-              <p className="text-sm text-gray-600">
+              <p className="text-[12px] text-date mt-1">
                 Company: {video.company_name}
               </p>
             )}
             {video.stock_ticker !== "NA" && (
-              <p className="text-sm text-gray-600">
+              <p className="text-[12px] text-date">
                 Stock Ticker: {video.stock_ticker}
               </p>
             )}
           </div>
+        ))}
+      </div>
+
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black1 bg-opacity-70 z-50">
+          <div
+            ref={modalRef}
+            className="relative w-[70vw] h-[70vh] bg-white p-1 rounded-lg"
+          >
+            <iframe
+              width="100%"
+              height="100%"
+              src={getEmbedUrl(currentVideoUrl)}
+              title="Video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-3 text-white text-sm font-bold"
+            >
+              ✕
+            </button>
+            <button
+              onClick={() =>
+                document.fullscreenElement
+                  ? document.exitFullscreen()
+                  : modalRef.current.requestFullscreen()
+              }
+              className="absolute top-2 left-2 text-black text-xl font-bold"
+            >
+              ⛶
+            </button>
+          </div>
         </div>
-      ))}
+      )}
     </div>
   );
 };

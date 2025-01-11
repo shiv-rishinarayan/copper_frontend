@@ -74,7 +74,7 @@ const Videos = () => {
       <VideoHero />
       <div>
         <TabsSection />
-        <div className="mt-6 px-3 md:px-12 py-5 md:py-5">
+        <div className="mt-6 px-3 md:px-12 mx-auto py-5 md:py-5">
           <VideoList category={getCategoryFromTab(currentTab)} />
         </div>
       </div>
