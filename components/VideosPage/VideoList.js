@@ -77,11 +77,11 @@ const VideoList = ({ category }) => {
 
   return (
     <div className="bg-gray- rounded-md mb-7">
-      <h2 className="frank text-[1rem] md:text-[1.25rem] lg:mb-6 font-semibold inter tracking-tight text-black1/90">
+      <h2 className="frank text-[1rem] md:text-[1.25rem] lg:mb-6 ml-2 font-semibold inter tracking-tight text-black1/90">
         {category} Videos
       </h2>
 
-      <div className="mt-7 flex justify-between flex-wrap gap-x-10 gap-y-8">
+      <div className="mt-7 flex justify-center flex-wrap gap-x-11 gap-y-8">
         {videos.map((video) => (
           <div
             key={video.id}
@@ -127,7 +127,7 @@ const VideoList = ({ category }) => {
       </div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black1 bg-opacity-70 z-50">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
           <div
             ref={modalRef}
             className="relative w-[70vw] h-[70vh] bg-white p-1 rounded-lg"
@@ -153,7 +153,7 @@ const VideoList = ({ category }) => {
                   ? document.exitFullscreen()
                   : modalRef.current.requestFullscreen()
               }
-              className="absolute top-2 left-2 text-black text-xl font-bold"
+              className="absolute top-2 left-2 text-white text-xl font-bold"
             >
               ⛶
             </button>
