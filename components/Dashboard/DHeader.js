@@ -25,8 +25,8 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
     router.push("/dashboard");
   };
 
-  const userName = userData?.username || userData?.name || "User";
-  const initials = getInitials(userName);
+  const name = userData?.name || "User";
+  const initials = getInitials(name);
 
   return (
     <header className="bg-white shadow-sm flex-shrink-0">
