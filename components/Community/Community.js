@@ -1428,10 +1428,20 @@ const Community = () => {
 
       if (!window.confirm("Are you sure you want to delete this post?")) return;
 
-      const loadingToast = toast.loading("Deleting post..."); // Added loading toast
+      const loadingToast = toast.loading("Deleting post...");
 
       try {
-        await axiosInstance.delete(`community/api/forum/posts/${postId}/`);
+        const config = {
+          headers: {
+            Authorization: `Bearer ${userData.access_token}`,
+          },
+          withCredentials: true, // Optional, include if required by the API
+        };
+
+        await axiosInstance.delete(
+          `community/api/forum/posts/${postId}/`,
+          config
+        );
 
         const filterPost = (posts) =>
           posts.filter((post) => post.id !== postId);
@@ -1451,8 +1461,6 @@ const Community = () => {
       }
     },
   };
-
-  // Rest of the component remains the same...
 
   const filterPosts = (query) => {
     const cleanedQuery = query.toLowerCase().trim();
