@@ -1,0 +1,47 @@
+export const data = {
+  industrial_demand: {
+    units: "thousand ounces",
+    categories: {
+      chemical: {
+        2022: 695,
+        2023: 647,
+        2024: 643,
+      },
+      dental_and_biomedical: {
+        2022: 251,
+        2023: 264,
+        2024: 273,
+      },
+      electrical: {
+        2022: 247,
+        2023: 195,
+        2024: 221,
+      },
+      glass: {
+        2022: 708,
+        2023: 776,
+        2024: 721,
+      },
+      petroleum: {
+        2022: 240,
+        2023: 174,
+        2024: 180,
+      },
+      pollution_control: {
+        2022: 234,
+        2023: 275,
+        2024: 279,
+      },
+      other: {
+        2022: 483,
+        2023: 529,
+        2024: 535,
+      },
+    },
+    total_demand: {
+      2022: 2858,
+      2023: 2860,
+      2024: 2852,
+    },
+  },
+};
