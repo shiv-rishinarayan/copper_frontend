@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-
+import { tables } from "../../public/static-data/DemandDatabaseTable";
 const DDemandDatabase = () => {
   const router = useRouter();
 
@@ -127,7 +127,6 @@ const DDemandDatabase = () => {
   const handleNavigation = (path) => {
     router.push(path);
   };
-
   return (
     <div className="px-3 md:px-12 py-5 md:py-5">
       <div className="mb-9 md:mb-16">
@@ -142,7 +141,7 @@ const DDemandDatabase = () => {
         </p>
       </div>
 
-      {/* Content */}
+      {/* Charts Section */}
       <div className="mt-1 md:mt-5">
         <div className="w-full rounded-md">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-14">
@@ -176,8 +175,61 @@ const DDemandDatabase = () => {
           </div>
         </div>
       </div>
+
+      {/* Tables Section */}
+      <div className="mt-16">
+        <h2 className="cambay text-xl sm:text-2xl font-semibold mb-5">
+          Industrial Demand Data Tables
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-14">
+          {tables.map((table) => (
+            <div
+              key={table.id}
+              onClick={() => handleNavigation(table.path)}
+              className="block cursor-pointer"
+            >
+              <div className="w-full bg-white rounded-lg shadow-sm p-4 h-[295px] flex flex-col">
+                <h3 className="font-medium text-black/90 text-lg mb-3">
+                  {table.title}
+                </h3>
+                <div className="overflow-hidden flex-grow">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr>
+                        {table.data[0].map((header, index) => (
+                          <th
+                            key={index}
+                            className="text-left p-2 border-b font-medium text-black/70"
+                          >
+                            {header}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {table.data.slice(1, 6).map((row, rowIndex) => (
+                        <tr key={rowIndex}>
+                          {row.map((cell, cellIndex) => (
+                            <td
+                              key={cellIndex}
+                              className={`p-2 border-b text-black/80 ${
+                                cellIndex === 0 ? "font-medium" : ""
+                              }`}
+                            >
+                              {cell}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
-
 export default DDemandDatabase;
