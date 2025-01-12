@@ -11,7 +11,7 @@ const PlatinumCategoriesSidebar = ({ onCategoryClick }) => {
     { name: "Latest News", hashtag: "#latestnews", icon: <FaRegNewspaper /> },
     {
       name: "Platinum Price",
-      hashtag: "#platinumuraniumprice",
+      hashtag: "#platinumprice",
       icon: <FaDollarSign />,
     },
     {
