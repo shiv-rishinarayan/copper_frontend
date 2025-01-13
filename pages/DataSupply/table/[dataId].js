@@ -6,14 +6,14 @@ import { tables } from "../../../public/static-data/Table Data/SupplyDatabaseTab
 
 const TableSubpage = () => {
   const router = useRouter();
-  const { tableId } = router.query;
+  const { dataId } = router.query;
 
   // Find the table data by combining all tables from different categories
   const allTables = tables.reduce((acc, category) => {
     return [...acc, ...category.tables];
   }, []);
 
-  const table = allTables.find((item) => item.id === parseInt(tableId));
+  const table = allTables.find((item) => item.id === parseInt(dataId));
 
   if (!table) {
     return <p>Loading...</p>;
