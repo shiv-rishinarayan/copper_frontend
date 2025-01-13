@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import DataBreadcrumb from "@/components/Data/DataBreadcrumb";
 import React from "react";
 import Footer from "@/components/Footer";
-import { tables } from "../../public/static-data/Table Data/SupplyDatabaseTable";
+import { tables } from "../../../public/static-data/Table Data/SupplyDatabaseTable";
 
 const TableSubpage = () => {
   const router = useRouter();
