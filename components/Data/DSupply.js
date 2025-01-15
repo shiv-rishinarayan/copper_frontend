@@ -251,9 +251,9 @@ const DSupply = () => {
                 <div
                   key={table.id}
                   onClick={() => handleNavigation(table.path)}
-                  className="block cursor-pointer transition-shadow duration-200"
+                  className="block cursor-pointer duration-200"
                 >
-                  <div className="w-full bg-white rounded-lg shadow-sm p-4 h-[190px] flex flex-col">
+                  <div className="w-full bg-white rounded-lg p-4 h-[190px] flex flex-col">
                     <div className="overflow-hidden flex-grow">
                       <table className="w-full text-sm">
                         <thead>
@@ -286,9 +286,7 @@ const DSupply = () => {
                         </tbody>
                       </table>
                     </div>
-                    {/* Additional Style: Indicate more rows available */}
                     <div className="text-sm text-black/60 mt-3 text-center">
-                      {/* Added this block */}
                       ......
                     </div>
                   </div>
@@ -298,6 +296,73 @@ const DSupply = () => {
           </div>
         ))}
       </div>
+
+      {/* .....new design...... */}
+      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-14 mt-10">
+        {tables.map((category, categoryIndex) => (
+          <div key={categoryIndex}>
+            <h2 className="font-medium text-accent text-xs md:text-base mb-3 ml-6">
+              {category.category}
+            </h2>
+            <div className="grid grid-cols-1 gap-6">
+              {category.tables.map((table) => (
+                <div
+                  key={table.id}
+                  onClick={() => handleNavigation(table.path)}
+                  className="block cursor-pointer duration-200"
+                >
+                  <div className="w-full bg-white rounded-lg p-2 md:p-6 h-[190px] flex flex-col">
+                    <div className="overflow-hidden flex-grow">
+                      <table className="w-full table-fixed">
+                        <thead className="bg-gray-50">
+                          <tr>
+                            {table.data[0].map((header, index) => (
+                              <th
+                                key={index}
+                                className={`p-1 md:p-3 border-b-2 font-semibold text-accent text-xs md:text-base ${
+                                  index === 0
+                                    ? "text-left w-1/3"
+                                    : "text-right w-1/6"
+                                }`}
+                              >
+                                {header}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {table.data.slice(1, 3).map((row, rowIndex) => (
+                            <tr
+                              key={rowIndex}
+                              className="hover:bg-gray-50 transition-colors duration-150"
+                            >
+                              {row.map((cell, cellIndex) => (
+                                <td
+                                  key={cellIndex}
+                                  className={`p-1 md:p-3 border-b text-xs md:text-base ${
+                                    cellIndex === 0
+                                      ? "font-medium break-words w-1/3"
+                                      : "text-right w-1/6"
+                                  }`}
+                                >
+                                  {cell}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                    <div className="text-xs md:text-sm text-black/60 mt-3 text-center">
+                      ......
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div> */}
     </div>
   );
 };
