@@ -376,7 +376,7 @@ const TableSubpage = () => {
         </h1>
 
         {/* Table Container */}
-        <div className="w-full bg-white rounded-lg shadow-sm p-2 md:p-6">
+        <div className="w-full bg-white rounded-lg p-2 md:p-6">
           <div className="w-full">
             <table className="w-full table-fixed">
               {/* Header Row */}
@@ -436,7 +436,7 @@ const TableSubpage = () => {
           </h2>
 
           {/* Year-over-Year Changes */}
-          <div className="bg-white rounded-lg shadow-sm p-3 md:p-6">
+          <div className="bg-white rounded-lg p-3 md:p-6">
             <h3 className="text-sm text-accent md:text-lg font-medium mb-2 md:mb-4">
               Year-over-Year Changes
             </h3>
@@ -465,7 +465,7 @@ const TableSubpage = () => {
           </div>
 
           {/* Category Analysis */}
-          <div className="bg-white rounded-lg shadow-sm p-3 md:p-6">
+          <div className="bg-white rounded-lg p-3 md:p-6">
             <h3 className="text-sm text-accent md:text-lg font-medium mb-2 md:mb-4">
               Category Analysis
             </h3>
