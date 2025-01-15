@@ -58,9 +58,9 @@ const TableCanadaInsiderTransactions = ({
   const sortableColumns = ["price", "quantity", "amount", "owned"];
 
   return (
-    <div className="w-full mb-10 lg:mb-0" id="canada-table-section">
-      <div id="canada-compo" className="overflow-x-auto bg-white">
-        <table className="w-full canada-stocks-table min-w-[600px] mb-8">
+    <div className="w-full mb-10 lg:mb-0 " id="canada-table-section">
+      <div id="canada-compo" className="overflow-x-auto bg-white ">
+        <table className="w-full canada-stocks-table min-w-[600px] mb-8 custom-scrollbar-hidden">
           <thead className=" text-date/50 font-semibold border-b border-date/10">
             <tr>
               {[
