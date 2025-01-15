@@ -688,12 +688,14 @@ const DDemandDatabase = () => {
               <div
                 key={table.id}
                 onClick={() => handleNavigation(table.path)}
-                className="block cursor-pointer  transition-shadow duration-200"
+                className="block cursor-pointer transition-shadow duration-200"
               >
-                <div className="w-full bg-white rounded-lg shadow-sm p-4 h-[305px] flex flex-col">
-                  <h3 className="font-medium text-black/90 text-lg mb-3">
+                <div className="w-full bg-white rounded-lg shadow-sm p-4 h-[335px] flex flex-col">
+                  {/* Table Title */}
+                  <h3 className="font-medium text-black/90 text-lg mb-3 ml-2">
                     {table.title}
                   </h3>
+                  {/* Table Content */}
                   <div className="overflow-hidden flex-grow">
                     <table className="w-full text-sm">
                       <thead>
@@ -725,6 +727,11 @@ const DDemandDatabase = () => {
                         ))}
                       </tbody>
                     </table>
+                  </div>
+                  {/* Additional Style: Indicate more rows available */}
+                  <div className="text-sm text-black/60 mt-3 text-center">
+                    {/* Added this block */}
+                    ......
                   </div>
                 </div>
               </div>

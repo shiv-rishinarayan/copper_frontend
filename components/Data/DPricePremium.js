@@ -175,4 +175,4 @@ const DPricePremium = () => {
   );
 };
 
-export default DPricePremium;
+export default DPricePremium; 

@@ -243,7 +243,7 @@ const DSupply = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-14 mt-10">
         {tables.map((category, categoryIndex) => (
           <div key={categoryIndex}>
-            <h2 className="font-medium text-black/90 text-lg lg:text-xl mb-3">
+            <h2 className="font-medium text-black/90 text-lg mb-3 ml-6">
               {category.category}
             </h2>
             <div className="grid grid-cols-1 gap-6">
@@ -253,7 +253,7 @@ const DSupply = () => {
                   onClick={() => handleNavigation(table.path)}
                   className="block cursor-pointer transition-shadow duration-200"
                 >
-                  <div className="w-full bg-white rounded-lg shadow-sm p-4 h-[320px] flex flex-col">
+                  <div className="w-full bg-white rounded-lg shadow-sm p-4 h-[190px] flex flex-col">
                     <div className="overflow-hidden flex-grow">
                       <table className="w-full text-sm">
                         <thead>
@@ -269,7 +269,7 @@ const DSupply = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          {table.data.slice(1, 7).map((row, rowIndex) => (
+                          {table.data.slice(1, 3).map((row, rowIndex) => (
                             <tr key={rowIndex}>
                               {row.map((cell, cellIndex) => (
                                 <td
@@ -285,6 +285,11 @@ const DSupply = () => {
                           ))}
                         </tbody>
                       </table>
+                    </div>
+                    {/* Additional Style: Indicate more rows available */}
+                    <div className="text-sm text-black/60 mt-3 text-center">
+                      {/* Added this block */}
+                      ......
                     </div>
                   </div>
                 </div>
