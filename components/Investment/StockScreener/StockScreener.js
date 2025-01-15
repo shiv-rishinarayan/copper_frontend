@@ -477,7 +477,7 @@ const StockScreener = () => {
 
   if (error) {
     return (
-      <div className="text-black1">Error fetching data: {error.message}</div>
+      <div className="text-black1">Error Fetching Data: {error.message}</div>
     );
   }
 
