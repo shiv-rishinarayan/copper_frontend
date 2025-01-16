@@ -46,7 +46,7 @@ const TabsSection = () => {
               onClick={() => handleTabClick(index, tab.query)}
               className={`cursor-pointer font-medium text-[12.5px] sm:text-sm px-2.5 sm:px-4 py-1 sm:py-2 rounded-full mb-2 md:mb-0 ${
                 activeTab === index
-                  ? "text-white bg-accent"
+                  ? "text-white bg-accent hover:bg-accent/90"
                   : "text-gray-700 hover:text-gray-900"
               }`}
             >
