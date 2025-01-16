@@ -126,7 +126,66 @@ const DSupply = () => {
         Primary and the Secondary Supply :
       </h1>
       {/* Tables Section */}
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-14 mt-10">
+        {tables.map((category, categoryIndex) => (
+          <div key={categoryIndex}>
+            <h2 className="font-medium text-black/90 text-lg mb-3 ml-4 lg:text-xl">
+              {category.category}
+            </h2>
+            <div className="grid grid-cols-1 gap-6">
+              {category.tables.map((table) => (
+                <div
+                  key={table.id}
+                  onClick={() => handleNavigation(table.path)}
+                  className="block cursor-pointer duration-200"
+                >
+                  <div className="w-full bg-white rounded-lg p-4 flex flex-col">
+                    <div className="w-full">
+                      <table className="w-full text-xs sm:text-sm border border-gray-200">
+                        <thead>
+                          <tr className="bg-gray-50">
+                            {table.data[0].map((header, index) => (
+                              <th
+                                key={index}
+                                className="text-left p-1 sm:p-2 text-accent border-b border-r border-gray-200 font-medium whitespace-normal"
+                              >
+                                {header}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {table.data.slice(1, 2).map((row, rowIndex) => (
+                            <tr key={rowIndex} className="hover:bg-gray-50">
+                              {row.map((cell, cellIndex) => (
+                                <td
+                                  key={cellIndex}
+                                  className={`p-1 sm:p-2 border-b border-r border-gray-200 text-black/80 whitespace-normal ${
+                                    cellIndex === 0 ? "font-medium" : ""
+                                  }`}
+                                >
+                                  {cell}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                    <div className="text-sm text-black/60 mt-3 text-center">
+                      ......
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* ...................... */}
+      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-14 mt-10">
         {tables.map((category, categoryIndex) => (
           <div key={categoryIndex}>
             <h2 className="font-medium text-black/90 text-lg mb-3 ml-4 lg:text-xl">
@@ -156,7 +215,6 @@ const DSupply = () => {
                             </tr>
                           </thead>
                           <tbody>
-                            {/* Displaying only 2 rows including the header */}
                             {table.data.slice(1, 2).map((row, rowIndex) => (
                               <tr key={rowIndex} className="hover:bg-gray-50">
                                 {row.map((cell, cellIndex) => (
@@ -184,7 +242,7 @@ const DSupply = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
