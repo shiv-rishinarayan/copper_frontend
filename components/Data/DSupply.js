@@ -130,7 +130,7 @@ const DSupply = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-14 mt-10">
         {tables.map((category, categoryIndex) => (
           <div key={categoryIndex}>
-            <h2 className="font-medium text-black/90 text-lg mb-3 ml-4 lg:text-xl">
+            <h2 className="font-medium text-black/90 text-sm mb-2 ml-2 lg:text-xl">
               {category.category}
             </h2>
             <div className="grid grid-cols-1 gap-6">
@@ -140,15 +140,15 @@ const DSupply = () => {
                   onClick={() => handleNavigation(table.path)}
                   className="block cursor-pointer duration-200"
                 >
-                  <div className="w-full bg-white rounded-lg p-4 flex flex-col">
+                  <div className="w-full bg-white rounded-lg p-2 sm:p-4 flex flex-col">
                     <div className="w-full">
-                      <table className="w-full text-xs sm:text-sm border border-gray-200">
+                      <table className="w-full text-[10px] sm:text-sm border border-gray-200">
                         <thead>
                           <tr className="bg-gray-50">
                             {table.data[0].map((header, index) => (
                               <th
                                 key={index}
-                                className="text-left p-1 sm:p-2 text-accent border-b border-r border-gray-200 font-medium whitespace-normal"
+                                className="text-left p-0.5 sm:p-2 text-accent border-b border-r border-gray-200 font-medium break-words"
                               >
                                 {header}
                               </th>
@@ -161,7 +161,7 @@ const DSupply = () => {
                               {row.map((cell, cellIndex) => (
                                 <td
                                   key={cellIndex}
-                                  className={`p-1 sm:p-2 border-b border-r border-gray-200 text-black/80 whitespace-normal ${
+                                  className={`p-0.5 sm:p-2 border-b border-r border-gray-200 text-black/80 break-words ${
                                     cellIndex === 0 ? "font-medium" : ""
                                   }`}
                                 >
@@ -173,7 +173,7 @@ const DSupply = () => {
                         </tbody>
                       </table>
                     </div>
-                    <div className="text-sm text-black/60 mt-3 text-center">
+                    <div className="text-xs sm:text-sm text-black/60 mt-3 text-center">
                       ......
                     </div>
                   </div>

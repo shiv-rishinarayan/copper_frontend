@@ -210,18 +210,18 @@ const DDemandDatabase = () => {
                 onClick={() => handleNavigation(table.path)}
                 className="block cursor-pointer duration-200"
               >
-                <div className="w-full bg-white rounded-lg p-4 flex flex-col">
-                  <h3 className="font-medium text-black/90 text-lg mb-3 lg:text-xl">
+                <div className="w-full bg-white rounded-lg p-2 sm:p-4 flex flex-col">
+                  <h3 className="font-medium text-black/90 text-sm mb-2 lg:text-xl">
                     {table.title}
                   </h3>
                   <div className="w-full">
-                    <table className="w-full text-xs sm:text-sm border border-gray-200">
+                    <table className="w-full text-[10px] sm:text-sm border border-gray-200">
                       <thead>
                         <tr className="bg-gray-50">
                           {table.data[0].map((header, index) => (
                             <th
                               key={index}
-                              className="text-left p-1 sm:p-2 text-accent border-b border-r border-gray-200 font-medium"
+                              className="text-left p-0.5 sm:p-2 text-accent border-b border-r border-gray-200 font-medium break-words"
                             >
                               {header}
                             </th>
@@ -234,7 +234,7 @@ const DDemandDatabase = () => {
                             {row.map((cell, cellIndex) => (
                               <td
                                 key={cellIndex}
-                                className={`p-1 sm:p-2 border-b border-r border-gray-200 text-black/80 ${
+                                className={`p-0.5 sm:p-2 border-b border-r border-gray-200 text-black/80 break-words ${
                                   cellIndex === 0 ? "font-medium" : ""
                                 }`}
                               >
@@ -246,7 +246,7 @@ const DDemandDatabase = () => {
                       </tbody>
                     </table>
                   </div>
-                  <div className="text-sm text-black/60 mt-3 text-center">
+                  <div className="text-xs sm:text-sm text-black/60 mt-3 text-center">
                     ......
                   </div>
                 </div>
