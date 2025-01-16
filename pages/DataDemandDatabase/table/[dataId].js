@@ -362,15 +362,17 @@ const TableSubpage = () => {
         {/* Table Container */}
         <div className="w-full bg-white rounded-lg p-2 md:p-6">
           <div className="w-full">
-            <table className="w-full table-fixed">
+            <table className="w-full table-fixed border border-gray-200">
               {/* Header Row */}
               <thead className="bg-gray-50">
                 <tr>
                   {table.data[0].map((header, index) => (
                     <th
                       key={index}
-                      className={`p-1 md:p-3 border-b-2 font-semibold text-accent text-xs md:text-base ${
+                      className={`p-1 md:p-3 border-b-2 border-r border-gray-200 font-semibold text-accent text-xs md:text-base ${
                         index === 0 ? "text-left w-1/3" : "text-right w-1/6"
+                      } ${
+                        index === table.data[0].length - 1 ? "border-r-0" : ""
                       }`}
                     >
                       {header}
@@ -393,11 +395,11 @@ const TableSubpage = () => {
                     {row.map((cell, cellIndex) => (
                       <td
                         key={cellIndex}
-                        className={`p-1 md:p-3 border-b text-xs md:text-base ${
+                        className={`p-1 md:p-3 border-b border-r border-gray-200 text-xs md:text-base ${
                           cellIndex === 0
                             ? "font-medium break-words w-1/3"
                             : "text-right w-1/6"
-                        }`}
+                        } ${cellIndex === row.length - 1 ? "border-r-0" : ""}`}
                       >
                         {cell}
                       </td>
