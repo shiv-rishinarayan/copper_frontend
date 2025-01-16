@@ -5,7 +5,7 @@ const DailyNewsletterAd = () => {
   const router = useRouter();
 
   const handleSubscribe = () => {
-    router.push("/signup"); // Redirects to the signup page
+    router.push("/auth/signup"); // Redirects to the signup page
   };
 
   return (
