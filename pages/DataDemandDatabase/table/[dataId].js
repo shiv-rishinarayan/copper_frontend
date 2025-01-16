@@ -353,25 +353,26 @@ const TableSubpage = () => {
   }
 
   return (
-    <div>
+    <div className="mt-10">
       <DataBreadcrumb title={table.title} />
       <div className="px-2 py-4 md:px-20 mt-4 md:mt-14 mb-4 md:mb-10">
         <h1 className="text-xl md:text-2xl font-bold mb-4 md:mb-8 mt-8">
           {table.title}
         </h1>
-
         {/* Table Container */}
-        <div className="w-full bg-white rounded-lg shadow-sm p-2 md:p-6">
+        <div className="w-full bg-white rounded-lg p-2 md:p-6">
           <div className="w-full">
-            <table className="w-full table-fixed">
+            <table className="w-full table-fixed border border-gray-200">
               {/* Header Row */}
               <thead className="bg-gray-50">
                 <tr>
                   {table.data[0].map((header, index) => (
                     <th
                       key={index}
-                      className={`p-1 md:p-3 border-b-2 font-semibold text-accent text-xs md:text-base ${
+                      className={`p-1 md:p-3 border-b-2 border-r border-gray-200 font-semibold text-accent text-xs md:text-base ${
                         index === 0 ? "text-left w-1/3" : "text-right w-1/6"
+                      } ${
+                        index === table.data[0].length - 1 ? "border-r-0" : ""
                       }`}
                     >
                       {header}
@@ -394,11 +395,11 @@ const TableSubpage = () => {
                     {row.map((cell, cellIndex) => (
                       <td
                         key={cellIndex}
-                        className={`p-1 md:p-3 border-b text-xs md:text-base ${
+                        className={`p-1 md:p-3 border-b border-r border-gray-200 text-xs md:text-base ${
                           cellIndex === 0
                             ? "font-medium break-words w-1/3"
                             : "text-right w-1/6"
-                        }`}
+                        } ${cellIndex === row.length - 1 ? "border-r-0" : ""}`}
                       >
                         {cell}
                       </td>
@@ -417,7 +418,7 @@ const TableSubpage = () => {
           </h2>
 
           {/* Year-over-Year Changes */}
-          <div className="bg-white rounded-lg shadow-sm p-3 md:p-6">
+          <div className="bg-white rounded-lg  p-3 md:p-6">
             <h3 className="text-sm text-accent md:text-lg font-medium mb-2 md:mb-4">
               Year-over-Year Changes
             </h3>
@@ -446,7 +447,7 @@ const TableSubpage = () => {
           </div>
 
           {/* Category Analysis */}
-          <div className="bg-white rounded-lg shadow-sm p-3 md:p-6">
+          <div className="bg-white rounded-lg p-3 md:p-6">
             <h3 className="text-sm text-accent md:text-lg font-medium mb-2 md:mb-4">
               Category Analysis
             </h3>
