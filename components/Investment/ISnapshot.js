@@ -1,26 +1,10 @@
-// import React from "react";
-
-// const ISnapshot = () => {
-//   return (
-//     <div className="px-3 md:px-12 py-5 md:py-5">
-//       <h1 className="cambay text-[22px] sm:text-3xl  font-semibold">Snapshot</h1>
-
-//       {/* content  */}
-//       <div className="mt-1 md:mt-5">
-//         <div className="w-full rounded-md bg-secondary/15 h-[40vh]"></div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ISnapshot;
-
 "use client";
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import Loader from "@/components/Loader"; // Assuming your Loader component is in this path
+import Loader from "@/components/Loader";
+import axios from "axios";
 
 const logos = [
   { name: "New Age Metals Inc.", image: "/snapshotImgs/NAM-2.png" },
@@ -36,58 +20,28 @@ const logos = [
     name: "Generation Mining Ltd.",
     image: "/snapshotImgs/GenerationMining.png",
   },
-  {
-    name: "Eastern Platinum Ltd.",
-    image: "/snapshotImgs/EasternPlatinum.jpg",
-  },
+  { name: "Eastern Platinum Ltd.", image: "/snapshotImgs/EasternPlatinum.jpg" },
   {
     name: "Stillwater Critical Minerals Corp.",
     image: "/snapshotImgs/Stillwater.jpg",
   },
-  {
-    name: "ValOre Metals Corp.",
-    image: "/snapshotImgs/Valore.png",
-  },
-  {
-    name: "St-Georges Eco-Mining Corp.",
-    image: "/snapshotImgs/StGeorge.jpg",
-  },
-  {
-    name: "GT Resources Ltd.",
-    image: "/snapshotImgs/GT.png",
-  },
+  { name: "ValOre Metals Corp.", image: "/snapshotImgs/Valore.png" },
+  { name: "St-Georges Eco-Mining Corp.", image: "/snapshotImgs/StGeorge.jpg" },
+  { name: "GT Resources Ltd.", image: "/snapshotImgs/GT.png" },
   {
     name: "Platinum Group Metals Ltd.",
     image: "/snapshotImgs/PlatinumGroup.png",
   },
-  {
-    name: "Tanaka Chemical Corp.",
-    image: "/snapshotImgs/Tanaka.png",
-  },
-  {
-    name: "Umicore SA",
-    image: "/snapshotImgs/Umicore.png",
-  },
-  {
-    name: "Johnson Matthey Plc",
-    image: "/snapshotImgs/JohnsonMatthey.png",
-  },
+  { name: "Tanaka Chemical Corp.", image: "/snapshotImgs/Tanaka.png" },
+  { name: "Umicore SA", image: "/snapshotImgs/Umicore.png" },
+  { name: "Johnson Matthey Plc", image: "/snapshotImgs/JohnsonMatthey.png" },
   {
     name: "Sibanye Stillwater Ltd.",
     image: "/snapshotImgs/SibanyeStillwater.png",
   },
-  {
-    name: "Impala Platinum Holdings Ltd.",
-    image: "/snapshotImgs/Implats.png",
-  },
-  {
-    name: "Prospector Metals Corp.",
-    image: "/snapshotImgs/Prospector.png",
-  },
-  {
-    name: "Clean Air Metals Inc.",
-    image: "/snapshotImgs/CleanAir.jpg",
-  },
+  { name: "Impala Platinum Holdings Ltd.", image: "/snapshotImgs/Implats.png" },
+  { name: "Prospector Metals Corp.", image: "/snapshotImgs/Prospector.png" },
+  { name: "Clean Air Metals Inc.", image: "/snapshotImgs/CleanAir.jpg" },
 ];
 
 const ISnapshot = () => {
@@ -95,26 +49,22 @@ const ISnapshot = () => {
   const [error, setError] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(true); // Add loading state
+  const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
     const fetchStocks = async () => {
       try {
-        setIsLoading(true); // Start loading
-        const response = await fetch(
+        setIsLoading(true);
+        const response = await axios.get(
           "https://platinumdjango-production.up.railway.app/api/most-followed-stocks/"
         );
-        const data = await response.json();
-        const filteredStocks = data.filter(
-          (item) => item.stock_type === "most_followed"
-        );
-        setStocksData(filteredStocks);
+        setStocksData(response.data);
       } catch (err) {
         console.error("Error fetching stock data:", err);
         setError("Failed to fetch data. Please try again later.");
       } finally {
-        setIsLoading(false); // End loading regardless of outcome
+        setIsLoading(false);
       }
     };
     fetchStocks();
@@ -122,25 +72,24 @@ const ISnapshot = () => {
 
   const checkSubpageExists = async (stockTicker) => {
     try {
-      const response = await fetch(
-        `https://platinumdjango-production.up.railway.app/api/stock-details/${stockTicker}`
+      const response = await axios.get(
+        `https://platinumdjango-production.up.railway.app/api/stock-metrics/${stockTicker}`
       );
-      const data = await response.json();
-      return data.exists ?? true;
+      return response.data.exists ?? true;
     } catch (error) {
       console.error("Error checking subpage existence:", error);
       return false;
     }
   };
 
-  const handleRowClick = async (stockTicker) => {
+  const handleStockClick = async (stockTicker) => {
     setErrorMessage("");
     const exists = await checkSubpageExists(stockTicker);
 
     if (exists) {
-      router.push(`/stock-details/${stockTicker}`);
+      router.push(`/stock-detail/${stockTicker}`);
     } else {
-      setErrorMessage(`No details found for stock: ${stockTicker}`);
+      setErrorMessage(`Details for ${stockTicker} are not available.`);
       setIsModalOpen(true);
     }
   };
@@ -154,7 +103,6 @@ const ISnapshot = () => {
     <div className="px-3 md:px-12 py-5 md:py-5">
       <h1 className="cambay text-[22px] sm:text-3xl font-semibold">Snapshot</h1>
 
-      {/* content */}
       <div className="mt-1 md:mt-5">
         <div className="w-full rounded-md bg-secondary/10 p-4 md:p-7">
           {isModalOpen && (
@@ -166,7 +114,7 @@ const ISnapshot = () => {
                 className="bg-white p-4 rounded shadow-md w-96"
                 onClick={(e) => e.stopPropagation()}
               >
-                <h2 className="text-lg font-bold mb-2">Oops!</h2>
+                <h2 className="text-lg font-bold mb-2">Error</h2>
                 <p className="text-sm mb-4">{errorMessage}</p>
                 <button
                   className="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600"
@@ -179,7 +127,7 @@ const ISnapshot = () => {
           )}
 
           {isLoading ? (
-            <div className="flex justify-center items-center min-h-[200px]">
+            <div className="flex justify-center items-center ">
               <Loader />
             </div>
           ) : error ? (
@@ -189,16 +137,16 @@ const ISnapshot = () => {
               {stocksData.length > 0 ? (
                 stocksData.map((stock, index) => (
                   <div
-                    className="bg-white p-4 rounded-sm border border-date/10 flex flex-col items-center cursor-pointer"
+                    className="bg-white p-4 rounded-sm border border-date/10 flex flex-col items-center cursor-pointer hover:bg-gray-100 transition-colors"
                     key={index}
-                    onClick={() => handleRowClick(stock.ticker)}
+                    onClick={() => handleStockClick(stock.ticker)}
                   >
                     {logos.map((logo, i) => {
                       if (logo.name === stock.name) {
                         return (
                           <Image
                             key={i}
-                            src={logo.image}
+                            src={logo.image || "/placeholder.svg"}
                             alt={logo.name}
                             width={100}
                             height={100}
