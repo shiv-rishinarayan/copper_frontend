@@ -130,7 +130,7 @@ const DSupply = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-14 mt-10">
         {tables.map((category, categoryIndex) => (
           <div key={categoryIndex}>
-            <h2 className="font-medium text-black/90 text-sm mb-2 ml-2 lg:text-xl">
+            <h2 className="font-medium text-black/90 text-sm -mb-0.5 ml-4 lg:text-xl">
               {category.category}
             </h2>
             <div className="grid grid-cols-1 gap-6">
