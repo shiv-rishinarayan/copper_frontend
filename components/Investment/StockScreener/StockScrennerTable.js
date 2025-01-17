@@ -1,8 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowUp, ArrowDown } from "lucide-react";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const StockScreenerTable = ({
   displayedData,
@@ -10,18 +12,103 @@ const StockScreenerTable = ({
   onSort,
   sortColumn,
   sortDirection,
+  userData,
 }) => {
   const router = useRouter();
+  const [followedStocks, setFollowedStocks] = useState([]);
+  const [loadingStates, setLoadingStates] = useState({});
 
+  const BASE_API_URL =
+    "https://platinumdjango-production.up.railway.app/api/followed-stocks/";
+
+  useEffect(() => {
+    fetchFollowedStocks();
+  }, []);
+
+  const fetchFollowedStocks = async () => {
+    try {
+      const response = await axios.get(BASE_API_URL, {
+        headers: {
+          Authorization: `Bearer ${userData.access_token}`,
+        },
+        withCredentials: true,
+      });
+      setFollowedStocks(
+        response.data.map((stock) => ({
+          ticker: stock.stock_ticker,
+          id: stock.id,
+        }))
+      );
+    } catch (error) {
+      console.error("Error fetching followed stocks:", error);
+      toast.error("Failed to fetch followed stocks.");
+    }
+  };
+
+  const handleFollowClick = async (e, ticker) => {
+    e.stopPropagation();
+    setLoadingStates((prev) => ({ ...prev, [ticker]: true }));
+
+    try {
+      const isFollowed = followedStocks.some(
+        (stock) => stock.ticker === ticker
+      );
+
+      if (isFollowed) {
+        const stockToUnfollow = followedStocks.find(
+          (stock) => stock.ticker === ticker
+        );
+        await axios.delete(`${BASE_API_URL}${stockToUnfollow.id}/`, {
+          headers: {
+            Authorization: `Bearer ${userData.access_token}`,
+          },
+          withCredentials: true,
+        });
+        setFollowedStocks((prev) =>
+          prev.filter((stock) => stock.ticker !== ticker)
+        );
+        toast.success(`Unfollowed ${ticker}`);
+      } else {
+        const response = await axios.post(
+          BASE_API_URL,
+          { stock_ticker: ticker },
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${userData.access_token}`,
+            },
+            withCredentials: true,
+          }
+        );
+        setFollowedStocks((prev) => [
+          ...prev,
+          {
+            ticker: ticker,
+            id: response.data.id,
+          },
+        ]);
+        toast.success(`Followed ${ticker}`);
+      }
+    } catch (error) {
+      console.error("Error following/unfollowing stock:", error);
+      toast.error(
+        `Failed to ${
+          followedStocks.some((fs) => fs.ticker === ticker)
+            ? "unfollow"
+            : "follow"
+        } ${ticker}`
+      );
+    } finally {
+      setLoadingStates((prev) => ({ ...prev, [ticker]: false }));
+    }
+  };
   const formatMarketCap = (value) => {
     if (!value || value === "") return "N/A";
 
-    // If the value already contains K, M, or B, just add the $ sign
     if (typeof value === "string" && /[KMB]$/i.test(value)) {
       return `${value}`;
     }
 
-    // Otherwise, format the number
     const numericValue = parseFloat(value);
     if (isNaN(numericValue)) return "N/A";
 
@@ -42,7 +129,6 @@ const StockScreenerTable = ({
   const formatVolume = (value) => {
     if (!value || value === "") return "N/A";
 
-    // Remove any commas, then trim whitespace
     const cleanedValue = value.replace(/,/g, "").trim();
     const numericValue = parseFloat(cleanedValue);
 
@@ -61,8 +147,9 @@ const StockScreenerTable = ({
 
     return formattedValue;
   };
+
   const handleRowClick = (ticker) => {
-    router.push(`/stock-detail/${ticker}`);
+    router.push(`/stock-details/${ticker}`);
   };
 
   const renderSortIcon = (column) => {
@@ -97,6 +184,7 @@ const StockScreenerTable = ({
     { key: "ytd_percentage", label: "YTD %", sortable: true },
     { key: "week_52_low", label: "WEEK 52 LOW", sortable: true },
     { key: "week_52_high", label: "WEEK 52 HIGH", sortable: true },
+    { key: "follow", label: "ACTIONS", sortable: false },
   ];
 
   return (
@@ -162,11 +250,28 @@ const StockScreenerTable = ({
                 <td className="px-4 py-[12px]">
                   {stock.week_52_high || "N/A"}
                 </td>
+                <td className="px-4 py-[12px]">
+                  <button
+                    onClick={(e) => handleFollowClick(e, stock.ticker)}
+                    className={`px-3 py-2 text-xs rounded ${
+                      followedStocks.some((fs) => fs.ticker === stock.ticker)
+                        ? "bg-accent text-white"
+                        : "bg-gray-200 text-gray-700"
+                    }`}
+                    disabled={loadingStates[stock.ticker]}
+                  >
+                    {loadingStates[stock.ticker]
+                      ? "Loading..."
+                      : followedStocks.some((fs) => fs.ticker === stock.ticker)
+                      ? "Unfollow"
+                      : "Follow"}
+                  </button>
+                </td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="14" className="text-center text-gray-300 py-[12px]">
+              <td colSpan="15" className="text-center text-gray-300 py-[12px]">
                 No data available.
               </td>
             </tr>

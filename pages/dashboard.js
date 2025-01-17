@@ -7,8 +7,10 @@ import Header from "@/components/Dashboard/DHeader";
 import ProfileContent from "@/components/Dashboard/DProfile";
 import WatchlistContent from "@/components/Dashboard/DWatchlist";
 import ScreenerContent from "@/components/Dashboard/DStockScreener";
+import { GetUserData } from "@/src/utils/GetUserData";
 
 const DashboardLayout = () => {
+  const userData = GetUserData();
   const router = useRouter();
   const [activeTab, setActiveTab] = React.useState("profile");
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
@@ -25,7 +27,7 @@ const DashboardLayout = () => {
       case "profile":
         return <ProfileContent />;
       case "watchlist":
-        return <WatchlistContent />;
+        return <WatchlistContent userData={userData} />;
       case "screener":
         return <ScreenerContent />;
       default:
