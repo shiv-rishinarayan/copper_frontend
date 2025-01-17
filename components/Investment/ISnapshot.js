@@ -73,7 +73,7 @@ const ISnapshot = () => {
   const checkSubpageExists = async (stockTicker) => {
     try {
       const response = await axios.get(
-        `https://platinumdjango-production.up.railway.app/api/stock-metrics/${stockTicker}`
+        `https://platinumdjango-production.up.railway.app/api/pgm-stock-detail/?stock_ticker=${stockTicker}`
       );
       return response.data.exists ?? true;
     } catch (error) {
@@ -139,7 +139,7 @@ const ISnapshot = () => {
                   <div
                     className="bg-white p-4 rounded-sm border border-date/10 flex flex-col items-center cursor-pointer hover:bg-gray-100 transition-colors"
                     key={index}
-                    onClick={() => handleStockClick(stock.ticker)}
+                    onClick={() => handleStockClick(stock.ticker.split(".")[0])}
                   >
                     {logos.map((logo, i) => {
                       if (logo.name === stock.name) {
