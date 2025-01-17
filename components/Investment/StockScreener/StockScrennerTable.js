@@ -16,8 +16,10 @@ const StockScreenerTable = ({
 }) => {
   const router = useRouter();
   const [followedStocks, setFollowedStocks] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
   const [loadingStates, setLoadingStates] = useState({});
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCheckingStock, setIsCheckingStock] = useState(false);
   const BASE_API_URL =
     "https://platinumdjango-production.up.railway.app/api/followed-stocks/";
 
@@ -42,6 +44,61 @@ const StockScreenerTable = ({
     } catch (error) {
       console.error("Error fetching followed stocks:", error);
       toast.error("Failed to fetch followed stocks.");
+    }
+  };
+
+  const checkSubpageExists = async (stockTicker) => {
+    try {
+      const response = await axios.get(
+        `https://platinumdjango-production.up.railway.app/api/pgm-stock-detail/?stock_ticker=${stockTicker}`
+      );
+
+      // Log the response to debug
+      console.log("API Response:", response.data);
+
+      // Check if the response has data and it's not empty
+      if (response.data && Object.keys(response.data).length > 0) {
+        // If the API returns specific fields you expect, check for them
+        // For example, if it should have company_name or any other required field
+        return true;
+      }
+      return false;
+    } catch (error) {
+      console.error("Error checking subpage existence:", error);
+      if (error.response && error.response.status === 404) {
+        return false;
+      }
+      throw error; // Re-throw other errors to be handled by the caller
+    }
+  };
+
+  const handleRowClick = async (stockTicker) => {
+    try {
+      if (isCheckingStock) return; // Prevent multiple clicks
+
+      setIsCheckingStock(true);
+      const cleanTicker = stockTicker.split(".")[0];
+
+      // Log the ticker being checked
+      console.log("Checking ticker:", cleanTicker);
+
+      const exists = await checkSubpageExists(cleanTicker);
+      console.log("Stock details exist:", exists);
+
+      if (exists) {
+        router.push(`/stock-detail/${cleanTicker}`);
+      } else {
+        setErrorMessage(`Details for ${cleanTicker} are not available.`);
+        setIsModalOpen(true);
+      }
+    } catch (error) {
+      console.error("Error handling row click:", error);
+      setErrorMessage(
+        "An error occurred while checking stock details. Please try again later."
+      );
+      setIsModalOpen(true);
+    } finally {
+      setIsCheckingStock(false);
     }
   };
 
@@ -82,10 +139,7 @@ const StockScreenerTable = ({
         );
         setFollowedStocks((prev) => [
           ...prev,
-          {
-            ticker: ticker,
-            id: response.data.id,
-          },
+          { ticker: ticker, id: response.data.id },
         ]);
         toast.success(`Followed ${ticker}`);
       }
@@ -102,6 +156,13 @@ const StockScreenerTable = ({
       setLoadingStates((prev) => ({ ...prev, [ticker]: false }));
     }
   };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setErrorMessage("");
+  };
+
+  // Existing formatting functions...
   const formatMarketCap = (value) => {
     if (!value || value === "") return "N/A";
 
@@ -148,10 +209,6 @@ const StockScreenerTable = ({
     return formattedValue;
   };
 
-  const handleRowClick = (ticker) => {
-    router.push(`/stock-details/${ticker}`);
-  };
-
   const renderSortIcon = (column) => {
     const isActive = sortColumn === column;
     return (
@@ -169,6 +226,7 @@ const StockScreenerTable = ({
     );
   };
 
+  // Table headers definition...
   const headers = [
     { key: "stock_type", label: "STOCK TYPE", sortable: false },
     { key: "company_name", label: "COMPANY NAME", sortable: false },
@@ -188,7 +246,50 @@ const StockScreenerTable = ({
   ];
 
   return (
-    <div className="overflow-x-auto custom-scrollbar-hidden">
+    <div className="overflow-x-auto custom-scrollbar-hidden relative">
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 flex items-center justify-center bg-black/50 z-50 transition-colors"
+          onClick={closeModal}
+        >
+          {/* <div
+            className="bg-white p-6 rounded-lg shadow-xl max-w-md mx-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 className="text-xl font-bold mb-4 text-red-600">
+              Stock Not Found
+            </h2>
+            <p className="text-gray-700 mb-6">{errorMessage}</p>
+            <button
+              className="w-full px-4 py-2 bg-accent text-white rounded-md hover:bg-accent/90 transition-colors"
+              onClick={closeModal}
+            >
+              Close
+            </button>
+          </div> */}
+
+          <div
+            className="bg-white p-4 rounded shadow-md w-96"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 className="text-lg font-bold mb-2">Error</h2>
+            <p className="text-sm mb-4">{errorMessage}</p>
+            <button
+              className="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600"
+              onClick={closeModal}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* {isCheckingStock && (
+        <div className="absolute inset-0 bg-white/50 flex items-center justify-center z-40">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-accent"></div>
+        </div>
+      )} */}
+
       <table className="w-full min-w-[600px] bg-white border rounded-md">
         <thead className="font-bold border-b">
           <tr>
@@ -211,8 +312,10 @@ const StockScreenerTable = ({
             displayedData.map((stock, index) => (
               <tr
                 key={index}
-                onClick={() => handleRowClick(stock.ticker)}
-                className="hover:bg-accent/10 border-b border-date/10 text-[13px] cursor-pointer"
+                onClick={() => !isCheckingStock && handleRowClick(stock.ticker)}
+                className={`hover:bg-accent/10 border-b border-date/10 text-[13px] ${
+                  isCheckingStock ? "cursor-wait" : "cursor-pointer"
+                }`}
               >
                 <td className="px-4 py-[12px]">{stock.stock_type}</td>
                 <td className="px-4 py-[12px] whitespace-nowrap truncate">
