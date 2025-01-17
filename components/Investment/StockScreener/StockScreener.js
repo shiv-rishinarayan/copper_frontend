@@ -3,6 +3,7 @@ import Pagination from "../Pagination";
 import StockFilters from "../StockScreener/StockScreenerTableFilters";
 import StockScreenerTable from "../StockScreener/StockScrennerTable";
 import { ArrowUp, ArrowDown } from "lucide-react";
+import { GetUserData } from "@/src/utils/GetUserData";
 
 const PAGE_SIZE = 15;
 const API_URL =
@@ -41,6 +42,7 @@ const convertToNumber = (value) => {
 };
 
 const StockScreener = () => {
+  const userData = GetUserData();
   const [stocksScreenerTable, setStocksScreenerTable] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -192,6 +194,7 @@ const StockScreener = () => {
             onSort={handleSort}
             sortColumn={sortColumn}
             sortDirection={sortDirection}
+            userData={userData}
           />
 
           <Pagination
