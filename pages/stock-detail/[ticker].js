@@ -62,7 +62,7 @@ const StockDetailPage = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          `https://platinumdjango-production.up.railway.app/api/stock-metrics/${ticker}/`
+          `https://platinumdjango-production.up.railway.app/api/pgm-stock-detail/?stock_ticker=${ticker}`
         );
         if (!response.ok) {
           throw new Error("Stock data not found");
@@ -103,7 +103,7 @@ const StockDetailPage = () => {
           </div>
           <button
             onClick={() => router.back()}
-            className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
+            className="px-4 py-2 bg-accent text-white rounded-md hover:bg-accent/90 transition-colors"
           >
             Go Back
           </button>
@@ -119,29 +119,37 @@ const StockDetailPage = () => {
         <div className="w-full md:w-[75%] flex flex-col gap-y-8 border border-gray-200 rounded-md p-6">
           <div className="flex flex-col gap-y-2">
             <p className="text-xs text-gray-500">
-              {data.stock_type} · {data.domiciled}
+              {data[0].stock_exchange} · {data[0].stock_country}
             </p>
             <div className="flex items-center gap-x-4 border-b border-gray-200 pb-2">
               <h1 className="text-2xl font-semibold text-gray-800">
-                {data.company_name} ({data.ticker})
+                {data[0].stock_name} ({data[0].stock_ticker})
               </h1>
             </div>
           </div>
 
           <div className="flex justify-between items-center border-gray-200 pb-7 border-b">
-            <TradingViewWidget ticker={data.ticker} />
+            <TradingViewWidget
+              ticker={`${data[0].tv_exchange}:${data[0].tv_ticker}`}
+            />
           </div>
 
           <div className="-my-1">
-            <StockDetailChart ticker={data.ticker} />
+            <StockDetailChart
+              ticker={`${data[0].tv_exchange}:${data[0].tv_ticker}`}
+            />
           </div>
 
           <div className="my-1">
-            <StockDetailProfile ticker={data.ticker} />
+            <StockDetailProfile
+              ticker={`${data[0].tv_exchange}:${data[0].tv_ticker}`}
+            />
           </div>
 
           <div className="my-1">
-            <StockDetailFinancials ticker={data.ticker} />
+            <StockDetailFinancials
+              ticker={`${data[0].tv_exchange}:${data[0].tv_ticker}`}
+            />
           </div>
 
           <div className="my-3">
@@ -158,7 +166,9 @@ const StockDetailPage = () => {
         <div className="w-full md:w-[23%] flex flex-col gap-y-8">
           <div className="-mt-4">{<DailyNewsletterAd />}</div>
 
-          <StockDetailTechAnalysis ticker={`${data.exchange}:${data.ticker}`} />
+          <StockDetailTechAnalysis
+            ticker={`${data[0].tv_exchange}:${data[0].tv_ticker}`}
+          />
 
           {/* <StockDetailSidebarVideo data={data} /> */}
 
