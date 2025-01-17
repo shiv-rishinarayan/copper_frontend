@@ -40,6 +40,7 @@ const Signup = () => {
     setSubmitting(false);
     try {
       let data = {
+        username: values.fullName,
         name: values.fullName,
         email: values.email,
         password: values.password,

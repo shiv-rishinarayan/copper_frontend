@@ -1,51 +1,64 @@
 import axios from "axios";
-import { useRouter } from "next/router";
 import { toast } from "react-toastify";
+import { jwtDecode } from 'jwt-decode';
+import Router from "next/router"; // To handle redirection
 import { GetUserData } from "../utils/GetUserData";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL_2;
+
+let sessionExpired = false;
 
 const useAxios = () => {
-
-  const router = useRouter();
-  const userData = GetUserData();
-  let sessionTimeoutShown = false;
-
-  const axiosCreate = axios.create({
+  const axiosInstance = axios.create({
     baseURL: BASE_URL,
     headers: {
       "Content-Type": "application/json;charset=UTF-8",
-      "Access-Control-Allow-Origin": "*",
-      authorization: `bearer ${userData?.access_token}`,
-      'ref_token': `${userData?.refresh_token}`,
       Accept: "*/*",
     },
   });
 
+  const tokenExpiredCheck = (token) => {
+    if (!token) return true;
+    try {
+      const decodedToken = jwtDecode(token);  // Use the correct function
+      const currentTime = Date.now() / 1000;  // Current time in seconds
+      return decodedToken.exp < currentTime;  // Compare with expiration time
+    } catch (error) {
+      console.error('Error decoding token:', error);
+      return true;
+    }
+  };
 
-  // Add Axios response interceptor
-  axiosCreate.interceptors.response.use(
-    (response) => {
-      return response;
-    },
-    (error) => {
-      if (error?.response?.status == 401 &&
-        typeof error?.response?.data?.message === "string" &&
-        error?.response?.data?.message.includes("Logged Out Due To")
-      ) {
-        if (!sessionTimeoutShown) {
-          sessionTimeoutShown = true
-          localStorage.clear()
-          document.cookie = "userData=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
-          router.push('./../../pages/auth/login')
-          toast.info("Session TimeOut, Please Login Again")
+  // Add Request Interceptor
+  axiosInstance.interceptors.request.use(
+    async (config) => {
+      const userData = await GetUserData();
+      if (userData.access_token) {
+        try {
+          const isTokenExpired = tokenExpiredCheck(userData.access_token)
+          console.log("isTokenExpired ---- ", isTokenExpired);
+
+          if (isTokenExpired && !sessionExpired) {
+            sessionExpired = true;
+            localStorage.clear();
+            document.cookie = "userData=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+            toast.info("Session expired. Please log in again.");
+            Router.push("/");
+            return Promise.reject(new Error("Token expired"));
+          }
+
+          // Attach token to request headers
+          config.headers["Authorization"] = `Bearer ${userData.access_token}`;
+        } catch (err) {
+          console.log("error --- ", err);
         }
       }
-      return Promise.reject(error);
-    }
+      return config;
+    },
+    (error) => Promise.reject(error)
   );
 
-  return axiosCreate;
+  return axiosInstance;
 };
 
 export default useAxios;

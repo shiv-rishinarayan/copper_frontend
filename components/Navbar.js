@@ -47,7 +47,7 @@ const Navbar = () => {
         {/* Desktop Navigation Links */}
         <div className="hidden lg:flex lg:space-x-8 font-medium">
           {[
-            { name: "Home", path: "/home" },
+            { name: "Home", path: "/" },
             { name: "News", path: "/news" },
             { name: "Platinum Investments", path: "/investments" },
             { name: "Community", path: "/community" },
@@ -124,7 +124,7 @@ const Navbar = () => {
         transition={{ type: "spring", stiffness: 70, damping: 20 }}
       >
         {[
-          { name: "Home", path: "/home" },
+          { name: "Home", path: "/" },
           { name: "News", path: "/news" },
           { name: "Platinum Investments", path: "/investments" },
           { name: "Community", path: "/community" },

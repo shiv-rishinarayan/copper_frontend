@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { BASE_URL2 } from "@/src/api/authAPI";
+import { PLATINUM_NEWS } from "@/src/api/homeAPI";
+import axios from "axios";
 
 const MostPopularNews = () => {
   const [news, setNews] = useState([]);
@@ -8,10 +11,11 @@ const MostPopularNews = () => {
     // Fetching news articles from the API
     const fetchNews = async () => {
       try {
-        const response = await fetch(
-          "https://platinumdjango-production.up.railway.app/api/platinum_news/"
-        );
-        const data = await response.json();
+        // const response = await fetch(
+        //   "https://platinumdjango-production.up.railway.app/api/platinum_news/"
+        // );
+        const response = await axios.get(BASE_URL2 + PLATINUM_NEWS);
+        const data = response?.data; 
         // Slice to get news starting from 6th item and limit to 8 items
         setNews(data.slice(0, 8));
       } catch (error) {
