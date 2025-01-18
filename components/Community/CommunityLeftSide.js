@@ -1,48 +1,67 @@
-// ChatInterfaceLeftSidebar.jsx
 import React from "react";
-// import TradingViewWidget from "../components/TradingViewWidget";
-// import StockDetailChart2 from "../components/StockDetailChart2";
-// import StockDetailsTechAnalysis from "../components/StockDetailsTechAnalysis";
+import TradingViewWidget from "./CommunityleftSideTradingVeiwWidget";
 import CommunitySidebarLatestNews from "../Community/CommunitySidebarLatestNews";
 import DailyNewsletterAd from "../Home/DailyNewsletterAd";
+import StockDetailChart2 from "../StockDetail/StockDetailChart";
+import StockDetailsTechAnalysis from "../StockDetail/StockDetailTechAnalysis";
+import StockDetailMostFollowed from "../StockDetail/StockDetailMostFollowed";
+import CommunityLeftSideMostFollowed from "./CommunityLeftSideMostFollowed";
 
 const CommunityLeftSide = ({ stockDetailsData }) => {
+  // First check if stockDetailsData exists and is an array
+  const stockData =
+    Array.isArray(stockDetailsData) && stockDetailsData.length > 0
+      ? stockDetailsData[0]
+      : null;
+
+  // Validate the required data is present
+  const hasStockData =
+    stockData && stockData.tv_exchange && stockData.tv_ticker;
+
   return (
     <div className="lg:w-[450px] w-full h-full overflow-y-auto pr-1 lg:pr-2 order-2 lg:order-1 custom-scrollbar-hidden">
-      {/* Display Ticker Above the News */}
-      {stockDetailsData && stockDetailsData.stock_detail && (
+      {/* Only render stock section if we have data */}
+      {stockData && (
         <div className="bg-gray-0 p-4 rounded-sm mb-4">
-          <div className="flex items-center p-2 mb-5 bg- text-green">
+          <div className="flex items-center gap-2 p-2 mb-5">
             <h1 className="text-xl font-bold">
-              {stockDetailsData?.stock_detail?.stock_name}
+              {stockData.stock_name || "Stock Name Not Available"}
             </h1>
-            <span className="text-lg ">
-              ({stockDetailsData?.stock_detail?.stock_ticker})
-            </span>
+            {stockData.stock_ticker && (
+              <span className="text-lg">({stockData.stock_ticker})</span>
+            )}
           </div>
 
-          {/* <div className="pb-6">
-            <TradingViewWidget
-              ticker={`${stockDetailsData?.stock_detail?.tv_exchange}:${stockDetailsData?.stock_detail?.tv_ticker}`}
-            />
-          </div>
-
-          <div className="pb-6">
-            <StockDetailChart2
-              ticker={`${stockDetailsData?.stock_detail?.tv_exchange}:${stockDetailsData?.stock_detail?.tv_ticker}`}
-            />
-          </div>
-          <div className="">
-            <StockDetailsTechAnalysis
-              ticker={`${stockDetailsData?.stock_detail?.tv_exchange}:${stockDetailsData?.stock_detail?.tv_ticker}`}
-            />
-          </div> */}
+          {/* Only render TradingViewWidget if we have required props */}
+          {hasStockData && (
+            <div className="">
+              <div className="pb-6">
+                <TradingViewWidget
+                  ticker={`${stockData.tv_exchange}:${stockData.tv_ticker}`}
+                />
+              </div>
+              <div className="pb-6">
+                {" "}
+                <StockDetailChart2
+                  ticker={`${stockData.tv_exchange}:${stockData.tv_ticker}`}
+                />
+              </div>
+              <div className="pb-6">
+                <StockDetailsTechAnalysis
+                  ticker={`${stockData.tv_exchange}:${stockData.tv_ticker}`}
+                />
+              </div>
+            </div>
+          )}
         </div>
       )}
 
       <div className="bg-gray-0 p-4 mb-4">
-        <CommunitySidebarLatestNews />
+        {/* <CommunitySidebarLatestNews /> */}
+        {/* <StockDetailMostFollowed /> */}
+        <CommunityLeftSideMostFollowed />
       </div>
+
       <div className="bg-gray-0 p-4 mb-4">
         <DailyNewsletterAd />
       </div>
