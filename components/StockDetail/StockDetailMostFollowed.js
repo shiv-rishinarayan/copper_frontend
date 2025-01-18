@@ -31,7 +31,7 @@ const MostFollowed = () => {
   const checkSubpageExists = async (stockTicker) => {
     try {
       const response = await axios.get(
-        `https://platinumdjango-production.up.railway.app/api/stock-metrics/${stockTicker}`
+        `https://platinumdjango-production.up.railway.app/api/pgm-stock-detail/?stock_ticker=${stockTicker}`
       );
       return response.data.exists ?? true; // Default to true if `exists` is not defined
     } catch (error) {
