@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import React from "react";
 import { useRouter } from "next/router";
 import ISnapshot from "@/components/Investment/ISnapshot";
-import IETF from "@/components/Investment/IETF";
+import IETF from "@/components/Investment/ETF/IETF";
 import IInsiderTransactions from "@/components/Investment/IInsiderTransactions";
 import IStockScreener from "@/components/Investment/IStockScreener";
 
