@@ -9,7 +9,7 @@ export const CommunityPostUtilsProvider = ({ children }) => {
 
   // Function to update news data
   const updatePostCommentData = (newData) => {
-    setPostCommentData(newData);
+    setPostCommentData({ id: newData, timestamp: Date.now() });
   };
 
   return (
