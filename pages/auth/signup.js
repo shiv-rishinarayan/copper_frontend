@@ -277,6 +277,7 @@ const Signup = () => {
     setSubmitting(false);
     try {
       let data = {
+        username: values.fullName,
         name: values.fullName,
         username: values.username,
         email: values.email,

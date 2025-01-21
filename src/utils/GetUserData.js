@@ -29,3 +29,7 @@ export const GetUserData = () => {
     return null;
   }
 };
+
+export const SetUserData = (data) => {
+    document.cookie = `userData=${encodeURIComponent(JSON.stringify(data))}; path=/;`;
+};

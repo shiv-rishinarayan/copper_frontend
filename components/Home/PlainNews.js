@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { IoTimerOutline } from "react-icons/io5";
 import axios from "axios";
+// import useAxios from "@/src/network/useAxios";
+import { PLATINUM_NEWS } from "@/src/api/homeAPI";
+import { BASE_URL2 } from "@/src/api/authAPI";
 
 const PlainNews = () => {
+  // const axiosInstance = useAxios();
   const [newsData, setNewsData] = useState([]); // State to hold news data
   const [loading, setLoading] = useState(true); // State for loading status
   const [error, setError] = useState(null); // State to handle errors
@@ -13,9 +17,8 @@ const PlainNews = () => {
     const fetchNewsData = async () => {
       try {
         setLoading(true); // Set loading to true before fetching data
-        const response = await axios.get(
-          `${BASEURL}/api/platinum_news/?news_type=platinum`
-        ); // Replace with your API URL
+        // const response = await axiosInstance.get(`${PLATINUM_NEWS}?news_type=platinum`);
+        const response = await axios.get(BASE_URL2 + PLATINUM_NEWS + "?news_type=platinum"); // Replace with your API URL
         const data = response.data;
 
         if (data && Array.isArray(data) && data.length > 0) {
