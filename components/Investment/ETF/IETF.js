@@ -33,7 +33,7 @@ const IETF = () => {
         ETF/Trust Holding
       </h1>
 
-      <div className="mt-1 md:mt-7 ">
+      <div className="mt-1 md:mt-7">
         <div className="w-full rounded-md">
           <ETFNavigationNav
             onRegionSelect={handleRegionSelect}
