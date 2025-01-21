@@ -13,6 +13,7 @@ export const ETFdata = {
           currentOz: 16963,
           valueUSD: 16,
           percentTotal: 1,
+          symbol: "ASX:ETPMPT",
         },
         {
           fund: "Japan Physical Platinum ETF",
@@ -23,6 +24,7 @@ export const ETFdata = {
           currentOz: 99548,
           valueUSD: 93,
           percentTotal: 3,
+          symbol: "TSE:1541",
         },
       ],
       totals: {
@@ -33,7 +35,7 @@ export const ETFdata = {
     },
     {
       name: "Europe",
-      funds: [
+      _funds: [
         {
           fund: "iShares Physical Platinum ETC",
           country: "GB",
@@ -43,6 +45,7 @@ export const ETFdata = {
           currentOz: 145620,
           valueUSD: 137,
           percentTotal: 4,
+          symbol: "LSE:IPLT",
         },
         {
           fund: "Invesco Physical Platinum ETC",
@@ -53,6 +56,7 @@ export const ETFdata = {
           currentOz: 19276,
           valueUSD: 18,
           percentTotal: 1,
+          symbol: "LSE:SPPT",
         },
         {
           fund: "WisdomTree Physical Platinum",
@@ -63,7 +67,9 @@ export const ETFdata = {
           currentOz: 585195,
           valueUSD: 549,
           percentTotal: 18,
+          symbol: "LSE:PHPT",
         },
+        // ..................
         {
           fund: "Xtrackers Physical Platinum EUR Hedged ETC",
           country: "DE",
@@ -73,6 +79,7 @@ export const ETFdata = {
           currentOz: 60128,
           valueUSD: 56,
           percentTotal: 2,
+          symbol: "MIL:XAD3",
         },
         {
           fund: "Xtrackers IE Physical Platinum EUR Hedged ETC Securities",
@@ -83,7 +90,9 @@ export const ETFdata = {
           currentOz: 8215,
           valueUSD: 8,
           percentTotal: 0,
+          symbol: "MIL:XPPE",
         },
+        //......................
         {
           fund: "Xtrackers IE Physical Platinum ETC Securities",
           country: "GB",
@@ -93,6 +102,7 @@ export const ETFdata = {
           currentOz: 15177,
           valueUSD: 14,
           percentTotal: 0,
+          symbol: "LSE:XPPT",
         },
         {
           fund: "UBS ETF CH-Platinum",
@@ -103,6 +113,7 @@ export const ETFdata = {
           currentOz: 49006,
           valueUSD: 46,
           percentTotal: 1,
+          symbol: "TURQUOISE:PTCHAZ",
         },
         {
           fund: "ZKB Platinum ETF",
@@ -113,17 +124,19 @@ export const ETFdata = {
           currentOz: 457042,
           valueUSD: 429,
           percentTotal: 14,
+          symbol: "SIX:ZPLA",
         },
-        {
-          fund: "Elementum Physical Platinum ETC",
-          country: "GB",
-          inception: "20/01/2021",
-          ticker: "TPLT LN Equity",
-          managementFee: 0.2,
-          currentOz: 1759,
-          valueUSD: 2,
-          percentTotal: 0,
-        },
+        // {
+        //   fund: "Elementum Physical Platinum ETC",
+        //   country: "GB",
+        //   inception: "20/01/2021",
+        //   ticker: "TPLT LN Equity",
+        //   managementFee: 0.2,
+        //   currentOz: 1759,
+        //   valueUSD: 2,
+        //   percentTotal: 0,
+        //   symbol: "SIX:ZPLA",
+        // },
         {
           fund: "WisdomTree Physical Precious Metals",
           country: "GB",
@@ -133,8 +146,15 @@ export const ETFdata = {
           currentOz: 7539,
           valueUSD: 7,
           percentTotal: 0,
+          symbol: "LSE:PHPM",
         },
       ],
+      get funds() {
+        return this._funds;
+      },
+      set funds(value) {
+        this._funds = value;
+      },
       totals: {
         currentOz: 1348957,
         valueUSD: 1267,
@@ -153,6 +173,7 @@ export const ETFdata = {
           currentOz: 34932,
           valueUSD: 33,
           percentTotal: 1,
+          symbol: "AMEX:GLTR",
         },
         {
           fund: "abrdn Physical Platinum Shares ETF",
@@ -163,6 +184,7 @@ export const ETFdata = {
           currentOz: 1133013,
           valueUSD: 1064,
           percentTotal: 34,
+          symbol: "AMEX:PPLT",
         },
         {
           fund: "Sprott Physical Platinum & Palladium Trust",
@@ -173,6 +195,7 @@ export const ETFdata = {
           currentOz: 93738,
           valueUSD: 88,
           percentTotal: 3,
+          symbol: "AMEX:SPPP",
         },
         {
           fund: "GraniteShares Platinum Trust",
@@ -183,6 +206,7 @@ export const ETFdata = {
           currentOz: 45434,
           valueUSD: 43,
           percentTotal: 1,
+          symbol: "AMEX:PLTM",
         },
       ],
       totals: {
@@ -203,6 +227,7 @@ export const ETFdata = {
           currentOz: 119593,
           valueUSD: 112,
           percentTotal: 4,
+          symbol: "JSE:ETFPLT",
         },
         {
           fund: "New Gold Platinum ETF",
@@ -213,6 +238,7 @@ export const ETFdata = {
           currentOz: 404698,
           valueUSD: 380,
           percentTotal: 12,
+          symbol: "JSE:NGPLT",
         },
       ],
       totals: {

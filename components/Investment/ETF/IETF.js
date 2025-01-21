@@ -39,7 +39,7 @@ const IETF = () => {
             onRegionSelect={handleRegionSelect}
             selectedRegion={selectedRegion}
           />
-          <div>{renderETFComponent()}</div>
+          <div className="mt-16">{renderETFComponent()}</div>
         </div>
       </div>
     </div>
