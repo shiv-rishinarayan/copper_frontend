@@ -5,6 +5,7 @@ import { FaComment } from "react-icons/fa";
 import PostUtils from "../Community/CommunityPostUtils";
 import toast from "react-hot-toast";
 import Image from "next/image";
+import useAxios from "@/src/network/useAxios";
 
 const PostList = ({
   posts = [],
@@ -17,6 +18,7 @@ const PostList = ({
   const [expandedPostComments, setExpandedPostComments] = useState({});
   const [postComments, setPostComments] = useState({});
   const [commentInputs, setCommentInputs] = useState({});
+  const axiosInstance = useAxios();
 
   const {
     formatPostContent,
@@ -49,32 +51,11 @@ const PostList = ({
       : [];
   }, [posts]);
 
-  const removeComment = (postId, commentId) => {
-
-    let excludedComment = postComments[postId].filter(comment => comment.id !== commentId);
-
-    postComments[postId] = excludedComment;
-
+  const fetchCommentss = async (postId) => {
+    const response = await axiosInstance.get(`community/api/forum/posts/${postId}/comments/`);    
+    commentInputs[postId] = ""
+    postComments[postId] = response?.data
   }
-
-  // const insertComment = (postId, comment) => {
-
-  //   const trimmedComment = comment?.trim();
-
-  //   const excludedComment = postComments[postId]
-
-
-  //   const newComment = {
-  //     id: "abc",
-  //     content: trimmedComment,
-  //     created_by_name: "currentUserName", // Replace with the actual username
-  //     created_at: new Date().toISOString(), // Add the current timestamp
-  //   };
-  
-  //   // Update the postComments for the given postId
-  //   postComments[postId] = [...excludedComment, newComment];
-
-  // }
 
   return (
     <div className="space-y-3 bg-gray-50">
@@ -190,11 +171,9 @@ const PostList = ({
                     className="flex-grow p-1 pb-2 border-b rounded focus:outline-none mr-2 placeholder:text-sm placeholder:text-black/50"
                   />
                   <button
-                    // onClick={() => addComment(post.id)}
-                    onClick={() => {
-                      // const comment = commentInputs[post.id] || "";
-                      addComment(post.id)
-                      // insertComment(post.id, comment)
+                    onClick={async () => {
+                      await addComment(post.id)
+                      await fetchCommentss(post.id)
                     }}
                     className="bg-accent text-white px-2 rounded h-7"
                   >
@@ -216,9 +195,9 @@ const PostList = ({
                     </div>
                     {auth.user?.username === comment.created_by_name && (
                       <button
-                        onClick={() => {
-                          deleteComment(post.id, comment.id);
-                          removeComment(post.id, comment.id)
+                        onClick={async () => {
+                          await deleteComment(post.id, comment.id);
+                          await fetchCommentss(post.id)
                         }}
                         className="text-red-400 hover:text-red-600"
                       >
