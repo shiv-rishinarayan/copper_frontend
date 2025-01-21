@@ -35,6 +35,7 @@ const PostList = ({
     commentInputs,
     setCommentInputs,
     setPosts,
+    posts
   });
   const handleUsernameClick = (username) => {
     fetchPostsByUsername(username);
@@ -47,6 +48,33 @@ const PostList = ({
           .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
       : [];
   }, [posts]);
+
+  const removeComment = (postId, commentId) => {
+
+    let excludedComment = postComments[postId].filter(comment => comment.id !== commentId);
+
+    postComments[postId] = excludedComment;
+
+  }
+
+  // const insertComment = (postId, comment) => {
+
+  //   const trimmedComment = comment?.trim();
+
+  //   const excludedComment = postComments[postId]
+
+
+  //   const newComment = {
+  //     id: "abc",
+  //     content: trimmedComment,
+  //     created_by_name: "currentUserName", // Replace with the actual username
+  //     created_at: new Date().toISOString(), // Add the current timestamp
+  //   };
+  
+  //   // Update the postComments for the given postId
+  //   postComments[postId] = [...excludedComment, newComment];
+
+  // }
 
   return (
     <div className="space-y-3 bg-gray-50">
@@ -162,7 +190,12 @@ const PostList = ({
                     className="flex-grow p-1 pb-2 border-b rounded focus:outline-none mr-2 placeholder:text-sm placeholder:text-black/50"
                   />
                   <button
-                    onClick={() => addComment(post.id)}
+                    // onClick={() => addComment(post.id)}
+                    onClick={() => {
+                      // const comment = commentInputs[post.id] || "";
+                      addComment(post.id)
+                      // insertComment(post.id, comment)
+                    }}
                     className="bg-accent text-white px-2 rounded h-7"
                   >
                     <BiSolidSend className="text-sm" />
@@ -183,7 +216,10 @@ const PostList = ({
                     </div>
                     {auth.user?.username === comment.created_by_name && (
                       <button
-                        onClick={() => deleteComment(post.id, comment.id)}
+                        onClick={() => {
+                          deleteComment(post.id, comment.id);
+                          removeComment(post.id, comment.id)
+                        }}
                         className="text-red-400 hover:text-red-600"
                       >
                         <RiDeleteBin6Fill size={16} />

@@ -103,7 +103,7 @@ const CommunitySidebar = ({
 
   return (
     <div className="w-full p-4 bg-gray-100">
-      {auth?.user ? (
+      {auth && auth.user ? (
         <div className="space-y-2">
           <div className="flex items-center space-x-2">
             <textarea

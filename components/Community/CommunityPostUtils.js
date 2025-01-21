@@ -16,6 +16,7 @@ const PostUtils = ({
   commentInputs,
   setCommentInputs,
   setPosts,
+  posts
 }) => {
   const router = useRouter();
   const axiosInstance = useAxios();
@@ -343,22 +344,22 @@ const PostUtils = ({
       );
   
       // Fetch updated comments for the post
-      await fetchComments(postId);
+      // await fetchComments(postId);
   
-      // Clear the comment input for this post
-      setCommentInputs((prev) => ({
-        ...prev,
-        [postId]: "",
-      }));
+      // // Clear the comment input for this post
+      // setCommentInputs((prev) => ({
+      //   ...prev,
+      //   [postId]: "",
+      // }));
   
       // Update the posts' comment count
-      setPosts((prevPosts) =>
-        prevPosts.map((post) =>
-          post.id === postId
-            ? { ...post, comment_count: (post.comment_count || 0) + 1 }
-            : post
-        )
-      );
+      // setPosts((prevPosts) =>
+      //   prevPosts.map((post) =>
+      //     post.id === postId
+      //       ? { ...post, comment_count: (post.comment_count || 0) + 1 }
+      //       : post
+      //   )
+      // );
   
       // Update additional post comment data if needed
       updatePostCommentData(postId);
@@ -433,7 +434,7 @@ const PostUtils = ({
       }
   
       // Perform the delete request
-      await axiosInstance.delete(`/community/api/forum/comments/${commentId}/`, {
+      let res = await axiosInstance.delete(`/community/api/forum/comments/${commentId}/`, {
         headers: {
           Authorization: `Bearer ${userData.access_token}`,
         },
@@ -441,19 +442,19 @@ const PostUtils = ({
       });
   
       // Fetch updated comments
-      await fetchComments(postId);
-  
+      // await fetchComments(postId)
+
       // Update the post's comment count
-      setPosts((prevPosts) =>
-        prevPosts.map((post) =>
-          post.id === postId
-            ? {
-                ...post,
-                comment_count: Math.max((post.comment_count || 0) - 1, 0),
-              }
-            : post
-        )
-      );
+      // setPosts((prevPosts) =>
+      //   prevPosts.map((post) =>
+      //     post.id === postId
+      //       ? {
+      //           ...post,
+      //           comment_count: Math.max((post.comment_count || 0) - 1, 0),
+      //         }
+      //       : post
+      //   )
+      // );
 
       updatePostCommentData(postId);
   
