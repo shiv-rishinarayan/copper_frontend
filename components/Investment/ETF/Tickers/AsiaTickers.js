@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
 import { ETFdata } from "../ETFdata";
+import React, { useEffect, useRef } from "react";
 
 const AsiaETFIntradayReturnTickers = () => {
   const widgetRef = useRef(null);
@@ -48,6 +48,7 @@ const AsiaETFIntradayReturnTickers = () => {
         ref={widgetRef}
         className="tradingview-widget-container__widget"
       ></div>
+      <div className="tradingview-widget-copyright"></div>
     </div>
   );
 };

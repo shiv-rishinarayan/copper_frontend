@@ -18,6 +18,7 @@ const NorthAmericaETFTickers = () => {
         { description: "", proName: "AMEX:GLTR" },
         { description: "", proName: "AMEX:PPLT" },
         { description: "", proName: "AMEX:SPPP" },
+        { description: "", proName: "AMEX:PLTM" },
       ],
       isTransparent: false,
       showSymbolLogo: true,
