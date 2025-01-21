@@ -10,7 +10,8 @@ const Navbar = () => {
   const router = useRouter();
   const userData = GetUserData();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(!!userData?.email);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // Add a loading state
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -35,6 +36,16 @@ const Navbar = () => {
     closed: { opacity: 0, x: "-100%" },
   };
 
+  // Check if user is logged in when component mounts
+  useEffect(() => {
+    setIsLoggedIn(!!userData?.email);
+    setIsLoading(false); // Set loading to false after checking
+  }, [userData]);
+
+  if (isLoading) {
+    return null; // Return null or a loading spinner until the component is fully hydrated
+  }
+
   return (
     <div className="bg-white border-b fixed top-0 left-0 w-full z-50">
       <div className="container mx-auto px-4 lg:px-10 py-5 flex justify-between items-center">
@@ -50,7 +61,7 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex lg:space-x-8 font-medium">
-          {navLinks.map(({ name, path }, index) => (
+          {navLinks?.map(({ name, path }, index) => (
             <div key={index} className="relative group">
               <motion.button
                 className={`tracking-wide text-[15.6px] ${
@@ -144,6 +155,7 @@ const Navbar = () => {
           </motion.div>
         </>
       )}
+      
     </div>
   );
 };

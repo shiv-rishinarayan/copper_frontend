@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import { X } from "lucide-react";
+// import { X } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 
 const WatchlistContent = ({ userData }) => {

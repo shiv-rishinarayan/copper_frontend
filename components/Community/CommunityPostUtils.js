@@ -16,6 +16,7 @@ const PostUtils = ({
   commentInputs,
   setCommentInputs,
   setPosts,
+  posts
 }) => {
   const router = useRouter();
   const axiosInstance = useAxios();
@@ -253,107 +254,223 @@ const PostUtils = ({
     }));
   };
 
+  // const addComment = async (postId) => {
+  //   const commentText = commentInputs[postId];
+  //   const userData = GetUserData();
+
+  //   if (!commentText?.trim()) {
+  //     toast.error("Comment cannot be empty");
+  //     return;
+  //   }
+
+  //   if (!userData?.access_token) {
+  //     toast.error("Please log in to comment");
+  //     router.push("/auth/login");
+  //     return;
+  //   }
+
+  //   const promise = axiosInstance.post(
+  //     "/community/api/forum/comments/create/",
+  //     {
+  //       post_id: postId,
+  //       content: commentText.trim(),
+  //     },
+  //     {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${userData.access_token}`,
+  //       },
+  //       withCredentials: true,
+  //     }
+  //   );
+
+  //   toast.promise(promise, {
+  //     loading: "Adding comment...",
+  //     success: async (response) => {
+  //       await fetchComments(postId);
+  //       setCommentInputs((prev) => ({
+  //         ...prev,
+  //         [postId]: "",
+  //       }));
+  //       setPosts((prevPosts) =>
+  //         prevPosts.map((post) =>
+  //           post.id === postId
+  //             ? { ...post, comment_count: (post.comment_count || 0) + 1 }
+  //             : post
+  //         )
+  //       );
+  //       updatePostCommentData(postId);
+  //       return "Comment added successfully";
+  //     },
+  //     error: (error) => {
+  //       if (error.response?.status === 401) {
+  //         router.push("/auth/login");
+  //         return "Please login again to comment";
+  //       }
+  //       return error.response?.data?.message || "Failed to add comment";
+  //     },
+  //   });
+  // };
+
   const addComment = async (postId) => {
     const commentText = commentInputs[postId];
     const userData = GetUserData();
-
+  
     if (!commentText?.trim()) {
       toast.error("Comment cannot be empty");
       return;
     }
-
+  
     if (!userData?.access_token) {
       toast.error("Please log in to comment");
       router.push("/auth/login");
       return;
     }
-
-    const promise = axiosInstance.post(
-      "/community/api/forum/comments/create/",
-      {
-        post_id: postId,
-        content: commentText.trim(),
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${userData.access_token}`,
+  
+    try {
+      const response = await axiosInstance.post(
+        "/community/api/forum/comments/create/",
+        {
+          post_id: postId,
+          content: commentText.trim(),
         },
-        withCredentials: true,
-      }
-    );
-
-    toast.promise(promise, {
-      loading: "Adding comment...",
-      success: async (response) => {
-        await fetchComments(postId);
-        setCommentInputs((prev) => ({
-          ...prev,
-          [postId]: "",
-        }));
-        setPosts((prevPosts) =>
-          prevPosts.map((post) =>
-            post.id === postId
-              ? { ...post, comment_count: (post.comment_count || 0) + 1 }
-              : post
-          )
-        );
-        updatePostCommentData(postId);
-        return "Comment added successfully";
-      },
-      error: (error) => {
-        if (error.response?.status === 401) {
-          router.push("/auth/login");
-          return "Please login again to comment";
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${userData.access_token}`,
+          },
+          withCredentials: true,
         }
-        return error.response?.data?.message || "Failed to add comment";
-      },
-    });
+      );
+  
+      // Fetch updated comments for the post
+      // await fetchComments(postId);
+  
+      // // Clear the comment input for this post
+      // setCommentInputs((prev) => ({
+      //   ...prev,
+      //   [postId]: "",
+      // }));
+  
+      // Update the posts' comment count
+      // setPosts((prevPosts) =>
+      //   prevPosts.map((post) =>
+      //     post.id === postId
+      //       ? { ...post, comment_count: (post.comment_count || 0) + 1 }
+      //       : post
+      //   )
+      // );
+  
+      // Update additional post comment data if needed
+      updatePostCommentData(postId);
+  
+      toast.success("Comment added successfully");
+    } catch (error) {
+      console.error("Error adding comment:", error);
+  
+      if (error.response?.status === 401) {
+        router.push("/auth/login");
+        toast.error("Please login again to comment");
+      } else {
+        toast.error(error.response?.data?.message || "Failed to add comment");
+      }
+    }
   };
+  
+
+
+
+  // const deleteComment = async (postId, commentId) => {
+  //   const userData = GetUserData();
+
+  //   if (!userData?.access_token) {
+  //     toast.error("Please log in to delete comments");
+  //     return;
+  //   }
+
+  //   const promise = axiosInstance.delete(
+  //     `/community/api/forum/comments/${commentId}/`,
+  //     {
+  //       headers: {
+  //         Authorization: `Bearer ${userData.access_token}`,
+  //       },
+  //       withCredentials: true,
+  //     }
+  //   );
+
+  //   toast.promise(promise, {
+  //     loading: "Deleting comment...",
+  //     success: async () => {
+  //       await fetchComments(postId);
+  //       setPosts((prevPosts) =>
+  //         prevPosts.map((post) =>
+  //           post.id === postId
+  //             ? {
+  //                 ...post,
+  //                 comment_count: Math.max((post.comment_count || 0) - 1, 0),
+  //               }
+  //             : post
+  //         )
+  //       );
+  //       return "Comment deleted successfully";
+  //     },
+  //     error: (error) => {
+  //       if (error.response?.status === 401) {
+  //         router.push("/auth/login");
+  //         return "Please login again to delete comments";
+  //       }
+  //       return "Failed to delete comment";
+  //     },
+  //   });
+  // };
 
   const deleteComment = async (postId, commentId) => {
-    const userData = GetUserData();
-
-    if (!userData?.access_token) {
-      toast.error("Please log in to delete comments");
-      return;
-    }
-
-    const promise = axiosInstance.delete(
-      `/community/api/forum/comments/${commentId}/`,
-      {
+    try {
+      const userData = GetUserData();
+  
+      if (!userData?.access_token) {
+        toast.error("Please log in to delete comments");
+        return;
+      }
+  
+      // Perform the delete request
+      let res = await axiosInstance.delete(`/community/api/forum/comments/${commentId}/`, {
         headers: {
           Authorization: `Bearer ${userData.access_token}`,
         },
         withCredentials: true,
-      }
-    );
+      });
+  
+      // Fetch updated comments
+      // await fetchComments(postId)
 
-    toast.promise(promise, {
-      loading: "Deleting comment...",
-      success: async () => {
-        await fetchComments(postId);
-        setPosts((prevPosts) =>
-          prevPosts.map((post) =>
-            post.id === postId
-              ? {
-                  ...post,
-                  comment_count: Math.max((post.comment_count || 0) - 1, 0),
-                }
-              : post
-          )
-        );
-        return "Comment deleted successfully";
-      },
-      error: (error) => {
-        if (error.response?.status === 401) {
-          router.push("/auth/login");
-          return "Please login again to delete comments";
-        }
-        return "Failed to delete comment";
-      },
-    });
+      // Update the post's comment count
+      // setPosts((prevPosts) =>
+      //   prevPosts.map((post) =>
+      //     post.id === postId
+      //       ? {
+      //           ...post,
+      //           comment_count: Math.max((post.comment_count || 0) - 1, 0),
+      //         }
+      //       : post
+      //   )
+      // );
+
+      updatePostCommentData(postId);
+  
+      // Show success message
+      toast.success("Comment deleted successfully");
+    } catch (error) {
+      if (error.response?.status === 401) {
+        toast.error("Please log in again to delete comments");
+        router.push("/auth/login");
+      } else {
+        toast.error("Failed to delete comment");
+      }
+      console.error("Error deleting comment:", error);
+    }
   };
+  
   const fetchPostsByUsername = async (username) => {
     const userData = GetUserData();
     try {

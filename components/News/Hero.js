@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { formatDistanceToNow } from "date-fns"; // Importing date-fns function for relative time
 import { IoIosTimer } from "react-icons/io";
+import { BASE_URL2 } from "@/src/api/authAPI";
+import { PLATINUM_NEWS } from "@/src/api/homeAPI";
+import axios from "axios";
 
 const Hero = () => {
   const [news, setNews] = useState([]);
@@ -9,10 +12,12 @@ const Hero = () => {
   // Function to fetch news
   useEffect(() => {
     async function fetchNews() {
-      const response = await fetch(
-        "https://platinumdjango-production.up.railway.app/api/platinum_news/"
-      );
-      const data = await response.json();
+      // const response = await fetch(
+      //   "https://platinumdjango-production.up.railway.app/api/platinum_news/"
+      // );
+      const response = await axios.get(BASE_URL2 + PLATINUM_NEWS);
+      // const data = await response.json();
+      const data = response?.data; 
       setNews(data);
     }
     fetchNews();

@@ -30,7 +30,9 @@ const Login = () => {
         email: values.email,
         password: values.password,
       };
-      const res = await axios.post(BASE_URL + LOGIN_API, data);
+      const res = await axios.post(BASE_URL + LOGIN_API, data, {
+        withCredentials: true // Enables cookies to be sent and received
+      });
       console.log("res ---- ", JSON.stringify(res?.data));
 
       if (res?.data) {
