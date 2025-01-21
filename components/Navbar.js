@@ -10,7 +10,8 @@ const Navbar = () => {
   const router = useRouter();
   const userData = GetUserData();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(!!userData?.email);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // Add a loading state
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -34,6 +35,16 @@ const Navbar = () => {
     open: { opacity: 1, x: 0 },
     closed: { opacity: 0, x: "-100%" },
   };
+
+  // Check if user is logged in when component mounts
+  useEffect(() => {
+    setIsLoggedIn(!!userData?.email);
+    setIsLoading(false); // Set loading to false after checking
+  }, [userData]);
+
+  if (isLoading) {
+    return null; // Return null or a loading spinner until the component is fully hydrated
+  }
 
   return (
     <div className="bg-white border-b fixed top-0 left-0 w-full z-50">
@@ -144,53 +155,7 @@ const Navbar = () => {
           </motion.div>
         </>
       )}
-
-      {/* Mobile Navigation Links */}
-      <motion.div
-        className="lg:hidden fixed top-0 left-0 w-full h-full bg-white z-50 flex flex-col items-center justify-center space-y-8 font-medium"
-        initial="closed"
-        animate={menuOpen ? "open" : "closed"}
-        variants={menuVariants}
-        transition={{ type: "spring", stiffness: 70, damping: 20 }}
-      >
-        {[
-          { name: "Home", path: "/" },
-          { name: "News", path: "/news" },
-          { name: "Platinum Investments", path: "/investments" },
-          { name: "Community", path: "/community" },
-          { name: "Videos", path: "/videos" },
-          { name: "Data", path: "/data" },
-          { name: "Platinum 101", path: "/P101" },
-        ].map((link, index) => (
-          <button
-            key={index}
-            className={`text-lg ${
-              isActive(link.path)
-                ? "text-accent font-semibold"
-                : "text-black/70"
-            }`}
-            onClick={() => navigateTo(link.path)}
-          >
-            {link.name}
-          </button>
-        ))}
-
-        {isLoggedIn ? 
-          <button
-            className="bg-accent text-white px-5 py-2 rounded-sm hover:bg-accent/90"
-            onClick={() => navigateTo("/auth/login")}
-          >
-            Profile
-          </button>
-        :
-          <button
-            className="bg-accent text-white px-5 py-2 rounded-sm hover:bg-accent/90"
-            onClick={() => navigateTo("/auth/login")}
-          >
-            Login
-          </button>
-        }
-      </motion.div>
+      
     </div>
   );
 };
