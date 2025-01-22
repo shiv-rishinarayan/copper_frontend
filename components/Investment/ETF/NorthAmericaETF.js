@@ -1,29 +1,8 @@
-// import React from "react";
-// import NorthAmericaETFTickers from "./Tickers/NorthAmericaTickers";
-// import NorthAmericaChart from "./Charts/NorthAmericaChart";
-
-// const NorthAmericaETF = () => {
-//   return (
-//     <div>
-//       <div className="mb-20">
-//         <NorthAmericaETFTickers />
-//         <div className="mt-14 h-[500px]">
-//           <NorthAmericaChart />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default NorthAmericaETF;
-
-//.........................
-
 import React from "react";
 import NorthAmericaETFTickers from "./Tickers/NorthAmericaTickers";
 import NorthAmericaChart from "./Charts/NorthAmericaChart";
 import Financial from "../ETF/Financials/Financial";
-import { ETFdata } from "./ETFdata"; // Adjust path as needed
+import { ETFdata } from "./ETFdata";
 
 const NorthAmericaETF = () => {
   const northAmericaFunds = ETFdata.regions.find(

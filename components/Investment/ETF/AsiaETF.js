@@ -1,29 +1,8 @@
-// import React from "react";
-// import AsiaETFIntradayReturnTickers from "./Tickers/AsiaTickers";
-// import AsiaChart from "./Charts/AsiaChart";
-
-// const AsiaETF = () => {
-//   return (
-//     <div>
-//       <div className="mb-20">
-//         <AsiaETFIntradayReturnTickers />
-//         <div className="mt-14 h-[500px]">
-//           <AsiaChart />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default AsiaETF;
-
-//.................
-
 import React from "react";
 import AsiaETFIntradayReturnTickers from "./Tickers/AsiaTickers";
 import AsiaChart from "./Charts/AsiaChart";
 import Financial from "../ETF/Financials/Financial";
-import { ETFdata } from "./ETFdata"; // Adjust path as needed
+import { ETFdata } from "./ETFdata";
 
 const AsiaETF = () => {
   const asiaFunds = ETFdata.regions.find(
