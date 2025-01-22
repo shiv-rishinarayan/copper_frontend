@@ -92,52 +92,45 @@
 //                   onRefreshed(newAccessToken);
 //                 } else {
 //                   clearSession();
+//                   return Promise.reject(new Error('Failed to refresh token'));
 //                 }
 //               } catch (error) {
 //                 console.error("Error refreshing token:", error);
 //                 clearSession();
+//                 return Promise.reject(error);
 //               } finally {
 //                 isRefreshing = false;
 //               }
 //             }
 
-//             // Wait for the token to be refreshed
-//             return new Promise((resolve, reject) => {
-//               subscribeToTokenRefresh(async (newToken) => {
-//                 try {
-//                   // Clone the config and set all required fields for retry
-//                   const retryConfig = {
-//                     ...config,
-//                     method: config.method || "GET", // Ensure method is set
-//                     headers: {
-//                       ...config.headers,
-//                       Authorization: `Bearer ${newToken}`,
-//                     },
-//                   };
-
-//                   console.log("axios retryConfig ----- ", retryConfig)
-
-//                   // Retry the original request with the updated config
-//                   const response = await axiosInstance.request(retryConfig);
-//                   console.log("response axios ---- ", response)
-//                   resolve(response);
-//                 } catch (err) {
-//                   reject(err);
-//                 }
+//             // Create a new promise for waiting on token refresh
+//             return new Promise((resolve) => {
+//               subscribeToTokenRefresh((newToken) => {
+//                 // Create a new config object instead of modifying the existing one
+//                 const newConfig = {
+//                   ...config,
+//                   headers: {
+//                     ...config.headers,
+//                     Authorization: `Bearer ${newToken}`,
+//                   },
+//                 };
+//                 resolve(newConfig);
 //               });
 //             });
-//           } else {
-//             // Attach token to request headers
-//             config.headers["Authorization"] = `Bearer ${userData.access_token}`;
 //           }
+
+//           // Token is still valid, proceed with the request
+//           config.headers["Authorization"] = `Bearer ${userData.access_token}`;
+//           return config;
 //         } catch (error) {
 //           console.error("Error in request interceptor:", error);
 //           clearSession();
+//           return Promise.reject(error);
 //         }
-//       } else {
-//         clearSession();
 //       }
-//       return config;
+
+//       clearSession();
+//       return Promise.reject(new Error('No access token available'));
 //     },
 //     (error) => Promise.reject(error)
 //   );
