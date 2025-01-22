@@ -90,7 +90,6 @@
 
 //                   // Notify all subscribers with the new token
 //                   onRefreshed(newAccessToken);
-//                   isRefreshing = false;
 //                 } else {
 //                   clearSession();
 //                 }
@@ -103,10 +102,28 @@
 //             }
 
 //             // Wait for the token to be refreshed
-//             return new Promise((resolve) => {
-//               subscribeToTokenRefresh((newToken) => {
-//                 config.headers["Authorization"] = `Bearer ${newToken}`;
-//                 resolve(config);
+//             return new Promise((resolve, reject) => {
+//               subscribeToTokenRefresh(async (newToken) => {
+//                 try {
+//                   // Clone the config and set all required fields for retry
+//                   const retryConfig = {
+//                     ...config,
+//                     method: config.method || "GET", // Ensure method is set
+//                     headers: {
+//                       ...config.headers,
+//                       Authorization: `Bearer ${newToken}`,
+//                     },
+//                   };
+
+//                   console.log("axios retryConfig ----- ", retryConfig)
+
+//                   // Retry the original request with the updated config
+//                   const response = await axiosInstance.request(retryConfig);
+//                   console.log("response axios ---- ", response)
+//                   resolve(response);
+//                 } catch (err) {
+//                   reject(err);
+//                 }
 //               });
 //             });
 //           } else {
