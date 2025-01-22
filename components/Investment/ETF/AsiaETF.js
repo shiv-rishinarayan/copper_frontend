@@ -39,7 +39,7 @@ const AsiaETF = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
           {asiaFunds.map((fund) => (
-            <div key={fund.symbol} className="h-[950px]">
+            <div key={fund.symbol} className="h-[968px]">
               <Financial symbol={fund.symbol} />
             </div>
           ))}
