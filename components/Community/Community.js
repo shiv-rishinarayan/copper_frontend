@@ -39,7 +39,6 @@ const Community = () => {
     stockDetailsData: null,
   });
 
-  console.log(userData);
 
   const updateState = (updates) => {
     setState((prev) => ({ ...prev, ...updates }));
@@ -86,8 +85,8 @@ const Community = () => {
         // Clean the identifier by removing $ and ensuring uppercase
         const cleanIdentifier =
           type === "cashtag"
-            ? identifier.replace("$", "").toUpperCase()
-            : identifier.toUpperCase();
+            ? identifier.replace("$", "")?.toUpperCase()
+            : identifier?.toUpperCase();
 
         // Fix the URL structure by removing the trailing slash after the parameter
         const { data } = await axiosInstance.get(
@@ -104,22 +103,15 @@ const Community = () => {
     async fetchPosts(showLoader = true) {
       showLoader && updateState({ loading: true });
       try {
-        console.log(
-          "Fetching from URL:",
-          axiosInstance.defaults.baseURL + "community/api/forum/posts/"
-        );
+        console.log("Fetching from URL:",axiosInstance.defaults.baseURL + "community/api/forum/posts/");
+        console.log("Axios instance defaults:", axiosInstance.defaults);
 
-        const { data } = await axiosInstance.get("community/api/forum/posts/", {
-          validateStatus: function (status) {
-            return status >= 200 && status < 500;
-          },
-        });
+        const response = await axiosInstance.get("community/api/forum/posts/");
+        console.log("Response data only:", response.data);
 
-        if (!data) throw new Error("No data received from server");
-
-        const postsWithImage = data.reverse().map((post) => ({
+        const postsWithImage = response?.data?.reverse()?.map((post) => ({
           ...post,
-          post_image: post.post_image,
+          post_image: post.post_image || null,
         }));
 
         updateState({
@@ -128,6 +120,7 @@ const Community = () => {
           loading: false,
         });
       } catch (error) {
+        console.log("error --- ",error)
         console.error("Error details:", {
           message: error.message,
           status: error.response?.status,
