@@ -57,7 +57,8 @@ const Financial = ({ symbol }) => {
   }, [symbol]);
 
   return (
-    <div className="flex flex-col h-full w-full border-2 rounded-lg border-black/10 pt-5 pl-10 pr-2 sm:pr-5">
+    // <div className="flex flex-col h-full w-full border-2 rounded-lg border-black/10 pt-5 pl-10 pr-2 sm:pr-5">
+    <div className="flex flex-col h-full w-full border-2 rounded-lg border-black/10 pt-5  lg:pl-10 lg:pr-2 sm:pr-8 sm:pl-14">
       <div
         ref={tickerContainer}
         className="tradingview-widget-container h-[50px] -mb-4"
