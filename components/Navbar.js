@@ -47,15 +47,15 @@ const Navbar = () => {
   }
 
   return (
-    <div className="bg-white border-b fixed top-0 left-0 w-full z-50">
-      <div className="container mx-auto px-4 lg:px-10 py-5 flex justify-between items-center">
+    <div className="bg-white border-b fixed top-0 left-0 w-full z-50 ">
+      <div className="container mx-auto px-4 lg:px-10 py-5 flex justify-between items-center md:flex md:space-x-7">
         {/* Logo */}
         <Image
           src="/logo.jpg"
           alt="Logo"
           width={50}
           height={50}
-          className="cursor-pointer scale-[1.9] ml-7"
+          className="cursor-pointer scale-[1.9] lg:ml-7 md:mr-6"
           onClick={() => navigateTo("/")}
         />
 
@@ -155,7 +155,6 @@ const Navbar = () => {
           </motion.div>
         </>
       )}
-      
     </div>
   );
 };
