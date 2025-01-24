@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
+import axios from "axios";
+import { GetUserData } from "@/src/utils/GetUserData";
 import StockDetailChart from "@/components/StockDetail/StockDetailChart";
 import StockDetailFinancials from "@/components/StockDetail/StockDetailFinancials";
 import StockDetailProfile from "@/components/StockDetail/StockDetailProfile";
@@ -51,9 +53,18 @@ const TradingViewWidget = ({ ticker }) => {
 const StockDetailPage = () => {
   const router = useRouter();
   const { ticker } = router.query;
+  const userData = GetUserData();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+
+  // Follow stock state
+  const [isFollowed, setIsFollowed] = useState(false);
+  const [followedStockId, setFollowedStockId] = useState(null);
+
+  // API endpoints - adjust as needed
+  const FOLLOWED_STOCKS_URL =
+    "https://platinumdjango-production.up.railway.app/api/followed-stocks/";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -80,6 +91,128 @@ const StockDetailPage = () => {
 
     fetchData();
   }, [ticker]);
+
+  // Check follow status
+  // Check follow status
+  useEffect(() => {
+    const checkFollowStatus = async () => {
+      try {
+        const token = userData.access_token || localStorage.getItem("token");
+
+        if (!token) {
+          setIsFollowed(false);
+          return;
+        }
+
+        const response = await axios.get(FOLLOWED_STOCKS_URL, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        const followedStock = response.data.find(
+          (stock) => stock.stock_ticker === ticker
+        );
+
+        setIsFollowed(!!followedStock);
+        if (followedStock) {
+          setFollowedStockId(followedStock.id);
+        }
+      } catch (error) {
+        console.error("Error checking follow status:", error);
+        setIsFollowed(false);
+        setFollowedStockId(null);
+      }
+    };
+
+    if (ticker) {
+      checkFollowStatus();
+    }
+  }, [ticker, userData]);
+
+  // Handle follow/unfollow toggle
+  // const handleFollowToggle = async () => {
+  //   try {
+  //     // Ensure user is authenticated
+  //     const token = localStorage.getItem("token");
+  //     if (!token) {
+  //       router.push("/auth/login");
+  //       return;
+  //     }
+
+  //     if (isFollowed) {
+  //       // Unfollow
+  //       await axios.delete(`${FOLLOWED_STOCKS_URL}${followedStockId}/`, {
+  //         headers: {
+  //           Authorization: `Bearer ${userData.access_token}`,
+  //         },
+  //       });
+  //       setIsFollowed(false);
+  //       setFollowedStockId(null);
+  //     } else {
+  //       // Follow
+  //       const response = await axios.post(
+  //         FOLLOWED_STOCKS_URL,
+  //         { stock_ticker: ticker },
+  //         {
+  //           headers: {
+  //             Authorization: `Bearer ${userData.access_token}`,
+  //           },
+  //         }
+  //       );
+  //       setIsFollowed(true);
+  //       setFollowedStockId(response.data.id);
+  //     }
+  //   } catch (error) {
+  //     if (error.response?.status === 401) {
+  //       router.push("/auth/login");
+  //     } else {
+  //       console.error("Error toggling follow status:", error);
+  //     }
+  //   }
+  // };
+
+  const handleFollowToggle = async () => {
+    try {
+      // Use consistent token retrieval
+      const token = userData.access_token || localStorage.getItem("token");
+
+      if (!token) {
+        router.push("/auth/login");
+        return;
+      }
+
+      if (isFollowed) {
+        // Unfollow
+        await axios.delete(`${FOLLOWED_STOCKS_URL}${followedStockId}/`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setIsFollowed(false);
+        setFollowedStockId(null);
+      } else {
+        // Follow
+        const response = await axios.post(
+          FOLLOWED_STOCKS_URL,
+          { stock_ticker: ticker },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        setIsFollowed(true);
+        setFollowedStockId(response.data.id);
+      }
+    } catch (error) {
+      if (error.response?.status === 401) {
+        router.push("/auth/login");
+      } else {
+        console.error("Error toggling follow status:", error);
+      }
+    }
+  };
 
   if (loading) {
     return (
@@ -121,10 +254,27 @@ const StockDetailPage = () => {
             <p className="text-xs text-gray-500">
               {data[0].stock_exchange} · {data[0].stock_country}
             </p>
+            {/* <div className="flex items-center gap-x-4 border-b border-gray-200 pb-2">
+              <h1 className="text-2xl font-semibold text-gray-800">
+                {data[0].stock_name} ({data[0].stock_ticker})
+              </h1>
+            </div> */}
             <div className="flex items-center gap-x-4 border-b border-gray-200 pb-2">
               <h1 className="text-2xl font-semibold text-gray-800">
                 {data[0].stock_name} ({data[0].stock_ticker})
               </h1>
+
+              {/* Follow Button */}
+              <button
+                onClick={handleFollowToggle}
+                className={`px-3 py-1 rounded-md text-sm font-medium ${
+                  isFollowed
+                    ? "bg-accent hover:bg-accent/90 text-white"
+                    : "bg-gray-200 hover:bg-gray-300 text-gray-700"
+                }`}
+              >
+                {isFollowed ? "Unfollow" : "Follow"}
+              </button>
             </div>
           </div>
 
