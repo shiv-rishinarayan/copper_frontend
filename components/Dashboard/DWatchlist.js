@@ -222,40 +222,42 @@ const WatchlistContent = ({ userData }) => {
                   }`}
                 >
                   <td className="px-4 py-[12px]">
-                    {stock.stock_details.stock_type}
+                    {stock.stock_details?.stock_type || "N/A"}
                   </td>
                   <td className="px-4 py-[12px] whitespace-nowrap truncate">
-                    {stock.stock_details.company_name}
-                  </td>
-                  <td className="px-4 py-[12px]">{stock.stock_ticker}</td>
-                  <td className="px-4 py-[12px]">
-                    {stock.stock_details.exchange}
+                    {stock.stock_details?.company_name || "N/A"}
                   </td>
                   <td className="px-4 py-[12px]">
-                    {formatMarketCap(stock.stock_details.market_cap)}
+                    {stock.stock_ticker || "N/A"}
                   </td>
                   <td className="px-4 py-[12px]">
-                    {stock.stock_details.last_price || "N/A"}
+                    {stock.stock_details?.exchange || "N/A"}
+                  </td>
+                  <td className="px-4 py-[12px]">
+                    {formatMarketCap(stock.stock_details?.market_cap) || "0.00"}
+                  </td>
+                  <td className="px-4 py-[12px]">
+                    {stock.stock_details?.last_price || "0.00"}
                   </td>
                   <td
                     className={`px-4 py-[12px] ${getColorClass(
-                      stock.stock_details.intraday_percentage
+                      stock.stock_details?.intraday_percentage
                     )}`}
                   >
-                    {stock.stock_details.intraday_percentage != null
+                    {stock.stock_details?.intraday_percentage != null
                       ? `${stock.stock_details.intraday_percentage}%`
                       : "0.00%"}
                   </td>
                   <td className="px-4 py-[12px]">
-                    {formatVolume(stock.stock_details.volume)}
+                    {formatVolume(stock.stock_details?.volume) || "0"}
                   </td>
                   <td
                     className={`px-4 py-[12px] ${getColorClass(
-                      stock.stock_details.ytd_percentage
+                      stock.stock_details?.ytd_percentage
                     )}`}
                   >
-                    {stock.stock_details.ytd_percentage != null
-                      ? `${stock.ytd_percentage}%`
+                    {stock.stock_details?.ytd_percentage != null
+                      ? `${stock.stock_details.ytd_percentage}%`
                       : "0.00%"}
                   </td>
                   <td className="px-4 py-[12px]">
