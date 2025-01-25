@@ -29,7 +29,7 @@ const P101Cards = () => {
                   className="object-contain"
                 />
               </div>
-              <div className="w-full h-[50%] bg-black/0 text-black1/80 flex flex-col justify-center pb-0 px-2 relative transition-all duration-200 group-hover:bg-accent/5 overflow-hidden">
+              <div className="w-full h-[50%] text-black1/80 flex flex-col justify-center pb-0 px-2 relative transition-all duration-200 bg-accent/5 group-hover:bg-accent/10 overflow-hidden">
                 <div className="relative z-10">
                   <h2 className="text-[19px] capitalize font-semibold mb-2 frank">
                     {card.title}
@@ -47,7 +47,7 @@ const P101Cards = () => {
             onClick={() => router.push("/platinum101/glossary")}
             className="card relative group w-full h-[360px] overflow-hidden rounded-t-[1.7rem] flex flex-col border border-date/20 cursor-pointer"
           >
-            <div className="w-full h-full bg-center bg-no-repeat transition-transform duration-300 ease-in-out group-hover:scale-[1.03] overflow-hidden">
+            <div className="w-full h-full bg-center bg-no-repeat transition-transform duration-300 ease-in-out group-hover:scale-[1.03] overflow-hidden -mb-3">
               <Image
                 src="/P101imgs/glossary.jpeg"
                 alt="Glossary"
@@ -56,7 +56,7 @@ const P101Cards = () => {
                 className="object-contain"
               />
             </div>
-            <div className="w-full h-[50%] bg-black/0 text-black1/80 flex flex-col justify-center pb-0 px-2 relative transition-all duration-200 group-hover:bg-accent/5 overflow-hidden">
+            <div className="w-full h-[50%] bg-accent/5 text-black1/80 flex flex-col justify-center pb-0 px-2 relative transition-all duration-200 group-hover:bg-accent/10 overflow-hidden">
               <div className="relative z-10">
                 <h2 className="text-[19px] capitalize font-semibold mb-2 frank">
                   PGM Glossary
