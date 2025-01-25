@@ -32,7 +32,7 @@ const P101Cards = () => {
               <div className="w-full h-[50%] text-black1/80 flex flex-col justify-center pb-0 px-2 relative transition-all duration-200 bg-accent/5 group-hover:bg-accent/10 overflow-hidden">
                 <div className="relative z-10">
                   <h2 className="text-[19px] capitalize font-semibold mb-2 frank">
-                    {card.title}
+                    {card.title} 
                   </h2>
                   <p className="text-[15px] text-left text-lightgray group-hover:text-lightgray transition-colors duration-500">
                     {card.description.substring(0, 80)}...{" "}
