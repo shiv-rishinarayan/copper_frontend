@@ -22,18 +22,9 @@ function TradingViewWidget() {
           "allow_symbol_change": false,
           "save_image": false,
           "compareSymbols": [
-            {
-              "symbol": "LSE:SPPT",
-              "position": "SameScale"
-            },
-            {
-              "symbol": "LSE:PHPT",
-              "position": "SameScale"
-            },
-            {
-              "symbol": "LSE:XPPT",
-              "position": "SameScale"
-            },
+          
+            
+           
             {
               "symbol": "MIL:XPPE",
               "position": "SameScale"
@@ -46,10 +37,7 @@ function TradingViewWidget() {
               "symbol": "SIX:ZPLA",
               "position": "SameScale"
             },
-            {
-              "symbol": "LSE:PHPM",
-              "position": "SameScale"
-            },
+           
             {
               "symbol": "LSE:IPLT",
               "position": "SameScale"

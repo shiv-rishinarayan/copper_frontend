@@ -15,15 +15,10 @@ const EuropeETFTickers = () => {
     script.async = true;
     script.innerHTML = JSON.stringify({
       symbols: [
-        { description: "", proName: "LSE:IPLT" },
-        { description: "", proName: "LSE:SPPT" },
-        { description: "", proName: "LSE:PHPT" },
         { description: "", proName: "MIL:XAD3" },
         { description: "", proName: "MIL:XPPE" },
-        { description: "", proName: "LSE:XPPT" },
         { description: "", proName: "TURQUOISE:PTCHAZ" },
         { description: "", proName: "SIX:ZPLA" },
-        { description: "", proName: "LSE:PHPM" },
       ],
       isTransparent: false,
       showSymbolLogo: true,
