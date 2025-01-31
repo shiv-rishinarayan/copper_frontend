@@ -81,10 +81,11 @@ const DSupply = () => {
       <div className="mb-9 md:mb-16">
         <h1 className="cambay text-[22px] sm:text-2xl font-semibold">Supply</h1>
         <p className="text-black/80 mt-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
-          explicabo eum nulla non sint voluptatibus voluptas animi deserunt quo,
-          veniam, ex exercitationem distinctio odio, reiciendis quibusdam
-          expedita adipisci iste aperiam!
+          Explore comprehensive data on the global supply of platinum and other
+          PGMs, including production forecasts, supply changes, and recovery
+          from secondary sources. Gain insights into regional production trends,
+          recycling contributions, and factors influencing future supply
+          dynamics.
         </p>
       </div>
 
