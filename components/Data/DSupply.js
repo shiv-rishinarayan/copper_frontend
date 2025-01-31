@@ -12,7 +12,7 @@ const DSupply = () => {
       source: "Metals Focus Prepared For World Platinum Investment Council",
       path: "/DataSupply/1",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
+        "The chart appears to depict data related to mining supply and recycling over the years 2023 to 2025. The numbers listed, such as 7,159, 7,269, and 7,500, ",
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ const DSupply = () => {
       source: "Metals Focus Prepared For World Platinum Investment Council",
       path: "/DataSupply/2",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
+        "This world map provides an overview of platinum production and recycling data for several key regions in 2023 and 2024. North America is shown as a major platinum production center,",
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ const DSupply = () => {
       source: "Metals Focus Prepared For World Platinum Investment Council",
       path: "/DataSupply/3",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
+        "This chart provides a detailed breakdown of platinum market data, covering refined production, producer inventory, recycling, and total figures across several quarters",
     },
     {
       id: 4,
@@ -39,7 +39,7 @@ const DSupply = () => {
       source: "Metals Focus 2022 to 2024F, Company data,WPIC 2025F and after",
       path: "/DataSupply/4",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
+        "The chart provides WPIC (World Platinum Investment Council) forecasts for South African platinum supply from 2022 to 2028, showing both the previous forecast (in green) and the revised",
     },
     {
       id: 5,
@@ -50,7 +50,7 @@ const DSupply = () => {
       source: "PGM Market Report",
       path: "/DataSupply/5",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
+        "The chart presents the historical and forecast trends for three precious metals: platinum, palladium, and rhodium, from 2015 to 2024. The chart depicts a clear upward",
     },
   ];
 

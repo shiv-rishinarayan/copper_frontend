@@ -10,7 +10,7 @@ const charts = [
     source: "WPIC Platinum Quarterly Q3 2024, Metals Focus",
     path: "/DataWPICSupplyDemand/1",
     description:
-      "2025 Outlook: Fundamentals are entrenched as both supply and demand see minor changes. Annual Total Supply And Changes 2023 To 2025f (koz)",
+      "2025 Outlook: Annual Total Supply and Changes 2023 to 2025f (koz). Platinum supply in 2025 is projected to see a modest increase, largely",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const charts = [
     source: "WPIC Platinum Quarterly Q3 2024, Metals Focus",
     path: "/DataWPICSupplyDemand/2",
     description:
-      "2025 Outlook: Fundamentals are entrenched as both supply and demand see minor changes. Annual Total Demand And Changes 2023 To 2025f (koz)",
+      "2025 Outlook: Annual Total Demand and Changes 2023 to 2025f (koz).The demand for platinum in 2025 is expected to remain robust, with significant",
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const charts = [
     source: "Bloomberg, WPIC Research",
     path: "/DataWPICSupplyDemand/3",
     description:
-      "Price Drivers: Ongoing market deficits and depletion of above ground stocks. Market deficits : We forcast platinum market deficits countinuing through 2028",
+      "Price Drivers: Ongoing Market Deficits and Depletion of Above-Ground Stocks.The platinum market is facing persistent deficits as demand continues to outstrip supply",
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const charts = [
     source: "Bloomberg, WPIC Research",
     path: "/DataWPICSupplyDemand/4",
     description:
-      "Price Drivers: Ongoing market deficits and depletion of above ground stocks. Above Ground Stocks : Above ground stocks are fully depleted by 2028",
+      "The platinum market analysis from 1993 to 2025 (forecast) reveals a compelling narrative of market evolution and structural changes. Initially",
   },
   {
     id: 5,
@@ -48,7 +48,7 @@ const charts = [
     source: "Metals Focus, WPIC Research",
     path: "/DataWPICSupplyDemand/5",
     description:
-      "Fundamentals: The automotive and jewellery segments to grow in 2025f. Automotive demand for platinum: 2025f: +2% y/y, 8 year high, Included in outlook: +ve Hybridisation, +ve Commercial vehicle growth, +ve Pt:Pd substitution",
+      "This chart tracks the demand for platinum in the automotive sector from 2021 to 2025, measured in kilotons (koz). It shows a fluctuating trend, with demand",
   },
   {
     id: 6,
@@ -58,7 +58,7 @@ const charts = [
     source: "Metals Focus, WPIC Research",
     path: "/DataWPICSupplyDemand/6",
     description:
-      "Fundamentals: The automotive and jewellery segments to grow in 2025f. Jwellery Demand For Platinum: 2025f: +2% y/y, Included in outlook: +ve China Growth, +ve India & US growing, +ve Pt:Au switching",
+      "The chart illustrates the annual demand and its year-over-year (y/y) growth percentage from 2021 to 2025, with projections for 2024 and 2025. The annual demand,",
   },
   {
     id: 7,
@@ -68,7 +68,7 @@ const charts = [
       "Global Data Regional Automative Associations (US, China & Europe) WPIC Research",
     path: "/DataWPICSupplyDemand/7",
     description:
-      "Fundamentals: Higher-for-longer ice demand entrenched in the drivetrain transition. Demand: Weaker Q3'24, Pure-BEV and pure-ICE revised lower, 2025f growth of 3% y/y vs. 2024: Normalised inflation and Lower interest rates",
+      "The chart illustrates the market share percentage over several quarters, starting from Q1 2021 to Q1 2024. It begins with a market share of 30% in Q1 2021, ",
   },
   {
     id: 8,
@@ -78,7 +78,7 @@ const charts = [
       "Global Data Regional Automative Associations (US, China & Europe) WPIC Research",
     path: "/DataWPICSupplyDemand/8",
     description:
-      "Fundamentals: Higher-for-longer ice demand entrenched in the drivetrain transition. Drivetrain transition: Higher-for-longer ICE and hybrid well established, Decelerating BEV growth 2024: Cost and Infrastructure, 2025 growth: Hybridisation complements BEV to meet CO2 reductions",
+      "The chart depicts a gradual transition in drivetrain mix from 2023-2025. ICE and hybrid remain established, with flat production. BEV growth decelerates in",
   },
   {
     id: 9,
@@ -87,7 +87,7 @@ const charts = [
     source: "PGM Market Report",
     path: "/DataWPICSupplyDemand/9",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Est alias vitae consequatur veniam quos, eos quod similique blanditiis hic sit eaque dicta esse modi reiciendis officiis incidunt laudantium laboriosam commodi!",
+      "The chart lists three precious metals—Platinum, Palladium, and Rhodium—under the headings for 2023 and 2024. This suggests that the focus is on these metals for the specified years,",
   },
 ];
 
@@ -105,10 +105,12 @@ const DWPICSupply = () => {
           WPIC Supply Demand Estimates
         </h1>
         <p className="text-black/80 mt-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit facere
-          architecto ut, labore voluptatum ad magni assumenda libero quaerat
-          aspernatur quasi fugiat, quas quo, laudantium ullam distinctio numquam
-          beatae illum? ullam distinctio numquam
+          WPIC Supply Demand Estimates highlight stable fundamentals in the 2025
+          outlook, with minor shifts in supply and demand. Persistent market
+          deficits, driven by declining above-ground stocks, continue to
+          influence prices. Platinum demand in automotive and jewelry is
+          expected to grow, while the drivetrain transition shapes future market
+          trends.
         </p>
       </div>
 
