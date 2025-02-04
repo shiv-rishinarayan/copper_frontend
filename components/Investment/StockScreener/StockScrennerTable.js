@@ -8,7 +8,7 @@ import { toast } from "react-hot-toast";
 
 const StockScreenerTable = ({
   displayedData,
-  getColorClass,
+  // getColorClass,
   onSort,
   sortColumn,
   sortDirection,
@@ -185,6 +185,10 @@ const StockScreenerTable = ({
     }
 
     return formattedValue;
+  };
+  const getColorClass = (value) => {
+    const num = parseFloat(value);
+    return isNaN(num) ? "" : num < 0 ? "text-red-500" : "text-green-500";
   };
 
   const formatVolume = (value) => {

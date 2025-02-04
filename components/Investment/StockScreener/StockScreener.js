@@ -188,9 +188,9 @@ const StockScreener = () => {
 
           <StockScreenerTable
             displayedData={displayedData}
-            getColorClass={(value) =>
-              value < 0 ? "text-red-500" : "text-green-500"
-            }
+            // getColorClass={(value) =>
+            //   value < 0 ? "text-red-500" : "text-green-500"
+            // }
             onSort={handleSort}
             sortColumn={sortColumn}
             sortDirection={sortDirection}
