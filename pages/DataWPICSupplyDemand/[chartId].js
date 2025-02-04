@@ -117,7 +117,7 @@ const ChartSubpage = () => {
             {chart.source}
           </span>
         </p>
-        <p className="mt-3 text-black/80 text-[16px]">{chart.description}</p>
+        <p className="mt-3 text-black/80 text-[15px]">{chart.description}</p>
         <div className="mt-14 w-full md:w-[65%] h-full  flex justify-center items-center">
           <img
             src={chart.image}
