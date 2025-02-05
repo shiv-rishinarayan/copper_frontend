@@ -1,40 +1,36 @@
 import React, { useState, useEffect } from "react";
 import { IoTimerOutline } from "react-icons/io5";
 import axios from "axios";
-// import useAxios from "@/src/network/useAxios";
-import { PLATINUM_NEWS } from "@/src/api/homeAPI";
-import { BASE_URL2 } from "@/src/api/authAPI";
+import { PLATINUM_NEWS } from "@/src/api/platinumAPI";
+import Loader from "../Loader";
 
 const PlainNews = () => {
   // const axiosInstance = useAxios();
-  const [newsData, setNewsData] = useState([]); // State to hold news data
-  const [loading, setLoading] = useState(true); // State for loading status
-  const [error, setError] = useState(null); // State to handle errors
-
-  const BASEURL = process.env.NEXT_PUBLIC_API_BASEURL;
+  const [newsData, setNewsData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchNewsData = async () => {
       try {
-        setLoading(true); // Set loading to true before fetching data
-        // const response = await axiosInstance.get(`${PLATINUM_NEWS}?news_type=platinum`);
-        const response = await axios.get(BASE_URL2 + PLATINUM_NEWS + "?news_type=platinum"); // Replace with your API URL
+        setLoading(true);
+        const response = await axios.get(`${PLATINUM_NEWS}?news_type=platinum`);
         const data = response.data;
 
         if (data && Array.isArray(data) && data.length > 0) {
-          setNewsData(data); // Set data if valid
+          setNewsData(data);
         } else {
-          setNewsData([]); // Set empty array if data is empty or invalid
+          setNewsData([]);
         }
       } catch (err) {
-        setError("Failed to fetch news data"); // Set error message if the API call fails
+        setError("Failed to fetch news data");
       } finally {
-        setLoading(false); // Set loading to false after data is fetched
+        setLoading(false);
       }
     };
 
     fetchNewsData();
-  }, []); // Empty dependency array to fetch data only once on component mount
+  }, []);
 
   // Function to format the date
   const formatDate = (dateString) => {
@@ -46,17 +42,20 @@ const PlainNews = () => {
     });
   };
 
-  // Conditional rendering based on loading, error, and data
   if (loading) {
-    return <div>Loading...</div>; // Show loading message while data is being fetched
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
   }
 
   if (error) {
-    return <div>{error}</div>; // Show error message if API call fails
+    return <div>{error}</div>;
   }
 
   if (!newsData || newsData.length === 0) {
-    return <div>No data available</div>; // Show no data message if no valid data
+    return <div>No data available</div>;
   }
 
   return (
