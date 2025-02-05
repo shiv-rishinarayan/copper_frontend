@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-
+import { STOCK_NEWS } from "@/src/api/platinumAPI";
 const StockNews = () => {
   const [newsData, setNewsData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const BASEURL = process.env.NEXT_PUBLIC_API_BASEURL;
-
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await fetch(`${BASEURL}/api/stock-news/`);
+        const response = await fetch(STOCK_NEWS);
         const data = await response.json();
         // Ensure we're working with an array
         setNewsData(Array.isArray(data) ? data : []);
