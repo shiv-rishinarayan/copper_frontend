@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Loader from "../Loader";
+import { PLATINUM_NEWS } from "@/src/api/platinumAPI";
 
 const LatestNews = () => {
   const [newsData, setNewsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const BASEURL = process.env.NEXT_PUBLIC_API_BASEURL;
-
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await fetch(`${BASEURL}/api/platinum_news/`);
+        const response = await fetch(PLATINUM_NEWS);
         if (!response.ok) {
           throw new Error("Failed to fetch news");
         }
@@ -28,7 +27,7 @@ const LatestNews = () => {
     };
 
     fetchNews();
-  }, [BASEURL]);
+  }, []);
 
   if (loading) {
     return (
