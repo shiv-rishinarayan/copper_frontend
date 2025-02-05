@@ -1,37 +1,29 @@
 import { useEffect, useState } from "react";
 import { formatDistanceToNow } from "date-fns"; // Importing date-fns function for relative time
 import { IoIosTimer } from "react-icons/io";
-import { BASE_URL2 } from "@/src/api/authAPI";
-import { PLATINUM_NEWS } from "@/src/api/homeAPI";
+import { PLATINUM_NEWS } from "@/src/api/platinumAPI";
 import axios from "axios";
 
 const Hero = () => {
   const [news, setNews] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Function to fetch news
   useEffect(() => {
     async function fetchNews() {
-      // const response = await fetch(
-      //   "https://platinumdjango-production.up.railway.app/api/platinum_news/"
-      // );
-      const response = await axios.get(BASE_URL2 + PLATINUM_NEWS);
-      // const data = await response.json();
-      const data = response?.data; 
+      const response = await axios.get(PLATINUM_NEWS);
+
+      const data = response?.data;
       setNews(data);
     }
     fetchNews();
 
-    // Auto-scroll logic
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % news.length);
-    }, 4000); // Adjust the interval time as needed (3000ms = 3 seconds)
+    }, 4000);
 
-    // Clear interval when the component unmounts
     return () => clearInterval(interval);
   }, [news.length]);
 
-  // Functions for manual navigation
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % news.length);
   };
