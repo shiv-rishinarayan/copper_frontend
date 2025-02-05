@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { FaLink } from "react-icons/fa6";
+import { PGM_PRICES } from "@/src/api/platinumAPI";
 
 const HomePGMPrice = () => {
   const [pgmPrices, setPgmPrices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const BASEURL = process.env.NEXT_PUBLIC_API_BASEURL;
-
   useEffect(() => {
     const fetchPrices = async () => {
       try {
-        const response = await fetch(`${BASEURL}/api/pgm-prices/`);
+        const response = await fetch(PGM_PRICES);
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
