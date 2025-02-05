@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import { color } from "framer-motion";
-import { BASE_URL2 } from "@/src/api/authAPI";
-import { SPORT_PRICE_CHART } from "@/src/api/homeAPI";
+
+import { SPORT_PRICE_CHART } from "@/src/api/platinumAPI";
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
@@ -15,10 +15,7 @@ const ChartRuthenium = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const response = await axios.get(
-        //   "https://platinumdjango-production.up.railway.app/api/spot-price-chart"
-        // );
-        const response = await axios.get(BASE_URL2 + SPORT_PRICE_CHART);
+        const response = await axios.get(SPORT_PRICE_CHART);
         const result = response.data;
 
         if (!result || result.length === 0) {
