@@ -1,25 +1,21 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { BASE_URL2 } from "@/src/api/authAPI";
-import { PLATINUM_NEWS } from "@/src/api/homeAPI";
+import { PLATINUM_NEWS } from "@/src/api/platinumAPI";
 import axios from "axios";
 
 const MostPopularNews = () => {
   const [news, setNews] = useState([]);
 
-  const BASEURL = process.env.NEXT_PUBLIC_API_BASEURL;
-
+  console.log(PLATINUM_NEWS);
   useEffect(() => {
     // Fetching news articles from the API
     const fetchNews = async () => {
       try {
-        // const response = await fetch(
-        //   "https://platinumdjango-production.up.railway.app/api/platinum_news/"
-        // );
-        const response = await axios.get(BASE_URL2 + PLATINUM_NEWS);
-        const data = response?.data; 
+        const response = await axios.get(PLATINUM_NEWS);
+        const data = response?.data;
+        console.log(data);
         // Slice to get news starting from 6th item and limit to 8 items
-        setNews(data.slice(0, 8));
+        setNews(data.slice(10, 18));
       } catch (error) {
         console.error("Error fetching news:", error);
       }
