@@ -130,7 +130,7 @@ const cardData = [
   {
     id: "3",
     href: "/rhodium101/3",
-    image: "/P101imgs/rhodium.jpg",
+    image: "/P101imgs/rhodium.png",
     video: "/P101imgs/rhodium.gif",
     title: "Rhodium",
     description:
@@ -188,7 +188,7 @@ const cardData = [
   {
     id: "4",
     href: "/iridium101/4",
-    image: "/P101imgs/iridium.jpg",
+    image: "/P101imgs/iridium.png",
     video: "/P101imgs/iridium.gif",
     title: "Iridium",
     description:
@@ -252,7 +252,7 @@ const cardData = [
   {
     id: "5",
     href: "/ruthenium101/5",
-    image: "/P101imgs/ruthenium.jpg",
+    image: "/P101imgs/ruthenium.png",
     video: "/P101imgs/ruthenium.gif",
     title: "Ruthenium",
     description:
@@ -327,7 +327,7 @@ const cardData = [
   {
     id: "6",
     href: "/osmium101/6",
-    image: "/P101imgs/osmium.jpg",
+    image: "/P101imgs/osmium.png",
     video: "/P101imgs/osmium.gif",
     title: "Osmium",
     description:
