@@ -38,7 +38,10 @@ function TradingViewWidget() {
               "position": "SameScale"
             },
            
-            
+            {
+              "symbol": "LSE:IPLT",
+              "position": "SameScale"
+            }
           ],
           "calendar": false,
           "hide_volume": true,

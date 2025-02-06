@@ -6,7 +6,7 @@ import NorthAmericaETF from "./NorthAmericaETF";
 import SouthAfricaETF from "./SouthAfricaETF";
 
 const IETF = () => {
-  const [selectedRegion, setSelectedRegion] = useState("asia");
+  const [selectedRegion, setSelectedRegion] = useState("north america");
 
   const handleRegionSelect = (region) => {
     setSelectedRegion(region.toLowerCase());
