@@ -3,9 +3,9 @@ import Footer2 from "./Footer2";
 
 const Footer = () => {
   return (
-    <footer className="relative w-full h-fit ">
+    <footer className="relative w-full h-fit bg-gray-900">
       {/* Footer Content */}
-      <div className=" text-white md:px-4 bg-gray-900 relative container mx-auto px-4 lg:px-10 py-10 h-full flex flex-col lg:flex-row items-center justify-between">
+      <div className="w-full text-white md:px-4 bg-gray-900 relative container mx-auto px-4 lg:px-10 py-10 h-full flex flex-col lg:flex-row items-center justify-between">
         <div className="lg:w-[96%] w-full flex flex-col mx-auto text-center px-3 space-y-4">
           {/* Main Content */}
           <div className="container mx-auto flex flex-col justify-between lg:flex-row">
