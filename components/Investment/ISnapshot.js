@@ -152,7 +152,7 @@ const ISnapshot = () => {
                             alt={logo.name}
                             width={100}
                             height={100}
-                            className={`h-8 w-auto mb-2 ${
+                            className={`h-8 w-auto mb-2 md:scale-[0.85] lg:scale-100 ${
                               stock.name === "New Age Metals Inc."
                                 ? "scale-105"
                                 : ""
@@ -173,7 +173,7 @@ const ISnapshot = () => {
                       return null;
                     })}
 
-                    <div className="flex space-x-4 font-semibold text-[13px] md:text-[13.8px] mt-2 text-black1/90">
+                    <div className="flex flex-wrap justify-center items-center gap-x-4 font-semibold text-[12px] lg:text-[13.8px] mt-2 text-black1/90">
                       <span className="inline-flex">
                         ${stock.current_price?.toFixed(2) ?? "0.00"}
                       </span>
