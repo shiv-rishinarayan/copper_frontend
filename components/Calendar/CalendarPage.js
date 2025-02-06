@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import YearCalendar from "./YearCalendar";
 import Navbar from "../Navbar";
 import Loader from "../Loader";
+import { CALENDAR } from "@/src/api/platinumAPI";
 
 const Calendar = () => {
   const [data, setData] = useState([]);
@@ -9,12 +10,10 @@ const Calendar = () => {
   const [error, setError] = useState(null);
   const [selectedYear, setSelectedYear] = useState(2025); // State for the year
 
-  const BASEURL = process.env.NEXT_PUBLIC_API_BASEURL;
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${BASEURL}/api/calendar-events`); // Replace with your API URL
+        const response = await fetch(CALENDAR); // Replace with your API URL
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

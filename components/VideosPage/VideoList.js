@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { FaPlay } from "react-icons/fa";
 import Loader from "../Loader";
-
+import { VIDEOS } from "@/src/api/platinumAPI";
 const VideoList = ({ category }) => {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,13 +11,11 @@ const VideoList = ({ category }) => {
   const [currentVideoUrl, setCurrentVideoUrl] = useState(null);
   const modalRef = useRef(null);
 
-  const BASEURL = process.env.NEXT_PUBLIC_API_BASEURL;
-
   useEffect(() => {
     const fetchVideos = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`${BASEURL}/api/videos`);
+        const response = await axios.get(VIDEOS);
         const filteredVideos =
           category === "All"
             ? response.data.data
@@ -33,7 +31,7 @@ const VideoList = ({ category }) => {
     };
 
     fetchVideos();
-  }, [category, BASEURL]);
+  }, [category]);
 
   const getEmbedUrl = (url) => {
     const videoId = getYouTubeId(url);

@@ -4,10 +4,9 @@ import StockFilters from "../StockScreener/StockScreenerTableFilters";
 import StockScreenerTable from "../StockScreener/StockScrennerTable";
 import { ArrowUp, ArrowDown } from "lucide-react";
 import { GetUserData } from "@/src/utils/GetUserData";
+import { STOCK_SCREENER } from "@/src/api/platinumAPI";
 
 const PAGE_SIZE = 15;
-const API_URL =
-  "https://platinumdjango-production.up.railway.app/api/stock-metrics/";
 
 const convertToNumber = (value) => {
   if (typeof value === "number") return value;
@@ -71,7 +70,7 @@ const StockScreener = () => {
   useEffect(() => {
     const fetchStockData = async () => {
       try {
-        const response = await fetch(API_URL);
+        const response = await fetch(STOCK_SCREENER);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

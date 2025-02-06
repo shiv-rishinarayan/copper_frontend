@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Loader from "@/components/Loader";
 import axios from "axios";
+import { MOST_FOLLOWED } from "@/src/api/platinumAPI";
+import { PGM_STOCK_DETAIL } from "@/src/api/platinumAPI";
 
 const logos = [
   { name: "New Age Metals Inc.", image: "/snapshotImgs/NAM-2.png" },
@@ -52,13 +54,13 @@ const ISnapshot = () => {
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
+  console.log(MOST_FOLLOWED);
+
   useEffect(() => {
     const fetchStocks = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get(
-          "https://platinumdjango-production.up.railway.app/api/most-followed-stocks/"
-        );
+        const response = await axios.get(MOST_FOLLOWED);
         setStocksData(response.data);
       } catch (err) {
         console.error("Error fetching stock data:", err);
@@ -73,7 +75,7 @@ const ISnapshot = () => {
   const checkSubpageExists = async (stockTicker) => {
     try {
       const response = await axios.get(
-        `https://platinumdjango-production.up.railway.app/api/pgm-stock-detail/?stock_ticker=${stockTicker}`
+        `${PGM_STOCK_DETAIL}?stock_ticker=${stockTicker}`
       );
       return response.data.exists ?? true;
     } catch (error) {
