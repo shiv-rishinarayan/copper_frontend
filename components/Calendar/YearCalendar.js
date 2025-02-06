@@ -56,7 +56,7 @@ const YearCalendar = ({ calendarData, selectedYear, setSelectedYear }) => {
   };
 
   return (
-    <div className="mx-auto px-4 py-8">
+    <div className="mx-auto px-0 md:px-4 py-8">
       <div className="flex items-center justify-center mb-12">
         <button
           onClick={handlePrevYear}
@@ -64,7 +64,7 @@ const YearCalendar = ({ calendarData, selectedYear, setSelectedYear }) => {
         >
           <ChevronLeft size={24} />
         </button>
-        <h2 className="text-3xl font-bold text-center text-black1/90 frank">
+        <h2 className="text-[22px] md:text-3xl font-bold text-center text-black1/90 frank">
           {selectedYear} Yearly Calendar
         </h2>
         <button
@@ -75,7 +75,7 @@ const YearCalendar = ({ calendarData, selectedYear, setSelectedYear }) => {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-2">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-1 md:gap-2">
         {Array.from({ length: 12 }).map((_, month) => (
           <div
             key={month}
@@ -84,14 +84,17 @@ const YearCalendar = ({ calendarData, selectedYear, setSelectedYear }) => {
             <h3 className="text-lg font-medium mb-4 text-center text-black">
               {dayjs().month(month).format("MMMM")}
             </h3>
-            <div className="grid grid-cols-7 gap-1 text-center text-[13px] text-black/80">
+            <div className="grid grid-cols-7 gap-1 text-center text-[12.3px] sm:text-[13px] text-black/80">
               {["S", "M", "T", "W", "T", "F", "S"].map((day) => (
-                <div key={day} className="w-6 h-6 text-[13px]">
+                <div
+                  key={day}
+                  className="w-5 h-5 md:w-6 md:h-6 text-[12.3px] sm:text-[13px]"
+                >
                   {day}
                 </div>
               ))}
             </div>
-            <div className="grid grid-cols-7 gap-1 mt-2 text-[13px] relative">
+            <div className="grid grid-cols-7 gap-1 mt-2 text-[12.3px] sm:text-[13px] relative">
               {getDaysInMonth(selectedYear, month).map((day, idx) => {
                 const date = day
                   ? dayjs(`${selectedYear}-${month + 1}-${day}`)
@@ -108,7 +111,7 @@ const YearCalendar = ({ calendarData, selectedYear, setSelectedYear }) => {
                 return (
                   <div
                     key={idx}
-                    className={`w-6 h-6 flex items-center justify-center cursor-pointer transition-colors ${
+                    className={`w-5 h-5 md:w-6 md:h-6 flex items-center justify-center cursor-pointer transition-colors ${
                       day ? `${eventColor} ${textColor}` : ""
                     } relative`}
                     onMouseEnter={() => setHoveredDate(date)}
@@ -116,7 +119,7 @@ const YearCalendar = ({ calendarData, selectedYear, setSelectedYear }) => {
                   >
                     <span>{day}</span>
                     {hasEvents && hoveredDate?.isSame(date, "day") && (
-                      <div className="absolute z-50 left-full ml-1 top-1/2 transform -translate-y-1/2 min-w-[150px] bg-yellow-300 text-black text-sm rounded-md px-3 py-2 shadow-lg">
+                      <div className="absolute z-50 left-full -ml-16 sm:ml-1 top-1/2 transform -translate-y-1/2 min-w-[100px] sm:min-w-[150px] bg-yellow-300 text-black text-sm rounded-md px-3 py-2 shadow-lg">
                         {events.map((event, index) => (
                           <div
                             key={index}
