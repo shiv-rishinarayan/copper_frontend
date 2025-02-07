@@ -1,9 +1,11 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import PlatinumPrice from "./PlatinumPrice";
+import { useRouter } from "next/router";
 
 const Hero = () => {
   const videoRef = useRef(null);
+  const router = useRouter();
 
   // Animation variants for the text
   const textVariants = {
@@ -81,7 +83,10 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
         >
-          <button className="bg-accent text-white px-6 py-2 rounded-sm w-full sm:w-auto hover:bg-accent/90">
+          <button
+            onClick={() => router.push("/investments")}
+            className="bg-accent text-white px-6 py-2 rounded-sm w-full sm:w-auto hover:bg-accent/90"
+          >
             Get Started
           </button>
         </motion.div>
