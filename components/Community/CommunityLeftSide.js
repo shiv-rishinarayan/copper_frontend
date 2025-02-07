@@ -7,7 +7,11 @@ import StockDetailsTechAnalysis from "../StockDetail/StockDetailTechAnalysis";
 import StockDetailMostFollowed from "../StockDetail/StockDetailMostFollowed";
 import CommunityLeftSideMostFollowed from "./CommunityLeftSideMostFollowed";
 
-const CommunityLeftSide = ({ stockDetailsData }) => {
+const CommunityLeftSide = ({
+  stockDetailsData,
+  setSearchQuery,
+  filterPosts,
+}) => {
   // First check if stockDetailsData exists and is an array
   const stockData =
     Array.isArray(stockDetailsData) && stockDetailsData.length > 0
@@ -59,7 +63,10 @@ const CommunityLeftSide = ({ stockDetailsData }) => {
       <div className="bg-gray-0 p-4 mb-4">
         {/* <CommunitySidebarLatestNews /> */}
         {/* <StockDetailMostFollowed /> */}
-        <CommunityLeftSideMostFollowed />
+        <CommunityLeftSideMostFollowed
+          setSearchQuery={setSearchQuery}
+          filterPosts={filterPosts}
+        />
       </div>
 
       <div className="bg-gray-0 p-4 mb-4">

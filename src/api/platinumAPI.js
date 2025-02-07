@@ -31,3 +31,7 @@ export const VIDEOS = `${BASE_URL}/api/videos/`;
 //CALENDAR
 
 export const CALENDAR = `${BASE_URL}/api/calendar-events`;
+
+///FORUM
+
+export const FORUM_POSTS = `${BASE_URL}/community/api/forum/posts/`;
