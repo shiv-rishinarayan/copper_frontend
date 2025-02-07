@@ -140,17 +140,14 @@
 
 // export default useAxios;
 
-
-
 // ------- Without refresh token worked ----------------------- //
 
 import axios from "axios";
 import { toast } from "react-toastify";
-import { jwtDecode } from 'jwt-decode';
+import { jwtDecode } from "jwt-decode";
 import Router from "next/router"; // To handle redirection
 import { GetUserData } from "../utils/GetUserData";
-
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASEURL;
+import { BASE_URL } from "../api/platinumAPI";
 
 let sessionExpired = false;
 
@@ -166,11 +163,11 @@ const useAxios = () => {
   const tokenExpiredCheck = (token) => {
     if (!token) return true;
     try {
-      const decodedToken = jwtDecode(token);  // Use the correct function
-      const currentTime = Date.now() / 1000;  // Current time in seconds
-      return decodedToken.exp < currentTime;  // Compare with expiration time
+      const decodedToken = jwtDecode(token); // Use the correct function
+      const currentTime = Date.now() / 1000; // Current time in seconds
+      return decodedToken.exp < currentTime; // Compare with expiration time
     } catch (error) {
-      console.error('Error decoding token:', error);
+      console.error("Error decoding token:", error);
       return true;
     }
   };
@@ -181,13 +178,14 @@ const useAxios = () => {
       const userData = await GetUserData();
       if (userData.access_token) {
         try {
-          const isTokenExpired = tokenExpiredCheck(userData.access_token)
+          const isTokenExpired = tokenExpiredCheck(userData.access_token);
           console.log("isTokenExpired ---- ", isTokenExpired);
 
           if (isTokenExpired && !sessionExpired) {
             sessionExpired = true;
             localStorage.clear();
-            document.cookie = "userData=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+            document.cookie =
+              "userData=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
             toast.info("Session expired. Please log in again.");
             Router.push("/");
             return Promise.reject(new Error("Token expired"));

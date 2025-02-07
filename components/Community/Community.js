@@ -14,6 +14,7 @@ import PostUtils from "../../components/Community/CommunityPostUtils";
 import CommunityCategoriesSidebar from "./CommunityCategoriesSidebar";
 import { useSidebarLatestNews } from "../../context/SidebarLatestNewsContext";
 import { useCommunityPostUtils } from "../../context/CommunityPostUtilsContext";
+import { FORUM_POSTS } from "@/src/api/platinumAPI";
 
 const Community = () => {
   const router = useRouter();
@@ -142,9 +143,7 @@ const Community = () => {
       showLoader && updateState({ loading: true });
 
       try {
-        const response = await fetch(
-          "https://platinumdjango-production.up.railway.app/community/api/forum/posts/"
-        );
+        const response = await fetch(FORUM_POSTS);
         const data = await response.json();
 
         const postsWithImage = data?.reverse()?.map((post) => ({
@@ -433,8 +432,12 @@ const Community = () => {
     <div className="relative h-screen flex flex-col">
       <Navbar />
       <div className="flex flex-1 overflow-hidden px-2 lg:px-4 mt-[80px] flex-col lg:flex-row">
+        {/* <CommunityChatInterfaceLeftSide
+          stockDetailsData={state.stockDetailsData}
+        /> */}
         <CommunityChatInterfaceLeftSide
           stockDetailsData={state.stockDetailsData}
+          setSearchQuery={(query) => updateState({ searchQuery: query })}
         />
         <CommunityChatInterfaceRightSide
           searchQuery={state.searchQuery}
