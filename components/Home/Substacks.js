@@ -1,26 +1,45 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { SUBSTACKS } from "@/src/api/platinumAPI";
 
 const Substacks = () => {
   const [platinumPosts, setPlatinumPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Function to truncate content
+  const truncateContent = (content) => {
+    if (!content) return "";
+    const cleanContent = content.replace(/<[^>]*>/g, "");
+    const words = cleanContent.split(/\s+/).slice(0, 10);
+    return words.length > 0 ? `${words.join(" ")}...` : "";
+  };
+
+  // Intelligent title truncation function
+  const formatTitle = (title) => {
+    if (!title) return "Untitled";
+    if (title.length <= 70) return title;
+    return `${title.substring(0, 70)}...`;
+  };
+
   useEffect(() => {
     // Fetch data from the API
-    fetch("https://web-production-d96b.up.railway.app/api/substack-data")
+    fetch(SUBSTACKS)
       .then((response) => response.json())
       .then((data) => {
         const formattedPosts = data.map((post) => ({
           id: post.id || Math.random().toString(36).substr(2, 9),
           category: post.category || "Platinum",
-          title: post.title || "Dummy Title for Substack Post",
+          title: formatTitle(post.title) || "Title for Substack Post",
           author: post.author || "Anonymous Author",
           readTime: post.readTime || "5 min read",
           date: post.date || "Jan 1, 2024",
-          image: post.image_srcset
-            ? post.image_srcset
-            : post.image || "https://via.placeholder.com/150",
-          url: post.url || "#", // Include the URL from the API response or use a dummy link
+          image:
+            post.image_url ||
+            post.image_srcset ||
+            post.image ||
+            "https://via.placeholder.com/150",
+          url: post.url || "#",
+          content: truncateContent(post.content),
         }));
 
         setPlatinumPosts(formattedPosts);
@@ -59,14 +78,11 @@ const Substacks = () => {
                 )}
                 {post.title && (
                   <h3 className="text-md font-bold text-gray-800 mt-1">
-                    {post.title.substring(0, 70)}...
+                    {post.title}
                   </h3>
                 )}
-                {post.author && (
-                  <p className="text-sm text-gray-500 mt-1">{post.author}</p>
-                )}
-                {post.readTime && (
-                  <p className="text-xs text-gray-500 mt-2">{post.readTime}</p>
+                {post.content && (
+                  <p className="text-sm text-gray-600 mt-1">{post.content}</p>
                 )}
               </div>
               <div className="flex flex-col items-end space-y-2">
