@@ -12,6 +12,8 @@ export const PRESS_RELEASE = `${BASE_URL}/api/press-releases/`;
 
 export const STOCK_NEWS = `${BASE_URL}/api/stock-news/`;
 
+export const SUBSTACKS = `${BASE_URL}/api/substack/`;
+
 //INVESTMENT APIS
 
 export const MOST_FOLLOWED = `${BASE_URL}/api/most-followed-stocks/`;
