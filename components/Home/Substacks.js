@@ -37,7 +37,7 @@ const Substacks = () => {
             post.image_url ||
             post.image_srcset ||
             post.image ||
-            "https://via.placeholder.com/150",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM4sEG5g9GFcy4SUxbzWNzUTf1jMISTDZrTw&s",
           url: post.url || "#",
           content: truncateContent(post.content),
         }));
