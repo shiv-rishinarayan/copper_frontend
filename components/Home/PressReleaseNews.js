@@ -69,7 +69,7 @@ const PressRelease = () => {
                     ? `${release.title.substring(0, 150)}...`
                     : release.title}
                 </h3>
-                <div className="text-[12px] text-black1/60">
+                <div className="text-[12px] text-gray-500">
                   {release.date} {/* Directly displaying the raw date string */}
                 </div>
               </div>
