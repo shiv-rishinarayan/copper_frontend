@@ -16,7 +16,9 @@ const PostUtils = ({
   commentInputs,
   setCommentInputs,
   setPosts,
-  posts
+  posts,
+  expandedPosts,
+  setExpandedPosts,
 }) => {
   const router = useRouter();
   const axiosInstance = useAxios();
@@ -80,6 +82,77 @@ const PostUtils = ({
       return part;
     };
 
+    // const tagClick = async (tag, type) => {
+    //   try {
+    //     const endpoint =
+    //       type === "hashtag"
+    //         ? `/community/api/forum/posts/?hashtag=${tag}`
+    //         : `/community/api/forum/posts/?cashtag=${tag}`;
+
+    //     const response = await axiosInstance.get(endpoint);
+
+    //     const postsWithImage = response.data.map((post) => ({
+    //       ...post,
+    //       post_image: post.post_image?.startsWith("http")
+    //         ? post.post_image
+    //         : post.post_image
+    //         ? GeneralHelpers.getImageUrl(post.post_image)
+    //         : null,
+    //     }));
+
+    //     setPosts(postsWithImage);
+    //     if (type === "hashtag") {
+    //       updateNewsData(tag);
+    //     } else {
+    //       updateNewsData(tag, "cashtag");
+    //     }
+    //   } catch (error) {
+    //     console.error(`Error fetching ${type} posts:`, error);
+    //     setPosts([]);
+    //     toast.error(`Failed to fetch posts for this ${type}`);
+    //   }
+    // };
+
+    // const tagClick = async (tag, type) => {
+    //   try {
+    //     const endpoint =
+    //       type === "hashtag"
+    //         ? `/community/api/forum/posts/?hashtag=${tag}`
+    //         : `/community/api/forum/posts/?cashtag=${tag}`;
+
+    //     const response = await axiosInstance.get(endpoint);
+
+    //     // Check if response has no posts
+    //     if (!response.data || response.data.length === 0) {
+    //       toast.info(
+    //         `No posts found for this ${type === "hashtag" ? "#" : "$"}${tag}`
+    //       );
+    //       setPosts([]);
+    //       return;
+    //     }
+
+    //     const postsWithImage = response.data.map((post) => ({
+    //       ...post,
+    //       post_image: post.post_image?.startsWith("http")
+    //         ? post.post_image
+    //         : post.post_image
+    //         ? GeneralHelpers.getImageUrl(post.post_image)
+    //         : null,
+    //     }));
+
+    //     setPosts(postsWithImage);
+    //     if (type === "hashtag") {
+    //       updateNewsData(tag);
+    //     } else {
+    //       updateNewsData(tag, "cashtag");
+    //     }
+    //   } catch (error) {
+    //     console.error(`Error fetching ${type} posts:`, error);
+    //     setPosts([]);
+    //     toast.error(`Failed to fetch posts for this ${type}`);
+    //   }
+    // };
+
     const tagClick = async (tag, type) => {
       try {
         const endpoint =
@@ -88,6 +161,13 @@ const PostUtils = ({
             : `/community/api/forum/posts/?cashtag=${tag}`;
 
         const response = await axiosInstance.get(endpoint);
+
+        // Check if response has no posts
+        if (!response.data || response.data.length === 0) {
+          toast(`No posts found for ${type === "hashtag" ? "#" : "$"}${tag}`);
+          setPosts([]);
+          return;
+        }
 
         const postsWithImage = response.data.map((post) => ({
           ...post,
@@ -178,13 +258,42 @@ const PostUtils = ({
     };
   };
 
-  const formatPostContent = (content, limit = 100) => {
-    const words = content.split(" ");
-    const limitedContent =
-      words.length > limit ? words.slice(0, limit).join(" ") + "..." : content;
+  const formatPostContent = (content = "", postId) => {
+    // Ensure content is a string to avoid errors
+    const sanitizedContent = typeof content === "string" ? content : "";
 
-    const { renderedContent } = detectAndRenderContent(limitedContent);
-    return <div>{renderedContent}</div>;
+    const words = sanitizedContent.split(" ");
+    const isLong = words.length > 100;
+    const isExpanded = expandedPosts?.[postId] || false;
+
+    const limitedContent =
+      isLong && !isExpanded ? words.slice(0, 100).join(" ") : sanitizedContent;
+
+    // Ensure detectAndRenderContent is callable and returns an expected object
+    const { renderedContent = limitedContent } =
+      typeof detectAndRenderContent === "function"
+        ? detectAndRenderContent(limitedContent)
+        : {};
+
+    return (
+      <div>
+        {renderedContent}
+        {isLong && (
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setExpandedPosts((prev) => ({
+                ...prev,
+                [postId]: !prev?.[postId],
+              }));
+            }}
+            className="text-accent hover:text-accent/80 text-sm font-medium"
+          >
+            {isExpanded ? "Read Less" : "Read More"}
+          </button>
+        )}
+      </div>
+    );
   };
 
   const formatTimeAgo = (createdAt) => {
@@ -196,22 +305,6 @@ const PostUtils = ({
     }
   };
 
-  // const fetchComments = async (postId) => {
-  //   try {
-  //     const response = await axiosInstance.get(
-  //       `/community/api/posts/${postId}/comments/`
-  //     );
-  //     setPostComments((prev) => ({
-  //       ...prev,
-  //       [postId]: response.data,
-  //     }));
-  //     return response.data;
-  //   } catch (error) {
-  //     console.error("Error fetching comments:", error);
-  //     toast.error("Failed to fetch comments..");
-  //     return [];
-  //   }
-  // };
   const fetchComments = async (postId) => {
     const userData = GetUserData(); // Retrieve user data (access token)
 
@@ -254,79 +347,21 @@ const PostUtils = ({
     }));
   };
 
-  // const addComment = async (postId) => {
-  //   const commentText = commentInputs[postId];
-  //   const userData = GetUserData();
-
-  //   if (!commentText?.trim()) {
-  //     toast.error("Comment cannot be empty");
-  //     return;
-  //   }
-
-  //   if (!userData?.access_token) {
-  //     toast.error("Please log in to comment");
-  //     router.push("/auth/login");
-  //     return;
-  //   }
-
-  //   const promise = axiosInstance.post(
-  //     "/community/api/forum/comments/create/",
-  //     {
-  //       post_id: postId,
-  //       content: commentText.trim(),
-  //     },
-  //     {
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${userData.access_token}`,
-  //       },
-  //       withCredentials: true,
-  //     }
-  //   );
-
-  //   toast.promise(promise, {
-  //     loading: "Adding comment...",
-  //     success: async (response) => {
-  //       await fetchComments(postId);
-  //       setCommentInputs((prev) => ({
-  //         ...prev,
-  //         [postId]: "",
-  //       }));
-  //       setPosts((prevPosts) =>
-  //         prevPosts.map((post) =>
-  //           post.id === postId
-  //             ? { ...post, comment_count: (post.comment_count || 0) + 1 }
-  //             : post
-  //         )
-  //       );
-  //       updatePostCommentData(postId);
-  //       return "Comment added successfully";
-  //     },
-  //     error: (error) => {
-  //       if (error.response?.status === 401) {
-  //         router.push("/auth/login");
-  //         return "Please login again to comment";
-  //       }
-  //       return error.response?.data?.message || "Failed to add comment";
-  //     },
-  //   });
-  // };
-
   const addComment = async (postId) => {
     const commentText = commentInputs[postId];
     const userData = GetUserData();
-  
+
     if (!commentText?.trim()) {
       toast.error("Comment cannot be empty");
       return;
     }
-  
+
     if (!userData?.access_token) {
       toast.error("Please log in to comment");
       router.push("/auth/login");
       return;
     }
-  
+
     try {
       const response = await axiosInstance.post(
         "/community/api/forum/comments/create/",
@@ -342,32 +377,14 @@ const PostUtils = ({
           withCredentials: true,
         }
       );
-  
-      // Fetch updated comments for the post
-      // await fetchComments(postId);
-  
-      // // Clear the comment input for this post
-      // setCommentInputs((prev) => ({
-      //   ...prev,
-      //   [postId]: "",
-      // }));
-  
-      // Update the posts' comment count
-      // setPosts((prevPosts) =>
-      //   prevPosts.map((post) =>
-      //     post.id === postId
-      //       ? { ...post, comment_count: (post.comment_count || 0) + 1 }
-      //       : post
-      //   )
-      // );
-  
+
       // Update additional post comment data if needed
       updatePostCommentData(postId);
-  
+
       toast.success("Comment added successfully");
     } catch (error) {
       console.error("Error adding comment:", error);
-  
+
       if (error.response?.status === 401) {
         router.push("/auth/login");
         toast.error("Please login again to comment");
@@ -376,88 +393,29 @@ const PostUtils = ({
       }
     }
   };
-  
-
-
-
-  // const deleteComment = async (postId, commentId) => {
-  //   const userData = GetUserData();
-
-  //   if (!userData?.access_token) {
-  //     toast.error("Please log in to delete comments");
-  //     return;
-  //   }
-
-  //   const promise = axiosInstance.delete(
-  //     `/community/api/forum/comments/${commentId}/`,
-  //     {
-  //       headers: {
-  //         Authorization: `Bearer ${userData.access_token}`,
-  //       },
-  //       withCredentials: true,
-  //     }
-  //   );
-
-  //   toast.promise(promise, {
-  //     loading: "Deleting comment...",
-  //     success: async () => {
-  //       await fetchComments(postId);
-  //       setPosts((prevPosts) =>
-  //         prevPosts.map((post) =>
-  //           post.id === postId
-  //             ? {
-  //                 ...post,
-  //                 comment_count: Math.max((post.comment_count || 0) - 1, 0),
-  //               }
-  //             : post
-  //         )
-  //       );
-  //       return "Comment deleted successfully";
-  //     },
-  //     error: (error) => {
-  //       if (error.response?.status === 401) {
-  //         router.push("/auth/login");
-  //         return "Please login again to delete comments";
-  //       }
-  //       return "Failed to delete comment";
-  //     },
-  //   });
-  // };
 
   const deleteComment = async (postId, commentId) => {
     try {
       const userData = GetUserData();
-  
+
       if (!userData?.access_token) {
         toast.error("Please log in to delete comments");
         return;
       }
-  
-      // Perform the delete request
-      let res = await axiosInstance.delete(`/community/api/forum/comments/${commentId}/`, {
-        headers: {
-          Authorization: `Bearer ${userData.access_token}`,
-        },
-        withCredentials: true,
-      });
-  
-      // Fetch updated comments
-      // await fetchComments(postId)
 
-      // Update the post's comment count
-      // setPosts((prevPosts) =>
-      //   prevPosts.map((post) =>
-      //     post.id === postId
-      //       ? {
-      //           ...post,
-      //           comment_count: Math.max((post.comment_count || 0) - 1, 0),
-      //         }
-      //       : post
-      //   )
-      // );
+      // Perform the delete request
+      let res = await axiosInstance.delete(
+        `/community/api/forum/comments/${commentId}/`,
+        {
+          headers: {
+            Authorization: `Bearer ${userData.access_token}`,
+          },
+          withCredentials: true,
+        }
+      );
 
       updatePostCommentData(postId);
-  
+
       // Show success message
       toast.success("Comment deleted successfully");
     } catch (error) {
@@ -470,7 +428,7 @@ const PostUtils = ({
       console.error("Error deleting comment:", error);
     }
   };
-  
+
   const fetchPostsByUsername = async (username) => {
     const userData = GetUserData();
     try {

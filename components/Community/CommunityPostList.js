@@ -18,6 +18,7 @@ const PostList = ({
   const [expandedPostComments, setExpandedPostComments] = useState({});
   const [postComments, setPostComments] = useState({});
   const [commentInputs, setCommentInputs] = useState({});
+  const [expandedPosts, setExpandedPosts] = useState({});
   const axiosInstance = useAxios();
 
   const {
@@ -37,7 +38,9 @@ const PostList = ({
     commentInputs,
     setCommentInputs,
     setPosts,
-    posts
+    posts,
+    expandedPosts,
+    setExpandedPosts,
   });
   const handleUsernameClick = (username) => {
     fetchPostsByUsername(username);
@@ -52,10 +55,12 @@ const PostList = ({
   }, [posts]);
 
   const fetchCommentss = async (postId) => {
-    const response = await axiosInstance.get(`community/api/forum/posts/${postId}/comments/`);    
-    commentInputs[postId] = ""
-    postComments[postId] = response?.data
-  }
+    const response = await axiosInstance.get(
+      `community/api/forum/posts/${postId}/comments/`
+    );
+    commentInputs[postId] = "";
+    postComments[postId] = response?.data;
+  };
 
   return (
     <div className="space-y-3 bg-gray-50">
@@ -92,7 +97,7 @@ const PostList = ({
 
             {/* Post Content */}
             <p className="text-base text-gray-700 mb-3">
-              {formatPostContent(post.post_content)}
+              {formatPostContent(post.post_content, post.id)}
             </p>
 
             {/* Post Image */}
@@ -172,8 +177,8 @@ const PostList = ({
                   />
                   <button
                     onClick={async () => {
-                      await addComment(post.id)
-                      await fetchCommentss(post.id)
+                      await addComment(post.id);
+                      await fetchCommentss(post.id);
                     }}
                     className="bg-accent text-white px-2 rounded h-7"
                   >
@@ -197,7 +202,7 @@ const PostList = ({
                       <button
                         onClick={async () => {
                           await deleteComment(post.id, comment.id);
-                          await fetchCommentss(post.id)
+                          await fetchCommentss(post.id);
                         }}
                         className="text-red-400 hover:text-red-600"
                       >

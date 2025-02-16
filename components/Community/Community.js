@@ -54,23 +54,6 @@ const Community = () => {
     setPosts: (posts) => updateState({ posts }),
   });
 
-  // const api = {
-  //   async fetchStockDetails(identifier, type = "hashtag") {
-  //     if (!identifier || (Array.isArray(identifier) && identifier.length === 0))
-  //       return;
-
-  //     try {
-  //       const cleanIdentifier =
-  //         type === "cashtag" ? identifier.replace("$", "") : identifier;
-  //       const { data } = await axiosInstance.get(
-  //         `api/pgm-stock-detail/?stock_ticker=${cleanIdentifier.toUpperCase()}/`
-  //       );
-  //       updateState({ stockDetailsData: data });
-  //     } catch (error) {
-  //       console.error("Error fetching stock details:", error);
-  //       updateState({ stockDetailsData: [] });
-  //     }
-  //   },
   const api = {
     async fetchStockDetails(identifier, type = "hashtag") {
       if (
@@ -98,46 +81,6 @@ const Community = () => {
         updateState({ stockDetailsData: [] });
       }
     },
-
-    // async fetchPosts(showLoader = true) {
-    //   showLoader && updateState({ loading: true });
-    //   try {
-    //     console.log(
-    //       "Fetching from URL:",
-    //       axiosInstance.defaults.baseURL + "community/api/forum/posts/"
-    //     );
-    //     console.log("Axios instance defaults:", axiosInstance.defaults);
-
-    //     const response = await axiosInstance.get("community/api/forum/posts/");
-    //     console.log("Response data only:", response.data);
-
-    //     const postsWithImage = response?.data?.reverse()?.map((post) => ({
-    //       ...post,
-    //       post_image: post.post_image || null,
-    //     }));
-
-    //     updateState({
-    //       posts: postsWithImage,
-    //       originalPosts: postsWithImage,
-    //       loading: false,
-    //     });
-    //   } catch (error) {
-    //     console.log("error --- ", error);
-    //     console.error("Error details:", {
-    //       message: error.message,
-    //       status: error.response?.status,
-    //       statusText: error.response?.statusText,
-    //       data: error.response?.data,
-    //     });
-
-    //     toast.error("Failed to fetch posts. Please try again later.");
-    //     updateState({
-    //       loading: false,
-    //       posts: [],
-    //       originalPosts: [],
-    //     });
-    //   }
-    // },
 
     async fetchPosts(showLoader = true) {
       showLoader && updateState({ loading: true });
@@ -243,34 +186,6 @@ const Community = () => {
       }
     },
 
-    // async likePost(postId) {
-    //   if (!userData) {
-    //     toast.error("Please log in to like posts");
-    //     return;
-    //   }
-
-    //   const loadingToast = toast.loading("Processing..."); // Added loading toast
-
-    //   try {
-    //     const { data } = await axiosInstance.post(
-    //       `community/api/forum/posts/${postId}/like/`
-    //     );
-    //     const { status, likes_count } = data;
-
-    //     const updatedPosts = state.originalPosts.map((post) =>
-    //       post.id === postId ? { ...post, likes_count } : post
-    //     );
-
-    //     updateState({ posts: updatedPosts, originalPosts: updatedPosts });
-    //     toast.success(status === "liked" ? "Post liked!" : "Post unliked!", {
-    //       id: loadingToast,
-    //     });
-    //   } catch (error) {
-    //     toast.error("Failed to like/unlike the post. Please try again.", {
-    //       id: loadingToast,
-    //     });
-    //   }
-    // },
     async likePost(postId) {
       if (!userData) {
         toast.error("Please log in to like posts");
@@ -470,18 +385,6 @@ const Community = () => {
           setPostImage={(image) => updateState({ postImage: image })}
           sendPost={api.createPost}
         />
-        {/* <UraniumCategoriesSidebar
-          onCategoryClick={(hashtag) => {
-            const postsWithHashtag = state.originalPosts.filter((post) =>
-              post.hashtags?.includes(hashtag.toLowerCase())
-            );
-            updateState({
-              posts: postsWithHashtag,
-              searchQuery: `#${hashtag}`,
-              isSearchActive: true,
-            });
-          }}
-        /> */}
 
         <CommunityCategoriesSidebar
           onCategoryClick={(hashtag) => {
