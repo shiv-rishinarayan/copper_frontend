@@ -14,6 +14,7 @@ const PostList = ({
   likePost,
   openModal,
   setPosts,
+  lastPostElementRef,
 }) => {
   const [expandedPostComments, setExpandedPostComments] = useState({});
   const [postComments, setPostComments] = useState({});
@@ -42,9 +43,9 @@ const PostList = ({
     expandedPosts,
     setExpandedPosts,
   });
-  const handleUsernameClick = (username) => {
-    fetchPostsByUsername(username);
-  };
+  // const handleUsernameClick = (username) => {
+  //   fetchPostsByUsername(username);
+  // };
 
   const sortedPosts = useMemo(() => {
     return Array.isArray(posts)
@@ -65,8 +66,12 @@ const PostList = ({
   return (
     <div className="space-y-3 bg-gray-50">
       {sortedPosts.length > 0 ? (
-        sortedPosts.map((post) => (
-          <div key={post.id} className="bg-white p-5 rounded-lg relative">
+        sortedPosts.map((post, index) => (
+          <div
+            key={post.id}
+            className="bg-white p-5 rounded-lg relative"
+            ref={index === sortedPosts.length - 1 ? lastPostElementRef : null}
+          >
             {/* Post Header */}
             <div className="flex justify-between items-center mb-2">
               {/* <h3 className="font-semibold text-base">
@@ -78,7 +83,8 @@ const PostList = ({
               <h3 className="font-semibold text-base">
                 <span
                   className="py-1 text-purple-900 cursor-pointer hover:underline"
-                  onClick={() => handleUsernameClick(post.author_name)}
+                  // onClick={() => handleUsernameClick(post.author_name)}
+                  onClick={() => fetchPostsByUsername(post.author_name)}
                 >
                   @{post.author_name || "Anonymous"}
                 </span>{" "}

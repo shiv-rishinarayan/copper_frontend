@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { formatDistanceToNow } from "date-fns";
 import toast from "react-hot-toast";
 import useAxios from "../../src/network/useAxios";
@@ -27,6 +28,13 @@ const PostUtils = ({
 
   const postContext = useCommunityPostUtils() || {};
   const { updatePostCommentData } = postContext;
+
+  // Add pagination state
+  const [pagination, setPagination] = useState({
+    count: 0,
+    next: null,
+    previous: null,
+  });
 
   const formatImageUrl = (imageUrl) => {
     if (!imageUrl) return null;
@@ -91,47 +99,18 @@ const PostUtils = ({
 
     //     const response = await axiosInstance.get(endpoint);
 
-    //     const postsWithImage = response.data.map((post) => ({
-    //       ...post,
-    //       post_image: post.post_image?.startsWith("http")
-    //         ? post.post_image
-    //         : post.post_image
-    //         ? GeneralHelpers.getImageUrl(post.post_image)
-    //         : null,
-    //     }));
+    //     // Extract posts from the "results" array
+    //     const posts = response.data?.results || [];
 
-    //     setPosts(postsWithImage);
-    //     if (type === "hashtag") {
-    //       updateNewsData(tag);
-    //     } else {
-    //       updateNewsData(tag, "cashtag");
-    //     }
-    //   } catch (error) {
-    //     console.error(`Error fetching ${type} posts:`, error);
-    //     setPosts([]);
-    //     toast.error(`Failed to fetch posts for this ${type}`);
-    //   }
-    // };
-
-    // const tagClick = async (tag, type) => {
-    //   try {
-    //     const endpoint =
-    //       type === "hashtag"
-    //         ? `/community/api/forum/posts/?hashtag=${tag}`
-    //         : `/community/api/forum/posts/?cashtag=${tag}`;
-
-    //     const response = await axiosInstance.get(endpoint);
-
-    //     // Check if response has no posts
-    //     if (!response.data || response.data.length === 0) {
-    //       toast.info(
-    //         `No posts found for this ${type === "hashtag" ? "#" : "$"}${tag}`
-    //       );
+    //     // Check if there are no posts
+    //     if (posts.length === 0) {
+    //       toast(`No posts found for ${type === "hashtag" ? "#" : "$"}${tag}`);
     //       setPosts([]);
     //       return;
     //     }
 
-    //     const postsWithImage = response.data.map((post) => ({
+    //     // Process posts to handle post images
+    //     const postsWithImage = posts.map((post) => ({
     //       ...post,
     //       post_image: post.post_image?.startsWith("http")
     //         ? post.post_image
@@ -141,6 +120,8 @@ const PostUtils = ({
     //     }));
 
     //     setPosts(postsWithImage);
+
+    //     // Update news data
     //     if (type === "hashtag") {
     //       updateNewsData(tag);
     //     } else {
@@ -157,19 +138,27 @@ const PostUtils = ({
       try {
         const endpoint =
           type === "hashtag"
-            ? `/community/api/forum/posts/?hashtag=${tag}`
-            : `/community/api/forum/posts/?cashtag=${tag}`;
+            ? `community/api/forum/posts/?hashtag=${tag}`
+            : `community/api/forum/posts/?cashtag=${tag}`;
 
-        const response = await axiosInstance.get(endpoint);
+        const response = await axiosInstance.get(endpoint, {
+          headers: auth.accessToken
+            ? { Authorization: `Bearer ${auth.accessToken}` }
+            : {},
+        });
 
-        // Check if response has no posts
-        if (!response.data || response.data.length === 0) {
+        // Extract posts from the "results" array
+        const posts = response.data?.results || [];
+
+        // Check if there are no posts
+        if (posts.length === 0) {
           toast(`No posts found for ${type === "hashtag" ? "#" : "$"}${tag}`);
           setPosts([]);
           return;
         }
 
-        const postsWithImage = response.data.map((post) => ({
+        // Process posts to handle post images
+        const postsWithImage = posts.map((post) => ({
           ...post,
           post_image: post.post_image?.startsWith("http")
             ? post.post_image
@@ -179,6 +168,8 @@ const PostUtils = ({
         }));
 
         setPosts(postsWithImage);
+
+        // Update news data
         if (type === "hashtag") {
           updateNewsData(tag);
         } else {
@@ -429,6 +420,54 @@ const PostUtils = ({
     }
   };
 
+  // const fetchPostsByUsername = async (username) => {
+  //   const userData = GetUserData();
+  //   try {
+  //     const response = await axiosInstance.get(
+  //       `community/api/forum/posts/by-username/${username}/`,
+  //       {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           Authorization: `Bearer ${userData.access_token}`,
+  //         },
+  //         withCredentials: true,
+  //       }
+  //     );
+
+  //     const postsData = response.data?.data || [];
+
+  //     if (!Array.isArray(postsData)) {
+  //       console.error("Received invalid data format:", response.data);
+  //       toast.error("Received invalid data format from server");
+  //       setPosts([]);
+  //       return;
+  //     }
+
+  //     const postsWithImage = postsData.map((post) => ({
+  //       ...post,
+  //       post_image: formatImageUrl(post.post_image),
+  //     }));
+
+  //     setPosts(postsWithImage);
+  //     updateNewsData(username, "user");
+
+  //     if (response.data?.message) {
+  //       toast.success(response.data.message);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching user posts:", error);
+  //     setPosts([]);
+
+  //     if (error.response?.status === 404) {
+  //       toast.error(`No posts found for user ${username}`);
+  //     } else if (error.response?.status === 403) {
+  //       toast.error("You need to be logged in to view these posts");
+  //     } else {
+  //       toast.error(`Failed to fetch posts for ${username}`);
+  //     }
+  //   }
+  // };
+
   const fetchPostsByUsername = async (username) => {
     const userData = GetUserData();
     try {
@@ -443,18 +482,24 @@ const PostUtils = ({
         }
       );
 
-      const postsData = response.data?.data || [];
+      // Extract posts from the "results" array
+      const postsData = response.data?.results || [];
 
-      if (!Array.isArray(postsData)) {
-        console.error("Received invalid data format:", response.data);
-        toast.error("Received invalid data format from server");
+      if (!Array.isArray(postsData) || postsData.length === 0) {
+        console.error("No posts found or invalid format:", response.data);
+        toast.error(`No posts found for user ${username}`);
         setPosts([]);
         return;
       }
 
+      // Process posts to handle post images
       const postsWithImage = postsData.map((post) => ({
         ...post,
-        post_image: formatImageUrl(post.post_image),
+        post_image: post.post_image?.startsWith("http")
+          ? post.post_image
+          : post.post_image
+          ? GeneralHelpers.getImageUrl(post.post_image)
+          : null,
       }));
 
       setPosts(postsWithImage);
@@ -477,6 +522,69 @@ const PostUtils = ({
     }
   };
 
+  // const fetchPostsByUsername = async (username) => {
+  //   const userData = GetUserData();
+  //   try {
+  //     const response = await axiosInstance.get(
+  //       `community/api/forum/posts/by-username/${username}/`,
+  //       {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           Authorization: `Bearer ${userData.access_token}`,
+  //         },
+  //         withCredentials: true,
+  //       }
+  //     );
+
+  //     // Check if response has data array
+  //     const postsData = response.data?.data || [];
+
+  //     if (!Array.isArray(postsData)) {
+  //       console.error("Received invalid data format:", response.data);
+  //       toast.error("Received invalid data format from server");
+  //       setPosts([]);
+  //       return;
+  //     }
+
+  //     const postsWithImage = postsData.map((post) => ({
+  //       ...post,
+  //       post_image: post.post_image?.startsWith("http")
+  //         ? post.post_image
+  //         : post.post_image
+  //         ? GeneralHelpers.getImageUrl(post.post_image)
+  //         : null,
+  //     }));
+
+  //     // Set the posts
+  //     setPosts(postsWithImage);
+
+  //     // Update pagination state
+  //     setPagination({
+  //       count: response.data.count || 0,
+  //       next: response.data.next || null,
+  //       previous: response.data.previous || null,
+  //     });
+
+  //     updateNewsData(username, "user");
+
+  //     // Show success message using the message from API
+  //     if (response.data?.message) {
+  //       toast.success(response.data.message);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching user posts:", error);
+  //     setPosts([]);
+
+  //     if (error.response?.status === 404) {
+  //       toast.error(`No posts found for user ${username}`);
+  //     } else if (error.response?.status === 403) {
+  //       toast.error("You need to be logged in to view these posts");
+  //     } else {
+  //       toast.error(`Failed to fetch posts for ${username}`);
+  //     }
+  //   }
+  // };
+
   return {
     formatPostContent,
     formatTimeAgo,
@@ -487,6 +595,7 @@ const PostUtils = ({
     fetchPostsByUsername,
     detectAndRenderContent,
     formatImageUrl,
+    pagination,
     extractHashtags: (text) => {
       const hashtagRegex = /(#\w+)/g;
       const hashtags = text.match(hashtagRegex) || [];

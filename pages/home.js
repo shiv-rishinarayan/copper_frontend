@@ -33,7 +33,7 @@ const home = () => {
       {/* 3 cols  */}
       <div className="flex justify-between flex-wrap px-3 md:px-10 lg:px-12 py-12 mb-7">
         {/* 1  */}
-        <div className="w-full md:w-[24%] flex flex-col space-y-14">
+        <div className="w-full lg:w-[24%] flex flex-col space-y-14">
           <div>
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
               Platinum Price Chart
@@ -59,20 +59,8 @@ const home = () => {
 
         {/* 2  */}
 
-        <div className="w-full md:w-[40%] flex flex-col space-y-14">
+        <div className="w-full lg:w-[40%] flex flex-col space-y-14">
           <div>
-            {/* <div className="flex justify-between items-center mb-3 border-b border-black/10 pb-1">
-              <h1 className="text-[21px] cambay font-bold">
-                Recent Platinum Company Insider Transactions
-              </h1>
-              <Link
-                href="/investments"
-                className="text-[14px] text-accent hover:underline"
-              >
-                view more &nbsp; &gt;
-              </Link>
-            </div>
-            <HomeInsiderTransactionTable /> */}
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
               Prices
             </h1>
@@ -82,7 +70,7 @@ const home = () => {
         </div>
 
         {/* 3  */}
-        <div className="w-full md:w-[24%] flex flex-col space-y-14  ">
+        <div className="w-full lg:w-[24%] flex flex-col space-y-14  ">
           <div>
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
               Palladium Price Chart
