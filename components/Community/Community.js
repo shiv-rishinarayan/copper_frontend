@@ -938,6 +938,13 @@ const Community = () => {
   });
 
   // Setup intersection observer for infinite scrolling
+
+  const loadMorePosts = useCallback(() => {
+    if (state.nextPageUrl && !state.loadingMore && !state.isSearchActive) {
+      api.fetchPosts(false, state.nextPageUrl);
+    }
+  }, [state.nextPageUrl, state.loadingMore, state.isSearchActive]);
+
   useEffect(() => {
     if (state.loading) return;
 
@@ -965,14 +972,9 @@ const Community = () => {
         observer.current.disconnect();
       }
     };
-  }, [state.loading, state.hasMore, state.isSearchActive]);
+  }, [state.loading, state.hasMore, loadMorePosts, state.isSearchActive]);
 
   // Function to load more posts
-  const loadMorePosts = useCallback(() => {
-    if (state.nextPageUrl && !state.loadingMore && !state.isSearchActive) {
-      api.fetchPosts(false, state.nextPageUrl);
-    }
-  }, [state.nextPageUrl, state.loadingMore, state.isSearchActive]);
 
   const api = {
     async fetchStockDetails(identifier, type = "hashtag") {
