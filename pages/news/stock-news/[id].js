@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import { IoTimerOutline } from "react-icons/io5";
 import PlatinumLivePrice from "@/components/Home/PlatinumLivePrice";
 import DailyNewsletterAd from "@/components/Home/DailyNewsletterAd";
-import PopularIntradayReturn from "@/components/Home/PopularIntradayReturn";
+import PopularIntradayReturn from "@/components/Home/MostFollowed";
 import MoreNews from "@/components/News/MoreNews";
 import Footer from "@/components/Footer";
 import Loader from "@/components/Loader";
