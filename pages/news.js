@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/News/Hero";
 import React from "react";
 import MoreNews from "@/components/News/MoreNews";
-import PopularIntradayReturn from "@/components/Home/PopularIntradayReturn";
+import PopularIntradayReturn from "@/components/Home/MostFollowed";
 
 const news = () => {
   return (
