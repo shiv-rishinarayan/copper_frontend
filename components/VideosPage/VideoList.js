@@ -128,7 +128,7 @@ const VideoList = ({ category }) => {
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
           <div
             ref={modalRef}
-            className="relative w-[70vw] h-[70vh] bg-white p-1 rounded-lg"
+            className="relative w-[45vh] h-[30vh] md:w-[70vw] md:h-[70vh] bg-white p-1 rounded-lg"
           >
             <iframe
               width="100%"
