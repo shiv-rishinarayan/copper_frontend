@@ -5,7 +5,7 @@ import Hero from "@/components/Home/Hero";
 import LatestNews from "@/components/Home/LatestNews";
 import StockNews from "@/components/Home/StockNews";
 import Navbar from "@/components/Navbar";
-import PopularIntradayReturn from "@/components/Home/PopularIntradayReturn";
+import PopularIntradayReturn from "@/components/Home/MostFollowed";
 import PlatinumLivePrice from "@/components/Home/PlatinumLivePrice";
 import PlatinumTradingviewChart from "@/components/Home/PlatinumTradingviewChart";
 import StayAhead from "@/components/Home/StayAhead";
