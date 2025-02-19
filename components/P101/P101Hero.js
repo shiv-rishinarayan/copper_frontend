@@ -42,12 +42,16 @@ const P101Hero = () => {
       {/* Content Wrapper */}
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div
+          className="relative flex items-start overflow-hidden rounded-lg fade-in pt-[80px] md:pt-[125px] "
+          style={{ height: "505px" }}
+        >
+          {/* <div
           className="relative flex items-start overflow-hidden rounded-lg fade-in"
           style={{
             height: "505px",
             paddingTop: "125px",
           }}
-        >
+        > */}
           {/* Text Content */}
           <div className="relative z-10 p-6 text-white max-w-2xl">
             <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-accent">
@@ -59,7 +63,7 @@ const P101Hero = () => {
               <span className="text-white">Key Information on Platinum</span>
             </h1>
 
-            <p className="text-base mb-10">
+            <p className="text-sm md:text-base mb-10">
               Get started with our comprehensive guide to platinum markets. From
               fundamental concepts to advanced market analysis, discover
               everything you need to know about this precious metal's role in
