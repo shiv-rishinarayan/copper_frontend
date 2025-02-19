@@ -20,13 +20,13 @@ const news = () => {
 
       <div className="flex justify-between flex-wrap px-3 md:px-10 lg:px-16 py-12 mt-6">
         {/* left */}
-        <div className="w-full md:w-[66%] flex flex-col space-y-20">
+        <div className="w-full lg:w-[66%] flex flex-col space-y-20">
           <LatestNews />
           <PressReleaseNews />
           <StockNews />
         </div>
         {/* right */}
-        <div className="w-full md:w-[26%] space-y-20">
+        <div className="w-full lg:w-[26%] space-y-20">
           <DailyNewsletterAd />
           <Substacks />
           <PopularIntradayReturn />
