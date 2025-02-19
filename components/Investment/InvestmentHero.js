@@ -41,12 +41,16 @@ const InvestmentHero = () => {
       {/* Content Wrapper */}
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div
+          className="relative flex items-start overflow-hidden rounded-lg fade-in pt-[80px] md:pt-[125px] "
+          style={{ height: "505px" }}
+        >
+          {/* <div
           className="relative flex items-start overflow-hidden rounded-lg fade-in"
           style={{
             height: "505px",
             paddingTop: "125px", // Added padding to move content down
           }}
-        >
+        > */}
           {/* Text Content */}
           <div className="relative z-10 p-6 text-white max-w-2xl">
             <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-accent">
@@ -58,7 +62,7 @@ const InvestmentHero = () => {
               <span className="text-white">Platinum Investment Strategies</span>
             </h1>
 
-            <p className="text-base mb-10">
+            <p className="text-sm md:text-base mb-10">
               Discover the potential of platinum investments through our
               comprehensive range of investment options. From physical platinum
               to ETFs and mining stocks, we offer diverse ways to incorporate
