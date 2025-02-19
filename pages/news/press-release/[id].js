@@ -154,11 +154,6 @@ const PressReleasePage = () => {
     fetchNewsData();
   }, [id]);
 
-  const formatDate = (dateString) => {
-    const options = { year: "numeric", month: "short", day: "numeric" };
-    return new Date(dateString).toLocaleDateString("en-US", options);
-  };
-
   if (loading) {
     return (
       <div className="text-center py-8 mx-auto">
@@ -174,30 +169,20 @@ const PressReleasePage = () => {
   return (
     <>
       <Navbar />
-      <div className="mt-16 w-full flex justify-between px-3 md:px-20 py-8 md:py-16">
-        {/* news  */}
-        <div className="w-full md:w-[60%]">
-          <h1 className="text-2xl md:text-[1.7rem] font-bold mb-4">
+      <div className="mt-16 w-full px-3 lg:px-20 py-8 lg:py-16 flex flex-col lg:flex-row lg:space-x-6">
+        {/* Main news content */}
+        <div className="w-full lg:w-[65%]">
+          <h1 className="text-xl lg:text-[1.7rem] font-bold mb-4">
             {newsData.title}
           </h1>
 
           <div className="text-[14px] text-black1/60 space-x-1.5 mb-6 flex items-center">
-            <span>
-              <IoTimerOutline className="text-[15px]" />
-            </span>{" "}
+            <IoTimerOutline className="text-[15px]" />
             <span>{newsData.date}</span>
           </div>
 
-          <div className="mb-6">
-            <img
-              src={newsData.image_url || "/no-image.png"}
-              alt={newsData.title}
-              className="w-full h-[400px] object-cover rounded-lg"
-            />
-          </div>
-
           {newsData.content && (
-            <div className="mt-3 text-gray-700 mb-6">
+            <div className="mt-3 text-gray-700 mb-6 text-[16px]">
               {newsData.content.split("\n").map((line, index) => (
                 <p key={index} className="mb-2">
                   {line}
@@ -214,15 +199,15 @@ const PressReleasePage = () => {
           </button>
         </div>
 
-        {/* sidebar  */}
-        <div className="w-full flex flex-col space-y-14 md:w-[29%]">
+        {/* Sidebar */}
+        <div className="w-full lg:w-[35%] flex flex-col space-y-8 mt-10 lg:mt-0">
           <PlatinumLivePrice />
           <DailyNewsletterAd />
           <PopularIntradayReturn />
         </div>
       </div>
 
-      {/* more news  */}
+      {/* More news section */}
       <div>
         <MoreNews />
       </div>
