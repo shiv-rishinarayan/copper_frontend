@@ -318,7 +318,7 @@ const YearCalendar = ({ calendarData = [], selectedYear, setSelectedYear }) => {
         </button>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-1 md:gap-2">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-1 md:gap-2">
         {Array.from({ length: 12 }).map((_, month) => (
           <div
             key={month}
@@ -391,13 +391,13 @@ const YearCalendar = ({ calendarData = [], selectedYear, setSelectedYear }) => {
             className="bg-accent/10 text-black1/90 p-6 rounded-lg border border-date/20 flex flex-col md:flex-row overflow-hidden"
           >
             <div className="flex flex-col items-center justify-center pr-6 border-b md:border-r border-black1/5 md:border-b-0 mb-4 md:mb-0">
-              <span className="text-lg font-bold pb-3 md:pb-0">
+              <span className="text-base md:text-lg font-bold pb-3 md:pb-0">
                 {formatEventDate(event?.start_date, event?.end_date)}
               </span>
             </div>
 
             <div className="flex-grow pl-0 md:pl-6">
-              <h3 className="text-xl font-bold text-green2 mb-3 frank">
+              <h3 className="text-lg md:text-xl font-bold text-accent mb-3 frank">
                 {event?.title || "Untitled Event"}
               </h3>
               <div className="space-y-2">
