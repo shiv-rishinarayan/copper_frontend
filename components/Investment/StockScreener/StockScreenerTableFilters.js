@@ -6,8 +6,8 @@ const StockScreenerTableFilters = ({
   onFilterChange,
 }) => {
   return (
-    <div className="overflow-x-auto pb-2">
-      <div className="flex gap-x-4 flex-wrap mt-3">
+    <div className="overflow-x-auto pb-2 custom-scrollbar-hidden">
+      <div className="flex gap-x-4  mt-3">
         {Object.keys(uniqueOptions).map((key) => (
           <div key={key} className="relative w-28 flex flex-col mb-6">
             <label
