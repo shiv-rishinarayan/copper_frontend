@@ -147,8 +147,8 @@ const CanadaInsiderTransactionsFilters = ({
   tradeTypeOptions,
 }) => {
   return (
-    <div className="overflow-x-auto pb-2">
-      <div className="flex gap-x-4 flex-nowrap mt-3">
+    <div className="overflow-x-auto pb-2 custom-scrollbar-hidden">
+      <div className="flex gap-x-4  mt-3">
         {/* Filter by Symbol */}
         <div className="relative w-28 flex flex-col mb-6">
           <label
