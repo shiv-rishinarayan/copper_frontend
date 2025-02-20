@@ -7,6 +7,8 @@ import { useCommunityPostUtils } from "../../context/CommunityPostUtilsContext";
 import GeneralHelpers from "../../src/utils/general-helpers";
 import { GetUserData } from "../../src/utils/GetUserData";
 import { useRouter } from "next/navigation";
+import axios from "axios";
+import { BASE_URL } from "@/src/api/platinumAPI";
 
 const PostUtils = ({
   auth,
@@ -94,10 +96,14 @@ const PostUtils = ({
     //   try {
     //     const endpoint =
     //       type === "hashtag"
-    //         ? `/community/api/forum/posts/?hashtag=${tag}`
-    //         : `/community/api/forum/posts/?cashtag=${tag}`;
+    //         ? `community/api/forum/posts/?hashtag=${tag}`
+    //         : `community/api/forum/posts/?cashtag=${tag}`;
 
-    //     const response = await axiosInstance.get(endpoint);
+    //     const response = await axiosInstance.get(endpoint, {
+    //       headers: auth.accessToken
+    //         ? { Authorization: `Bearer ${auth.accessToken}` }
+    //         : {},
+    //     });
 
     //     // Extract posts from the "results" array
     //     const posts = response.data?.results || [];
@@ -138,26 +144,21 @@ const PostUtils = ({
       try {
         const endpoint =
           type === "hashtag"
-            ? `community/api/forum/posts/?hashtag=${tag}`
-            : `community/api/forum/posts/?cashtag=${tag}`;
+            ? `${BASE_URL}/community/api/forum/posts/?hashtag=${tag}`
+            : `${BASE_URL}/community/api/forum/posts/?cashtag=${tag}`;
 
-        const response = await axiosInstance.get(endpoint, {
-          headers: auth.accessToken
-            ? { Authorization: `Bearer ${auth.accessToken}` }
-            : {},
-        });
-
-        // Extract posts from the "results" array
+        // Direct axios call without instance
+        const response = await axios.get(endpoint);
         const posts = response.data?.results || [];
 
-        // Check if there are no posts
         if (posts.length === 0) {
-          toast(`No posts found for ${type === "hashtag" ? "#" : "$"}${tag}`);
+          toast.info(
+            `No posts found for ${type === "hashtag" ? "#" : "$"}${tag}`
+          );
           setPosts([]);
           return;
         }
 
-        // Process posts to handle post images
         const postsWithImage = posts.map((post) => ({
           ...post,
           post_image: post.post_image?.startsWith("http")
@@ -169,7 +170,6 @@ const PostUtils = ({
 
         setPosts(postsWithImage);
 
-        // Update news data
         if (type === "hashtag") {
           updateNewsData(tag);
         } else {
@@ -178,7 +178,7 @@ const PostUtils = ({
       } catch (error) {
         console.error(`Error fetching ${type} posts:`, error);
         setPosts([]);
-        toast.error(`Failed to fetch posts for this ${type}`);
+        toast.error(`No posts found for this ${type}`);
       }
     };
 
@@ -420,79 +420,21 @@ const PostUtils = ({
     }
   };
 
-  // const fetchPostsByUsername = async (username) => {
-  //   const userData = GetUserData();
-  //   try {
-  //     const response = await axiosInstance.get(
-  //       `community/api/forum/posts/by-username/${username}/`,
-  //       {
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Authorization: `Bearer ${userData.access_token}`,
-  //         },
-  //         withCredentials: true,
-  //       }
-  //     );
-
-  //     const postsData = response.data?.data || [];
-
-  //     if (!Array.isArray(postsData)) {
-  //       console.error("Received invalid data format:", response.data);
-  //       toast.error("Received invalid data format from server");
-  //       setPosts([]);
-  //       return;
-  //     }
-
-  //     const postsWithImage = postsData.map((post) => ({
-  //       ...post,
-  //       post_image: formatImageUrl(post.post_image),
-  //     }));
-
-  //     setPosts(postsWithImage);
-  //     updateNewsData(username, "user");
-
-  //     if (response.data?.message) {
-  //       toast.success(response.data.message);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error fetching user posts:", error);
-  //     setPosts([]);
-
-  //     if (error.response?.status === 404) {
-  //       toast.error(`No posts found for user ${username}`);
-  //     } else if (error.response?.status === 403) {
-  //       toast.error("You need to be logged in to view these posts");
-  //     } else {
-  //       toast.error(`Failed to fetch posts for ${username}`);
-  //     }
-  //   }
-  // };
-
   const fetchPostsByUsername = async (username) => {
-    const userData = GetUserData();
     try {
-      const response = await axiosInstance.get(
-        `community/api/forum/posts/by-username/${username}/`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${userData.access_token}`,
-          },
-          withCredentials: true,
-        }
+      // Direct axios call without instance
+      const response = await axios.get(
+        `${BASE_URL}/community/api/forum/posts/by-username/${username}/`
       );
 
-      // Extract posts from the "results" array
       const postsData = response.data?.results || [];
 
       if (!Array.isArray(postsData) || postsData.length === 0) {
-        console.error("No posts found or invalid format:", response.data);
-        toast.error(`No posts found for user ${username}`);
+        toast.info(`No posts found from ${username}`);
         setPosts([]);
         return;
       }
 
-      // Process posts to handle post images
       const postsWithImage = postsData.map((post) => ({
         ...post,
         post_image: post.post_image?.startsWith("http")
@@ -504,86 +446,12 @@ const PostUtils = ({
 
       setPosts(postsWithImage);
       updateNewsData(username, "user");
-
-      if (response.data?.message) {
-        toast.success(response.data.message);
-      }
     } catch (error) {
       console.error("Error fetching user posts:", error);
       setPosts([]);
-
-      if (error.response?.status === 404) {
-        toast.error(`No posts found for user ${username}`);
-      } else if (error.response?.status === 403) {
-        toast.error("You need to be logged in to view these posts");
-      } else {
-        toast.error(`Failed to fetch posts for ${username}`);
-      }
+      toast.error(`No posts found from ${username}`);
     }
   };
-
-  // const fetchPostsByUsername = async (username) => {
-  //   const userData = GetUserData();
-  //   try {
-  //     const response = await axiosInstance.get(
-  //       `community/api/forum/posts/by-username/${username}/`,
-  //       {
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Authorization: `Bearer ${userData.access_token}`,
-  //         },
-  //         withCredentials: true,
-  //       }
-  //     );
-
-  //     // Check if response has data array
-  //     const postsData = response.data?.data || [];
-
-  //     if (!Array.isArray(postsData)) {
-  //       console.error("Received invalid data format:", response.data);
-  //       toast.error("Received invalid data format from server");
-  //       setPosts([]);
-  //       return;
-  //     }
-
-  //     const postsWithImage = postsData.map((post) => ({
-  //       ...post,
-  //       post_image: post.post_image?.startsWith("http")
-  //         ? post.post_image
-  //         : post.post_image
-  //         ? GeneralHelpers.getImageUrl(post.post_image)
-  //         : null,
-  //     }));
-
-  //     // Set the posts
-  //     setPosts(postsWithImage);
-
-  //     // Update pagination state
-  //     setPagination({
-  //       count: response.data.count || 0,
-  //       next: response.data.next || null,
-  //       previous: response.data.previous || null,
-  //     });
-
-  //     updateNewsData(username, "user");
-
-  //     // Show success message using the message from API
-  //     if (response.data?.message) {
-  //       toast.success(response.data.message);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error fetching user posts:", error);
-  //     setPosts([]);
-
-  //     if (error.response?.status === 404) {
-  //       toast.error(`No posts found for user ${username}`);
-  //     } else if (error.response?.status === 403) {
-  //       toast.error("You need to be logged in to view these posts");
-  //     } else {
-  //       toast.error(`Failed to fetch posts for ${username}`);
-  //     }
-  //   }
-  // };
 
   return {
     formatPostContent,
