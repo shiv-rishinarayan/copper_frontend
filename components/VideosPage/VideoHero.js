@@ -90,24 +90,24 @@ const VideoHero = () => {
           {/* Text Content */}
           <div className="relative z-10 p-6 text-white max-w-2xl">
             <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-accent">
-              Platinum Videos
+              PGM Videos
             </p>
 
             <h1 className="text-2xl lg:text-4xl font-bold my-4 cambay">
               Your Source for the Latest{" "}
-              <span className="text-white">Platinum Market Updates</span>
+              <span className="text-white">PGM Market Updates</span>
             </h1>
 
             <p className="text-sm md:text-base mb-10">
-              Enhance your platinum market knowledge through our educational
-              video content. From market fundamentals to advanced trading
-              strategies, explore our comprehensive library of featured, company
-              insights, podcasts, and educational resources.
+              Enhance your PGM market knowledge through our educational video
+              content. From market fundamentals to advanced trading strategies,
+              explore our comprehensive library of featured, company insights,
+              podcasts, and educational resources.
             </p>
 
             <div className="text-xs text-gray-300">
               <p className="text-gray-300">
-                Learn, grow, and master platinum markets with our expert content
+                Learn, grow, and master PGM markets with our expert content
               </p>
             </div>
           </div>

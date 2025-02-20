@@ -26,7 +26,7 @@ const PressRelease = () => {
     <div>
       {/* Heading */}
       <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
-        Platinum Company Press Release
+        PGM Company Press Release
       </h1>
 
       {/* Press Release Layout */}

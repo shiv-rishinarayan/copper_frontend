@@ -123,15 +123,15 @@ const DSupply = () => {
           </div>
         </div>
       </div>
-      <h1 className="cambay text-[22px] sm:text-2xl font-semibold mt-10">
-        Primary and the Secondary Supply :
+      <h1 className="cambay text-[22px] sm:text-2xl font-semibold mt-28">
+        Primary and the Secondary Supply
       </h1>
       {/* Tables Section */}
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-14 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-14 mt-10">
         {tables.map((category, categoryIndex) => (
           <div key={categoryIndex}>
-            <h2 className="font-medium text-black/90 text-sm -mb-0.5 ml-4 lg:text-xl">
+            <h2 className="font-medium text-black/90 text-sm -mb-0.5  lg:text-xl">
               {category.category}
             </h2>
             <div className="grid grid-cols-1 gap-6">
@@ -141,7 +141,7 @@ const DSupply = () => {
                   onClick={() => handleNavigation(table.path)}
                   className="block cursor-pointer duration-200"
                 >
-                  <div className="w-full bg-white rounded-lg p-2 sm:p-4 flex flex-col">
+                  <div className="w-full bg-white rounded-lg pt-5 flex flex-col">
                     <div className="w-full">
                       <table className="w-full text-[10px] sm:text-sm border border-gray-200">
                         <thead>

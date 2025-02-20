@@ -16,7 +16,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "News", path: "/news" },
-    { name: "Platinum Investments", path: "/investments" },
+    { name: "PGM Investments", path: "/investments" },
     { name: "Community", path: "/community" },
     { name: "Videos", path: "/videos" },
     { name: "Data", path: "/data" },

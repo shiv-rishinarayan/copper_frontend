@@ -8,7 +8,7 @@ const PlatinumLivePrice = () => {
     fetch(PGM_PRICES)
       .then((response) => response.json())
       .then((data) => {
-        const platinumInfo = data.find((item) => item.pgm_name === "Platinum");
+        const platinumInfo = data.find((item) => item.pgm_name === "Palladium");
         setPlatinumData(platinumInfo);
       })
       .catch((error) => console.error("Error fetching data:", error));
@@ -27,7 +27,7 @@ const PlatinumLivePrice = () => {
   return (
     <div className="text-center">
       <h2 className="flex text-[21px] md:text-[16px] lg:text-[21px] cambay font-bold text-black1/80 capitalize border-b border-black1/20 pb-2 mb-6 lg:mb-4">
-        Live Platinum Price
+        Live Palladium Price
       </h2>
 
       <div className="bg-accent/30 p-3 md:p-2 lg:p-3 py-4 w-full border border-accent/30 rounded-md flex justify-between items-center">
@@ -51,7 +51,7 @@ const PlatinumLivePrice = () => {
       <div className="mt-1 bg-accent/30 p-3 md:p-2 lg:p-3 py-4 w-full border border-accent/30 rounded-md flex justify-between items-center">
         <div>
           <h3 className="text-xs md:text-[9px] lg:text-sm font-bold text-green">
-            Platinum Spot Price
+            Palladium Spot Price
           </h3>
         </div>
 

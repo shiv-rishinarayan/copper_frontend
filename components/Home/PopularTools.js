@@ -24,11 +24,11 @@ const PopularTools = () => {
         <a href="/investments?tab=investment">
           <div className="w-full bg-gray-100 p-4 py-7 border border-gray-300 rounded-sm relative group hover:bg-accent/15 hover:scale-[1.02] transition-all duration-200">
             <h1 className="text-[1.2rem] font-medium  text-black1/80 mb-2 group-hover:text-accent">
-              Platinum Stock Screener
+              PGM Stock Screener
             </h1>
             <p className="text-[15px]  group-hover:text-black1/70">
-              Identify and filter platinum-focused companies based on key
-              factors, financial metrics, and market performance.
+              Identify and filter PGM-focused companies based on key factors,
+              financial metrics, and market performance.
             </p>
             <span className="absolute top-4 right-4 text-gray-400/80 font-extrabold text-[1.6rem] group-hover:text-green/60">
               <BsArrowUpRight />
@@ -40,11 +40,11 @@ const PopularTools = () => {
         <a href="/investments?tab=insiderTransactions">
           <div className="w-full bg-gray-100 p-4 py-7 border border-gray-300 rounded-sm relative group hover:bg-accent/15 hover:scale-[1.02] transition-all duration-200">
             <h1 className="text-[1.2rem] font-medium mb-2 group-hover:text-accent">
-              Platinum Insider Trading Screener
+              PGM Insider Trading Screener
             </h1>
             <p className="text-[15px]  group-hover:text-black1/70">
-              Track insider transactions in the Platinum space to gain valuable
-              insights each Platinum company.
+              Track insider transactions in the PGM space to gain valuable
+              insights each PGM company.
             </p>
             <span className="absolute top-4 right-4 text-gray-400/80 font-extrabold text-[1.6rem] group-hover:text-green/60">
               <BsArrowUpRight />
@@ -59,8 +59,8 @@ const PopularTools = () => {
               SPUT Tracker
             </h1>
             <p className="text-[15px]  group-hover:text-black1/70">
-              View up to date holdings and return profiles for Uranium ETFs and
-              track daily SPUT Uranium purchases and valuation metrics.
+              View up to date holdings and return profiles for PGM ETFs and
+              track daily SPUT PGM purchases and valuation metrics.
             </p>
             <span className="absolute top-4 right-4 text-gray-400/80 font-extrabold text-[1.6rem] group-hover:text-green/60">
               <BsArrowUpRight />

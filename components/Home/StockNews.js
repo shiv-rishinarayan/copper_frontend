@@ -199,7 +199,7 @@ const StockNews = () => {
     return (
       <div>
         <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
-          Platinum Stock News
+          PGM Stock News
         </h1>
         <div className="text-center py-12 text-gray-600">
           No news available at this time
@@ -214,7 +214,7 @@ const StockNews = () => {
   return (
     <div>
       <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
-        Platinum Stock News
+        PGM Stock News
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-9 gap-6">

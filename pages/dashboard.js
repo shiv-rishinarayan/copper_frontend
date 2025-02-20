@@ -24,12 +24,12 @@ const DashboardLayout = () => {
 
   const Content = () => {
     switch (activeTab) {
-      case "profile":
-        return <ProfileContent />;
-      case "watchlist":
-        return <WatchlistContent userData={userData} />;
       case "screener":
         return <ScreenerContent />;
+      case "watchlist":
+        return <WatchlistContent userData={userData} />;
+      case "profile":
+        return <ProfileContent />;
       default:
         return null;
     }

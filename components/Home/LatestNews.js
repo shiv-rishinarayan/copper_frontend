@@ -325,7 +325,7 @@ const LatestNews = () => {
   return (
     <div className="">
       <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
-        Latest Platinum News
+        Latest PGM News
       </h1>
 
       <div className="flex flex-wrap md:flex-nowrap">

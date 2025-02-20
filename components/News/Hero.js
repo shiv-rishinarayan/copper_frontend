@@ -56,7 +56,7 @@ const Hero = () => {
           {/* Text Content */}
           <div className="relative z-10 p-6 text-white max-w-2xl">
             <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-accent">
-              Platinum News
+              PGM News
             </p>
 
             <h1 className="text-2xl lg:text-4xl font-bold my-4 line-clamp-2 cambay">
@@ -65,7 +65,7 @@ const Hero = () => {
             <p className="text-base mb-10">
               {news[currentIndex]?.content
                 ? `${news[currentIndex]?.content.substring(0, 200)}...`
-                : "Catch up on our latest platinum news and updates."}
+                : "Catch up on our latest PGM news and updates."}
             </p>
             <div className="text-xs text-gray-300 flex items-center space-x-1">
               {/* Time Icon */}

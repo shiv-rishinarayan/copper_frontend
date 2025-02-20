@@ -54,19 +54,19 @@ const InvestmentHero = () => {
           {/* Text Content */}
           <div className="relative z-10 p-6 text-white max-w-2xl">
             <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-accent">
-              Platinum Investments
+              PGM Investments
             </p>
 
             <h1 className="text-2xl lg:text-4xl font-bold my-4  cambay">
               Elevate Your Portfolio with{" "}
-              <span className="text-white">Platinum Investment Strategies</span>
+              <span className="text-white">PGM Investment Strategies</span>
             </h1>
 
             <p className="text-sm md:text-base mb-10">
-              Discover the potential of platinum investments through our
-              comprehensive range of investment options. From physical platinum
-              to ETFs and mining stocks, we offer diverse ways to incorporate
-              this precious metal into your portfolio.
+              Discover the potential of PGM investments through our
+              comprehensive range of investment options. From physical PGM to
+              ETFs and mining stocks, we offer diverse ways to incorporate this
+              precious metal into your portfolio.
             </p>
 
             <div className="text-xs text-gray-300">

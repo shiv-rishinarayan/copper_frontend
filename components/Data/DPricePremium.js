@@ -146,10 +146,19 @@ const DPricePremium = () => {
             className="block cursor-pointer"
           >
             <div className="-ml-2 w-full h-[200px] md:h-[300px] flex items-center justify-center">
-              <img
+              {/* <img
                 src={chart.image}
                 alt={`Chart ${chart.id}`}
                 className="w-full h-full object-contain rounded-lg"
+              /> */}
+              <img
+                src={chart.image}
+                alt={`Chart ${chart.id}`}
+                className={`w-full h-full object-contain rounded-lg ${
+                  chart.id === 9 ? "object-fill" : ""
+                } ${chart.id === 10 ? "object-fill" : ""} ${
+                  chart.id === 11 ? "object-fill" : ""
+                }`}
               />
             </div>
             <h3 className=" font-medium text-black/90 text-lg lg:text-xl">

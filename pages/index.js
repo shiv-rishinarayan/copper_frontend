@@ -54,7 +54,13 @@ const home = () => {
             </h1>
             <ChartRhodium />
           </div>
-          <DailyNewsletterAd />
+
+          <div>
+            <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
+              Ruthenium Price Chart
+            </h1>
+            <ChartRuthenium />
+          </div>
         </div>
 
         {/* 2  */}
@@ -77,13 +83,10 @@ const home = () => {
             </h1>
             <TVPalladium />
           </div>
-          <div>
-            <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
-              Ruthenium Price Chart
-            </h1>
-            <ChartRuthenium />
-          </div>
+
           <Substacks />
+
+          <DailyNewsletterAd />
         </div>
       </div>
 

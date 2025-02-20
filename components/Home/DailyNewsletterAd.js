@@ -15,7 +15,7 @@ const DailyNewsletterAd = () => {
         Receive our <span className="text-white">FREE</span>
       </h2>
       <h2 className="text-white text-3xl font-bold cambay">
-        Daily Newsletter.
+        Weekly Newsletter.
       </h2>
 
       {/* Button Section */}

@@ -12,14 +12,13 @@ const Footer = () => {
             {/* Text Content */}
             <div className="text-start lg:w-1/2 flex flex-col justify-center">
               <h1 className="text-2xl sm:text-[1.5rem] md:text-4xl font-semibold mb-6 md:leading-14 frank">
-                Everything You Need to Navigate the Platinum Market – All in One
+                Everything You Need to Navigate the PGM Market – All in One
                 Place
               </h1>
               <p className="text-xs sm:text-[13px] md:text-[14.5px] mb-8 text-white/70 leading-5 font-normal">
                 With demand for clean energy on the rise, many investors are
-                looking for the next big opportunity in platinum. We're here to
-                help. Sign up to receive our best insights and updates every
-                week.
+                looking for the next big opportunity in PGM. We're here to help.
+                Sign up to receive our best insights and updates every week.
               </p>
               <button
                 type="submit"
