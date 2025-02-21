@@ -8,6 +8,7 @@ import ProfileContent from "@/components/Dashboard/DProfile";
 import WatchlistContent from "@/components/Dashboard/DWatchlist";
 import ScreenerContent from "@/components/Dashboard/DStockScreener";
 import { GetUserData } from "@/src/utils/GetUserData";
+import SEO from "@/components/SEO";
 
 const DashboardLayout = () => {
   const userData = GetUserData();
@@ -37,6 +38,12 @@ const DashboardLayout = () => {
 
   return (
     <div className="h-screen w-full bg-gray-100 overflow-hidden">
+      <SEO
+        title="Dashboard - Stock Screener, Watchlist, Market News & More"
+        description="Access a powerful stock screener, manage your watchlist, stay updated with market news, and analyze stock trends with our advanced dashboard."
+        keywords="dashboard, stock screener, watchlist, stock market, stock analysis, financial news, market trends, investment tools"
+        canonicalUrl="https://musical-panda-75f15d.netlify.app/dashboard"
+      />
       <div className="flex h-full">
         {/* Mobile Sidebar Overlay */}
         {isSidebarOpen && (

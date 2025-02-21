@@ -3,6 +3,7 @@ import { useRouter } from "next/router"; // For navigation
 import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 import { FaSpinner } from "react-icons/fa";
+import SEO from "@/components/SEO";
 
 const NewPassword = () => {
   const [newPassword, setNewPassword] = useState("");
@@ -50,6 +51,12 @@ const NewPassword = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <SEO
+        title="Update Password - Recover Your Account"
+        description="Forgot your password? Update it now to regain access to your account securely."
+        keywords="reset password, password recovery, forgot password, account access, secure login, recover account,new passowrd"
+        canonicalUrl="https://musical-panda-75f15d.netlify.app/auth/new-password"
+      />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

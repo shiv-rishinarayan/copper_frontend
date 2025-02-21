@@ -352,6 +352,7 @@ import DataBreadcrumb from "@/components/Data/DataBreadcrumb";
 import React from "react";
 import Footer from "@/components/Footer";
 import { tables } from "../../../public/static-data/Table Data/SupplyDatabaseTable";
+import SEO from "@/components/SEO";
 
 const TableSubpage = () => {
   const router = useRouter();
@@ -369,6 +370,13 @@ const TableSubpage = () => {
 
   return (
     <div className="mt-10">
+      <SEO
+        title={`${table.title} -  Data Supply & Market Insights`}
+        description="Explore detailed market data with our Data Data Supply. Analyze trends, track investments, and gain financial insights."
+        keywords="data Data Supply, market insights, price trends, investment data, financial charts, stock analysis"
+        canonicalUrl={`https://musical-panda-75f15d.netlify.app/DataDemandDatabase/table/${dataId}`}
+      />
+
       <DataBreadcrumb title={table.title} />
       <div className="px-2 py-4 md:px-20 mt-4 md:mt-14 mb-4 md:mb-10">
         <h1 className="text-xl md:text-2xl font-bold mb-4 md:mb-8 mt-8">

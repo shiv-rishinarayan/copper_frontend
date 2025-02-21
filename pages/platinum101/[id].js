@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import cardData from "@/public/static-data/P101CardData"; // Adjust the import path
 import Image from "next/image";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const DetailPage = () => {
   const router = useRouter();
@@ -17,6 +18,12 @@ const DetailPage = () => {
 
   return (
     <div className="relative">
+      <SEO
+        title={`${card.title} - Platinum Group Metals Guide & Glossary`}
+        description="Explore the world of Platinum Group Metals (PGMs) with our comprehensive guide. Learn about platinum, palladium, rhodium, iridium, ruthenium, and osmium, their properties, uses, and market significance."
+        keywords="PGM 101, Platinum Group Metals, platinum, palladium, rhodium, iridium, ruthenium, osmium, metal properties, PGM glossary, precious metals"
+        canonicalUrl={`https://musical-panda-75f15d.netlify.app/platinum101/${card.id}`}
+      />
       {/* Breadcrumb Component */}
       <P101Breadcrumb link={card.href} title={card.title} />
 

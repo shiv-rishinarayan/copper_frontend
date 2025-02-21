@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import DataBreadcrumb from "@/components/Data/DataBreadcrumb";
 import React from "react";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const ChartSubpage = () => {
   const router = useRouter();
@@ -109,6 +110,12 @@ const ChartSubpage = () => {
   return (
     <div>
       <DataBreadcrumb title={chart.title} />
+      <SEO
+        title={`${chart.title} - WPIC Supply Demand Estimates & Market Insights`}
+        description={chart.description}
+        keywords="data, wpic, supply ,demand,supply, market insights, price trends, investment data, financial charts, stock analysis"
+        canonicalUrl={`https://musical-panda-75f15d.netlify.app/DataWPICSupplyDemand/${chart.id}`}
+      />
       <div className="px-6 py-10 md:px-20 mt-14 mb-10">
         <h1 className="text-2xl font-bold">{chart.title}</h1>
         <p className="mt-1.5 mb-1 font-medium text-black/50 text-sm">

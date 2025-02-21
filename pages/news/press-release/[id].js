@@ -9,6 +9,7 @@ import PopularIntradayReturn from "@/components/Home/MostFollowed";
 import MoreNews from "@/components/News/MoreNews";
 import Footer from "@/components/Footer";
 import Loader from "@/components/Loader";
+import SEO from "@/components/SEO";
 
 // const PressReleasePage = () => {
 //   const router = useRouter();
@@ -168,6 +169,13 @@ const PressReleasePage = () => {
 
   return (
     <>
+      <SEO
+        title="Press Release - Latest News & Updates"
+        description="Read the latest press releases and stay informed with important news and updates from the industry."
+        keywords="press release, latest news, industry updates, company announcements, financial news, market insights"
+        canonicalUrl="https://musical-panda-75f15d.netlify.app/press-release"
+      />
+
       <Navbar />
       <div className="mt-16 w-full px-3 lg:px-20 py-8 lg:py-16 flex flex-col lg:flex-row lg:space-x-6">
         {/* Main news content */}

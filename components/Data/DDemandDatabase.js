@@ -200,7 +200,7 @@ const DDemandDatabase = () => {
 
       {tables.map((category, categoryIndex) => (
         <div key={categoryIndex} className="mt-16">
-          <h2 className="cambay text-xl sm:text-2xl font-semibold mb-5">
+          <h2 className="cambay text-xl sm:text-2xl font-semibold mb-8">
             {category.category}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-14">
@@ -210,8 +210,8 @@ const DDemandDatabase = () => {
                 onClick={() => handleNavigation(table.path)}
                 className="block cursor-pointer duration-200"
               >
-                <div className="w-full bg-white rounded-lg p-2 sm:p-4 flex flex-col">
-                  <h3 className="font-medium text-black/90 text-sm mb-2 lg:text-xl">
+                <div className="w-full bg-white rounded-lg  flex flex-col">
+                  <h3 className="font-medium text-black/90 text-sm mb-5 lg:text-xl">
                     {table.title}
                   </h3>
                   <div className="w-full">

@@ -2,10 +2,17 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { AiOutlineStock } from "react-icons/ai";
 import { BsGraphDown } from "react-icons/bs";
+import SEO from "@/components/SEO";
 
 export default function Custom404() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen  text-black">
+      <SEO
+        title="Page Not Found - PGM Tracker"
+        description="Oops! The page you're looking for doesn’t exist. Get back on track with the latest Platinum Group Metals market updates and insights."
+        keywords="404, page not found, PGM market, PGM prices, PGM tracker"
+        canonicalUrl="https://musical-panda-75f15d.netlify.app/404"
+      />
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}

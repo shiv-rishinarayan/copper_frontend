@@ -6,6 +6,7 @@ import { FaCheckCircle } from "react-icons/fa";
 import { BASE_URL, VERIFY_EMAIL_API } from "@/src/api/authAPI";
 // import useAxios from "@/src/network/useAxios";
 import axios from "axios";
+import SEO from "@/components/SEO";
 
 const VerifyEmail = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -19,13 +20,20 @@ const VerifyEmail = () => {
     try {
       // Simulate API call to verify email
       // const response = await axiosCreate.get(`${VERIFY_EMAIL_API}/${uid}/${token}`);
-      const response = await axios.get(`${BASE_URL}${VERIFY_EMAIL_API}/${uid}/${token}`);
-      if(response?.data){
-        toast.success(response?.data?.message ?? "Email verified successfully!");
+      const response = await axios.get(
+        `${BASE_URL}${VERIFY_EMAIL_API}/${uid}/${token}`
+      );
+      if (response?.data) {
+        toast.success(
+          response?.data?.message ?? "Email verified successfully!"
+        );
         router.push("./../../login");
       }
     } catch (error) {
-      toast.error(error?.response?.data?.error ?? "Failed to verify email. Please try again.");
+      toast.error(
+        error?.response?.data?.error ??
+          "Failed to verify email. Please try again."
+      );
     } finally {
       setIsLoading(false);
     }
@@ -33,6 +41,13 @@ const VerifyEmail = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <SEO
+        title="Verify Email - Confirm Your Account"
+        description="Please verify your email to complete the registration process and access your account."
+        keywords="verify email, email confirmation, account verification, email authentication, registration, confirmation link"
+        canonicalUrl="https://musical-panda-75f15d.netlify.app/auth/verify-email"
+      />
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

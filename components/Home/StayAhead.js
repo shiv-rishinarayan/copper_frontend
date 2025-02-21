@@ -15,7 +15,7 @@ const StayAhead = () => {
         "Use our PGM Stock screener to find suitable PGM stocks",
         "Search by Jurisdiction, stock exchange, marketcap",
       ],
-      link: "/investments?tab=investment",
+      link: "/investments?tab=stock-screener",
     },
     {
       title: "PGM News",
@@ -33,7 +33,7 @@ const StayAhead = () => {
         "See if insiders are buying or selling your PGM stocks",
         "See recent insider trades so you can stay ahead of the game",
       ],
-      link: "/investments?tab=insiderTransactions",
+      link: "/investments?tab=insider-transactions",
     },
   ];
 
@@ -78,7 +78,7 @@ const StayAhead = () => {
             </p>
           </div>
           <Link
-            href="/signup"
+            href="/auth/signup"
             className="bg-white hover:bg-white/90 lg:bg-white lg:hover:bg-white/90 text-center text-accent font-bold py-2.5 sm:py-3 px-4 sm:px-6 rounded w-full text-sm"
           >
             SUBSCRIBE TODAY

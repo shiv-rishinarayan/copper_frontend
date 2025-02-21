@@ -1,7 +1,9 @@
 import React from "react";
 import Footer2 from "./Footer2";
+import { useRouter } from "next/router";
 
 const Footer = () => {
+  const router = useRouter();
   return (
     <footer className="relative w-full h-fit bg-gray-900">
       {/* Footer Content */}
@@ -23,6 +25,7 @@ const Footer = () => {
               <button
                 type="submit"
                 className="h-10 w-fit px-6 rounded-sm bg-accent text-white font-medium hover:bg-accent/90 frank text-[14px]"
+                onClick={() => router.push("/auth/signup")}
               >
                 Sign Up For Free
               </button>

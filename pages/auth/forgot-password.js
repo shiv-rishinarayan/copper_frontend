@@ -9,6 +9,7 @@ import { BASE_URL, FORGOT_PASSWORD_API } from "@/src/api/authAPI";
 // import useAxios from "@/src/network/useAxios";
 import axios from "axios";
 import toast from "react-hot-toast";
+import SEO from "@/components/SEO";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -26,22 +27,32 @@ const ResetPassword = () => {
     setSubmitting(false);
     try {
       let data = {
-        email: values.email
-      }
-      const res = await axios.post(BASE_URL+FORGOT_PASSWORD_API, data);
-      console.log(res)
+        email: values.email,
+      };
+      const res = await axios.post(BASE_URL + FORGOT_PASSWORD_API, data);
+      console.log(res);
       if (res.data.message) {
-        toast.success(res?.data?.message)
-        router.push('./login')
+        toast.success(res?.data?.message);
+        router.push("./login");
       }
     } catch (error) {
       setSubmitting(true);
-      toast.error(error?.response?.data?.error ?? "Failed to send reset link. Please try again.");
+      toast.error(
+        error?.response?.data?.error ??
+          "Failed to send reset link. Please try again."
+      );
     }
   };
 
   return (
     <div className="flex flex-col min-h-screen">
+      <SEO
+        title="Reset Password - Recover Access"
+        description="Enter your email to receive a password reset link and regain access to your account securely."
+        keywords="forgot password, password reset, recover account, secure login, reset link, account recovery"
+        canonicalUrl="https://musical-panda-75f15d.netlify.app/auth/forgot-password"
+      />
+
       <main className="flex-grow mt-">
         <div className="flex min-h-screen">
           <div className="w-full flex flex-col justify-center px-10">

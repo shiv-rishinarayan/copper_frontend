@@ -240,6 +240,7 @@ import useAxios from "@/src/network/useAxios";
 import { BASE_URL, SIGNUP_API } from "@/src/api/authAPI";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import SEO from "@/components/SEO";
 
 const validationSchema = Yup.object().shape({
   fullName: Yup.string()
@@ -300,6 +301,13 @@ const Signup = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <SEO
+        title="Sign Up - Create Your Account"
+        description="Join us today! Create your account to access powerful tools, manage your watchlist, and stay updated with PGM market trends."
+        keywords="sign up, create account, registration, join now, stock market tools, investment platform, market trends,PGM Tracker"
+        canonicalUrl="https://musical-panda-75f15d.netlify.app/auth/signup"
+      />
+
       <Navbar />
       <main className="flex-grow mt-16">
         <div className="flex flex-col lg:flex-row h-[calc(100vh-4rem)]">

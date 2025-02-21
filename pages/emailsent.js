@@ -2,12 +2,20 @@ import React from "react";
 import { IoArrowBack } from "react-icons/io5";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import SEO from "@/components/SEO";
 
 const EmailSent = () => {
   const router = useRouter();
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
+      <SEO
+        title="Email Sent - Confirmation & Next Steps"
+        description="Your email has been sent successfully. Check your inbox for confirmation and further instructions."
+        keywords="email sent, confirmation, inbox, message delivered, email success, verification email, next steps"
+        canonicalUrl="https://musical-panda-75f15d.netlify.app/emailsent"
+      />
+
       <main className="flex-grow mt-16">
         <div className="flex h-[calc(100vh-4rem)]">
           <div className="w-full flex flex-col justify-center px-10">
@@ -42,7 +50,7 @@ const EmailSent = () => {
                     Open Email
                   </button>
                   <button
-                    onClick={() => router.push("/login")}
+                    onClick={() => router.push("/auth/login")}
                     className="flex items-center justify-center space-x-2 
                     text-accent hover:text-accent-dark mx-auto
                     transition-colors duration-200 ease-in-out 

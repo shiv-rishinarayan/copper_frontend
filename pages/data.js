@@ -8,6 +8,7 @@ import TabsSection from "@/components/Data/TabSection";
 import Footer from "@/components/Footer";
 import DSupply from "@/components/Data/DSupply";
 import DWPICSupply from "@/components/Data/DWPICSupply";
+import SEO from "@/components/SEO";
 
 const Data = () => {
   const { query } = useRouter();
@@ -15,6 +16,12 @@ const Data = () => {
 
   return (
     <div>
+      <SEO
+        title="PGM Market Data - Price Trends, Supply & Demand Insights"
+        description="Access comprehensive PGM market data, including price trends, supply and demand metrics, and industry analysis. Our detailed datasets provide the insights you need for informed decision-making in the PGM market."
+        keywords="PGM market data, price trends, PGM supply and demand, industry analysis, PGM research, market insights, Platinum Group Metals, data analytics"
+        canonicalUrl="https://musical-panda-75f15d.netlify.app/data"
+      />
       <Navbar />
       <DataHero />
       {/* tabs  */}

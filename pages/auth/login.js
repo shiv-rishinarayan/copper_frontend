@@ -188,9 +188,6 @@
 
 // export default Login;
 
-
-
-
 // New Code by Janak
 
 import React, { useState } from "react";
@@ -200,6 +197,7 @@ import { useRouter } from "next/router";
 import { BASE_URL, LOGIN_API } from "@/src/api/authAPI";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import SEO from "@/components/SEO";
 
 const Login = () => {
   const router = useRouter();
@@ -277,7 +275,9 @@ const Login = () => {
     } catch (error) {
       console.error("Error during Login: ", error);
       if (error.response) {
-        toast.error(error.response.data?.message || "Invalid login credentials.");
+        toast.error(
+          error.response.data?.message || "Invalid login credentials."
+        );
       } else {
         toast.error("Something went wrong, please try again.");
       }
@@ -288,6 +288,13 @@ const Login = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <SEO
+        title="Login - Access Your Account"
+        description="Log in to your account to access powerful tools, manage your watchlist, and stay updated with market trends."
+        keywords="login, sign in, account access, user login, stock market tools, investment platform"
+        canonicalUrl="https://musical-panda-75f15d.netlify.app/auth/login"
+      />
+
       <Navbar />
       <main className="flex-grow mt-16">
         <div className="flex flex-col lg:flex-row h-[calc(100vh-4rem)]">
@@ -322,7 +329,9 @@ const Login = () => {
                     className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 placeholder:text-black/40 placeholder:text-sm"
                   />
                   {errors.email && (
-                    <div className="text-red-500 text-sm mt-1">{errors.email}</div>
+                    <div className="text-red-500 text-sm mt-1">
+                      {errors.email}
+                    </div>
                   )}
                 </div>
                 <div>
@@ -335,7 +344,9 @@ const Login = () => {
                     className="w-full border-b border-gray-300 focus:outline-none focus:border-accent py-2 placeholder:text-black/40 placeholder:text-sm"
                   />
                   {errors.password && (
-                    <div className="text-red-500 text-sm mt-1">{errors.password}</div>
+                    <div className="text-red-500 text-sm mt-1">
+                      {errors.password}
+                    </div>
                   )}
                 </div>
                 <div className="flex justify-between items-center pt-7">

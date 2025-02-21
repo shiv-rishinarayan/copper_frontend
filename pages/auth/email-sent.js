@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 import { FaEnvelope } from "react-icons/fa";
+import SEO from "@/components/SEO";
 
 const EmailSent = () => {
   const router = useRouter();
@@ -34,6 +35,13 @@ const EmailSent = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 sm:px-6 lg:px-8">
+      <SEO
+        title="Email Sent - Confirmation & Next Steps"
+        description="Your email has been sent successfully. Check your inbox for confirmation and further instructions."
+        keywords="email sent, confirmation, inbox, message delivered, email success, verification email, next steps"
+        canonicalUrl="https://musical-panda-75f15d.netlify.app/auth/email-sent"
+      />
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

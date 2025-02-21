@@ -48,6 +48,7 @@ import { useRouter } from "next/router";
 import TabsSection from "@/components/VideosPage/TabSection";
 import Footer from "@/components/Footer";
 import VideoList from "@/components/VideosPage/VideoList";
+import SEO from "@/components/SEO";
 
 const Videos = () => {
   const { query } = useRouter();
@@ -70,6 +71,12 @@ const Videos = () => {
 
   return (
     <div>
+      <SEO
+        title="PGM Video Hub - Market Updates, Education & Insights"
+        description="Enhance your PGM market knowledge through our educational video content. From market fundamentals to advanced trading strategies, explore our comprehensive library of featured videos, company insights, podcasts, and educational resources."
+        keywords="PGM videos, market updates, PGM education, trading strategies, company insights, PGM podcasts, investment knowledge, Platinum Group Metals"
+        canonicalUrl="https://musical-panda-75f15d.netlify.app/videos"
+      />
       <Navbar />
       <VideoHero />
       <div>

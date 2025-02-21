@@ -23,10 +23,18 @@ import ChartIridium from "@/components/Home/ChartIridium";
 import ChartRhodium from "@/components/Home/ChartRhodium";
 import ChartRuthenium from "@/components/Home/ChartRuthenium";
 import HomePGMPrice from "@/components/Home/HomePGMPrice";
+import SEO from "@/components/SEO";
 
 const home = () => {
   return (
     <div>
+      <SEO
+        title="PGM Tracker - Real-time News, Prices & Analysis"
+        description="Stay ahead with real-time Platinum Group Metals news, price updates, and in-depth analysis. Get accurate insights into the PGM market trends."
+        keywords="PGM prices, PGM news, PGM market analysis, Precious metals, PGM trading, PGMs updates, PGM investment, Real-time PGM updates,investment"
+        canonicalUrl="https://musical-panda-75f15d.netlify.app/"
+      />
+
       <Navbar />
       <Hero />
 

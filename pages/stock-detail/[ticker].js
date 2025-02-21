@@ -11,6 +11,7 @@ import Navbar from "@/components/Navbar";
 import DailyNewsletterAd from "@/components/Home/DailyNewsletterAd";
 import StockDetailMostFollowed from "@/components/StockDetail/StockDetailMostFollowed";
 import Loader from "@/components/Loader";
+import SEO from "@/components/SEO";
 // TradingView Widget Component
 const TradingViewWidget = ({ ticker }) => {
   const containerRef = useRef(null);
@@ -225,6 +226,12 @@ const StockDetailPage = () => {
   if (error || !data) {
     return (
       <div>
+        <SEO
+          title="Stock Not Found"
+          description="Stock Not Found"
+          keywords="stock details, market insights, stock analysis, stock performance, investment, financial data, stock trends"
+          canonicalUrl="https://musical-panda-75f15d.netlify.app/stock-detail"
+        />
         <div className="min-h-screen flex flex-col items-center justify-center gap-4 px-4">
           <div className="text-center">
             <h2 className="text-2xl font-semibold text-gray-800 mb-2">
@@ -247,6 +254,12 @@ const StockDetailPage = () => {
 
   return (
     <div>
+      <SEO
+        title="Stock Details - Market Insights & Analysis"
+        description="Get in-depth stock details, real-time market data, historical performance, and expert analysis to make informed investment decisions."
+        keywords="stock details, market insights, stock analysis, stock performance, investment, financial data, stock trends"
+        canonicalUrl="https://musical-panda-75f15d.netlify.app/stock-detail"
+      />
       <Navbar />
       <div className="flex flex-col md:flex-row justify-between px-2 md:px-12 my-10 pb-20 mt-24">
         <div className="w-full md:w-[75%] flex flex-col gap-y-8 border border-gray-200 rounded-md p-6">
