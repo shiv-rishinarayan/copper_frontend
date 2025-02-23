@@ -31,5 +31,7 @@ export const GetUserData = () => {
 };
 
 export const SetUserData = (data) => {
-    document.cookie = `userData=${encodeURIComponent(JSON.stringify(data))}; path=/;`;
+  document.cookie = `userData=${encodeURIComponent(
+    JSON.stringify(data)
+  )}; path=/;`;
 };
