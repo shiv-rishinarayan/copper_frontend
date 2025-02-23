@@ -8,6 +8,7 @@ import Image from "next/image";
 import useAxios from "@/src/network/useAxios";
 import { BASE_URL } from "@/src/api/platinumAPI";
 import GeneralHelpers from "@/src/utils/general-helpers";
+import axios from "axios";
 
 const PostList = ({
   posts = [],
@@ -65,7 +66,7 @@ const PostList = ({
   const handleViewAllPosts = async () => {
     try {
       setLoading(true);
-      const response = await axiosInstance.get(
+      const response = await axios.get(
         `${BASE_URL}/community/api/forum/posts/?limit=10&offset=0`
       );
       const { results } = response.data;
@@ -102,7 +103,7 @@ const PostList = ({
           ? `${BASE_URL}/community/api/forum/posts/?limit=10&hashtag=${tag}`
           : `${BASE_URL}/community/api/forum/posts/?limit=10&cashtag=${tag}`;
 
-      const response = await axiosInstance.get(endpoint);
+      const response = await axios.get(endpoint);
       const posts = response.data?.results || [];
 
       if (posts.length === 0) {
@@ -228,7 +229,7 @@ const PostList = ({
         endpoint = `${BASE_URL}/community/api/forum/posts/?limit=${limit}&offset=${offset}&cashtag=${activeFilter.value}`;
       }
 
-      const response = await axiosInstance.get(endpoint);
+      const response = await axios.get(endpoint);
       const { results, next } = response.data;
 
       if (results && results.length > 0) {
@@ -253,7 +254,7 @@ const PostList = ({
     } finally {
       setLoading(false);
     }
-  }, [loading, hasMore, axiosInstance, activeFilter, allPosts.length]);
+  }, [loading, hasMore, activeFilter, allPosts.length]);
 
   useEffect(() => {
     if (posts && posts.length > 0) {
