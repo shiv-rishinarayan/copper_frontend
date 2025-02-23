@@ -1,15 +1,62 @@
+// import { createContext, useState, useContext } from "react";
+
+// // Create Context
+// const CommunityPostUtilsContext = createContext();
+
+// // Create Provider component
+// export const CommunityPostUtilsProvider = ({ children }) => {
+//   const [postCommentData, setPostCommentData] = useState(null);
+
+//   // Function to update news data
+//   const updatePostCommentData = (newData) => {
+//     setPostCommentData({ id: newData, timestamp: Date.now() });
+//   };
+
+//   return (
+//     <CommunityPostUtilsContext.Provider
+//       value={{ postCommentData, updatePostCommentData }}
+//     >
+//       {children}
+//     </CommunityPostUtilsContext.Provider>
+//   );
+// };
+
+// export const useCommunityPostUtils = () =>
+//   useContext(CommunityPostUtilsContext);
+
+// CommunityPostUtilsContext.js
+// import { createContext, useState, useContext } from "react";
+
+// const CommunityPostUtilsContext = createContext();
+
+// export const CommunityPostUtilsProvider = ({ children }) => {
+//   const [postCommentData, setPostCommentData] = useState(null);
+
+//   const updatePostCommentData = (newData) => {
+//     setPostCommentData(newData); // Only update the comment data
+//   };
+
+//   return (
+//     <CommunityPostUtilsContext.Provider
+//       value={{ postCommentData, updatePostCommentData }}
+//     >
+//       {children}
+//     </CommunityPostUtilsContext.Provider>
+//   );
+// };
+
+// export const useCommunityPostUtils = () =>
+//   useContext(CommunityPostUtilsContext);
+
 import { createContext, useState, useContext } from "react";
 
-// Create Context
 const CommunityPostUtilsContext = createContext();
 
-// Create Provider component
 export const CommunityPostUtilsProvider = ({ children }) => {
   const [postCommentData, setPostCommentData] = useState(null);
 
-  // Function to update news data
   const updatePostCommentData = (newData) => {
-    setPostCommentData({ id: newData, timestamp: Date.now() });
+    setPostCommentData(newData); // Only update the comment data
   };
 
   return (
