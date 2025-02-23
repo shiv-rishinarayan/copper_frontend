@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
 import useAxios from "../../src/network/useAxios";
@@ -26,7 +26,6 @@ const Community = () => {
 
   const [state, setState] = useState({
     loading: false,
-    loadingMore: false,
     posts: [],
     originalPosts: [],
     newPost: "",
@@ -38,12 +37,7 @@ const Community = () => {
     searchResults: [],
     isSearchActive: false,
     stockDetailsData: null,
-    nextPageUrl: null,
-    hasMore: true,
   });
-
-  const observer = useRef();
-  const lastPostElementRef = useRef();
 
   const updateState = (updates) => {
     setState((prev) => ({ ...prev, ...updates }));
@@ -59,45 +53,6 @@ const Community = () => {
     setCommentInputs: () => {},
     setPosts: (posts) => updateState({ posts }),
   });
-
-  // Setup intersection observer for infinite scrolling
-
-  const loadMorePosts = useCallback(() => {
-    if (state.nextPageUrl && !state.loadingMore && !state.isSearchActive) {
-      api.fetchPosts(false, state.nextPageUrl);
-    }
-  }, [state.nextPageUrl, state.loadingMore, state.isSearchActive]);
-
-  useEffect(() => {
-    if (state.loading) return;
-
-    if (observer.current) observer.current.disconnect();
-
-    observer.current = new IntersectionObserver(
-      (entries) => {
-        if (
-          entries[0].isIntersecting &&
-          state.hasMore &&
-          !state.isSearchActive
-        ) {
-          loadMorePosts();
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (lastPostElementRef.current) {
-      observer.current.observe(lastPostElementRef.current);
-    }
-
-    return () => {
-      if (observer.current) {
-        observer.current.disconnect();
-      }
-    };
-  }, [state.loading, state.hasMore, loadMorePosts, state.isSearchActive]);
-
-  // Function to load more posts
 
   const api = {
     async fetchStockDetails(identifier, type = "hashtag") {
@@ -125,53 +80,83 @@ const Community = () => {
       }
     },
 
-    async fetchPosts(showLoader = true, url = FORUM_POSTS) {
-      if (showLoader) {
-        updateState({ loading: true });
-      } else if (state.loadingMore) {
-        return;
-      }
+    // async fetchPosts() {
+    //   updateState({ loading: true });
+
+    //   try {
+    //     const response = await fetch(`${FORUM_POSTS}?limit=10&offset=0`);
+    //     const data = await response.json();
+
+    //     if (data && data.results) {
+    //       const postsWithImage = data.results.map((post) => ({
+    //         ...post,
+    //         post_image: post.post_image || null,
+    //       }));
+
+    //       updateState({
+    //         posts: postsWithImage,
+    //         originalPosts: postsWithImage,
+    //         loading: false,
+    //       });
+    //     }
+    //   } catch (error) {
+    //     console.error("Failed to fetch posts:", error);
+    //     toast.error("Failed to fetch posts. Please try again later.");
+    //     updateState({
+    //       loading: false,
+    //       posts: [],
+    //       originalPosts: [],
+    //     });
+    //   }
+    // },
+    async fetchPosts() {
+      console.log("Starting to fetch posts...");
+
+      // Set loading state to true
+      updateState({ loading: true });
 
       try {
-        if (!showLoader) {
-          updateState({ loadingMore: true });
+        // Fetch posts from the API
+        const response = await fetch(`${FORUM_POSTS}?limit=10&offset=0`);
+
+        // Check if the response is OK (status code 200-299)
+        if (!response.ok) {
+          throw new Error(`Failed to fetch posts: ${response.statusText}`);
         }
 
-        const response = await fetch(url);
+        // Parse the JSON data
         const data = await response.json();
 
-        const postsWithImage =
-          data.results?.map((post) => ({
-            ...post,
-            post_image: post.post_image || null,
-          })) || [];
-
-        if (showLoader) {
-          // Initial load
-          updateState({
-            posts: postsWithImage,
-            originalPosts: postsWithImage,
-            nextPageUrl: data.next,
-            hasMore: !!data.next,
-            loading: false,
-          });
-        } else {
-          // Loading more posts
-          updateState({
-            posts: [...state.posts, ...postsWithImage],
-            originalPosts: [...state.originalPosts, ...postsWithImage],
-            nextPageUrl: data.next,
-            hasMore: !!data.next,
-            loadingMore: false,
-          });
+        // Check if data and results exist
+        if (!data || !data.results) {
+          throw new Error("No posts found in the response");
         }
+
+        // Map posts to include a fallback for post_image
+        const postsWithImage = data.results.map((post) => ({
+          ...post,
+          post_image: post.post_image || null, // Ensure post_image is not undefined
+        }));
+
+        console.log("Posts fetched successfully:", postsWithImage);
+
+        // Update state with the fetched posts
+        updateState({
+          posts: postsWithImage,
+          originalPosts: postsWithImage, // Save a copy of the original posts for filtering/searching
+          loading: false, // Set loading to false after successful fetch
+        });
       } catch (error) {
-        console.error("Failed to fetch posts:", error);
+        console.error("Error fetching posts:", error);
+
+        // Show an error toast to the user
         toast.error("Failed to fetch posts. Please try again later.");
+
+        // Update state to reflect the error and stop loading
         updateState({
           loading: false,
-          loadingMore: false,
-          ...(showLoader && { posts: [], originalPosts: [] }),
+          posts: [],
+          originalPosts: [],
         });
       }
     },
@@ -392,7 +377,7 @@ const Community = () => {
     }
 
     if (contextPostData) {
-      api.fetchPosts(false);
+      api.fetchPosts();
     }
   }, [contextNewsData, contextPostData]);
 
@@ -434,6 +419,8 @@ const Community = () => {
           }}
           posts={state.posts.length > 0 ? state.posts : state.originalPosts}
           setPosts={(posts) => updateState({ posts })}
+          // posts={state.posts.length > 0 ? state.posts : state.originalPosts}
+          // setPosts={(posts) => updateState({ posts, originalPosts: posts })}
           auth={{ user: userData, accessToken: userData?.access_token }}
           deletePost={api.deletePost}
           likePost={api.likePost}
@@ -448,9 +435,6 @@ const Community = () => {
           postImage={state.postImage}
           setPostImage={(image) => updateState({ postImage: image })}
           sendPost={api.createPost}
-          lastPostElementRef={lastPostElementRef}
-          loadingMore={state.loadingMore}
-          hasMore={state.hasMore}
         />
         <CommunityCategoriesSidebar
           onCategoryClick={(hashtag) => {
