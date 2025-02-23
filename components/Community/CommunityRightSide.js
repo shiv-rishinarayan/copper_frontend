@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { RiSearchLine } from "react-icons/ri";
 import PostList from "../Community/CommunityPostList";
 import CommunitySidebar from "../Community/CommunitySidebar";
+import { FORUM_POSTS } from "@/src/api/platinumAPI";
 
 const CommunityRightSide = ({
   searchQuery,
@@ -23,13 +24,29 @@ const CommunityRightSide = ({
   postImage,
   setPostImage,
   sendPost,
-  setSearchQuery, // Make sure this prop is passed from the parent component
-  hasMore,
-  lastPostElementRef,
-  onScroll,
-  loadingMore,
+  setSearchQuery,
 }) => {
   const [showAllPosts, setShowAllPosts] = useState(false);
+
+  // Add handler for clearing filters
+  const handleClearFilter = useCallback(async () => {
+    try {
+      const response = await fetch(`${FORUM_POSTS}?limit=10&offset=0`);
+      const data = await response.json();
+
+      if (data && data.results) {
+        const postsWithImage = data.results.map((post) => ({
+          ...post,
+          post_image: post.post_image || null,
+        }));
+
+        setPosts(postsWithImage);
+      }
+    } catch (error) {
+      console.error("Failed to fetch posts:", error);
+      toast.error("Failed to fetch posts. Please try again later.");
+    }
+  }, [setPosts]);
 
   useEffect(() => {
     if (searchQuery.trim() === "") {
@@ -40,7 +57,6 @@ const CommunityRightSide = ({
   const handleShowAllPosts = () => {
     setShowAllPosts(true);
     clearSearch();
-    // Only call setSearchQuery if it exists
     if (typeof setSearchQuery === "function") {
       setSearchQuery("");
     }
@@ -90,10 +106,7 @@ const CommunityRightSide = ({
       </div>
 
       {/* Post List */}
-      <div
-        className="flex-1 overflow-y-auto p-5 bg-gray-50 custom-scrollbar-hidden"
-        onScroll={onScroll}
-      >
+      <div className="flex-1 overflow-y-auto p-5 bg-gray-50 custom-scrollbar-hidden">
         {displayPosts.length === 0 ? (
           <div className="text-center space-y-4">
             <div className="text-gray-400 p-4">
@@ -111,25 +124,15 @@ const CommunityRightSide = ({
             )}
           </div>
         ) : (
-          <>
-            <PostList
-              posts={displayPosts}
-              setPosts={setPosts}
-              auth={auth}
-              deletePost={deletePost}
-              likePost={likePost}
-              openModal={openModal}
-              lastPostElementRef={lastPostElementRef}
-            />
-            {loadingMore && !isSearchActive && (
-              <div className="flex justify-center items-center py-4">
-                <div className="loader w-8 h-8 border-4 border-gray-500/20 border-t-gray-500 rounded-full animate-spin"></div>
-                <span className="ml-2 text-black1/50">
-                  Loading more posts...
-                </span>
-              </div>
-            )}
-          </>
+          <PostList
+            posts={displayPosts}
+            setPosts={setPosts}
+            auth={auth}
+            deletePost={deletePost}
+            likePost={likePost}
+            openModal={openModal}
+            onClearFilter={handleClearFilter}
+          />
         )}
       </div>
 
