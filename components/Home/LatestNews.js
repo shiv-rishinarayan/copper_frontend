@@ -480,7 +480,7 @@ const LatestNews = () => {
                   className="w-full h-64 object-cover mb-2 rounded-md"
                 />
               )}
-              <h2 className="text-lg font-semibold text-primary mb-1">
+              <h2 className="text-lg font-semibold text-primary mb-1 hover:underline">
                 {newsData[0].title}
               </h2>
               <p className="text-gray-500 text-sm">
@@ -508,7 +508,7 @@ const LatestNews = () => {
                 />
               )}
               <div className="flex flex-col justify-start">
-                <h3 className="text-sm font-medium text-primary line-clamp-2 text-left">
+                <h3 className="text-sm font-medium text-primary line-clamp-2 text-left hover:underline">
                   {news.title}
                 </h3>
                 <p className="text-gray-500 text-xs mt-3">

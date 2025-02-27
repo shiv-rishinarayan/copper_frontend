@@ -235,7 +235,7 @@ const MostFollowed = () => {
           throw new Error("Failed to fetch data");
         }
         const data = await response.json();
-        setStockData(data.slice(0, 12)); // Limit to 10-12 stocks
+        setStockData(data.slice(0, 10)); // Limit to 10-12 stocks
       } catch (err) {
         setError(err.message);
       } finally {
