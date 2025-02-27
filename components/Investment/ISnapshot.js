@@ -34,7 +34,7 @@ const logos = [
     name: "Platinum Group Metals Ltd.",
     image: "/snapshotImgs/PlatinumGroup.png",
   },
-  { name: "Tanaka Chemical Corp.", image: "/snapshotImgs/Tanaka.png" },
+  { name: "Tanaka Chemical Corp.", image: "/snapshotImgs/TANAKA-P-METALS.png" },
   { name: "Umicore SA", image: "/snapshotImgs/Umicore.png" },
   { name: "Johnson Matthey Plc", image: "/snapshotImgs/JohnsonMatthey.png" },
   {
@@ -163,6 +163,11 @@ const ISnapshot = () => {
                             } 
                             ${
                               stock.name === "St-Georges Eco-Mining Corp."
+                                ? " h-9 scale-150"
+                                : ""
+                            } 
+                            ${
+                              stock.name === "Tanaka Chemical Corp."
                                 ? " h-9 scale-150"
                                 : ""
                             } 
