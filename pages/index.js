@@ -24,6 +24,7 @@ import ChartRhodium from "@/components/Home/ChartRhodium";
 import ChartRuthenium from "@/components/Home/ChartRuthenium";
 import HomePGMPrice from "@/components/Home/HomePGMPrice";
 import SEO from "@/components/SEO";
+import StocksMarquee from "@/components/Home/StocksMarquee";
 
 const home = () => {
   return (
@@ -36,10 +37,14 @@ const home = () => {
       />
 
       <Navbar />
+      <div className="mt-[80px]">
+        <StocksMarquee />
+      </div>
+
       <Hero />
 
       {/* 3 cols  */}
-      <div className="flex justify-between flex-wrap px-3 md:px-10 lg:px-12 py-12 mb-7">
+      <div className="flex justify-between flex-wrap px-3 md:px-10 lg:px-12 pt-4 pb-12 mb-7">
         {/* 1  */}
         <div className="w-full lg:w-[24%] flex flex-col space-y-14">
           <div>

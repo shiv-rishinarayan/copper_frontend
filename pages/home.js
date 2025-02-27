@@ -121,8 +121,6 @@ const home = () => {
 
 export default home;
 
-
-
 // "use client";
 // import React from "react";
 // import Link from "next/link";
