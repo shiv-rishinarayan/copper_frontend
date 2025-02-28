@@ -703,7 +703,7 @@ const StockScreenerTable = ({
                   )}`}
                 >
                   {stock.intraday_percentage != null
-                    ? `${stock.intraday_percentage}%`
+                    ? `${stock.intraday_percentage}`
                     : "0.00%"}
                 </td>
                 <td className="px-4 py-[12px]">{formatVolume(stock.volume)}</td>
@@ -713,7 +713,7 @@ const StockScreenerTable = ({
                   )}`}
                 >
                   {stock.ytd_percentage != null
-                    ? `${stock.ytd_percentage}%`
+                    ? `${stock.ytd_percentage}`
                     : "0.00%"}
                 </td>
                 <td className="px-4 py-[12px]">{stock.week_52_low || "N/A"}</td>
