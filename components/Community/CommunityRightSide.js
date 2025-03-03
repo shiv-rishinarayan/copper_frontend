@@ -10,6 +10,7 @@ const CommunityRightSide = ({
   isSearchActive,
   searchResults,
   clearSearch,
+  cashTag,
   posts,
   setPosts,
   auth,
@@ -32,6 +33,7 @@ const CommunityRightSide = ({
   const handleClearFilter = useCallback(async () => {
     try {
       const response = await fetch(`${FORUM_POSTS}?limit=10&offset=0`);
+      
       const data = await response.json();
 
       if (data && data.results) {

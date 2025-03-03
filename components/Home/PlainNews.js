@@ -5,7 +5,7 @@
 // import Loader from "../Loader";
 
 // const PlainNews = () => {
-//   // const axiosInstance = useAxios();
+//   // const axiosInstance = useAxiosPrivate();
 //   const [newsData, setNewsData] = useState([]);
 //   const [loading, setLoading] = useState(true);
 //   const [error, setError] = useState(null);

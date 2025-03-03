@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 import { FaCheckCircle } from "react-icons/fa";
 import { BASE_URL, VERIFY_EMAIL_API } from "@/src/api/authAPI";
-// import useAxios from "@/src/network/useAxios";
+// import useAxiosPrivate from "@/src/network/useAxiosPrivate";
 import axios from "axios";
 import SEO from "@/components/SEO";
 
 const VerifyEmail = () => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  // const axiosCreate = useAxios();
+  // const axiosCreate = useAxiosPrivate();
 
   const { uid, token } = router.query;
 

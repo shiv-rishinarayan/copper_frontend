@@ -5,7 +5,7 @@
 // import Footer2 from "@/components/Footer2";
 // import { useRouter } from "next/router"; // Use next/router instead of next/navigation
 // import Footer from "@/components/Footer";
-// import useAxios from "@/src/network/useAxios";
+// import useAxiosPrivate from "@/src/network/useAxiosPrivate";
 // import { BASE_URL, SIGNUP_API } from "@/src/api/authAPI";
 // import { toast } from "react-hot-toast";
 // import axios from "axios";
@@ -33,7 +33,7 @@
 
 // const Signup = () => {
 //   const router = useRouter();
-//   const axiosCreate = useAxios();
+//   const axiosCreate = useAxiosPrivate();
 
 //   const handleSubmit = async (values, { setSubmitting }) => {
 //     setSubmitting(false);
@@ -236,7 +236,7 @@ import Navbar from "@/components/Navbar";
 import Footer2 from "@/components/Footer2";
 import { useRouter } from "next/router";
 import Footer from "@/components/Footer";
-import useAxios from "@/src/network/useAxios";
+import useAxiosPrivate from "@/src/network/useAxiosPrivate";
 import { BASE_URL, SIGNUP_API } from "@/src/api/authAPI";
 import { toast } from "react-hot-toast";
 import axios from "axios";
@@ -272,7 +272,7 @@ const validationSchema = Yup.object().shape({
 
 const Signup = () => {
   const router = useRouter();
-  const axiosCreate = useAxios();
+  const axiosCreate = useAxiosPrivate();
 
   const handleSubmit = async (values, { setSubmitting }) => {
     setSubmitting(false);

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { formatDistanceToNow } from "date-fns";
 import toast from "react-hot-toast";
-import useAxios from "../../src/network/useAxios";
+import useAxiosPrivate from "../../src/network/useAxiosPrivate";
 import { useSidebarLatestNews } from "../../context/SidebarLatestNewsContext";
 import { useCommunityPostUtils } from "../../context/CommunityPostUtilsContext";
 import GeneralHelpers from "../../src/utils/general-helpers";
@@ -25,7 +25,7 @@ const PostUtils = ({
   handleTagClick, // New prop for handling tag clicks
 }) => {
   const router = useRouter();
-  const axiosInstance = useAxios();
+  const axiosInstance = useAxiosPrivate();
   const context = useSidebarLatestNews() || {};
   const { updateNewsData } = context;
 

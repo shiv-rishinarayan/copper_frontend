@@ -7,7 +7,7 @@
 // import Footer from "@/components/Footer";
 // import { useRouter } from "next/router";
 // import { BASE_URL, LOGIN_API } from "@/src/api/authAPI";
-// // import useAxios from "@/src/network/useAxios";
+// // import useAxiosPrivate from "@/src/network/useAxiosPrivate";
 // import axios from "axios";
 // import { toast } from "react-hot-toast";
 
@@ -23,7 +23,7 @@
 
 // const Login = () => {
 //   const router = useRouter();
-//   // const axiosCreate = useAxios();
+//   // const axiosCreate = useAxiosPrivate();
 
 //   const handleSubmit = async (values, { setSubmitting }) => {
 //     setSubmitting(false);

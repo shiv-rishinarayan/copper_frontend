@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
-import useAxios from "../../src/network/useAxios";
+import useAxiosPrivate from "../../src/network/useAxiosPrivate";
 import { GetUserData } from "../../src/utils/GetUserData";
 import GeneralHelpers from "../../src/utils/general-helpers";
 import Navbar from "../Navbar";
@@ -15,6 +15,7 @@ import CommunityCategoriesSidebar from "./CommunityCategoriesSidebar";
 import { useSidebarLatestNews } from "../../context/SidebarLatestNewsContext";
 import { useCommunityPostUtils } from "../../context/CommunityPostUtilsContext";
 import { FORUM_POSTS } from "@/src/api/platinumAPI";
+import useAxios from "@/src/network/useAxios";
 
 const Community = () => {
   const router = useRouter();
@@ -37,6 +38,7 @@ const Community = () => {
     searchResults: [],
     isSearchActive: false,
     stockDetailsData: null,
+    cashTag: "" 
   });
 
   const updateState = (updates) => {
@@ -74,41 +76,13 @@ const Community = () => {
         );
 
         updateState({ stockDetailsData: data });
+
       } catch (error) {
         console.error("Error fetching stock details:", error);
         updateState({ stockDetailsData: [] });
       }
     },
 
-    // async fetchPosts() {
-    //   updateState({ loading: true });
-
-    //   try {
-    //     const response = await fetch(`${FORUM_POSTS}?limit=10&offset=0`);
-    //     const data = await response.json();
-
-    //     if (data && data.results) {
-    //       const postsWithImage = data.results.map((post) => ({
-    //         ...post,
-    //         post_image: post.post_image || null,
-    //       }));
-
-    //       updateState({
-    //         posts: postsWithImage,
-    //         originalPosts: postsWithImage,
-    //         loading: false,
-    //       });
-    //     }
-    //   } catch (error) {
-    //     console.error("Failed to fetch posts:", error);
-    //     toast.error("Failed to fetch posts. Please try again later.");
-    //     updateState({
-    //       loading: false,
-    //       posts: [],
-    //       originalPosts: [],
-    //     });
-    //   }
-    // },
     async fetchPosts() {
       console.log("Starting to fetch posts...");
 
@@ -401,13 +375,14 @@ const Community = () => {
       <div className="flex flex-1 overflow-hidden px-2 lg:px-4 mt-[80px] flex-col lg:flex-row">
         <CommunityChatInterfaceLeftSide
           stockDetailsData={state.stockDetailsData}
-          setSearchQuery={(query) => updateState({ searchQuery: query })}
+          setSearchQuery={(query) => updateState({ cashTag: query })}
         />
         <CommunityChatInterfaceRightSide
           searchQuery={state.searchQuery}
           handleSearchChange={handleSearchChange}
           isSearchActive={state.isSearchActive}
           searchResults={state.searchResults}
+          cashTag={state.cashTag}
           clearSearch={() => {
             updateState({
               searchQuery: "",
@@ -415,6 +390,7 @@ const Community = () => {
               posts: state.originalPosts,
               isSearchActive: false,
               stockDetailsData: null,
+              cashTag: "",
             });
           }}
           posts={state.posts.length > 0 ? state.posts : state.originalPosts}

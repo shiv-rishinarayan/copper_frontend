@@ -5,7 +5,7 @@ import { FaComment } from "react-icons/fa";
 import PostUtils from "@/components/Community/CommunityPostUtils";
 import toast from "react-hot-toast";
 import Image from "next/image";
-import useAxios from "@/src/network/useAxios";
+import useAxiosPrivate from "@/src/network/useAxiosPrivate";
 import { BASE_URL } from "@/src/api/platinumAPI";
 import GeneralHelpers from "@/src/utils/general-helpers";
 import axios from "axios";
@@ -30,7 +30,7 @@ const PostList = ({
   const [hasMore, setHasMore] = useState(true);
   const [activeFilter, setActiveFilter] = useState({ type: null, value: null });
 
-  const axiosInstance = useAxios();
+  const axiosInstance = useAxiosPrivate();
 
   // const handleViewAllPosts = async () => {
   //   try {

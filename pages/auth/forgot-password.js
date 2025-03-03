@@ -6,7 +6,7 @@ import { IoMailOutline, IoArrowBack } from "react-icons/io5";
 import Footer2 from "@/components/Footer2";
 import Link from "next/link";
 import { BASE_URL, FORGOT_PASSWORD_API } from "@/src/api/authAPI";
-// import useAxios from "@/src/network/useAxios";
+// import useAxiosPrivate from "@/src/network/useAxiosPrivate";
 import axios from "axios";
 import toast from "react-hot-toast";
 import SEO from "@/components/SEO";
@@ -20,7 +20,7 @@ const validationSchema = Yup.object().shape({
 const ResetPassword = () => {
   const [submitted, setSubmitted] = useState(false);
   const router = useRouter();
-  // const axiosCreate = useAxios();
+  // const axiosCreate = useAxiosPrivate();
 
   const handleSubmit = async (values, { setSubmitting }) => {
     console.log("Reset email submitted: ", values.email);

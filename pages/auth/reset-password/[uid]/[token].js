@@ -3,7 +3,7 @@ import { useRouter } from "next/router"; // For navigation
 import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 import { FaSpinner } from "react-icons/fa";
-// import useAxios from "@/src/network/useAxios";
+// import useAxiosPrivate from "@/src/network/useAxiosPrivate";
 import { BASE_URL, RESET_PASSWORD_API } from "@/src/api/authAPI";
 import axios from "axios";
 import SEO from "@/components/SEO";
@@ -13,7 +13,7 @@ const NewPassword = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter(); // Next.js router
-  // const axiosCreate = useAxios();
+  // const axiosCreate = useAxiosPrivate();
 
   const { uid, token } = router.query;
 

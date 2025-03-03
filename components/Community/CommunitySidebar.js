@@ -7,7 +7,7 @@ import {
   RiCloseLine,
   RiSearchLine,
 } from "react-icons/ri";
-import useAxios from "../../src/network/useAxios";
+import useAxiosPrivate from "../../src/network/useAxiosPrivate";
 import GeneralHelpers from "../../src/utils/general-helpers";
 import { toast } from "react-hot-toast";
 
@@ -22,7 +22,7 @@ const CommunitySidebar = ({
 }) => {
   const router = useRouter();
   const { id } = router.query;
-  const axiosInstance = useAxios();
+  const axiosInstance = useAxiosPrivate();
 
   const [searchQuery, setSearchQuery] = useState("");
   const [originalPosts, setOriginalPosts] = useState([]);
