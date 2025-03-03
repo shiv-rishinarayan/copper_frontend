@@ -119,59 +119,90 @@ export const ForumPostsProvider = ({ children }) => {
     if (state.isSearchActive) {
       fetchPosts({ reset: true, offset: 0 });
     }
-  }, [state.searchQuery, state.hashtag, state.cashtag, state.isSearchActive]);
+  }, [state.searchQuery, state.hashtag, state.cashtag]);
 
   // Update search parameters
   const filterPosts = useCallback((query) => {
       setState(prev => ({
         ...prev,
         searchQuery: query,
-        isSearchActive: Boolean(query) ,
+        isSearchActive: Boolean(query) || !!prev.hashtag || !!prev.cashtag ,
       }));
     
   }, [state.searchQuery]);
 
-  // Clear search parameters and re-fetch posts immediately
+  // Clear all search parameters and re-fetch posts
   const clearSearch = useCallback(() => {
     setState(prev => ({
-      ...prev,
-      searchQuery: "",
-      searchResults: [],
-      hashtag: "",
-      cashtag: "",
-      selectedStock: null,
-      posts: [],
-      isSearchActive:  false,
-      offset: 0,
+        ...prev,
+        searchQuery: "",
+        hashtag: "",
+        cashtag: "",
+        selectedStock: null,
+        originalPosts: [],
+        isSearchActive: false,
+        offset: 0,
     }));
-    fetchPosts({ reset: true, offset: 0 });
+    
+    // Explicitly pass empty values to fetchPosts
+    fetchPosts({ 
+        reset: true, 
+        offset: 0,
+        searchQuery: "", 
+        cashtag: "", 
+        hashtag: "" 
+    });
   }, []);
 
     // Clear search parameters and re-fetch posts immediately
     const clearSearchText = useCallback(() => {
+        // Store current cashtag and hashtag values before the state update
+        const currentCashtag = state.cashtag;
+        const currentHashtag = state.hashtag;
+        const currentSelectedStock = state.selectedStock;
+        
         setState(prev => ({
-          ...prev,
+            ...prev,
           searchQuery: "",
-          posts: [],
+          originalPosts: [],
           isSearchActive: !!prev.hashtag || !!prev.cashtag,
           offset: 0,
         }));
-        fetchPosts({ reset: true, offset: 0 });
-      }, []);
+        
+        // Explicitly pass the current cashtag and hashtag values to fetchPosts
+        fetchPosts({ 
+            reset: true, 
+            offset: 0,
+            searchQuery: "", 
+            cashtag: currentCashtag,
+            hashtag: currentHashtag
+        });
+    }, [state.cashtag, state.hashtag, state.selectedStock]);
 
-
-          // Clear search parameters and re-fetch posts immediately
-    const clearCashTag = useCallback(() => {
-        setState(prev => ({
-          ...prev,
-          cashtag:"",
-          selectedStock: null,
-          posts: [],
-          isSearchActive: !!prev.searchQuery || !!prev.hashtag ,
-          offset: 0,
-        }));
-        fetchPosts({ reset: true, offset: 0 });
-      }, []);
+  // Clear cashtag and re-fetch posts immediately
+  const clearCashTag = useCallback(() => {
+    // Store current searchQuery and hashtag values before the state update
+    const currentSearchQuery = state.searchQuery;
+    const currentHashtag = state.hashtag;
+    
+    setState(prev => ({
+        ...prev,
+        cashtag: "",
+        selectedStock: null,
+        originalPosts: [],
+        isSearchActive: !!prev.searchQuery || !!prev.hashtag,
+        offset: 0,
+    }));
+    
+    // Explicitly pass the current searchQuery and hashtag values to fetchPosts
+    fetchPosts({ 
+        reset: true, 
+        offset: 0,
+        searchQuery: currentSearchQuery, 
+        cashtag: "", 
+        hashtag: currentHashtag 
+    });
+  }, [state.searchQuery, state.hashtag]);
 
   // Load more posts using the current state parameters
   const loadMore = async () => {
