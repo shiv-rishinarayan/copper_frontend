@@ -1,8 +1,8 @@
 import React from "react";
 import { SidebarLatestNewsProvider } from "../context/SidebarLatestNewsContext";
 import { CommunityPostUtilsProvider } from "../context/CommunityPostUtilsContext";
-import Community from "../components/Community/Community";
 import SEO from "@/components/SEO";
+import Community from "@/components/Community/Community";
 
 const CommunityPage = () => {
   return (

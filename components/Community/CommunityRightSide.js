@@ -2,17 +2,9 @@ import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { RiSearchLine } from "react-icons/ri";
 import PostList from "../Community/CommunityPostList";
 import CommunitySidebar from "../Community/CommunitySidebar";
-import { FORUM_POSTS } from "@/src/api/platinumAPI";
+import { useForumPosts } from "../../context/ForumPostsContext";
 
 const CommunityRightSide = ({
-  searchQuery,
-  handleSearchChange,
-  isSearchActive,
-  searchResults,
-  clearSearch,
-  cashTag,
-  posts,
-  setPosts,
   auth,
   deletePost,
   likePost,
@@ -25,50 +17,30 @@ const CommunityRightSide = ({
   postImage,
   setPostImage,
   sendPost,
-  setSearchQuery,
 }) => {
   const [showAllPosts, setShowAllPosts] = useState(false);
-
-  // Add handler for clearing filters
-  const handleClearFilter = useCallback(async () => {
-    try {
-      const response = await fetch(`${FORUM_POSTS}?limit=10&offset=0`);
-      
-      const data = await response.json();
-
-      if (data && data.results) {
-        const postsWithImage = data.results.map((post) => ({
-          ...post,
-          post_image: post.post_image || null,
-        }));
-
-        setPosts(postsWithImage);
-      }
-    } catch (error) {
-      console.error("Failed to fetch posts:", error);
-      toast.error("Failed to fetch posts. Please try again later.");
-    }
-  }, [setPosts]);
-
-  useEffect(() => {
-    if (searchQuery.trim() === "") {
-      setShowAllPosts(false);
-    }
-  }, [searchQuery]);
+  const { 
+    loadMore, 
+    hasMore, 
+    originalPosts,
+    count,
+    loading, 
+    hashtag,
+    cashtag,
+    updateState, 
+    selectedStock,
+    searchQuery,
+    isSearchActive,
+    filterPosts,
+    clearSearch,
+    clearSearchText,
+    clearCashTag
+  } = useForumPosts();
 
   const handleShowAllPosts = () => {
     setShowAllPosts(true);
     clearSearch();
-    if (typeof setSearchQuery === "function") {
-      setSearchQuery("");
-    }
   };
-
-  const displayPosts = useMemo(() => {
-    if (showAllPosts) return posts;
-    if (isSearchActive && searchResults.length === 0) return [];
-    return isSearchActive ? searchResults : posts;
-  }, [showAllPosts, isSearchActive, searchResults, posts]);
 
   return (
     <div className="flex-1 lg:ml-2 h-full flex flex-col order-1 lg:order-2">
@@ -80,7 +52,7 @@ const CommunityRightSide = ({
             placeholder="Search posts by content, title, hashtags, or author"
             value={searchQuery}
             onChange={(e) => {
-              handleSearchChange(e);
+              filterPosts(e.target.value);
               setShowAllPosts(false);
             }}
             className="w-full p-2 lato pl-10 pr-20 rounded-md placeholder:text-sm placeholder:text-black1/50 focus:outline-gray-100"
@@ -91,29 +63,47 @@ const CommunityRightSide = ({
           {isSearchActive && (
             <div className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
               <span className="bg-accent/10 text-accent px-3 py-1.5 rounded text-xs">
-                {searchResults.length} Results
+                {count} Results
               </span>
-              <button
+              { searchQuery && <button
                 onClick={() => {
-                  clearSearch();
+                  clearSearchText();
                   setShowAllPosts(false);
                 }}
                 className="bg-red-500 text-white px-3 py-1.5 rounded text-xs flex items-center"
               >
                 Clear
-              </button>
+              </button>}
             </div>
           )}
         </div>
       </div>
 
-      {/* Post List */}
+      {/* Selected Stock Tag */}
+      {selectedStock && (
+        <div className="px-5 py-2 bg-gray-50 border-b">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="font-semibold">{selectedStock.ticker}</span>
+              <span className="text-gray-500">{selectedStock.name}</span>
+            </div>
+            <button
+              onClick={() => clearCashTag()}
+              className="text-red-500 hover:text-red-600"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Post List or Shimmer Loading */}
       <div className="flex-1 overflow-y-auto p-5 bg-gray-50 custom-scrollbar-hidden">
-        {displayPosts.length === 0 ? (
+        {originalPosts.length === 0 && !loading ? (
           <div className="text-center space-y-4">
             <div className="text-gray-400 p-4">
               {isSearchActive
-                ? `No posts found for "${searchQuery}"`
+                ? `No posts found for "${searchQuery || hashtag || cashtag}"`
                 : "No posts available"}
             </div>
             {isSearchActive && (
@@ -127,13 +117,14 @@ const CommunityRightSide = ({
           </div>
         ) : (
           <PostList
-            posts={displayPosts}
-            setPosts={setPosts}
+            posts={originalPosts}
             auth={auth}
             deletePost={deletePost}
             likePost={likePost}
             openModal={openModal}
-            onClearFilter={handleClearFilter}
+            onLoadMore={loadMore}
+            hasMore={hasMore}
+            initialLoading={loading && originalPosts.length === 0}
           />
         )}
       </div>
@@ -151,7 +142,7 @@ const CommunityRightSide = ({
             postImage={postImage}
             setPostImage={setPostImage}
             sendPost={sendPost}
-            setPosts={setPosts}
+            setPosts={(newPosts) => updateState({ posts: newPosts })}
           />
         </div>
       </div>

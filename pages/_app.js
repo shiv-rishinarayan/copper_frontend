@@ -2,45 +2,20 @@ import "@/styles/globals.css";
 import { ToastContainer } from 'react-toastify';
 import { Toaster } from "react-hot-toast";
 import 'react-toastify/dist/ReactToastify.css';
+import { ForumPostsProvider } from "../context/ForumPostsContext";
+import { SidebarLatestNewsProvider } from '../context/SidebarLatestNewsContext';
+import { CommunityPostUtilsProvider } from '../context/CommunityPostUtilsContext';
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
-      <Toaster position="top-right" reverseOrder={false} />
-      <Component {...pageProps} />
-      <ToastContainer />
-    </>
+    <SidebarLatestNewsProvider>
+      <CommunityPostUtilsProvider>
+        <ForumPostsProvider>
+          <Toaster position="top-right" reverseOrder={false} />
+          <Component {...pageProps} />
+          <ToastContainer />
+        </ForumPostsProvider>
+      </CommunityPostUtilsProvider>
+    </SidebarLatestNewsProvider>
   );
 }
-
-// import { useState, useEffect } from "react";
-// import { useRouter } from "next/router";
-// import Loader from "@/components/Loader";
-// import "@/styles/globals.css";
-
-// export default function App({ Component, pageProps }) {
-//   const [loading, setLoading] = useState(false);
-//   const router = useRouter();
-
-//   useEffect(() => {
-//     const handleStart = () => setLoading(true);
-//     const handleComplete = () => setLoading(false);
-//     const handleError = () => setLoading(false);
-
-//     router.events.on("routeChangeStart", handleStart);
-//     router.events.on("routeChangeComplete", handleComplete);
-//     router.events.on("routeChangeError", handleError);
-
-//     return () => {
-//       router.events.off("routeChangeStart", handleStart);
-//       router.events.off("routeChangeComplete", handleComplete);
-//       router.events.off("routeChangeError", handleError);
-//     };
-//   }, [router]);
-
-//   if (loading) {
-//     return <Loader />;
-//   }
-
-//   return <Component {...pageProps} />;
-// }

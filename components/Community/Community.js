@@ -2,19 +2,17 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
-import useAxiosPrivate from "../../src/network/useAxiosPrivate";
 import { GetUserData } from "../../src/utils/GetUserData";
 import GeneralHelpers from "../../src/utils/general-helpers";
 import Navbar from "../Navbar";
-import Loader from "../Loader";
 import ImageModal from "../../components/Community/CommunityPostImageModal";
-import CommunityChatInterfaceLeftSide from "../../components/Community/CommunityLeftSide";
-import CommunityChatInterfaceRightSide from "../../components/Community/CommunityRightSide";
+import CommunityLeftSide from "../../components/Community/CommunityLeftSide";
+import CommunityRightSide from "../../components/Community/CommunityRightSide";
 import PostUtils from "../../components/Community/CommunityPostUtils";
 import CommunityCategoriesSidebar from "./CommunityCategoriesSidebar";
 import { useSidebarLatestNews } from "../../context/SidebarLatestNewsContext";
 import { useCommunityPostUtils } from "../../context/CommunityPostUtilsContext";
-import { FORUM_POSTS } from "@/src/api/platinumAPI";
+import { useForumPosts } from "../../context/ForumPostsContext";
 import useAxios from "@/src/network/useAxios";
 
 const Community = () => {
@@ -22,27 +20,33 @@ const Community = () => {
   const axiosInstance = useAxios();
   const userData = GetUserData();
   const { newsData: contextNewsData = [] } = useSidebarLatestNews() || {};
-  const { postCommentData: contextPostData = [] } =
-    useCommunityPostUtils() || {};
+  const { postCommentData: contextPostData = [] } = useCommunityPostUtils() || {};
+  const { 
+    posts,
+    searchQuery,
+    isSearchActive,
+    searchResults,
+    fetchPosts,
+    filterPosts,
+    clearSearch,
+    updateState,
+    loading,
+    hasMore,
+    loadMore
+  } = useForumPosts();
 
-  const [state, setState] = useState({
-    loading: false,
-    posts: [],
-    originalPosts: [],
-    newPost: "",
+  // Local UI state that doesn't need to be in the global context
+  const [localState, setLocalState] = useState({
     postTitle: "",
     postImage: null,
-    searchQuery: "",
     isModalOpen: false,
     selectedImage: "",
-    searchResults: [],
-    isSearchActive: false,
     stockDetailsData: null,
-    cashTag: "" 
+    newPost: "",
   });
 
-  const updateState = (updates) => {
-    setState((prev) => ({ ...prev, ...updates }));
+  const updateLocalState = (updates) => {
+    setLocalState((prev) => ({ ...prev, ...updates }));
   };
 
   const { detectAndRenderContent } = PostUtils({
@@ -58,85 +62,28 @@ const Community = () => {
 
   const api = {
     async fetchStockDetails(identifier, type = "hashtag") {
-      if (
-        !identifier ||
-        (Array.isArray(identifier) && identifier.length === 0)
-      ) {
+      if (!identifier || (Array.isArray(identifier) && identifier.length === 0)) {
         return;
       }
 
       try {
-        const cleanIdentifier =
-          type === "cashtag"
-            ? identifier.replace("$", "")?.toUpperCase()
-            : identifier?.toUpperCase();
+        const cleanIdentifier = type === "cashtag" 
+          ? identifier.replace("$", "")?.toUpperCase() 
+          : identifier?.toUpperCase();
 
         const { data } = await axiosInstance.get(
           `api/pgm-stock-detail/?stock_ticker=${cleanIdentifier}`
         );
 
-        updateState({ stockDetailsData: data });
-
+        updateLocalState({ stockDetailsData: data });
       } catch (error) {
         console.error("Error fetching stock details:", error);
-        updateState({ stockDetailsData: [] });
-      }
-    },
-
-    async fetchPosts() {
-      console.log("Starting to fetch posts...");
-
-      // Set loading state to true
-      updateState({ loading: true });
-
-      try {
-        // Fetch posts from the API
-        const response = await fetch(`${FORUM_POSTS}?limit=10&offset=0`);
-
-        // Check if the response is OK (status code 200-299)
-        if (!response.ok) {
-          throw new Error(`Failed to fetch posts: ${response.statusText}`);
-        }
-
-        // Parse the JSON data
-        const data = await response.json();
-
-        // Check if data and results exist
-        if (!data || !data.results) {
-          throw new Error("No posts found in the response");
-        }
-
-        // Map posts to include a fallback for post_image
-        const postsWithImage = data.results.map((post) => ({
-          ...post,
-          post_image: post.post_image || null, // Ensure post_image is not undefined
-        }));
-
-        console.log("Posts fetched successfully:", postsWithImage);
-
-        // Update state with the fetched posts
-        updateState({
-          posts: postsWithImage,
-          originalPosts: postsWithImage, // Save a copy of the original posts for filtering/searching
-          loading: false, // Set loading to false after successful fetch
-        });
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-
-        // Show an error toast to the user
-        toast.error("Failed to fetch posts. Please try again later.");
-
-        // Update state to reflect the error and stop loading
-        updateState({
-          loading: false,
-          posts: [],
-          originalPosts: [],
-        });
+        updateLocalState({ stockDetailsData: [] });
       }
     },
 
     async createPost() {
-      if (!state.postTitle.trim() && !state.newPost.trim()) {
+      if (!localState.postTitle.trim() && !localState.newPost.trim()) {
         toast.error("Please enter a title and content for your post");
         return;
       }
@@ -147,16 +94,16 @@ const Community = () => {
         return;
       }
 
-      const { hashtags, cashtags } = detectAndRenderContent(state.newPost);
+      const { hashtags, cashtags } = detectAndRenderContent(localState.newPost);
       const formData = new FormData();
-      formData.append("post_title", state.postTitle);
-      formData.append("post_content", state.newPost);
+      formData.append("post_title", localState.postTitle);
+      formData.append("post_content", localState.newPost);
       formData.append("author_name", userData.name || "Anonymous");
       formData.append("hashtags", JSON.stringify(hashtags));
       formData.append("cashtags", JSON.stringify(cashtags));
 
-      if (state.postImage) {
-        formData.append("post_image", state.postImage);
+      if (localState.postImage) {
+        formData.append("post_image", localState.postImage);
       }
 
       const loadingToast = toast.loading("Creating post...");
@@ -183,9 +130,13 @@ const Community = () => {
             : null,
         };
 
+        // Update posts in context
         updateState({
-          posts: [newPostWithImage, ...state.originalPosts],
-          originalPosts: [newPostWithImage, ...state.originalPosts],
+          posts: [newPostWithImage, ...posts],
+          originalPosts: [newPostWithImage, ...posts],
+        });
+
+        updateLocalState({
           postTitle: "",
           newPost: "",
           postImage: null,
@@ -234,7 +185,7 @@ const Community = () => {
 
         const { status, likes_count } = data;
 
-        const updatedPosts = state.originalPosts.map((post) =>
+        const updatedPosts = posts.map((post) =>
           post.id === postId
             ? { ...post, likes_count, is_liked: status === "liked" }
             : post
@@ -274,14 +225,10 @@ const Community = () => {
           config
         );
 
-        const filterPost = (posts) =>
-          posts.filter((post) => post.id !== postId);
+        const filterPost = (posts) => posts.filter((post) => post.id !== postId);
         updateState({
-          posts: filterPost(state.posts),
-          originalPosts: filterPost(state.originalPosts),
-          searchResults: state.isSearchActive
-            ? filterPost(state.searchResults)
-            : state.searchResults,
+          posts: filterPost(posts),
+          searchResults: isSearchActive ? filterPost(searchResults) : searchResults,
         });
 
         toast.success("Post deleted successfully.", { id: loadingToast });
@@ -293,40 +240,8 @@ const Community = () => {
     },
   };
 
-  const filterPosts = (query) => {
-    const cleanedQuery = query.toLowerCase().trim();
-
-    if (!cleanedQuery) {
-      updateState({
-        searchResults: [],
-        posts: state.originalPosts,
-        isSearchActive: false,
-      });
-      return;
-    }
-
-    const filteredPosts = state.originalPosts.filter((post) => {
-      const searchFields = [
-        post.post_content?.toLowerCase() || "",
-        post.post_title?.toLowerCase() || "",
-        post.author_name?.toLowerCase() || "",
-        ...(post.hashtags || []).map((tag) => tag.toLowerCase()),
-        ...(post.cashtags || []).map((tag) => tag.toLowerCase()),
-      ];
-
-      return searchFields.some((field) => field.includes(cleanedQuery));
-    });
-
-    updateState({
-      searchResults: filteredPosts,
-      posts: filteredPosts,
-      isSearchActive: true,
-    });
-  };
-
   const handleSearchChange = (e) => {
     const query = e.target.value;
-    updateState({ searchQuery: query });
     filterPosts(query);
 
     if (query.startsWith("$")) {
@@ -337,7 +252,7 @@ const Community = () => {
   };
 
   useEffect(() => {
-    api.fetchPosts();
+    fetchPosts();
   }, []);
 
   useEffect(() => {
@@ -351,87 +266,68 @@ const Community = () => {
     }
 
     if (contextPostData) {
-      api.fetchPosts();
+      fetchPosts({ reset: true });
     }
   }, [contextNewsData, contextPostData]);
 
-  useEffect(() => {
-    const delayDebounce = setTimeout(() => {
-      if (state.searchQuery.trim() === "") {
-        updateState({ posts: state.originalPosts });
-      } else {
-        filterPosts(state.searchQuery);
-      }
-    }, 300);
-
-    return () => clearTimeout(delayDebounce);
-  }, [state.searchQuery, state.originalPosts]);
-
-  if (state.loading) return <Loader />;
+  // Add handler for load more posts
+  const handleLoadMore = () => {
+    if (!loading && hasMore) {
+      loadMore();
+    }
+  };
 
   return (
     <div className="relative h-screen flex flex-col">
       <Navbar />
       <div className="flex flex-1 overflow-hidden px-2 lg:px-4 mt-[80px] flex-col lg:flex-row">
-        <CommunityChatInterfaceLeftSide
-          stockDetailsData={state.stockDetailsData}
-          setSearchQuery={(query) => updateState({ cashTag: query })}
+        <CommunityLeftSide
+          stockDetailsData={localState.stockDetailsData}
+          setSearchQuery={(query) => updateState({ cashtag: query , isSearchActive: true})}
         />
-        <CommunityChatInterfaceRightSide
-          searchQuery={state.searchQuery}
+        <CommunityRightSide
+          searchQuery={searchQuery}
           handleSearchChange={handleSearchChange}
-          isSearchActive={state.isSearchActive}
-          searchResults={state.searchResults}
-          cashTag={state.cashTag}
-          clearSearch={() => {
-            updateState({
-              searchQuery: "",
-              searchResults: [],
-              posts: state.originalPosts,
-              isSearchActive: false,
-              stockDetailsData: null,
-              cashTag: "",
-            });
-          }}
-          posts={state.posts.length > 0 ? state.posts : state.originalPosts}
-          setPosts={(posts) => updateState({ posts })}
-          // posts={state.posts.length > 0 ? state.posts : state.originalPosts}
-          // setPosts={(posts) => updateState({ posts, originalPosts: posts })}
+          isSearchActive={isSearchActive}
+          searchResults={searchResults}
+          clearSearch={clearSearch}
+          cashTag={localState.cashTag}
           auth={{ user: userData, accessToken: userData?.access_token }}
+          posts={posts}
+          loading={loading}
+          hasMore={hasMore}
+          onLoadMore={handleLoadMore}
           deletePost={api.deletePost}
           likePost={api.likePost}
           openModal={(imageUrl) =>
-            updateState({ selectedImage: imageUrl, isModalOpen: true })
+            updateLocalState({ selectedImage: imageUrl, isModalOpen: true })
           }
           navigate={router.push}
-          postTitle={state.postTitle}
-          setPostTitle={(title) => updateState({ postTitle: title })}
-          newPost={state.newPost}
-          setNewPost={(post) => updateState({ newPost: post })}
-          postImage={state.postImage}
-          setPostImage={(image) => updateState({ postImage: image })}
+          postTitle={localState.postTitle}
+          setPostTitle={(title) => updateLocalState({ postTitle: title })}
+          newPost={localState.newPost}
+          setNewPost={(post) => updateLocalState({ newPost: post })}
+          postImage={localState.postImage}
+          setPostImage={(image) => updateLocalState({ postImage: image })}
           sendPost={api.createPost}
         />
         <CommunityCategoriesSidebar
           onCategoryClick={(hashtag) => {
-            const postsWithHashtag = state.originalPosts.filter((post) =>
-              post.hashtags?.includes(hashtag.toLowerCase())
-            );
+            fetchPosts({ reset: true, hashtag });
             updateState({
-              posts: postsWithHashtag,
               searchQuery: `#${hashtag}`,
               isSearchActive: true,
             });
           }}
-          setNewPost={(post) => updateState({ newPost: post })}
-          newPost={state.newPost}
+          setNewPost={(post) => updateLocalState({ newPost: post })}
+          newPost={localState.newPost}
         />
       </div>
       <ImageModal
-        isModalOpen={state.isModalOpen}
-        selectedImage={state.selectedImage}
+        isModalOpen={localState.isModalOpen}
+        selectedImage={localState.selectedImage}
         closeModal={() =>
-          updateState({ isModalOpen: false, selectedImage: "" })
+          updateLocalState({ isModalOpen: false, selectedImage: "" })
         }
       />
     </div>

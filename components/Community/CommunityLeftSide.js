@@ -6,11 +6,11 @@ import StockDetailChart2 from "../StockDetail/StockDetailChart";
 import StockDetailsTechAnalysis from "../StockDetail/StockDetailTechAnalysis";
 import StockDetailMostFollowed from "../StockDetail/StockDetailMostFollowed";
 import CommunityLeftSideMostFollowed from "./CommunityLeftSideMostFollowed";
+import { useForumPosts } from "../../context/ForumPostsContext";
 
 const CommunityLeftSide = ({
   stockDetailsData,
   setSearchQuery,
-  filterPosts,
 }) => {
   // First check if stockDetailsData exists and is an array
   const stockData =
@@ -65,7 +65,6 @@ const CommunityLeftSide = ({
         {/* <StockDetailMostFollowed /> */}
         <CommunityLeftSideMostFollowed
           setSearchQuery={setSearchQuery}
-          filterPosts={filterPosts}
         />
       </div>
 
