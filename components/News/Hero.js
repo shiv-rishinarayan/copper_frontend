@@ -13,6 +13,7 @@ const Hero = () => {
       try {
         console.log("API URL:", PLATINUM_NEWS);
         console.log("Base URL:", process.env.NEXT_PUBLIC_API_BASEURL);
+        console.log("Environment:", process.env.NODE_ENV);
         const response = await axios.get(PLATINUM_NEWS);
         const data = response?.data;
         setNews(data);
