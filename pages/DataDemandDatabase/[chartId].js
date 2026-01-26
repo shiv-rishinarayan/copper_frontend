@@ -4,10 +4,61 @@ import React from "react";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 
-const ChartSubpage = () => {
-  const router = useRouter();
-  const { chartId } = router.query;
+const ChartSubpage = ({ chart }) => {
+  if (!chart) {
+    return <p>Loading...</p>; // Optional: Add a better loading state
+  }
 
+  return (
+    <div>
+      <SEO
+        title={`${chart.title} - Data Demand Database & Market Insights`}
+        description={chart.description}
+        keywords="data demand database market insights, price trends, investment data, financial charts, stock analysis"
+        canonicalUrl={`https://musical-panda-75f15d.netlify.app/DataDemandDatabase/${chart.id}`}
+      />
+      <DataBreadcrumb title={chart.title} />
+      <div className="px-6 py-10 md:px-20 mt-14 mb-10">
+        <h1 className="text-2xl font-bold">{chart.title}</h1>
+        <p className="mt-1.5 mb-1 font-medium text-black/50 text-sm">
+          Source:{" "}
+          <span className="hover:text-accent transition-all duration-200 text-sm">
+            {chart.source}
+          </span>
+        </p>
+        <p className="mt-3 text-black/80 text-[15px]">{chart.description}</p>
+        <div className="mt-12 w-full md:w-[70%] h-full  flex justify-center items-center">
+          <img
+            src={chart.image}
+            alt={chart.title}
+            className="w-full h-auto rounded-lg object-contain"
+          />
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
+};
+
+// Generate static paths for all chart IDs
+export async function getStaticPaths() {
+  const charts = [
+    { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 },
+    { id: 7 }, { id: 8 }, { id: 9 }, { id: 10 }, { id: 11 }, { id: 12 }, { id: 13 }
+  ];
+
+  const paths = charts.map((chart) => ({
+    params: { chartId: chart.id.toString() },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+// Generate static props for each page
+export async function getStaticProps({ params }) {
   const charts = [
     {
       id: 1,
@@ -128,41 +179,19 @@ const ChartSubpage = () => {
     },
   ];
 
-  const chart = charts.find((item) => item.id === parseInt(chartId));
+  const chart = charts.find((item) => item.id === parseInt(params.chartId));
 
   if (!chart) {
-    return <p>Loading...</p>; // Optional: Add a better loading state
+    return {
+      notFound: true,
+    };
   }
 
-  return (
-    <div>
-      <SEO
-        title={`${chart.title} - Data Demand Database & Market Insights`}
-        description={chart.description}
-        keywords="data demand database market insights, price trends, investment data, financial charts, stock analysis"
-        canonicalUrl={`https://musical-panda-75f15d.netlify.app/DataDemandDatabase/${chart.id}`}
-      />
-      <DataBreadcrumb title={chart.title} />
-      <div className="px-6 py-10 md:px-20 mt-14 mb-10">
-        <h1 className="text-2xl font-bold">{chart.title}</h1>
-        <p className="mt-1.5 mb-1 font-medium text-black/50 text-sm">
-          Source:{" "}
-          <span className="hover:text-accent transition-all duration-200 text-sm">
-            {chart.source}
-          </span>
-        </p>
-        <p className="mt-3 text-black/80 text-[15px]">{chart.description}</p>
-        <div className="mt-12 w-full md:w-[70%] h-full  flex justify-center items-center">
-          <img
-            src={chart.image}
-            alt={chart.title}
-            className="w-full h-auto rounded-lg object-contain"
-          />
-        </div>
-      </div>
-      <Footer />
-    </div>
-  );
-};
+  return {
+    props: {
+      chart,
+    },
+  };
+}
 
 export default ChartSubpage;

@@ -19,7 +19,6 @@ const nextConfig = {
     ],
   },
   // Optimize for Vercel deployment
-  swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
@@ -30,10 +29,8 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: false,
   },
-  // Optimize bundle
-  experimental: {
-    optimizeCss: true,
-  },
+  // Disable static optimization for dynamic pages
+  output: 'standalone',
   // Add output for static export if needed
   trailingSlash: true,
   // Ensure proper handling of API routes

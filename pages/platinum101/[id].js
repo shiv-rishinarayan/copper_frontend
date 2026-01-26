@@ -5,12 +5,8 @@ import Image from "next/image";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 
-const DetailPage = () => {
+const DetailPage = ({ card }) => {
   const router = useRouter();
-  const { id } = router.query;
-
-  // Find the card data based on the ID
-  const card = cardData.find((item) => item.id === id);
 
   if (!card) {
     return <p className="p-8 text-lg">Loading details...</p>;
@@ -84,5 +80,34 @@ const DetailPage = () => {
     </div>
   );
 };
+
+// Generate static paths for all card IDs
+export async function getStaticPaths() {
+  const paths = cardData.map((card) => ({
+    params: { id: card.id },
+  }));
+
+  return {
+    paths,
+    fallback: false, // Return 404 for paths not in the list
+  };
+}
+
+// Generate static props for each page
+export async function getStaticProps({ params }) {
+  const card = cardData.find((item) => item.id === params.id);
+
+  if (!card) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      card,
+    },
+  };
+}
 
 export default DetailPage;
