@@ -150,10 +150,10 @@ const CanadaInsiderTransactionsFilters = ({
     <div className="overflow-x-auto pb-2 custom-scrollbar-hidden">
       <div className="flex gap-x-4  mt-3">
         {/* Filter by Symbol */}
-        <div className="relative w-28 flex flex-col mb-6">
+        <div className="w-28 flex flex-col mb-6">
           <label
             htmlFor="symbol"
-            className="absolute top-[-8px] left-[8px] px-1 bg-white text-accent text-[0.7rem] rounded-lg"
+            className="mb-1 text-accent text-[0.75rem] font-medium"
           >
             Symbol
           </label>
@@ -172,10 +172,10 @@ const CanadaInsiderTransactionsFilters = ({
         </div>
 
         {/* Filter by Trade Type */}
-        <div className="relative w-28 flex flex-col mb-6">
+        <div className="w-28 flex flex-col mb-6">
           <label
             htmlFor="tradeType"
-            className="absolute top-[-8px] left-[8px] px-1 bg-white text-accent text-[0.7rem] rounded-lg"
+            className="mb-1 text-accent text-[0.75rem] font-medium"
           >
             Trade Type
           </label>
@@ -194,10 +194,10 @@ const CanadaInsiderTransactionsFilters = ({
         </div>
 
         {/* Filter by Start Date */}
-        <div className="relative w-34 flex flex-col mb-6">
+        <div className="w-34 flex flex-col mb-6">
           <label
             htmlFor="startDate"
-            className="absolute top-[-8px] left-[8px] px-1 bg-white text-accent text-[0.7rem] rounded-lg"
+            className="mb-1 text-accent text-[0.75rem] font-medium"
           >
             Start Date
           </label>
@@ -211,10 +211,10 @@ const CanadaInsiderTransactionsFilters = ({
         </div>
 
         {/* Filter by End Date */}
-        <div className="relative w-34 flex flex-col mb-6">
+        <div className="w-34 flex flex-col mb-6">
           <label
             htmlFor="endDate"
-            className="absolute top-[-8px] left-[8px] px-1 bg-white text-accent text-[0.7rem] rounded-lg"
+            className="mb-1 text-accent text-[0.75rem] font-medium"
           >
             End Date
           </label>

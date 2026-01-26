@@ -180,10 +180,8 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "News", path: "/news" },
     { name: "PGM Investments", path: "/investments" },
-    { name: "Community", path: "/community" },
     { name: "Videos", path: "/videos" },
     { name: "Data", path: "/data" },
-    { name: "Calendar", path: "/calendar" },
     { name: "PGM 101", path: "/P101" },
   ];
 
