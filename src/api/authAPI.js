@@ -1,6 +1,6 @@
-export const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+export const BASE_URL = process.env.NEXT_PUBLIC_API_BASEURL;
 
-export const BASE_URL2 = process.env.NEXT_PUBLIC_API_BASE_URL_2;
+export const BASE_URL2 = process.env.NEXT_PUBLIC_API_BASEURL;
 
 export const SIGNUP_API = `signup/`
 

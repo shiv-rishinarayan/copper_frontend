@@ -34,6 +34,17 @@ const nextConfig = {
   experimental: {
     optimizeCss: true,
   },
+  // Add output for static export if needed
+  trailingSlash: true,
+  // Ensure proper handling of API routes
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: '/api/:path*',
+      },
+    ];
+  },
 };
 
 export default nextConfig;
