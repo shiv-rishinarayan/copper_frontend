@@ -1,7 +1,7 @@
 // TradingViewWidget.jsx
 import React, { useEffect, useRef, memo } from "react";
 
-function TradingViewWidget() {
+function CopperETFTradingViewWidget() {
   const container = useRef();
 
   useEffect(() => {
@@ -14,7 +14,7 @@ function TradingViewWidget() {
         {
           "width": "100%",
           "height": "250",
-          "symbol": "OANDA:XPTUSD",
+          "symbol": "NASDAQ:COPX",
           "interval": "D",
           "timezone": "Etc/UTC",
           "theme": "light",
@@ -47,4 +47,4 @@ function TradingViewWidget() {
   );
 }
 
-export default memo(TradingViewWidget);
+export default memo(CopperETFTradingViewWidget);

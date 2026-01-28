@@ -124,27 +124,27 @@ const StocksMarquee = () => {
     script.async = true;
     script.innerHTML = JSON.stringify({
       symbols: [
-        { description: "", proName: "OTC:AGPPF" },
-        { description: "", proName: "TSXV:BRVO" },
-        { description: "", proName: "TSXV:CNC" },
-        { description: "", proName: "TSXV:CNRI" },
-        { description: "", proName: "ASX:CHN" },
-        { description: "", proName: "TSXV:AIR" },
-        { description: "", proName: "TSX:ELR" },
-        { description: "", proName: "TSX:GENM" },
-        { description: "", proName: "TSXV:GT" },
-        { description: "", proName: "TSX:IVN" },
-        { description: "", proName: "NYSE:LZM" },
-        { description: "", proName: "TSXV:NICU" },
-        { description: "", proName: "TSXV:NAM" },
-        { description: "", proName: "AMEX:PLG" },
-        { description: "", proName: "TSXV:PPP" },
-        { description: "", proName: "TSXV:RAMP" },
-        { description: "", proName: "NYSE:SBSW" },
-        { description: "", proName: "CSE:SX" },
-        { description: "", proName: "TSXV:PGE" },
-        { description: "", proName: "OTC:TIHRF" },
-        { description: "", proName: "TSXV:VO" },
+        { description: "", proName: "NYSE:FCX" }, // Freeport-McMoRan - Major copper producer
+        { description: "", proName: "NYSE:SCCO" }, // Southern Copper Corporation
+        { description: "", proName: "NYSE:TECK" }, // Teck Resources - Copper mining
+        { description: "", proName: "NASDAQ:COPX" }, // Global X Copper Miners ETF
+        { description: "", proName: "NYSE:AA" }, // Alcoa Corporation
+        { description: "", proName: "TSX:TKO" }, // Taseko Mines - Copper producer
+        { description: "", proName: "TSX:CS" }, // Capstone Copper Corp
+        { description: "", proName: "TSX:HBM" }, // Hudbay Minerals
+        { description: "", proName: "TSX:FM" }, // First Quantum Minerals
+        { description: "", proName: "NYSE:VALE" }, // Vale S.A. - Mining company
+        { description: "", proName: "LSE:GLEN" }, // Glencore - Mining and commodities
+        { description: "", proName: "NYSE:BHP" }, // BHP Group - Mining company
+        { description: "", proName: "TSX:CCO" }, // Cameco Corporation
+        { description: "", proName: "TSX:LUN" }, // Lundin Mining Corporation
+        { description: "", proName: "TSX:IVN" }, // Ivanhoe Mines - Copper projects
+        { description: "", proName: "TSX:NCU" }, // Nevada Copper Corp
+        { description: "", proName: "TSX:CU" }, // Copper Mountain Mining
+        { description: "", proName: "NASDAQ:JJC" }, // iPath Series B Bloomberg Copper ETN
+        { description: "", proName: "TSX:ERO" }, // Ero Copper Corp
+        { description: "", proName: "TSX:AQN" }, // Algonquin Power & Utilities
+        { description: "", proName: "TSX:CXB" }, // Calibre Mining Corp
       ],
       showSymbolLogo: true,
       isTransparent: false,

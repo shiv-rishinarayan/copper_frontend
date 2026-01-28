@@ -6,7 +6,7 @@ import StockNews from "@/components/Home/StockNews";
 import Navbar from "@/components/Navbar";
 import PopularIntradayReturn from "@/components/Home/MostFollowed";
 import PlatinumLivePrice from "@/components/Home/PlatinumLivePrice";
-import PlatinumTradingviewChart from "@/components/Home/PlatinumTradingviewChart";
+import CopperTradingviewChart from "@/components/Home/CopperTradingviewChart";
 import StayAhead from "@/components/Home/StayAhead";
 import PressReleaseNews from "@/components/Home/PressReleaseNews";
 import PopularTools from "@/components/Home/PopularTools";
@@ -14,8 +14,8 @@ import MostPopularNews from "@/components/Home/MostPopularNews";
 import Substacks from "@/components/Home/Substacks";
 import DailyNewsletterAd from "@/components/Home/DailyNewsletterAd";
 import Footer from "@/components/Footer";
-import TVPlatinum from "@/components/Home/TVPlatinum";
-import TVPalladium from "@/components/Home/TVPalladium ";
+import TVCopper from "@/components/Home/TVCopper";
+import TVCopperETF from "@/components/Home/TVCopperETF";
 import PlainNews from "@/components/Home/PlainNews";
 import HomeInsiderTransactionTable from "@/components/Home/HomeInsiderTransactionTable";
 import ChartIridium from "@/components/Home/ChartIridium";
@@ -48,9 +48,9 @@ const home = () => {
         <div className="w-full lg:w-[24%] flex flex-col space-y-14">
           <div>
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
-              Platinum Price Chart
+              Copper Price Chart
             </h1>
-            <TVPlatinum />
+            <TVCopper />
           </div>
 
           <div>
@@ -91,9 +91,9 @@ const home = () => {
         <div className="w-full lg:w-[24%] flex flex-col space-y-14  ">
           <div>
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
-              Palladium Price Chart
+              Copper ETF Chart
             </h1>
-            <TVPalladium />
+            <TVCopperETF />
           </div>
 
           <Substacks />
@@ -114,7 +114,7 @@ const home = () => {
         {/* right  */}
         <div className="w-full lg:w-[26%] space-y-20">
           <PlatinumLivePrice />
-          {/* <PlatinumTradingviewChart /> */}
+          {/* <CopperTradingviewChart /> */}
           <PopularIntradayReturn />
           <PopularTools />
           {/* <DailyNewsletterAd /> */}

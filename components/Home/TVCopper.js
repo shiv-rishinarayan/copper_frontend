@@ -1,6 +1,7 @@
+// TradingViewWidget.jsx
 import React, { useEffect, useRef, memo } from "react";
 
-function TradingViewWidget() {
+function CopperTradingViewWidget() {
   const container = useRef();
 
   useEffect(() => {
@@ -9,9 +10,11 @@ function TradingViewWidget() {
       "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
     script.type = "text/javascript";
     script.async = true;
-    script.innerHTML = `{
-          "autosize": true,
-          "symbol": "CAPITALCOM:PLATINUM",
+    script.innerHTML = `
+        {
+          "width": "100%",
+          "height": "250",
+          "symbol": "COMEX:HG1!",
           "interval": "D",
           "timezone": "Etc/UTC",
           "theme": "light",
@@ -25,27 +28,23 @@ function TradingViewWidget() {
           "hide_volume": true,
           "support_host": "https://www.tradingview.com"
         }`;
-
-    // Append the script to the container
     container.current.appendChild(script);
-
-    // Force a resize once the widget is loaded
-    script.onload = () => {
-      window.dispatchEvent(new Event("resize"));
-    };
   }, []);
 
   return (
-    <div
-      className="tradingview-widget-container"
-      ref={container}
-      style={{ height: "100%", width: "100%" }} // Ensure height is explicitly set
-    >
-      <div className="tradingview-widget-copyright">
-        {/* Optional: You can add links here to TradingView */}
-      </div>
+    <div className="tradingview-widget-container" ref={container}>
+      <div className="tradingview-widget-container__widget"></div>
+      {/* <div className="tradingview-widget-copyright">
+        <a
+          href="https://www.tradingview.com/"
+          rel="noopener nofollow"
+          target="_blank"
+        >
+          <span className="blue-text">Track all markets on TradingView</span>
+        </a>
+      </div> */}
     </div>
   );
 }
 
-export default memo(TradingViewWidget);
+export default memo(CopperTradingViewWidget);
