@@ -12,7 +12,7 @@ function TradingViewWidget() {
     script.innerHTML = `
         {
           "autosize": true,
-          "symbol": "NASDAQ:TSLA",
+          "symbol": "BHP",
           "interval": "D",
           "timezone": "Etc/UTC",
           "theme": "light",
@@ -23,15 +23,15 @@ function TradingViewWidget() {
           "save_image": false,
           "compareSymbols": [
             {
-              "symbol": "NASDAQ:META",
+              "symbol": "RIO",
               "position": "SameScale"
             },
             {
-              "symbol": "NASDAQ:NVDA",
+              "symbol": "VALE",
               "position": "SameScale"
             },
             {
-              "symbol": "NASDAQ:NFLX",
+              "symbol": "AA",
               "position": "SameScale"
             }
           ],

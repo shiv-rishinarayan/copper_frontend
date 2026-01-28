@@ -12,7 +12,7 @@ function TradingViewWidget() {
     script.innerHTML = `
         {
           "autosize": true,
-          "symbol": "NYSE:V",
+          "symbol": "TECK",
           "interval": "D",
           "timezone": "Etc/UTC",
           "theme": "light",
@@ -23,11 +23,11 @@ function TradingViewWidget() {
           "save_image": false,
           "compareSymbols": [
             {
-              "symbol": "NYSE:PG",
+              "symbol": "GLEN",
               "position": "SameScale"
             },
             {
-              "symbol": "NYSE:WMT",
+              "symbol": "ANTO",
               "position": "SameScale"
             }
           ],

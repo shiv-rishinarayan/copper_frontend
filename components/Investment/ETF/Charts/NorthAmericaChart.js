@@ -11,7 +11,7 @@ function TradingViewWidget() {
     script.innerHTML = `
         {
           "autosize": true,
-          "symbol": "NASDAQ:AAPL",
+          "symbol": "COMEX:HG1!",
           "interval": "D",
           "timezone": "Etc/UTC",
           "theme": "light",
@@ -22,15 +22,15 @@ function TradingViewWidget() {
           "save_image": false,
           "compareSymbols": [
             {
-              "symbol": "NASDAQ:MSFT",
+              "symbol": "AMEX:COPX",
               "position": "SameScale"
             },
             {
-              "symbol": "NASDAQ:GOOGL",
+              "symbol": "FCX",
               "position": "SameScale"
             },
             {
-              "symbol": "NASDAQ:AMZN",
+              "symbol": "SCCO",
               "position": "SameScale"
             }
           ],

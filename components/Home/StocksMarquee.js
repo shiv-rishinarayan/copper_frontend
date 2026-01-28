@@ -127,19 +127,19 @@ const StocksMarquee = () => {
         { description: "", proName: "NYSE:FCX" }, // Freeport-McMoRan - Major copper producer
         { description: "", proName: "NYSE:SCCO" }, // Southern Copper Corporation
         { description: "", proName: "NYSE:TECK" }, // Teck Resources - Copper mining
-        { description: "", proName: "NASDAQ:AAPL" }, // Apple Inc
-        { description: "", proName: "NASDAQ:MSFT" }, // Microsoft Corporation
-        { description: "", proName: "NASDAQ:GOOGL" }, // Alphabet Inc
-        { description: "", proName: "NASDAQ:AMZN" }, // Amazon.com Inc
-        { description: "", proName: "NASDAQ:TSLA" }, // Tesla Inc
-        { description: "", proName: "NASDAQ:META" }, // Meta Platforms Inc
-        { description: "", proName: "NASDAQ:NVDA" }, // NVIDIA Corporation
-        { description: "", proName: "NASDAQ:NFLX" }, // Netflix Inc
-        { description: "", proName: "NYSE:JPM" }, // JPMorgan Chase & Co
-        { description: "", proName: "NYSE:JNJ" }, // Johnson & Johnson
-        { description: "", proName: "NYSE:V" }, // Visa Inc
-        { description: "", proName: "NYSE:PG" }, // Procter & Gamble Co
-        { description: "", proName: "NYSE:WMT" }, // Walmart Inc
+        { description: "", proName: "COMEX:HG1!" }, // Copper Futures
+        { description: "", proName: "AMEX:COPX" }, // Global X Copper Miners ETF
+        { description: "", proName: "FCX" }, // Freeport-McMoRan - Major copper producer
+        { description: "", proName: "SCCO" }, // Southern Copper Corporation
+        { description: "", proName: "BHP" }, // BHP Group - Mining company
+        { description: "", proName: "RIO" }, // Rio Tinto - Mining company
+        { description: "", proName: "VALE" }, // Vale S.A. - Mining company
+        { description: "", proName: "AA" }, // Alcoa Corporation
+        { description: "", proName: "NEM" }, // Newmont Corporation
+        { description: "", proName: "GOLD" }, // Barrick Gold Corporation
+        { description: "", proName: "TECK" }, // Teck Resources Limited
+        { description: "", proName: "GLEN" }, // Glencore plc
+        { description: "", proName: "ANTO" }, // Antofagasta plc
       ],
       showSymbolLogo: true,
       isTransparent: false,
