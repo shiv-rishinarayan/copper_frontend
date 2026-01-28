@@ -15,9 +15,9 @@ const AsiaETFIntradayReturnTickers = () => {
     script.async = true;
     script.innerHTML = JSON.stringify({
       symbols: [
-        { description: "", proName: "ASX:ETPMCU" },
-        { description: "", proName: "ASX:MNRS" },
-        { description: "", proName: "HKEX:3120" },
+        { description: "", proName: "ASX:BHP" },
+        { description: "", proName: "ASX:RIO" },
+        { description: "", proName: "ASX:29M" },
       ],
       isTransparent: false,
       showSymbolLogo: true,

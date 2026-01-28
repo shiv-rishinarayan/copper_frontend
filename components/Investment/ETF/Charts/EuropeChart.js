@@ -12,7 +12,7 @@ function TradingViewWidget() {
     script.innerHTML = `
         {
           "autosize": true,
-          "symbol": "LSE:COPA",
+          "symbol": "NYSE:FCX",
           "interval": "D",
           "timezone": "Etc/UTC",
           "theme": "light",
@@ -23,15 +23,15 @@ function TradingViewWidget() {
           "save_image": false,
           "compareSymbols": [
             {
-              "symbol": "XETRA:XMAW",
+              "symbol": "NYSE:SCCO",
               "position": "SameScale"
             },
             {
-              "symbol": "LSE:WMAT",
+              "symbol": "NYSE:TECK",
               "position": "SameScale"
             },
             {
-              "symbol": "NASDAQ:XME",
+              "symbol": "AMEX:XME",
               "position": "SameScale"
             }
           ],

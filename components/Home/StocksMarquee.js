@@ -127,7 +127,7 @@ const StocksMarquee = () => {
         { description: "", proName: "NYSE:FCX" }, // Freeport-McMoRan - Major copper producer
         { description: "", proName: "NYSE:SCCO" }, // Southern Copper Corporation
         { description: "", proName: "NYSE:TECK" }, // Teck Resources - Copper mining
-        { description: "", proName: "NASDAQ:COPX" }, // Global X Copper Miners ETF
+        { description: "", proName: "AMEX:COPX" }, // Global X Copper Miners ETF
         { description: "", proName: "NYSE:AA" }, // Alcoa Corporation
         { description: "", proName: "TSX:TKO" }, // Taseko Mines - Copper producer
         { description: "", proName: "TSX:CS" }, // Capstone Copper Corp
@@ -141,10 +141,12 @@ const StocksMarquee = () => {
         { description: "", proName: "TSX:IVN" }, // Ivanhoe Mines - Copper projects
         { description: "", proName: "TSX:NCU" }, // Nevada Copper Corp
         { description: "", proName: "TSX:CU" }, // Copper Mountain Mining
-        { description: "", proName: "NASDAQ:JJC" }, // iPath Series B Bloomberg Copper ETN
+        { description: "", proName: "OTC:JJCTF" }, // iPath Series B Bloomberg Copper ETN
         { description: "", proName: "TSX:ERO" }, // Ero Copper Corp
         { description: "", proName: "TSX:AQN" }, // Algonquin Power & Utilities
         { description: "", proName: "TSX:CXB" }, // Calibre Mining Corp
+        { description: "", proName: "AMEX:CPER" }, // United States Copper Index Fund
+        { description: "", proName: "AMEX:DBB" }, // Invesco DB Base Metals Fund
       ],
       showSymbolLogo: true,
       isTransparent: false,

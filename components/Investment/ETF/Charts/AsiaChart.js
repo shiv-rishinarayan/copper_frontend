@@ -12,7 +12,7 @@ function TradingViewWidget() {
     script.innerHTML = `
         {
           "autosize": true,
-          "symbol": "ASX:ETPMCU",
+          "symbol": "ASX:BHP",
           "interval": "D",
           "timezone": "Etc/UTC",
           "theme": "light",
@@ -23,11 +23,11 @@ function TradingViewWidget() {
           "save_image": false,
           "compareSymbols": [
             {
-              "symbol": "ASX:MNRS",
+              "symbol": "ASX:RIO",
               "position": "SameScale"
             },
             {
-              "symbol": "HKEX:3120",
+              "symbol": "ASX:29M",
               "position": "SameScale"
             }
           ],

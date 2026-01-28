@@ -12,7 +12,7 @@ function TradingViewWidget() {
     script.innerHTML = `
         {
           "autosize": true,
-          "symbol": "JSE:STXWDM",
+          "symbol": "JSE:SBCOP",
           "interval": "D",
           "timezone": "Etc/UTC",
           "theme": "light",
@@ -23,7 +23,7 @@ function TradingViewWidget() {
           "save_image": false,
           "compareSymbols": [
             {
-              "symbol": "JSE:GLBMET",
+              "symbol": "JSE:HAR",
               "position": "SameScale"
             }
           ],

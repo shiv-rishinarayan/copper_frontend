@@ -11,7 +11,7 @@ function TradingViewWidget() {
     script.innerHTML = `
         {
           "autosize": true,
-          "symbol": "NASDAQ:COPX",
+          "symbol": "AMEX:COPX",
           "interval": "D",
           "timezone": "Etc/UTC",
           "theme": "light",
@@ -22,15 +22,15 @@ function TradingViewWidget() {
           "save_image": false,
           "compareSymbols": [
             {
-              "symbol": "NASDAQ:JJC",
+              "symbol": "OTC:JJCTF",
               "position": "SameScale"
             },
             {
-              "symbol": "NASDAQ:CPER",
+              "symbol": "AMEX:CPER",
               "position": "SameScale"
             },
             {
-              "symbol": "NASDAQ:DBB",
+              "symbol": "AMEX:DBB",
               "position": "SameScale"
             }
           ],
