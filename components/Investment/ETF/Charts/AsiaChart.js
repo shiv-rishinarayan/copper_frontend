@@ -12,7 +12,7 @@ function TradingViewWidget() {
     script.innerHTML = `
         {
           "autosize": true,
-          "symbol": "ASX:ETPMPT",
+          "symbol": "ASX:ETPMCU",
           "interval": "D",
           "timezone": "Etc/UTC",
           "theme": "light",
@@ -21,7 +21,16 @@ function TradingViewWidget() {
           "hide_top_toolbar": true,
           "allow_symbol_change": false,
           "save_image": false,
-        
+          "compareSymbols": [
+            {
+              "symbol": "ASX:MNRS",
+              "position": "SameScale"
+            },
+            {
+              "symbol": "HKEX:3120",
+              "position": "SameScale"
+            }
+          ],
           "calendar": false,
           "hide_volume": true,
           "support_host": "https://www.tradingview.com"

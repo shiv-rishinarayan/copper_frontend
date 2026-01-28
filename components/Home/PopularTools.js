@@ -21,7 +21,7 @@ const PopularTools = () => {
       {/* cards  */}
       <div className="flex flex-col gap-y-3">
         {/* c 1  */}
-        <a href="/investments?tab=investment">
+        <a href="/investments?tab=stock-screener">
           <div className="w-full bg-gray-100 p-4 py-7 border border-gray-300 rounded-sm relative group hover:bg-accent/15 hover:scale-[1.02] transition-all duration-200">
             <h1 className="text-[1.2rem] font-medium  text-black/80 mb-2 group-hover:text-accent">
               Copper Stock Screener
@@ -37,7 +37,7 @@ const PopularTools = () => {
         </a>
 
         {/* c 2  */}
-        <a href="/investments?tab=insiderTransactions">
+        <a href="/investments?tab=insider-transactions">
           <div className="w-full bg-gray-100 p-4 py-7 border border-gray-300 rounded-sm relative group hover:bg-accent/15 hover:scale-[1.02] transition-all duration-200">
             <h1 className="text-[1.2rem] font-medium mb-2 text-black/80 group-hover:text-accent">
               Copper Insider Trading Screener

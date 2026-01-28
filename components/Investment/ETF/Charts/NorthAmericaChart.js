@@ -11,7 +11,7 @@ function TradingViewWidget() {
     script.innerHTML = `
         {
           "autosize": true,
-          "symbol": "AMEX:GLTR",
+          "symbol": "NASDAQ:COPX",
           "interval": "D",
           "timezone": "Etc/UTC",
           "theme": "light",
@@ -22,15 +22,15 @@ function TradingViewWidget() {
           "save_image": false,
           "compareSymbols": [
             {
-              "symbol": "AMEX:PPLT",
+              "symbol": "NASDAQ:JJC",
               "position": "SameScale"
             },
             {
-              "symbol": "AMEX:SPPP",
+              "symbol": "NASDAQ:CPER",
               "position": "SameScale"
             },
             {
-              "symbol": "AMEX:PLTM",
+              "symbol": "NASDAQ:DBB",
               "position": "SameScale"
             }
           ],

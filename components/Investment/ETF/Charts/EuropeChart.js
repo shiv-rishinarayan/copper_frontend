@@ -12,7 +12,7 @@ function TradingViewWidget() {
     script.innerHTML = `
         {
           "autosize": true,
-          "symbol": "MIL:XAD3",
+          "symbol": "LSE:COPA",
           "interval": "D",
           "timezone": "Etc/UTC",
           "theme": "light",
@@ -22,24 +22,16 @@ function TradingViewWidget() {
           "allow_symbol_change": false,
           "save_image": false,
           "compareSymbols": [
-          
-            
-           
             {
-              "symbol": "MIL:XPPE",
+              "symbol": "XETRA:XMAW",
               "position": "SameScale"
             },
             {
-              "symbol": "TURQUOISE:PTCHAZ",
+              "symbol": "LSE:WMAT",
               "position": "SameScale"
             },
             {
-              "symbol": "SIX:ZPLA",
-              "position": "SameScale"
-            },
-           
-            {
-              "symbol": "LSE:IPLT",
+              "symbol": "NASDAQ:XME",
               "position": "SameScale"
             }
           ],

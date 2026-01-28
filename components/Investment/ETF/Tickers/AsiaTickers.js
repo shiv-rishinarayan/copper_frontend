@@ -9,20 +9,16 @@ const AsiaETFIntradayReturnTickers = () => {
       widgetRef.current.innerHTML = "";
     }
 
-    const asiaETFs = ETFdata.regions.find(
-      (region) => region.name === "Asia"
-    ).funds;
-    const symbols = asiaETFs.map((fund) => ({
-      description: fund.fund,
-      proName: fund.ticker.split(" ")[0],
-    }));
-
     const script = document.createElement("script");
     script.src =
       "https://s3.tradingview.com/external-embedding/embed-widget-tickers.js";
     script.async = true;
     script.innerHTML = JSON.stringify({
-      symbols: symbols,
+      symbols: [
+        { description: "", proName: "ASX:ETPMCU" },
+        { description: "", proName: "ASX:MNRS" },
+        { description: "", proName: "HKEX:3120" },
+      ],
       isTransparent: false,
       showSymbolLogo: true,
       colorTheme: "light",
