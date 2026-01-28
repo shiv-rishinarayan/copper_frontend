@@ -1,12 +1,12 @@
-export const BASE_URL = process.env.NEXT_PUBLIC_API_BASEURL || 'https://platinumdjango-production.up.railway.app';
+export const BASE_URL = process.env.NEXT_PUBLIC_API_BASEURL || 'https://copperdjango-production.up.railway.app';
 
 //HOME & NEWS APIS
 
-export const PLATINUM_NEWS = `${BASE_URL}/api/platinum_news/`;
+export const COPPER_NEWS = `${BASE_URL}/api/copper_news/`;
 
 export const SPORT_PRICE_CHART = `${BASE_URL}/api/spot-price-chart/`;
 
-export const PGM_PRICES = `${BASE_URL}/api/pgm-prices/`;
+export const COPPER_PRICES = `${BASE_URL}/api/copper-prices/`;
 
 export const PRESS_RELEASE = `${BASE_URL}/api/press-releases/`;
 
@@ -18,7 +18,7 @@ export const SUBSTACKS = `${BASE_URL}/api/substack/`;
 
 export const MOST_FOLLOWED = `${BASE_URL}/api/most-followed-stocks/`;
 
-export const PGM_STOCK_DETAIL = `${BASE_URL}/api/pgm-stock-detail/`;
+export const COPPER_STOCK_DETAIL = `${BASE_URL}/api/copper-stock-detail/`;
 
 export const STOCK_SCREENER = `${BASE_URL}/api/stock-metrics/`;
 

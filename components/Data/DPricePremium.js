@@ -70,12 +70,12 @@ const charts = [
   },
   {
     id: 8,
-    image: "/data-price-premiums/PGMBasketPricesSupportLevels.jpg",
-    title: "PGM Basket Prices Support Levels",
+    image: "/data-price-premiums/CopperBasketPricesSupportLevels.jpg",
+    title: "Copper Basket Prices Support Levels",
     source: "Bloomberg, WPIC Research",
     path: "/DataPricePremiums/8",
     description:
-      "This chart provides a detailed analysis of key support levels for PGM (Platinum Group Metals) basket prices, identifying historical price points where strong buying interest has consistently emerged, preventing further declines. These support levels serve as critical indicators of market sentiment, offering insights into price stability and potential reversal points. By examining past trends and how prices have reacted at these levels, investors can assess the resilience of PGM prices and make more informed decisions regarding entry and exit points. Additionally, the chart helps highlight broader market dynamics, such as supply-demand imbalances, macroeconomic influences, and investor sentiment shifts that impact PGM pricing over time. Understanding these support levels can be valuable for traders, long-term investors, and industry stakeholders looking to navigate price fluctuations in the PGM market.",
+      "This chart provides a detailed analysis of key support levels for Copper (Copper and Copper Alloys) basket prices, identifying historical price points where strong buying interest has consistently emerged, preventing further declines. These support levels serve as critical indicators of market sentiment, offering insights into price stability and potential reversal points. By examining past trends and how prices have reacted at these levels, investors can assess the resilience of Copper prices and make more informed decisions regarding entry and exit points. Additionally, the chart helps highlight broader market dynamics, such as supply-demand imbalances, macroeconomic influences, and investor sentiment shifts that impact Copper pricing over time. Understanding these support levels can be valuable for traders, long-term investors, and industry stakeholders looking to navigate price fluctuations in the Copper market.",
   },
   {
     id: 9,
@@ -85,7 +85,7 @@ const charts = [
     source: "Bloomberg, WPIC Research",
     path: "/DataPricePremiums/9",
     description:
-      "This chart explores the impact of key market and economic factors on the exchange rate between the South African Rand (ZAR) and the US Dollar (US$). It highlights trends, volatility, and correlations with macroeconomic indicators such as interest rates, inflation, trade balances, and commodity prices, particularly those of platinum and other PGMs, which are significant to South Africa’s economy. By analyzing historical movements and external influences, investors and businesses can gain insights into currency fluctuations, potential risks, and opportunities in forex markets. This data is crucial for assessing economic stability, global trade competitiveness, and the broader implications of exchange rate shifts on mining, exports, and financial markets.",
+      "This chart explores the impact of key market and economic factors on the exchange rate between the South African Rand (ZAR) and the US Dollar (US$). It highlights trends, volatility, and correlations with macroeconomic indicators such as interest rates, inflation, trade balances, and commodity prices, particularly those of platinum and other Coppers, which are significant to South Africa’s economy. By analyzing historical movements and external influences, investors and businesses can gain insights into currency fluctuations, potential risks, and opportunities in forex markets. This data is crucial for assessing economic stability, global trade competitiveness, and the broader implications of exchange rate shifts on mining, exports, and financial markets.",
   },
   {
     id: 10,
@@ -111,7 +111,7 @@ const charts = [
     id: 12,
     image: "/data-price-premiums/PlatinumPalladiumAndRhodiumPrices.jpg",
     title: "Platinum, Palladium And Rhodium Prices",
-    source: "PGM Market Report",
+    source: "Copper Market Report",
     path: "/DataPricePremiums/12",
     description:
       "This chart provides a comparative analysis of the prices of these three precious metals over a specified period, likely from April to December of a given year. The data is plotted with Platinum and Palladium on the left-hand side (LHS) and Rhodium on the right-hand side (RHS), using a scale that ranges from 0 to 3,500 units. The chart captures the price fluctuations of these metals, reflecting their market dynamics and economic influences. Platinum, Palladium, and Rhodium are critical industrial metals, often used in automotive catalysts and other high-tech applications, making their prices sensitive to industrial demand and supply constraints. By comparing their price movements, the chart offers valuable insights into their relative performance and market behavior. This information is essential for investors, industry analysts, and economists who track the precious metals market for investment opportunities and economic indicators. The chart underscores the importance of monitoring these metals to understand broader market trends and economic conditions.",

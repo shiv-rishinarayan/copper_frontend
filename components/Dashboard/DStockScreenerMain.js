@@ -4,7 +4,7 @@
 // import StockScreenerTable from "./DStockScreenerTable";
 // import { ArrowUp, ArrowDown } from "lucide-react";
 // import { GetUserData } from "@/src/utils/GetUserData";
-// import { STOCK_SCREENER } from "@/src/api/platinumAPI";
+// import { STOCK_SCREENER } from "@/src/api/copperAPI";
 
 // const PAGE_SIZE = 5;
 
@@ -211,7 +211,7 @@ import Pagination from "../Investment/Pagination";
 import StockFilters from "./DStockScreenerTableFilters";
 import StockScreenerTable from "./DStockScreenerTable";
 import { GetUserData } from "@/src/utils/GetUserData";
-import { STOCK_SCREENER } from "@/src/api/platinumAPI";
+import { STOCK_SCREENER } from "@/src/api/copperAPI";
 
 const PAGE_SIZE = 5;
 

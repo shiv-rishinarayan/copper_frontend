@@ -107,21 +107,21 @@ const DDemandDatabase = () => {
     },
     {
       id: 12,
-      image: "/data-demand/ShareOfAutomotivePGMDemandByMetal.jpg",
-      title: "Share Of Automotive PGM Demand By Metal",
-      source: "PGM Market Report",
+      image: "/data-demand/ShareOfAutomotiveCopperDemandByMetal.jpg",
+      title: "Share Of Automotive Copper Demand By Metal",
+      source: "Copper Market Report",
       path: "/DataDemandDatabase/12",
       description:
-        "This chart illustrates the share of automotive PGM demand by metal—Platinum, Palladium, and Rhodium—from 2012 to 2024. The y-axis represents the percentage share of total demand, showing how the contribution of each metal has evolved over the years. The data highlights the relative importance and fluctuations in the use of Platinum, Palladium, and Rhodium in the automotive sector, reflecting changes in technology, regulations, and market dynamics. This visualization provides insights into the shifting preferences and utilization of these metals in automotive applications over the past decade and into the near future.",
+        "This chart illustrates the share of automotive Copper demand by metal—Platinum, Palladium, and Rhodium—from 2012 to 2024. The y-axis represents the percentage share of total demand, showing how the contribution of each metal has evolved over the years. The data highlights the relative importance and fluctuations in the use of Platinum, Palladium, and Rhodium in the automotive sector, reflecting changes in technology, regulations, and market dynamics. This visualization provides insights into the shifting preferences and utilization of these metals in automotive applications over the past decade and into the near future.",
     },
     {
       id: 13,
-      image: "/data-demand/IndustrialPGMDemandByMetal.jpg",
-      title: "Industrial PGM Demand By Metal",
-      source: "PGM Market Report",
+      image: "/data-demand/IndustrialCopperDemandByMetal.jpg",
+      title: "Industrial Copper Demand By Metal",
+      source: "Copper Market Report",
       path: "/DataDemandDatabase/13",
       description:
-        "This chart presents the industrial demand for Platinum Group Metals (PGMs)—Ruthenium, Rhodium, Palladium, and Platinum—from 2010 to 2024. It illustrates the trends and fluctuations in demand for each metal within the industrial sector over the years. The data provides insights into how the utilization of these metals has evolved, reflecting changes in industrial applications, technological advancements, and market conditions. This visualization helps in understanding the relative importance and demand dynamics of each PGM in industrial contexts over the past decade and into the near future.",
+        "This chart presents the industrial demand for Copper and Copper Alloys (Coppers)—Ruthenium, Rhodium, Palladium, and Platinum—from 2010 to 2024. It illustrates the trends and fluctuations in demand for each metal within the industrial sector over the years. The data provides insights into how the utilization of these metals has evolved, reflecting changes in industrial applications, technological advancements, and market conditions. This visualization helps in understanding the relative importance and demand dynamics of each Copper in industrial contexts over the past decade and into the near future.",
     },
   ];
 
@@ -154,7 +154,7 @@ const DDemandDatabase = () => {
           Demand Database
         </h1>
         <p className="text-black/80 mt-2">
-          Explore detailed data on the demand for platinum and other PGMs across
+          Explore detailed data on the demand for platinum and other Coppers across
           various industries. Gain insights into consumption patterns,
           sector-specific demand drivers, and market trends shaping the future
           of these critical metals.

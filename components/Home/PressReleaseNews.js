@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router"; // For navigation
-import { PRESS_RELEASE } from "@/src/api/platinumAPI";
+import { PRESS_RELEASE } from "@/src/api/copperAPI";
 
 const PressRelease = () => {
   const router = useRouter();
@@ -26,7 +26,7 @@ const PressRelease = () => {
     <div>
       {/* Heading */}
       <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
-        PGM Company Press Release
+        Copper Company Press Release
       </h1>
 
       {/* Press Release Layout */}

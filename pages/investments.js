@@ -17,9 +17,9 @@ const investments = () => {
   return (
     <div>
       <SEO
-        title="PGM Investment Insights - Market Trends & Stock Analysis"
-        description="Explore in-depth PGM investment insights, stock analysis, and the latest market trends. Stay informed about financial updates, ETF holdings, insider transactions, and stock screening tools to make better investment decisions."
-        keywords="PGM investment insights, stock market trends, ETF holdings, stock analysis, insider transactions, stock screener, market updates, investment strategies, Platinum Group Metals investments"
+        title="Copper Investment Insights - Market Trends & Stock Analysis"
+        description="Explore in-depth Copper investment insights, stock analysis, and the latest market trends. Stay informed about financial updates, ETF holdings, insider transactions, and stock screening tools to make better investment decisions."
+        keywords="Copper investment insights, stock market trends, ETF holdings, stock analysis, insider transactions, stock screener, market updates, investment strategies, Copper and Copper Alloys investments"
         canonicalUrl="https://musical-panda-75f15d.netlify.app/investments"
       />
 

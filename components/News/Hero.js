@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { formatDistanceToNow } from "date-fns"; // Importing date-fns function for relative time
 import { IoIosTimer } from "react-icons/io";
-import { PLATINUM_NEWS } from "@/src/api/platinumAPI";
+import { COPPER_NEWS } from "@/src/api/copperAPI";
 import axios from "axios";
 
 const Hero = () => {
@@ -11,15 +11,15 @@ const Hero = () => {
   useEffect(() => {
     async function fetchNews() {
       try {
-        console.log("API URL:", PLATINUM_NEWS);
+        console.log("API URL:", COPPER_NEWS);
         console.log("Base URL:", process.env.NEXT_PUBLIC_API_BASEURL);
         console.log("Environment:", process.env.NODE_ENV);
-        const response = await axios.get(PLATINUM_NEWS);
+        const response = await axios.get(COPPER_NEWS);
         const data = response?.data;
         setNews(data);
       } catch (error) {
         console.error("Error fetching news:", error);
-        console.error("API URL used:", PLATINUM_NEWS);
+        console.error("API URL used:", COPPER_NEWS);
       }
     }
     fetchNews();
@@ -63,7 +63,7 @@ const Hero = () => {
           {/* Text Content */}
           <div className="relative z-10 p-6 text-white max-w-2xl">
             <p className="inline-block px-2 py-1 rounded-full text-xs font-semibold bg-accent">
-              PGM News
+              Copper News
             </p>
 
             <h1 className="text-2xl lg:text-4xl font-bold my-4 line-clamp-2 cambay">
@@ -72,7 +72,7 @@ const Hero = () => {
             <p className="text-base mb-10">
               {news[currentIndex]?.content
                 ? `${news[currentIndex]?.content.substring(0, 200)}...`
-                : "Catch up on our latest PGM news and updates."}
+                : "Catch up on our latest Copper news and updates."}
             </p>
             <div className="text-xs text-gray-300 flex items-center space-x-1">
               {/* Time Icon */}

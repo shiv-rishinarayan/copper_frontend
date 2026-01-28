@@ -4,7 +4,7 @@ import StockFilters from "../StockScreener/StockScreenerTableFilters";
 import StockScreenerTable from "../StockScreener/StockScrennerTable";
 import { ArrowUp, ArrowDown } from "lucide-react";
 import { GetUserData } from "@/src/utils/GetUserData";
-import { STOCK_SCREENER } from "@/src/api/platinumAPI";
+import { STOCK_SCREENER } from "@/src/api/copperAPI";
 
 const PAGE_SIZE = 15;
 

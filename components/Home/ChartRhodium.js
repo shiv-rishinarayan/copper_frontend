@@ -2,7 +2,7 @@
 // import axios from "axios";
 // import dynamic from "next/dynamic";
 // import { color } from "framer-motion";
-// import { SPORT_PRICE_CHART } from "@/src/api/platinumAPI";
+// import { SPORT_PRICE_CHART } from "@/src/api/copperAPI";
 
 // const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
@@ -117,7 +117,7 @@
 // import React, { useState, useEffect } from "react";
 // import axios from "axios";
 // import dynamic from "next/dynamic";
-// import { SPORT_PRICE_CHART } from "@/src/api/platinumAPI";
+// import { SPORT_PRICE_CHART } from "@/src/api/copperAPI";
 
 // const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
@@ -254,7 +254,7 @@
 // import React, { useState, useEffect } from "react";
 // import axios from "axios";
 // import dynamic from "next/dynamic";
-// import { SPORT_PRICE_CHART } from "@/src/api/platinumAPI";
+// import { SPORT_PRICE_CHART } from "@/src/api/copperAPI";
 
 // const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
@@ -403,7 +403,7 @@
 // import React, { useState, useEffect } from "react";
 // import axios from "axios";
 // import dynamic from "next/dynamic";
-// import { SPORT_PRICE_CHART } from "@/src/api/platinumAPI";
+// import { SPORT_PRICE_CHART } from "@/src/api/copperAPI";
 
 // const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
@@ -554,7 +554,7 @@
 // import React, { useState, useEffect } from "react";
 // import axios from "axios";
 // import dynamic from "next/dynamic";
-// import { SPORT_PRICE_CHART } from "@/src/api/platinumAPI";
+// import { SPORT_PRICE_CHART } from "@/src/api/copperAPI";
 
 // const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
@@ -698,7 +698,7 @@
 // import React, { useState, useEffect } from "react";
 // import axios from "axios";
 // import dynamic from "next/dynamic";
-// import { SPORT_PRICE_CHART } from "@/src/api/platinumAPI";
+// import { SPORT_PRICE_CHART } from "@/src/api/copperAPI";
 
 // const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
@@ -846,7 +846,7 @@
 // import React, { useState, useEffect } from "react";
 // import axios from "axios";
 // import dynamic from "next/dynamic";
-// import { SPORT_PRICE_CHART } from "@/src/api/platinumAPI";
+// import { SPORT_PRICE_CHART } from "@/src/api/copperAPI";
 
 // const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
@@ -966,7 +966,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import dynamic from "next/dynamic";
-import { SPORT_PRICE_CHART } from "@/src/api/platinumAPI";
+import { SPORT_PRICE_CHART } from "@/src/api/copperAPI";
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 

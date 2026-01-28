@@ -21,7 +21,7 @@ import HomeInsiderTransactionTable from "@/components/Home/HomeInsiderTransactio
 import ChartIridium from "@/components/Home/ChartIridium";
 import ChartRhodium from "@/components/Home/ChartRhodium";
 import ChartRuthenium from "@/components/Home/ChartRuthenium";
-import HomePGMPrice from "@/components/Home/HomePGMPrice";
+import HomeCopperPrice from "@/components/Home/HomeCopperPrice";
 
 const home = () => {
   return (
@@ -63,7 +63,7 @@ const home = () => {
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
               Prices
             </h1>
-            <HomePGMPrice />
+            <HomeCopperPrice />
           </div>
           <PlainNews />
         </div>
@@ -144,7 +144,7 @@ export default home;
 // import ChartIridium from "@/components/Home/ChartIridium";
 // import ChartRhodium from "@/components/Home/ChartRhodium";
 // import ChartRuthenium from "@/components/Home/ChartRuthenium";
-// import HomePGMPrice from "@/components/Home/HomePGMPrice";
+// import HomeCopperPrice from "@/components/Home/HomeCopperPrice";
 
 // const home = () => {
 //   return (
@@ -187,7 +187,7 @@ export default home;
 //             <h1 className="text-[18px] sm:text-[20px] md:text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
 //               Prices
 //             </h1>
-//             <HomePGMPrice />
+//             <HomeCopperPrice />
 //           </div>
 //           <PlainNews />
 //           <div className="block lg:hidden">

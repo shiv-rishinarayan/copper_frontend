@@ -31,7 +31,7 @@ const Footer2 = () => {
 
         {/* Bottom Links */}
         <div className="text-xs md:text-sm lg:text-base flex flex-wrap justify-center space-x-2">
-          <span>© 2026 PGM Tracker</span>
+          <span>© 2026 Copper Tracker</span>
           <span>|</span>
           <span className="cursor-pointer hover:underline">Privacy Policy</span>
           <span>|</span>

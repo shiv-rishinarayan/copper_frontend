@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
-import { FORUM_POSTS } from '@/src/api/platinumAPI';
+import { FORUM_POSTS } from '@/src/api/copperAPI';
 import toast from 'react-hot-toast';
 import useAxios from '@/src/network/useAxios';
 

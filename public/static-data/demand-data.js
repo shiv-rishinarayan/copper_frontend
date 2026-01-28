@@ -1,5 +1,5 @@
 export const data = {
-  published_platinum: {
+  published_copper: {
     2021: {
       supply: {
         refined_mine_production: {

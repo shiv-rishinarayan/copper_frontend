@@ -16,12 +16,12 @@
 //   const navLinks = [
 //     { name: "Home", path: "/" },
 //     { name: "News", path: "/news" },
-//     { name: "PGM Investments", path: "/investments" },
+//     { name: "Copper Investments", path: "/investments" },
 //     { name: "Community", path: "/community" },
 //     { name: "Videos", path: "/videos" },
 //     { name: "Data", path: "/data" },
 //     { name: "Calendar", path: "/calendar" },
-//     { name: "PGM 101", path: "/P101" },
+//     { name: "Copper 101", path: "/P101" },
 //   ];
 
 //   const navigateTo = (path) => {
@@ -179,10 +179,10 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "News", path: "/news" },
-    { name: "PGM Investments", path: "/investments" },
+    { name: "Copper Investments", path: "/investments" },
     { name: "Videos", path: "/videos" },
     { name: "Data", path: "/data" },
-    { name: "PGM 101", path: "/P101" },
+    { name: "Copper 101", path: "/C101" },
   ];
 
   const navigateTo = (path) => {

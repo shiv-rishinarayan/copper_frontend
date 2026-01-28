@@ -61,7 +61,7 @@ const Hero = () => {
             className="text-accent"
             // style={{ textShadow: "1px 1px 2px rgba(255, 255, 255, 0.8)" }}
           >
-            Platinum Group Metals news, price and analysis
+            Copper market news, price and analysis
           </span>
         </motion.h1>
 

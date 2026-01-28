@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { PLATINUM_NEWS } from "@/src/api/platinumAPI";
+import { COPPER_NEWS } from "@/src/api/copperAPI";
 import axios from "axios";
 
 const MostPopularNews = () => {
   const [news, setNews] = useState([]);
 
-  console.log(PLATINUM_NEWS);
+  console.log(COPPER_NEWS);
   useEffect(() => {
     // Fetching news articles from the API
     const fetchNews = async () => {
       try {
-        const response = await axios.get(PLATINUM_NEWS);
+        const response = await axios.get(COPPER_NEWS);
         const data = response?.data;
         console.log(data);
         // Slice to get news starting from 6th item and limit to 8 items

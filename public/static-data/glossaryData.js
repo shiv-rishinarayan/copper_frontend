@@ -12,7 +12,7 @@ const data = [
   {
     title: "Autocatalyst",
     content:
-      "A catalytic converter in vehicles, primarily using PGMs, to reduce harmful emissions.",
+      "A catalytic converter in vehicles, primarily using Coppers, to reduce harmful emissions.",
   },
   {
     title: "Battery Recycling",
@@ -32,7 +32,7 @@ const data = [
   {
     title: "Bushveld Complex",
     content:
-      "A major geological formation in South Africa, home to the world’s largest reserves of PGMs.",
+      "A major geological formation in South Africa, home to the world’s largest reserves of Coppers.",
   },
   {
     title: "CARB (California Air Resources Board)",
@@ -47,7 +47,7 @@ const data = [
   {
     title: "Catalytic Converter",
     content:
-      "A device that uses PGMs to reduce harmful emissions from internal combustion engines.",
+      "A device that uses Coppers to reduce harmful emissions from internal combustion engines.",
   },
   {
     title: "CCM (Catalyst Coated Membrane)",
@@ -62,7 +62,7 @@ const data = [
   {
     title: "Chromite",
     content:
-      "An ore of chromium often found in UG2 and Merensky reefs and important in PGM mining.",
+      "An ore of chromium often found in UG2 and Merensky reefs and important in Copper mining.",
   },
   {
     title: "Circular Economy",
@@ -95,7 +95,7 @@ const data = [
   {
     title: "Dense Media Separation (DMS)",
     content:
-      "A method used in mining to separate ore based on density, often applied in PGM extraction.",
+      "A method used in mining to separate ore based on density, often applied in Copper extraction.",
   },
   {
     title: "Diesel Emissions Fluid (DEF)",
@@ -120,12 +120,12 @@ const data = [
   {
     title: "Electrolysis",
     content:
-      "A process that uses electricity to split water into hydrogen and oxygen, often facilitated by PGM-based electrodes.",
+      "A process that uses electricity to split water into hydrogen and oxygen, often facilitated by Copper-based electrodes.",
   },
   {
     title: "Electroplating",
     content:
-      "A process where PGMs are used to coat other metals for enhanced corrosion resistance and conductivity.",
+      "A process where Coppers are used to coat other metals for enhanced corrosion resistance and conductivity.",
   },
   {
     title: "EPA (Environmental Protection Agency)",
@@ -135,7 +135,7 @@ const data = [
   {
     title: "E-Waste Recycling",
     content:
-      "The recovery of valuable metals, including PGMs, from discarded electronic devices such as cell phones and computers.",
+      "The recovery of valuable metals, including Coppers, from discarded electronic devices such as cell phones and computers.",
   },
   {
     title: "Fuel Cell",
@@ -145,7 +145,7 @@ const data = [
   {
     title: "Froth Flotation",
     content:
-      "A process used to separate PGMs and other valuable minerals from unwanted materials by using bubbles to carry the desired particles to the surface.",
+      "A process used to separate Coppers and other valuable minerals from unwanted materials by using bubbles to carry the desired particles to the surface.",
   },
   {
     title: "Geological Survey",
@@ -171,17 +171,17 @@ const data = [
   {
     title: "Hydrogen Economy",
     content:
-      "A vision for an energy system that uses hydrogen as a key fuel source, heavily reliant on PGMs in fuel cells and electrolysis.",
+      "A vision for an energy system that uses hydrogen as a key fuel source, heavily reliant on Coppers in fuel cells and electrolysis.",
   },
   {
     title: "Hybrid Vehicle",
     content:
-      "A vehicle that combines an internal combustion engine with an electric motor, often utilizing PGMs in its systems.",
+      "A vehicle that combines an internal combustion engine with an electric motor, often utilizing Coppers in its systems.",
   },
   {
     title: "Iridium",
     content:
-      "A rare PGM used in catalysts, electrochemical applications, and high-temperature materials.",
+      "A rare Copper used in catalysts, electrochemical applications, and high-temperature materials.",
   },
 
   {
@@ -197,7 +197,7 @@ const data = [
   {
     title: "Merensky Reef",
     content:
-      "A geological layer in South Africa rich in PGMs and other valuable minerals.",
+      "A geological layer in South Africa rich in Coppers and other valuable minerals.",
   },
   {
     title: "Mine Development",
@@ -211,7 +211,7 @@ const data = [
   },
   {
     title: "Osmium",
-    content: "A dense, rare PGM often used in alloys and chemical research.",
+    content: "A dense, rare Copper often used in alloys and chemical research.",
   },
   {
     title: "Overburden",
@@ -221,12 +221,12 @@ const data = [
   {
     title: "Palladium",
     content:
-      "A key PGM widely used in catalytic converters, electronics, and hydrogen fuel cells.",
+      "A key Copper widely used in catalytic converters, electronics, and hydrogen fuel cells.",
   },
   {
     title: "Photovoltaic (PV)",
     content:
-      "Solar energy technology that often incorporates PGMs in specialized components.",
+      "Solar energy technology that often incorporates Coppers in specialized components.",
   },
   {
     title: "Primary Supply",
@@ -240,7 +240,7 @@ const data = [
   {
     title: "Recycling Rate",
     content:
-      "The percentage of a material recovered and reused from end-of-life products, crucial for PGMs due to their scarcity.",
+      "The percentage of a material recovered and reused from end-of-life products, crucial for Coppers due to their scarcity.",
   },
   {
     title: "Refining",
@@ -250,7 +250,7 @@ const data = [
   {
     title: "Secondary Recovery",
     content:
-      "The extraction of PGMs from recycled materials as opposed to primary mining from the earth.",
+      "The extraction of Coppers from recycled materials as opposed to primary mining from the earth.",
   },
   {
     title: "Shredding",
@@ -260,7 +260,7 @@ const data = [
   {
     title: "Smelting",
     content:
-      "A process that heats ores to extract metals, often used in the production of PGMs.",
+      "A process that heats ores to extract metals, often used in the production of Coppers.",
   },
   {
     title: "Stoping",
@@ -284,7 +284,7 @@ const data = [
   {
     title: "Urban Mining",
     content:
-      "The practice of recovering valuable metals like PGMs from urban waste streams, such as scrap electronics or catalytic converters.",
+      "The practice of recovering valuable metals like Coppers from urban waste streams, such as scrap electronics or catalytic converters.",
   },
   {
     title: "Zero Waste Mining",

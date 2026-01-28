@@ -1,6 +1,6 @@
-import P101Breadcrumb from "@/components/P101/P101Breadcrumb";
+import C101Breadcrumb from "@/components/C101/C101Breadcrumb";
 import { useRouter } from "next/router";
-import cardData from "@/public/static-data/P101CardData"; // Adjust the import path
+import cardData from "@/public/static-data/C101CardData"; // Adjust the import path
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -15,13 +15,13 @@ const DetailPage = ({ card }) => {
   return (
     <div className="relative">
       <SEO
-        title={`${card.title} - Platinum Group Metals Guide & Glossary`}
-        description="Explore the world of Platinum Group Metals (PGMs) with our comprehensive guide. Learn about platinum, palladium, rhodium, iridium, ruthenium, and osmium, their properties, uses, and market significance."
-        keywords="PGM 101, Platinum Group Metals, platinum, palladium, rhodium, iridium, ruthenium, osmium, metal properties, PGM glossary, precious metals"
-        canonicalUrl={`https://musical-panda-75f15d.netlify.app/platinum101/${card.id}`}
+        title={`${card.title} - Copper Alloys Guide & Glossary`}
+        description="Explore the world of Copper and its alloys with our comprehensive guide. Learn about copper, brass, bronze, aluminum bronze, nickel silver, and beryllium copper, their properties, uses, and market significance."
+        keywords="Copper 101, Copper Alloys, copper, brass, bronze, aluminum bronze, nickel silver, beryllium copper, metal properties, copper glossary, industrial metals"
+        canonicalUrl={`https://musical-panda-75f15d.netlify.app/copper101/${card.id}`}
       />
       {/* Breadcrumb Component */}
-      <P101Breadcrumb link={card.href} title={card.title} />
+      <C101Breadcrumb link={card.href} title={card.title} />
 
       {/* Page Content */}
       <div className="flex flex-col mt-[3.5rem]">

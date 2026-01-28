@@ -21,7 +21,7 @@ import HomeInsiderTransactionTable from "@/components/Home/HomeInsiderTransactio
 import ChartIridium from "@/components/Home/ChartIridium";
 import ChartRhodium from "@/components/Home/ChartRhodium";
 import ChartRuthenium from "@/components/Home/ChartRuthenium";
-import HomePGMPrice from "@/components/Home/HomePGMPrice";
+import HomeCopperPrice from "@/components/Home/HomeCopperPrice";
 import SEO from "@/components/SEO";
 import StocksMarquee from "@/components/Home/StocksMarquee";
 
@@ -29,9 +29,9 @@ const home = () => {
   return (
     <div>
       <SEO
-        title="PGM Tracker - Real-time News, Prices & Analysis"
-        description="Stay ahead with real-time Platinum Group Metals news, price updates, and in-depth analysis. Get accurate insights into the PGM market trends."
-        keywords="PGM prices, PGM news, PGM market analysis, Precious metals, PGM trading, PGMs updates, PGM investment, Real-time PGM updates,investment"
+        title="Copper Tracker - Real-time News, Prices & Analysis"
+        description="Stay ahead with real-time Copper market news, price updates, and in-depth analysis. Get accurate insights into the copper market trends."
+        keywords="Copper prices, Copper news, Copper market analysis, Industrial metals, Copper trading, Copper updates, Copper investment, Real-time Copper updates,investment"
         canonicalUrl="https://musical-panda-75f15d.netlify.app/"
       />
 
@@ -82,7 +82,7 @@ const home = () => {
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1 mt-14 md:mt-0">
               Prices
             </h1>
-            <HomePGMPrice />
+            <HomeCopperPrice />
           </div>
           <PlainNews />
         </div>

@@ -12,7 +12,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'platinumdjango-production.up.railway.app',
+        hostname: 'copperdjango-production.up.railway.app',
         port: '',
         pathname: '/**',
       },

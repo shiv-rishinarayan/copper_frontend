@@ -1,7 +1,7 @@
 // import React, { useState, useEffect } from "react";
 // import { IoTimerOutline } from "react-icons/io5";
 // import axios from "axios";
-// import { PLATINUM_NEWS } from "@/src/api/platinumAPI";
+// import { COPPER_NEWS } from "@/src/api/copperAPI";
 // import Loader from "../Loader";
 
 // const PlainNews = () => {
@@ -14,7 +14,7 @@
 //     const fetchNewsData = async () => {
 //       try {
 //         setLoading(true);
-//         const response = await axios.get(`${PLATINUM_NEWS}?news_type=platinum`);
+//         const response = await axios.get(`${COPPER_NEWS}?news_type=copper`);
 //         const data = response.data;
 
 //         if (data && Array.isArray(data) && data.length > 0) {
@@ -100,7 +100,7 @@
 // import React, { useState, useEffect } from "react";
 // import { IoTimerOutline } from "react-icons/io5";
 // import axios from "axios";
-// import { PLATINUM_NEWS } from "@/src/api/platinumAPI";
+// import { COPPER_NEWS } from "@/src/api/copperAPI";
 // import Loader from "../Loader";
 
 // const PlainNews = () => {
@@ -112,7 +112,7 @@
 //     const fetchNewsData = async () => {
 //       try {
 //         setLoading(true);
-//         const response = await axios.get(`${PLATINUM_NEWS}?news_type=platinum`);
+//         const response = await axios.get(`${COPPER_NEWS}?news_type=copper`);
 //         const data = response.data;
 
 //         if (data && Array.isArray(data) && data.length > 0) {
@@ -215,7 +215,7 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { PLATINUM_NEWS } from "@/src/api/platinumAPI";
+import { COPPER_NEWS } from "@/src/api/copperAPI";
 import Loader from "../Loader";
 
 const PlainNews = () => {
@@ -227,7 +227,7 @@ const PlainNews = () => {
     const fetchNewsData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`${PLATINUM_NEWS}?news_type=platinum`);
+        const response = await axios.get(`${COPPER_NEWS}?news_type=copper`);
         const data = response.data;
 
         if (data && Array.isArray(data) && data.length > 0) {
@@ -294,7 +294,7 @@ const PlainNews = () => {
   return (
     <div>
       <div>
-        <h1 className="text-[21px] cambay font-bold mb-3">Latest PGM News</h1>
+        <h1 className="text-[21px] cambay font-bold mb-3">Latest Copper News</h1>
 
         <div className="flex flex-wrap md:flex-nowrap gap-5">
           <div className="w-full grid grid-cols-1 gap-3">

@@ -82,9 +82,9 @@ const charts = [
   },
   {
     id: 9,
-    image: "/WPIC-supply-demand-estimates/PGMMarketBalance.jpg",
-    title: "PGM Market Balance",
-    source: "PGM Market Report",
+    image: "/WPIC-supply-demand-estimates/CopperMarketBalance.jpg",
+    title: "Copper Market Balance",
+    source: "Copper Market Report",
     path: "/DataWPICSupplyDemand/9",
     description:
       "The chart lists three precious metals—Platinum, Palladium, and Rhodium—under the headings for 2023 and 2024. This suggests that the focus is on these metals for the specified years,",

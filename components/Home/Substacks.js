@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { SUBSTACKS } from "@/src/api/platinumAPI";
+import { SUBSTACKS } from "@/src/api/copperAPI";
 
 const Substacks = () => {
   const [platinumPosts, setPlatinumPosts] = useState([]);
@@ -54,7 +54,7 @@ const Substacks = () => {
   return (
     <div>
       <h2 className="flex items-center text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-1 mb-3">
-        PGM Substacks
+        Copper Substacks
       </h2>
       {loading ? (
         <div className="flex justify-center items-center h-32">

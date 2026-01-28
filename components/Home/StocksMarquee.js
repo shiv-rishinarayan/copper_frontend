@@ -1,5 +1,5 @@
 // import { useEffect, useState } from "react";
-// import { STOCK_SCREENER } from "@/src/api/platinumAPI";
+// import { STOCK_SCREENER } from "@/src/api/copperAPI";
 
 // const StocksMarquee = () => {
 //   const [symbols, setSymbols] = useState([]);
@@ -56,7 +56,7 @@
 // export default StocksMarquee;
 
 // import { useEffect, useState } from "react";
-// import { STOCK_SCREENER } from "@/src/api/platinumAPI";
+// import { STOCK_SCREENER } from "@/src/api/copperAPI";
 
 // const StocksMarquee = () => {
 //   const [symbols, setSymbols] = useState([]);

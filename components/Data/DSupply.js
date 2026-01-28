@@ -47,7 +47,7 @@ const DSupply = () => {
         "/data-supply/GlobalRecoveriesOfPlatinum,PalladiumAndRhodiumFromAutomotiveScrap.jpg",
       title:
         "Global Recoveries Of Platinum, Palladium And Rhodium From Automotive Scrap",
-      source: "PGM Market Report",
+      source: "Copper Market Report",
       path: "/DataSupply/5",
       description:
         "The chart presents the historical and forecast trends for three precious metals: platinum, palladium, and rhodium, from 2015 to 2024. The chart depicts a clear upward",
@@ -82,7 +82,7 @@ const DSupply = () => {
         <h1 className="cambay text-[22px] sm:text-2xl font-semibold">Supply</h1>
         <p className="text-black/80 mt-2">
           Explore comprehensive data on the global supply of platinum and other
-          PGMs, including production forecasts, supply changes, and recovery
+          Coppers, including production forecasts, supply changes, and recovery
           from secondary sources. Gain insights into regional production trends,
           recycling contributions, and factors influencing future supply
           dynamics.

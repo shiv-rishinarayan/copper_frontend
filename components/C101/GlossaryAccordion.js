@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
-import data from "@/public/static-data/glossaryData";
+import data from "@/public/static-data/copperGlossaryData";
 
 const GlossaryAccordion = () => {
   // Split data into two columns

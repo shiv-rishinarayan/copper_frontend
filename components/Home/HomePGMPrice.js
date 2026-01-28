@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { FaLink } from "react-icons/fa6";
-import { PGM_PRICES } from "@/src/api/platinumAPI";
+import { COPPER_PRICES } from "@/src/api/copperAPI";
 
-const HomePGMPrice = () => {
+const HomeCopperPrice = () => {
   const [pgmPrices, setPgmPrices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -10,7 +10,7 @@ const HomePGMPrice = () => {
   useEffect(() => {
     const fetchPrices = async () => {
       try {
-        const response = await fetch(PGM_PRICES);
+        const response = await fetch(COPPER_PRICES);
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -116,4 +116,4 @@ const HomePGMPrice = () => {
   );
 };
 
-export default HomePGMPrice;
+export default HomeCopperPrice;

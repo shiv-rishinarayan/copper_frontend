@@ -1,7 +1,7 @@
 // import React, { useState, useEffect } from "react";
 // import Link from "next/link";
 // import Loader from "../Loader";
-// import { PLATINUM_NEWS } from "@/src/api/platinumAPI";
+// import { COPPER_NEWS } from "@/src/api/copperAPI";
 
 // const MoreNews = () => {
 //   const [news, setNews] = useState([]);
@@ -11,7 +11,7 @@
 //   useEffect(() => {
 //     const fetchNews = async () => {
 //       try {
-//         const response = await fetch(PLATINUM_NEWS);
+//         const response = await fetch(COPPER_NEWS);
 //         if (!response.ok) {
 //           throw new Error("Failed to fetch news");
 //         }
@@ -82,7 +82,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Loader from "../Loader";
-import { PLATINUM_NEWS } from "@/src/api/platinumAPI";
+import { COPPER_NEWS } from "@/src/api/copperAPI";
 
 const MoreNews = () => {
   const [news, setNews] = useState([]);
@@ -92,7 +92,7 @@ const MoreNews = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await fetch(PLATINUM_NEWS);
+        const response = await fetch(COPPER_NEWS);
         if (!response.ok) {
           throw new Error("Failed to fetch news");
         }

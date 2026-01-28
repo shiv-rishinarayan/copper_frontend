@@ -92,9 +92,9 @@ const ChartSubpage = () => {
     },
     {
       id: 9,
-      image: "/WPIC-supply-demand-estimates/PGMMarketBalance.jpg",
-      title: "PGM Market Balance",
-      source: "PGM Market Report",
+      image: "/WPIC-supply-demand-estimates/CopperMarketBalance.jpg",
+      title: "Copper Market Balance",
+      source: "Copper Market Report",
       path: "/DataWPICSupplyDemand/9",
       description:
         "The chart lists three precious metals—Platinum, Palladium, and Rhodium—under the headings for 2023 and 2024. This suggests that the focus is on these metals for the specified years, likely in the context of their market performance, production, or usage trends. Platinum, Palladium, and Rhodium are highly valuable metals, commonly used in industrial applications, particularly in the automotive industry for catalytic converters, as well as in jewelry and electronics. The inclusion of both 2023 and 2024 indicates that the chart may be comparing or forecasting trends, prices, or demand for these metals over the two years. This information would be particularly relevant for investors, industry analysts, and stakeholders who are interested in understanding the dynamics of the precious metals market, including factors such as supply chain issues, technological advancements, or shifts in demand that could impact these metals during the specified period.",

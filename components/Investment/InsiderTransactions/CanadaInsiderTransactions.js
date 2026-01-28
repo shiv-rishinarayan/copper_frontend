@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import CanadaInsiderTransactionsFilters from "./CanadaInsiderTransactionsFilters";
 import Pagination from "../Pagination";
 import TableCanadaInsiderTransactions from "./CanadaInsiderTransactionsTable";
-import { INSIDER_TRANSACTIONS } from "@/src/api/platinumAPI";
+import { INSIDER_TRANSACTIONS } from "@/src/api/copperAPI";
 
 const InvestmentsCanadaInsiderTransaction = () => {
   const [insiderTransactionsData, setInsiderTransactionsData] = useState([]);

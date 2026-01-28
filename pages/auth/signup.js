@@ -303,8 +303,8 @@ const Signup = () => {
     <div className="flex flex-col min-h-screen">
       <SEO
         title="Sign Up - Create Your Account"
-        description="Join us today! Create your account to access powerful tools, manage your watchlist, and stay updated with PGM market trends."
-        keywords="sign up, create account, registration, join now, stock market tools, investment platform, market trends,PGM Tracker"
+        description="Join us today! Create your account to access powerful tools, manage your watchlist, and stay updated with Copper market trends."
+        keywords="sign up, create account, registration, join now, stock market tools, investment platform, market trends,Copper Tracker"
         canonicalUrl="https://musical-panda-75f15d.netlify.app/auth/signup"
       />
 

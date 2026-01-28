@@ -51,7 +51,7 @@ const ChartSubpage = () => {
         "/data-supply/GlobalRecoveriesOfPlatinum,PalladiumAndRhodiumFromAutomotiveScrap.jpg",
       title:
         "Global Recoveries Of Platinum, Palladium And Rhodium From Automotive Scrap",
-      source: "PGM Market Report",
+      source: "Copper Market Report",
       path: "/DataSupply/5",
       description:
         "The chart presents the historical and forecast trends for three precious metals: platinum, palladium, and rhodium, from 2015 to 2024. The chart depicts a clear upward trend for all three metals, with palladium and rhodium showing more pronounced growth compared to platinum. Palladium, in particular, exhibits a sharp increase, reaching over 4,000 koz by 2024, likely driven by rising demand from the automotive industry for catalytic converters. Rhodium also demonstrates significant growth, more than doubling in volume from 2015 to 2024, underscoring its importance in various industrial applications. Platinum, while not experiencing the same level of growth as palladium and rhodium, still maintains a substantial presence, with volumes projected to reach around 3,000 koz by 2024, suggesting its continued importance in the precious metals market. The contrasting trajectories of these three metals provide a comprehensive view of the evolving dynamics in the precious metals industry, which can inform investment decisions, production planning, and strategic initiatives for companies and policymakers operating in this sector.",

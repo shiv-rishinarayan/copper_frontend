@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { PGM_PRICES } from "@/src/api/platinumAPI";
+import { COPPER_PRICES } from "@/src/api/copperAPI";
 
 const PlatinumLivePrice = () => {
   const [platinumData, setPlatinumData] = useState(null);
 
   useEffect(() => {
-    fetch(PGM_PRICES)
+    fetch(COPPER_PRICES)
       .then((response) => response.json())
       .then((data) => {
         const platinumInfo = data.find((item) => item.pgm_name === "Palladium");

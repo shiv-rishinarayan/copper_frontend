@@ -1,5 +1,5 @@
 {
-  "name": "platinum-site",
+  "name": "copper-site",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -32,6 +32,8 @@
     "yup": "^1.6.1"
   },
   "devDependencies": {
+    "eslint": "9.39.2",
+    "eslint-config-next": "16.1.6",
     "postcss": "^8",
     "tailwindcss": "^3.4.1"
   },

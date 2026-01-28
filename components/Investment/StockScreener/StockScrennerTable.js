@@ -5,8 +5,8 @@
 // import { ArrowUp, ArrowDown } from "lucide-react";
 // import axios from "axios";
 // import { toast } from "react-hot-toast";
-// import { FOLLOWED_STOCKS } from "@/src/api/platinumAPI";
-// import { PGM_STOCK_DETAIL } from "@/src/api/platinumAPI";
+// import { FOLLOWED_STOCKS } from "@/src/api/copperAPI";
+// import { COPPER_STOCK_DETAIL } from "@/src/api/copperAPI";
 
 // const StockScreenerTable = ({
 //   displayedData,
@@ -50,7 +50,7 @@
 //   const checkSubpageExists = async (stockTicker) => {
 //     try {
 //       const response = await axios.get(
-//         `${PGM_STOCK_DETAIL}?stock_ticker=${stockTicker}`
+//         `${COPPER_STOCK_DETAIL}?stock_ticker=${stockTicker}`
 //       );
 
 //       // Check if the response has data and it's not empty
@@ -371,8 +371,8 @@ import { useRouter } from "next/navigation";
 import { ArrowUp, ArrowDown } from "lucide-react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { FOLLOWED_STOCKS } from "@/src/api/platinumAPI";
-import { PGM_STOCK_DETAIL } from "@/src/api/platinumAPI";
+import { FOLLOWED_STOCKS } from "@/src/api/copperAPI";
+import { COPPER_STOCK_DETAIL } from "@/src/api/copperAPI";
 
 const StockScreenerTable = ({
   displayedData,
@@ -440,7 +440,7 @@ const StockScreenerTable = ({
   const checkSubpageExists = async (stockTicker) => {
     try {
       const response = await axios.get(
-        `${PGM_STOCK_DETAIL}?stock_ticker=${stockTicker}`
+        `${COPPER_STOCK_DETAIL}?stock_ticker=${stockTicker}`
       );
       return response.data && Object.keys(response.data).length > 0;
     } catch (error) {

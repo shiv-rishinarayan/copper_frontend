@@ -1,6 +1,6 @@
 // import React, { useState, useEffect } from "react";
 // import Loader from "../Loader";
-// import { PLATINUM_NEWS } from "@/src/api/platinumAPI";
+// import { COPPER_NEWS } from "@/src/api/copperAPI";
 
 // const LatestNews = () => {
 //   const [newsData, setNewsData] = useState([]);
@@ -10,7 +10,7 @@
 //   useEffect(() => {
 //     const fetchNews = async () => {
 //       try {
-//         const response = await fetch(PLATINUM_NEWS);
+//         const response = await fetch(COPPER_NEWS);
 //         if (!response.ok) {
 //           throw new Error("Failed to fetch news");
 //         }
@@ -117,7 +117,7 @@
 
 // import React, { useState, useEffect } from "react";
 // import Loader from "../Loader";
-// import { PLATINUM_NEWS } from "@/src/api/platinumAPI";
+// import { COPPER_NEWS } from "@/src/api/copperAPI";
 
 // const LatestNews = () => {
 //   const [newsData, setNewsData] = useState([]);
@@ -127,7 +127,7 @@
 //   useEffect(() => {
 //     const fetchNews = async () => {
 //       try {
-//         const response = await fetch(PLATINUM_NEWS);
+//         const response = await fetch(COPPER_NEWS);
 //         if (!response.ok) {
 //           throw new Error("Failed to fetch news");
 //         }
@@ -242,7 +242,7 @@
 
 // import React, { useState, useEffect } from "react";
 // import Loader from "../Loader";
-// import { PLATINUM_NEWS } from "@/src/api/platinumAPI";
+// import { COPPER_NEWS } from "@/src/api/copperAPI";
 
 // const LatestNews = () => {
 //   const [newsData, setNewsData] = useState([]);
@@ -262,7 +262,7 @@
 //   useEffect(() => {
 //     const fetchNews = async () => {
 //       try {
-//         const response = await fetch(PLATINUM_NEWS);
+//         const response = await fetch(COPPER_NEWS);
 //         if (!response.ok) {
 //           throw new Error("Failed to fetch news");
 //         }
@@ -325,7 +325,7 @@
 //   return (
 //     <div className="">
 //       <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
-//         Latest PGM News
+//         Latest Copper News
 //       </h1>
 
 //       <div className="flex flex-wrap md:flex-nowrap">
@@ -383,7 +383,7 @@
 
 import React, { useState, useEffect } from "react";
 import Loader from "../Loader";
-import { PLATINUM_NEWS } from "@/src/api/platinumAPI";
+import { COPPER_NEWS } from "@/src/api/copperAPI";
 
 const LatestNews = () => {
   const [newsData, setNewsData] = useState([]);
@@ -402,7 +402,7 @@ const LatestNews = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await fetch(PLATINUM_NEWS);
+        const response = await fetch(COPPER_NEWS);
         if (!response.ok) {
           throw new Error("Failed to fetch news");
         }
@@ -460,7 +460,7 @@ const LatestNews = () => {
   return (
     <div>
       <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
-        Latest PGM News
+        Latest Copper News
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

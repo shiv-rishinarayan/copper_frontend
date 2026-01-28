@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-const P101Breadcrumb = ({ link, title }) => {
+const C101Breadcrumb = ({ link, title }) => {
   const router = useRouter();
 
   const handleBack = () => {
@@ -15,7 +15,7 @@ const P101Breadcrumb = ({ link, title }) => {
             onClick={handleBack}
             className="hover:text-accent font-medium transition-all duration-200 cursor-pointer"
           >
-            PGM 101
+            Copper 101
           </button>
           <span> &gt; </span>
           <a
@@ -30,4 +30,4 @@ const P101Breadcrumb = ({ link, title }) => {
   );
 };
 
-export default P101Breadcrumb;
+export default C101Breadcrumb;

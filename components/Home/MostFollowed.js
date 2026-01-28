@@ -120,7 +120,7 @@
 // export default MostFollowed;
 
 // import { useEffect, useState } from "react";
-// import { MOST_FOLLOWED } from "@/src/api/platinumAPI";
+// import { MOST_FOLLOWED } from "@/src/api/copperAPI";
 
 // const MostFollowed = () => {
 //   const [stockData, setStockData] = useState([]);
@@ -215,7 +215,7 @@
 // export default MostFollowed;
 
 import { useEffect, useState } from "react";
-import { MOST_FOLLOWED, PGM_STOCK_DETAIL } from "@/src/api/platinumAPI";
+import { MOST_FOLLOWED, COPPER_STOCK_DETAIL } from "@/src/api/copperAPI";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 
@@ -249,7 +249,7 @@ const MostFollowed = () => {
   const checkSubpageExists = async (stockTicker) => {
     try {
       const response = await axios.get(
-        `${PGM_STOCK_DETAIL}?stock_ticker=${stockTicker}`
+        `${COPPER_STOCK_DETAIL}?stock_ticker=${stockTicker}`
       );
       return response.data.exists ?? true;
     } catch (error) {

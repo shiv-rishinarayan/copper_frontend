@@ -15,9 +15,9 @@ const news = () => {
   return (
     <div>
       <SEO
-        title="PGM News - Latest Industry News, Stock Trends & Press Releases"
-        description="Stay updated with the latest news on Platinum Group Metals, featuring company press releases, stock market trends, and real-time industry developments. Get accurate insights into financial updates, market movements, and key events shaping the PGM sector."
-        keywords="PGM news,Company Press Releases, Stock news, Market news, Trending stock news,Company news"
+        title="Copper News - Latest Industry News, Stock Trends & Press Releases"
+        description="Stay updated with the latest news on Copper and Copper Alloys, featuring company press releases, stock market trends, and real-time industry developments. Get accurate insights into financial updates, market movements, and key events shaping the Copper sector."
+        keywords="Copper news,Company Press Releases, Stock news, Market news, Trending stock news,Company news"
         canonicalUrl="https://musical-panda-75f15d.netlify.app/news/"
       />
       <Navbar />

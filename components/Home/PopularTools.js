@@ -24,10 +24,10 @@ const PopularTools = () => {
         <a href="/investments?tab=investment">
           <div className="w-full bg-gray-100 p-4 py-7 border border-gray-300 rounded-sm relative group hover:bg-accent/15 hover:scale-[1.02] transition-all duration-200">
             <h1 className="text-[1.2rem] font-medium  text-black/80 mb-2 group-hover:text-accent">
-              PGM Stock Screener
+              Copper Stock Screener
             </h1>
             <p className="text-[15px]  group-hover:text-black/70">
-              Identify and filter PGM-focused companies based on key factors,
+              Identify and filter Copper-focused companies based on key factors,
               financial metrics, and market performance.
             </p>
             <span className="absolute top-4 right-4 text-gray-400/80 font-extrabold text-[1.6rem] group-hover:text-green/60">
@@ -40,11 +40,11 @@ const PopularTools = () => {
         <a href="/investments?tab=insiderTransactions">
           <div className="w-full bg-gray-100 p-4 py-7 border border-gray-300 rounded-sm relative group hover:bg-accent/15 hover:scale-[1.02] transition-all duration-200">
             <h1 className="text-[1.2rem] font-medium mb-2 text-black/80 group-hover:text-accent">
-              PGM Insider Trading Screener
+              Copper Insider Trading Screener
             </h1>
             <p className="text-[15px]  group-hover:text-black/70">
-              Track insider transactions in the PGM space to gain valuable
-              insights each PGM company.
+              Track insider transactions in the Copper space to gain valuable
+              insights each Copper company.
             </p>
             <span className="absolute top-4 right-4 text-gray-400/80 font-extrabold text-[1.6rem] group-hover:text-green/60">
               <BsArrowUpRight />
@@ -59,7 +59,7 @@ const PopularTools = () => {
               ETF/Trust Holdings
             </h1>
             <p className="text-[15px] group-hover:text-black/70">
-              View up-to-date holdings and return profiles for PGM ETFs and
+              View up-to-date holdings and return profiles for Copper ETFs and
               track daily purchases and valuation metrics.
             </p>
             <span className="absolute top-4 right-4 text-gray-400/80 font-extrabold text-[1.6rem] group-hover:text-green/60">

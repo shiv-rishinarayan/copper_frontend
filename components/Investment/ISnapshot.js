@@ -5,8 +5,8 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Loader from "@/components/Loader";
 import axios from "axios";
-import { MOST_FOLLOWED } from "@/src/api/platinumAPI";
-import { PGM_STOCK_DETAIL } from "@/src/api/platinumAPI";
+import { MOST_FOLLOWED } from "@/src/api/copperAPI";
+import { COPPER_STOCK_DETAIL } from "@/src/api/copperAPI";
 
 const logos = [
   { name: "New Age Metals Inc.", image: "/snapshotImgs/NAM-2.png" },
@@ -31,7 +31,7 @@ const logos = [
   { name: "St-Georges Eco-Mining Corp.", image: "/snapshotImgs/StGeorge.jpg" },
   { name: "GT Resources Ltd.", image: "/snapshotImgs/GT.png" },
   {
-    name: "Platinum Group Metals Ltd.",
+    name: "Copper and Copper Alloys Ltd.",
     image: "/snapshotImgs/PlatinumGroup.png",
   },
   { name: "Tanaka Chemical Corp.", image: "/snapshotImgs/TANAKA-P-METALS.png" },
@@ -75,7 +75,7 @@ const ISnapshot = () => {
   const checkSubpageExists = async (stockTicker) => {
     try {
       const response = await axios.get(
-        `${PGM_STOCK_DETAIL}?stock_ticker=${stockTicker}`
+        `${COPPER_STOCK_DETAIL}?stock_ticker=${stockTicker}`
       );
       return response.data.exists ?? true;
     } catch (error) {
