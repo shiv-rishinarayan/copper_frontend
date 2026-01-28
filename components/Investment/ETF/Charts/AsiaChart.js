@@ -12,7 +12,7 @@ function TradingViewWidget() {
     script.innerHTML = `
         {
           "autosize": true,
-          "symbol": "NYSE:RIO",
+          "symbol": "NYSE:V",
           "interval": "D",
           "timezone": "Etc/UTC",
           "theme": "light",
@@ -23,11 +23,11 @@ function TradingViewWidget() {
           "save_image": false,
           "compareSymbols": [
             {
-              "symbol": "OTC:GLNCY",
+              "symbol": "NYSE:PG",
               "position": "SameScale"
             },
             {
-              "symbol": "AMEX:XLB",
+              "symbol": "NYSE:WMT",
               "position": "SameScale"
             }
           ],

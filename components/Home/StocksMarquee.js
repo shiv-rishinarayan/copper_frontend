@@ -127,19 +127,19 @@ const StocksMarquee = () => {
         { description: "", proName: "NYSE:FCX" }, // Freeport-McMoRan - Major copper producer
         { description: "", proName: "NYSE:SCCO" }, // Southern Copper Corporation
         { description: "", proName: "NYSE:TECK" }, // Teck Resources - Copper mining
-        { description: "", proName: "AMEX:COPX" }, // Global X Copper Miners ETF
-        { description: "", proName: "NYSE:FCX" }, // Freeport-McMoRan - Major copper producer
-        { description: "", proName: "NYSE:SCCO" }, // Southern Copper Corporation
-        { description: "", proName: "NYSE:BHP" }, // BHP Group - Mining company
-        { description: "", proName: "NYSE:AA" }, // Alcoa Corporation
-        { description: "", proName: "NYSE:VALE" }, // Vale S.A. - Mining company
-        { description: "", proName: "NYSE:RIO" }, // Rio Tinto - Mining company
-        { description: "", proName: "NYSE:NEM" }, // Newmont Corporation
-        { description: "", proName: "NYSE:GOLD" }, // Barrick Gold Corporation
-        { description: "", proName: "AMEX:XME" }, // SPDR S&P Metals & Mining ETF
-        { description: "", proName: "AMEX:GDX" }, // VanEck Gold Miners ETF
-        { description: "", proName: "AMEX:XLB" }, // Materials Select Sector SPDR Fund
-        { description: "", proName: "OTC:GLNCY" }, // Glencore plc
+        { description: "", proName: "NASDAQ:AAPL" }, // Apple Inc
+        { description: "", proName: "NASDAQ:MSFT" }, // Microsoft Corporation
+        { description: "", proName: "NASDAQ:GOOGL" }, // Alphabet Inc
+        { description: "", proName: "NASDAQ:AMZN" }, // Amazon.com Inc
+        { description: "", proName: "NASDAQ:TSLA" }, // Tesla Inc
+        { description: "", proName: "NASDAQ:META" }, // Meta Platforms Inc
+        { description: "", proName: "NASDAQ:NVDA" }, // NVIDIA Corporation
+        { description: "", proName: "NASDAQ:NFLX" }, // Netflix Inc
+        { description: "", proName: "NYSE:JPM" }, // JPMorgan Chase & Co
+        { description: "", proName: "NYSE:JNJ" }, // Johnson & Johnson
+        { description: "", proName: "NYSE:V" }, // Visa Inc
+        { description: "", proName: "NYSE:PG" }, // Procter & Gamble Co
+        { description: "", proName: "NYSE:WMT" }, // Walmart Inc
       ],
       showSymbolLogo: true,
       isTransparent: false,

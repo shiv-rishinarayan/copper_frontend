@@ -15,10 +15,10 @@ const EuropeETFTickers = () => {
     script.async = true;
     script.innerHTML = JSON.stringify({
       symbols: [
-        { description: "", proName: "AMEX:XME" },
-        { description: "", proName: "NYSE:AA" },
-        { description: "", proName: "NYSE:NEM" },
-        { description: "", proName: "NYSE:VALE" },
+        { description: "", proName: "NASDAQ:TSLA" },
+        { description: "", proName: "NASDAQ:META" },
+        { description: "", proName: "NASDAQ:NVDA" },
+        { description: "", proName: "NASDAQ:NFLX" },
       ],
       isTransparent: false,
       showSymbolLogo: true,
