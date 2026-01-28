@@ -12,7 +12,7 @@ function TradingViewWidget() {
     script.innerHTML = `
         {
           "autosize": true,
-          "symbol": "TECK",
+          "symbol": "NYSE:TECK",
           "interval": "D",
           "timezone": "Etc/UTC",
           "theme": "light",
@@ -23,11 +23,11 @@ function TradingViewWidget() {
           "save_image": false,
           "compareSymbols": [
             {
-              "symbol": "GLEN",
+              "symbol": "OTC:GLCNF",
               "position": "SameScale"
             },
             {
-              "symbol": "ANTO",
+              "symbol": "LSE:ANTO",
               "position": "SameScale"
             }
           ],

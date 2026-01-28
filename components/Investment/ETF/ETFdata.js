@@ -24,7 +24,7 @@ export const ETFdata = {
           currentOz: 320000,
           valueUSD: 160,
           percentTotal: 15,
-          symbol: "AMEX:COPX",
+          symbol: "NASDAQ:COPX",
         },
         {
           fund: "Freeport-McMoRan Inc",
@@ -35,7 +35,7 @@ export const ETFdata = {
           currentOz: 180000,
           valueUSD: 90,
           percentTotal: 8,
-          symbol: "FCX",
+          symbol: "NYSE:FCX",
         },
         {
           fund: "Southern Copper Corporation",
@@ -46,7 +46,7 @@ export const ETFdata = {
           currentOz: 240000,
           valueUSD: 120,
           percentTotal: 10,
-          symbol: "SCCO",
+          symbol: "NYSE:SCCO",
         },
       ],
       totals: {
@@ -68,7 +68,7 @@ export const ETFdata = {
           currentOz: 120000,
           valueUSD: 60,
           percentTotal: 5,
-          symbol: "BHP",
+          symbol: "NYSE:BHP",
         },
         {
           fund: "Rio Tinto plc",
@@ -79,7 +79,7 @@ export const ETFdata = {
           currentOz: 95000,
           valueUSD: 48,
           percentTotal: 4,
-          symbol: "RIO",
+          symbol: "NYSE:RIO",
         },
         {
           fund: "Vale S.A.",
@@ -90,7 +90,7 @@ export const ETFdata = {
           currentOz: 75000,
           valueUSD: 38,
           percentTotal: 3,
-          symbol: "VALE",
+          symbol: "NYSE:VALE",
         },
         {
           fund: "Alcoa Corporation",
@@ -101,7 +101,7 @@ export const ETFdata = {
           currentOz: 110000,
           valueUSD: 55,
           percentTotal: 5,
-          symbol: "AA",
+          symbol: "NYSE:AA",
         },
       ],
       get funds() {
@@ -128,7 +128,7 @@ export const ETFdata = {
           currentOz: 85000,
           valueUSD: 43,
           percentTotal: 4,
-          symbol: "NEM",
+          symbol: "NYSE:NEM",
         },
         {
           fund: "Barrick Gold Corporation",
@@ -139,7 +139,7 @@ export const ETFdata = {
           currentOz: 65000,
           valueUSD: 33,
           percentTotal: 3,
-          symbol: "GOLD",
+          symbol: "NYSE:GOLD",
         },
       ],
       totals: {
@@ -160,7 +160,7 @@ export const ETFdata = {
           currentOz: 95000,
           valueUSD: 48,
           percentTotal: 4,
-          symbol: "TECK",
+          symbol: "NYSE:TECK",
         },
         {
           fund: "Glencore plc",
@@ -171,7 +171,7 @@ export const ETFdata = {
           currentOz: 75000,
           valueUSD: 38,
           percentTotal: 3,
-          symbol: "GLEN",
+          symbol: "OTC:GLCNF",
         },
         {
           fund: "Antofagasta plc",
@@ -182,7 +182,7 @@ export const ETFdata = {
           currentOz: 55000,
           valueUSD: 28,
           percentTotal: 2,
-          symbol: "ANTO",
+          symbol: "LSE:ANTO",
         },
       ],
       totals: {

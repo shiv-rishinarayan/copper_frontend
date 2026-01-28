@@ -22,15 +22,15 @@ function TradingViewWidget() {
           "save_image": false,
           "compareSymbols": [
             {
-              "symbol": "AMEX:COPX",
+              "symbol": "NASDAQ:COPX",
               "position": "SameScale"
             },
             {
-              "symbol": "FCX",
+              "symbol": "NYSE:FCX",
               "position": "SameScale"
             },
             {
-              "symbol": "SCCO",
+              "symbol": "NYSE:SCCO",
               "position": "SameScale"
             }
           ],

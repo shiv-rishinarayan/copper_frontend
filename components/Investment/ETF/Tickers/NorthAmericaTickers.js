@@ -16,9 +16,9 @@ const NorthAmericaETFTickers = () => {
     script.innerHTML = JSON.stringify({
       symbols: [
         { description: "", proName: "COMEX:HG1!" },
-        { description: "", proName: "AMEX:COPX" },
-        { description: "", proName: "FCX" },
-        { description: "", proName: "SCCO" },
+        { description: "", proName: "NASDAQ:COPX" },
+        { description: "", proName: "NYSE:FCX" },
+        { description: "", proName: "NYSE:SCCO" },
       ],
       isTransparent: false,
       showSymbolLogo: true,

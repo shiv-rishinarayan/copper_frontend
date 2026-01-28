@@ -12,7 +12,7 @@ function TradingViewWidget() {
     script.innerHTML = `
         {
           "autosize": true,
-          "symbol": "NEM",
+          "symbol": "NYSE:NEM",
           "interval": "D",
           "timezone": "Etc/UTC",
           "theme": "light",
@@ -23,7 +23,7 @@ function TradingViewWidget() {
           "save_image": false,
           "compareSymbols": [
             {
-              "symbol": "GOLD",
+              "symbol": "NYSE:GOLD",
               "position": "SameScale"
             }
           ],
