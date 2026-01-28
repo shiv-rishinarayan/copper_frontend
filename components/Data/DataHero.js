@@ -16,13 +16,13 @@ const DataHero = () => {
         {/* <div
           className="relative flex items-start overflow-hidden rounded-lg fade-in"
           style={{
-            height: "505px",
-            paddingTop: "125px",
+            height: "350px",
+            paddingTop: "80px",
           }}
         > */}
         <div
-          className="relative flex items-start overflow-hidden rounded-lg fade-in pt-[80px] md:pt-[125px] "
-          style={{ height: "505px" }}
+          className="relative flex items-start overflow-hidden rounded-lg fade-in pt-[60px] md:pt-[80px] "
+          style={{ height: "350px" }}
         >
           {/* Text Content */}
           <div className="relative z-10 p-6 text-white max-w-2xl">

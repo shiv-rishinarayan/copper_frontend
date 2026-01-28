@@ -10,7 +10,7 @@ export default {
       colors: {
         primary: "#000000",
         secondary: "#B7B7B7",
-        accent: "#0089A4",
+        accent: "#B87333", // Copper color
       },
     },
   },

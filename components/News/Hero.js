@@ -57,7 +57,7 @@ const Hero = () => {
         <div
           className="relative flex items-center overflow-hidden rounded-lg fade-in"
           style={{
-            height: "450px", // Increased height for the container
+            height: "350px", // Reduced height for the container
           }}
         >
           {/* Text Content */}

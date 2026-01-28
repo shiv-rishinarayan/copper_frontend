@@ -41,8 +41,8 @@ const InvestmentHero = () => {
       {/* Content Wrapper */}
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div
-          className="relative flex items-start overflow-hidden rounded-lg fade-in pt-[80px] md:pt-[125px] "
-          style={{ height: "505px" }}
+          className="relative flex items-start overflow-hidden rounded-lg fade-in pt-[60px] md:pt-[80px] "
+          style={{ height: "350px" }}
         >
           {/* <div
           className="relative flex items-start overflow-hidden rounded-lg fade-in"

@@ -30,7 +30,7 @@ const cardData = [
         heading: "Medical and Environmental Contributions",
         content: [
           "• Medical applications: Copper's antimicrobial properties make it valuable in healthcare settings, reducing the spread of infections. It's also used in medical devices and equipment.",
-          "• Environmental benefits: Copper is 100% recyclable without loss of properties, making it crucial for sustainable development and renewable energy systems.",
+          "• Environmental benefits: Copper is 100% recy clable without loss of properties, making it crucial for sustainable development and renewable energy systems.",
         ],
       },
       {

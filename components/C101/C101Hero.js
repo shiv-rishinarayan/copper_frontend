@@ -2,7 +2,7 @@ import React from "react";
 
 const C101Hero = () => {
   return (
-    <div className="relative bg-black w-full py-12">
+    <div className="relative bg-black w-full py-8">
       {/* Background Image */}
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center"
@@ -14,8 +14,8 @@ const C101Hero = () => {
       {/* Content Wrapper */}
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div
-          className="relative flex items-start overflow-hidden rounded-lg fade-in pt-[80px] md:pt-[125px] "
-          style={{ height: "505px" }}
+          className="relative flex items-start overflow-hidden rounded-lg fade-in pt-[60px] md:pt-[80px] "
+          style={{ height: "350px" }}
         >
           {/* Text Content */}
           <div className="relative z-10 p-6 text-white max-w-2xl">
@@ -28,7 +28,7 @@ const C101Hero = () => {
               <span className="text-white">Key Information on Copper</span>
             </h1>
 
-            <p className="text-sm md:text-base mb-10">
+            <p className="text-sm md:text-base mb-6">
               Get started with our comprehensive guide to copper markets. From
               fundamental concepts to advanced market analysis, discover
               everything you need to know about this essential metal's role in

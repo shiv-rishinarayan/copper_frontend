@@ -77,7 +77,7 @@ const PostUtils = ({
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 hover:underline break-all"
+            className="text-accent hover:underline break-all"
           >
             {url}
           </a>
@@ -175,7 +175,7 @@ const PostUtils = ({
               return (
                 <span
                   key={`${lineIndex}-${index}`}
-                  className="bg-purple-50 text-blue-800 font-semibold text-sm cursor-pointer hover:underline hover:bg-blue-700 hover:text-white"
+                  className="bg-orange-50 text-accent font-semibold text-sm cursor-pointer hover:underline hover:bg-accent hover:text-white"
                   onClick={() => tagClick(cashtag.slice(1), "cashtag")}
                 >
                   {cashtag}
