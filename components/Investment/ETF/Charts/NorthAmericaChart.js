@@ -22,15 +22,15 @@ function TradingViewWidget() {
           "save_image": false,
           "compareSymbols": [
             {
-              "symbol": "OTC:JJCTF",
+              "symbol": "NYSE:FCX",
               "position": "SameScale"
             },
             {
-              "symbol": "AMEX:CPER",
+              "symbol": "NYSE:SCCO",
               "position": "SameScale"
             },
             {
-              "symbol": "AMEX:DBB",
+              "symbol": "NYSE:BHP",
               "position": "SameScale"
             }
           ],

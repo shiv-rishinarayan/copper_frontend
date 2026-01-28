@@ -12,7 +12,7 @@ function TradingViewWidget() {
     script.innerHTML = `
         {
           "autosize": true,
-          "symbol": "NYSE:FCX",
+          "symbol": "AMEX:XME",
           "interval": "D",
           "timezone": "Etc/UTC",
           "theme": "light",
@@ -23,15 +23,15 @@ function TradingViewWidget() {
           "save_image": false,
           "compareSymbols": [
             {
-              "symbol": "NYSE:SCCO",
+              "symbol": "NYSE:AA",
               "position": "SameScale"
             },
             {
-              "symbol": "NYSE:TECK",
+              "symbol": "NYSE:NEM",
               "position": "SameScale"
             },
             {
-              "symbol": "AMEX:XME",
+              "symbol": "NYSE:VALE",
               "position": "SameScale"
             }
           ],

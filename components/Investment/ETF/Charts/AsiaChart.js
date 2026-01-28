@@ -12,7 +12,7 @@ function TradingViewWidget() {
     script.innerHTML = `
         {
           "autosize": true,
-          "symbol": "ASX:BHP",
+          "symbol": "NYSE:RIO",
           "interval": "D",
           "timezone": "Etc/UTC",
           "theme": "light",
@@ -23,11 +23,11 @@ function TradingViewWidget() {
           "save_image": false,
           "compareSymbols": [
             {
-              "symbol": "ASX:RIO",
+              "symbol": "OTC:GLNCY",
               "position": "SameScale"
             },
             {
-              "symbol": "ASX:29M",
+              "symbol": "AMEX:XLB",
               "position": "SameScale"
             }
           ],

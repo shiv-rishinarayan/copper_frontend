@@ -15,8 +15,8 @@ const SouthAfricaETFTickers = () => {
     script.async = true;
     script.innerHTML = JSON.stringify({
       symbols: [
-        { description: "", proName: "JSE:SBCOP" },
-        { description: "", proName: "JSE:HAR" },
+        { description: "", proName: "NYSE:GOLD" },
+        { description: "", proName: "AMEX:GDX" },
       ],
       isTransparent: false,
       showSymbolLogo: true,
