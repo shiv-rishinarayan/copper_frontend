@@ -3,7 +3,7 @@ import { FaLink } from "react-icons/fa6";
 import { COPPER_PRICES } from "@/src/api/copperAPI";
 
 const HomeCopperPrice = () => {
-  const [pgmPrices, setPgmPrices] = useState([]);
+  const [copperPrices, setCopperPrices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -16,15 +16,13 @@ const HomeCopperPrice = () => {
         }
         const data = await response.json();
 
-        // Sort data to ensure Platinum and Palladium come first
+        // Sort data to ensure Copper comes first
         const sortedData = data.sort((a, b) => {
-          if (a.pgm_name === "Platinum") return -1;
-          if (b.pgm_name === "Platinum") return 1;
-          if (a.pgm_name === "Palladium") return -1;
-          if (b.pgm_name === "Palladium") return 1;
+          if (a.metal_name === "Copper") return -1;
+          if (b.metal_name === "Copper") return 1;
           return 0;
         });
-        setPgmPrices(sortedData);
+        setCopperPrices(sortedData);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -58,8 +56,8 @@ const HomeCopperPrice = () => {
   };
 
   const renderRow = (metalData) => (
-    <tr className="text-sm hover:bg-accent/10" key={metalData.pgm_name}>
-      <td className="border-t px-4 py-2 font-sm">{metalData.pgm_name}</td>
+    <tr className="text-sm hover:bg-accent/10" key={metalData.metal_name}>
+      <td className="border-t px-4 py-2 font-sm">{metalData.metal_name}</td>
       <td className="border-t px-4 py-3">${formatValue(metalData.price)}</td>
       <td
         className={`border-t px-4 py-3 ${getChangeClass(
@@ -82,12 +80,7 @@ const HomeCopperPrice = () => {
       </td>
       <td className="border-t px-4 py-3 text-center">
         <a
-          href={
-            metalData.pgm_name === "Platinum" ||
-            metalData.pgm_name === "Palladium"
-              ? "https://www.goldapi.io/api/"
-              : "https://www.heraeus-precious-metals.com/en/precious-metal-prices-reports/precious-metal-charts"
-          }
+          href="https://www.lme.com/en/metals/non-ferrous/copper"
           target="_blank"
           rel="noopener noreferrer"
           className="text-black/70 hover:text-black/60"
@@ -110,7 +103,7 @@ const HomeCopperPrice = () => {
             <th className="border-t px-4 py-2">Source</th>
           </tr>
         </thead>
-        <tbody>{pgmPrices.map((metalData) => renderRow(metalData))}</tbody>
+        <tbody>{copperPrices.map((metalData) => renderRow(metalData))}</tbody>
       </table>
     </div>
   );

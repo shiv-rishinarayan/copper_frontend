@@ -406,25 +406,25 @@ const PlatinumTable = () => {
 
   const getSupplyData = (year, dataKey) => {
     const yearData =
-      year >= 2025 ? data.wpic_estimates[year] : data.published_platinum[year];
+      year >= 2025 ? data.wpic_estimates[year] : data.published_copper[year];
     return yearData.supply.refined_mine_production[dataKey];
   };
 
   const getRecyclingData = (year, dataKey) => {
     const yearData =
-      year >= 2025 ? data.wpic_estimates[year] : data.published_platinum[year];
+      year >= 2025 ? data.wpic_estimates[year] : data.published_copper[year];
     return yearData.supply.recycling[dataKey];
   };
 
   const getDemandData = (year, dataKey) => {
     const yearData =
-      year >= 2025 ? data.wpic_estimates[year] : data.published_platinum[year];
+      year >= 2025 ? data.wpic_estimates[year] : data.published_copper[year];
     return yearData.demand[dataKey];
   };
 
   const getInvestmentData = (year, dataKey) => {
     const yearData =
-      year >= 2025 ? data.wpic_estimates[year] : data.published_platinum[year];
+      year >= 2025 ? data.wpic_estimates[year] : data.published_copper[year];
     return yearData.demand.investment[dataKey];
   };
 
@@ -875,7 +875,7 @@ const PlatinumTable = () => {
                 >
                   {year >= 2025
                     ? data.wpic_estimates[year].supply.total_supply
-                    : data.published_platinum[year].supply.total_supply}
+                    : data.published_copper[year].supply.total_supply}
                 </td>
               ))}
             </tr>
@@ -966,7 +966,7 @@ const PlatinumTable = () => {
                 >
                   {year >= 2025
                     ? data.wpic_estimates[year].demand.total_demand
-                    : data.published_platinum[year].demand.total_demand}
+                    : data.published_copper[year].demand.total_demand}
                 </td>
               ))}
             </tr>
@@ -984,7 +984,7 @@ const PlatinumTable = () => {
                 >
                   {year >= 2025
                     ? data.wpic_estimates[year].supply_demand_balance
-                    : data.published_platinum[year].supply_demand_balance}
+                    : data.published_copper[year].supply_demand_balance}
                 </td>
               ))}
             </tr>
