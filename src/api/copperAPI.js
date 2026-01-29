@@ -20,7 +20,8 @@ export const MOST_FOLLOWED = `${BASE_URL}/api/most-followed-stocks/`;
 
 export const COPPER_STOCK_DETAIL = `${BASE_URL}/api/copper-stock-detail/`;
 
-export const STOCK_SCREENER = `${BASE_URL}/api/stock-metrics/`;
+// Updated to use local API route for stock metrics
+export const STOCK_SCREENER = '/api/stock-metrics';
 
 export const FOLLOWED_STOCKS = `${BASE_URL}/api/followed-stocks/`;
 

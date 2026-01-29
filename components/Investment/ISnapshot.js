@@ -46,7 +46,7 @@ const logos = [
   { name: "Clean Air Metals Inc.", image: "/snapshotImgs/CleanAir.jpg" },
 ];
 
-const ISnapshot = () => {
+const ISnapshot = ({ stockData = [] }) => {
   const [stocksData, setStocksData] = useState([]);
   const [error, setError] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -60,8 +60,28 @@ const ISnapshot = () => {
     const fetchStocks = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get(MOST_FOLLOWED);
-        setStocksData(response.data);
+        
+        // Try to fetch from external API first
+        try {
+          const response = await axios.get(MOST_FOLLOWED);
+          setStocksData(response.data);
+        } catch (apiError) {
+          console.log("External API not available, using local stock data");
+          
+          // Fallback to using passed stock data (first 12 stocks)
+          if (stockData && stockData.length > 0) {
+            const fallbackData = stockData.slice(0, 12).map(stock => ({
+              name: stock.company_name,
+              ticker: stock.ticker,
+              current_price: parseFloat(stock.last_price?.replace('$', '') || '0'),
+              intraday_change: 0, // We don't have this data
+              intraday_percentage: parseFloat(stock.intraday_percentage?.replace('%', '') || '0')
+            }));
+            setStocksData(fallbackData);
+          } else {
+            throw new Error("No stock data available");
+          }
+        }
       } catch (err) {
         console.error("Error fetching stock data:", err);
         setError("Failed to fetch data. Please try again later.");
@@ -70,7 +90,7 @@ const ISnapshot = () => {
       }
     };
     fetchStocks();
-  }, []);
+  }, [stockData]);
 
   const checkSubpageExists = async (stockTicker) => {
     try {
