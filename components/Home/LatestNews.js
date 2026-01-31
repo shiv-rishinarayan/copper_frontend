@@ -383,49 +383,50 @@
 
 import React, { useState, useEffect } from "react";
 import Loader from "../Loader";
-import { COPPER_NEWS } from "@/src/api/copperAPI";
+import { STOCK_NEWS } from "@/src/api/copperAPI";
 
 const LatestNews = () => {
   const [newsData, setNewsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [currentDate, setCurrentDate] = useState(new Date().toISOString());
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentDate(new Date().toISOString());
-    }, 60000);
-
-    return () => clearInterval(timer);
-  }, []);
 
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await fetch(COPPER_NEWS);
+        console.log('Fetching latest news from:', STOCK_NEWS);
+        const response = await fetch(STOCK_NEWS);
+        
         if (!response.ok) {
-          throw new Error("Failed to fetch news");
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
+        
         const data = await response.json();
+        console.log('Latest news data:', data);
+        
         if (!data || data.length === 0) {
           throw new Error("No news available");
         }
 
-        const processedData = data.map((news) => ({
-          ...news,
-          date: news.date || currentDate,
-        }));
+        // Process the data to add today's date for missing dates
+        const processedData = Array.isArray(data)
+          ? data.map((news) => ({
+              ...news,
+              date: news.date || new Date().toISOString(),
+            }))
+          : [];
 
         setNewsData(processedData);
+        setLoading(false);
       } catch (err) {
+        console.error('Error fetching latest news:', err);
         setError(err.message);
-      } finally {
+        setNewsData([]);
         setLoading(false);
       }
     };
 
     fetchNews();
-  }, [currentDate]);
+  }, []);
 
   const formatDate = (dateString) => {
     if (!dateString) return "";
@@ -443,16 +444,39 @@ const LatestNews = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-32">
-        <Loader />
+      <div>
+        <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
+          Latest Copper News
+        </h1>
+        <div className="flex justify-center items-center h-32">
+          <Loader />
+        </div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="flex justify-center items-center h-32 text-red-500">
-        <span>Error: {error}</span>
+      <div>
+        <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
+          Latest Copper News
+        </h1>
+        <div className="flex justify-center items-center h-32 text-red-500">
+          <span>Error: {error}</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (newsData.length === 0) {
+    return (
+      <div>
+        <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
+          Latest Copper News
+        </h1>
+        <div className="text-center py-8 text-gray-500">
+          No news available at this time
+        </div>
       </div>
     );
   }
@@ -480,11 +504,38 @@ const LatestNews = () => {
                   className="w-full h-64 object-cover mb-2 rounded-md"
                 />
               )}
+              
+              {/* Ticker Badge */}
+              {newsData[0].ticker && (
+                <div className="mb-2">
+                  <span className="bg-accent text-[11px] rounded-sm text-white px-2 py-1">
+                    {newsData[0].ticker}
+                  </span>
+                </div>
+              )}
+              
               <h2 className="text-lg font-semibold text-primary mb-1 hover:underline">
                 {newsData[0].title}
               </h2>
+              
+              {/* Company Name */}
+              {newsData[0].company_name && (
+                <p className="text-[13px] text-gray-600 mb-1">
+                  {newsData[0].company_name}
+                </p>
+              )}
+              
+              {/* Summary */}
+              {newsData[0].summary && (
+                <p className="text-[14px] text-gray-600 mb-2 line-clamp-2">
+                  {newsData[0].summary.length > 150 
+                    ? `${newsData[0].summary.substring(0, 150)}...`
+                    : newsData[0].summary}
+                </p>
+              )}
+              
               <p className="text-gray-500 text-sm">
-                {formatDate(newsData[0].date || currentDate)}
+                {formatDate(newsData[0].date)}
               </p>
             </a>
           )}
@@ -494,7 +545,7 @@ const LatestNews = () => {
         <div className="space-y-4">
           {newsData.slice(1, 4).map((news, index) => (
             <a
-              key={index}
+              key={news.id || index}
               href={news.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -508,11 +559,28 @@ const LatestNews = () => {
                 />
               )}
               <div className="flex flex-col justify-start">
+                {/* Ticker Badge */}
+                {news.ticker && (
+                  <div className="mb-1">
+                    <span className="bg-accent text-[10px] rounded-sm text-white px-2 py-1">
+                      {news.ticker}
+                    </span>
+                  </div>
+                )}
+                
                 <h3 className="text-sm font-medium text-primary line-clamp-2 text-left hover:underline">
                   {news.title}
                 </h3>
-                <p className="text-gray-500 text-xs mt-3">
-                  {formatDate(news.date || currentDate)}
+                
+                {/* Company Name */}
+                {news.company_name && (
+                  <p className="text-[11px] text-gray-600 mt-1">
+                    {news.company_name}
+                  </p>
+                )}
+                
+                <p className="text-gray-500 text-xs mt-2">
+                  {formatDate(news.date)}
                 </p>
               </div>
             </a>

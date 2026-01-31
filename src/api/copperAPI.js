@@ -8,9 +8,10 @@ export const SPORT_PRICE_CHART = `${BASE_URL}/api/spot-price-chart/`;
 
 export const COPPER_PRICES = `${BASE_URL}/api/copper-prices/`;
 
-export const PRESS_RELEASE = `${BASE_URL}/api/press-releases/`;
+// Updated to use local API routes for press releases and stock news
+export const PRESS_RELEASE = '/api/press-releases';
 
-export const STOCK_NEWS = `${BASE_URL}/api/stock-news/`;
+export const STOCK_NEWS = '/api/stock-news';
 
 export const SUBSTACKS = `${BASE_URL}/api/substack/`;
 

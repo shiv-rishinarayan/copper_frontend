@@ -139,12 +139,21 @@ import { STOCK_NEWS } from "@/src/api/copperAPI";
 const StockNews = () => {
   const [newsData, setNewsData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchNews = async () => {
       try {
+        console.log('Fetching stock news from:', STOCK_NEWS);
         const response = await fetch(STOCK_NEWS);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const data = await response.json();
+        console.log('Stock news data:', data);
+        
         // Process the data to add today's date for missing dates
         const processedData = Array.isArray(data)
           ? data.map((news) => ({
@@ -155,7 +164,8 @@ const StockNews = () => {
         setNewsData(processedData);
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching news:", error);
+        console.error("Error fetching stock news:", error);
+        setError(error.message);
         setNewsData([]);
         setLoading(false);
       }
@@ -188,7 +198,27 @@ const StockNews = () => {
   };
 
   if (loading) {
-    return <div className="text-center py-8">Loading...</div>;
+    return (
+      <div>
+        <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
+          Copper Stock News
+        </h1>
+        <div className="text-center py-8">Loading stock news...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div>
+        <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
+          Copper Stock News
+        </h1>
+        <div className="text-center py-8 text-red-500">
+          Error loading stock news: {error}
+        </div>
+      </div>
+    );
   }
 
   // Ensure newsData is an array and has content
@@ -202,7 +232,7 @@ const StockNews = () => {
           Copper Stock News
         </h1>
         <div className="text-center py-12 text-gray-600">
-          No news available at this time
+          No stock news available at this time
         </div>
       </div>
     );
@@ -234,16 +264,31 @@ const StockNews = () => {
                       <span className="bg-accent text-[11px] rounded-sm text-white px-2 py-1">
                         {featuredNews.ticker}
                       </span>
+                      {featuredNews.company_name && (
+                        <span className="bg-gray-100 text-[11px] rounded-sm text-gray-700 px-2 py-1">
+                          {featuredNews.company_name}
+                        </span>
+                      )}
                     </div>
                   </div>
 
                   <h3 className="text-[18px] font-medium leading-6 mb-2 group-hover:underline">
                     {featuredNews.title}
                   </h3>
+                  
+                  {/* Summary */}
+                  {featuredNews.summary && (
+                    <p className="text-[14px] text-gray-600 mb-2 line-clamp-2">
+                      {featuredNews.summary.length > 150 
+                        ? `${featuredNews.summary.substring(0, 150)}...`
+                        : featuredNews.summary}
+                    </p>
+                  )}
+                  
                   <div className="text-[14px] text-gray-500 space-x-2">
                     <span>{formatDate(featuredNews.date)}</span>
                     <span>|</span>
-                    <span>{featuredNews.provider}</span>
+                    <span>{featuredNews.provider || 'Unknown'}</span>
                   </div>
                 </div>
               </div>
@@ -254,14 +299,14 @@ const StockNews = () => {
         {/* Remaining News Section */}
         {remainingNews.length > 0 && (
           <div className="col-span-4 space-y-3">
-            {remainingNews.map((news) => (
+            {remainingNews.map((news, index) => (
               <a
                 href={news.url}
                 target="_blank"
-                key={news.id}
+                key={news.id || index}
                 className="flex items-center overflow-hidden group cursor-pointer border-b border-black/10 pb-2"
               >
-                <div>
+                <div className="flex-1">
                   <div className="mb-2">
                     <div className="flex gap-x-3">
                       <span className="bg-accent text-[11px] rounded-sm text-white px-2 py-1">
@@ -275,6 +320,14 @@ const StockNews = () => {
                       ? `${news.title.slice(0, 90)}...`
                       : news.title}
                   </h3>
+                  
+                  {/* Company name for smaller news */}
+                  {news.company_name && (
+                    <p className="text-[12px] text-gray-600 mb-1">
+                      {news.company_name}
+                    </p>
+                  )}
+                  
                   <div className="text-[12px] text-gray-500">
                     {formatDate(news.date)}
                   </div>
