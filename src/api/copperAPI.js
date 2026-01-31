@@ -6,18 +6,18 @@ export const COPPER_NEWS = `${BASE_URL}/api/copper_news/`;
 
 export const SPORT_PRICE_CHART = `${BASE_URL}/api/spot-price-chart/`;
 
-export const COPPER_PRICES = `${BASE_URL}/api/copper-prices/`;
+export const COPPER_PRICES = '/api/copper-prices';
 
 // Updated to use local API routes for press releases and stock news
 export const PRESS_RELEASE = '/api/press-releases';
 
 export const STOCK_NEWS = '/api/stock-news';
 
-export const SUBSTACKS = `${BASE_URL}/api/substack/`;
+export const SUBSTACKS = '/api/substacks';
 
 //INVESTMENT APIS
 
-export const MOST_FOLLOWED = `${BASE_URL}/api/most-followed-stocks/`;
+export const MOST_FOLLOWED = '/api/most-followed';
 
 export const COPPER_STOCK_DETAIL = `${BASE_URL}/api/copper-stock-detail/`;
 
