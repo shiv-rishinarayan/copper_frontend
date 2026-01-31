@@ -5,7 +5,7 @@ import LatestNews from "@/components/Home/LatestNews";
 import StockNews from "@/components/Home/StockNews";
 import Navbar from "@/components/Navbar";
 import MostFollowed from "@/components/Home/MostFollowed";
-import PlatinumLivePrice from "@/components/Home/PlatinumLivePrice";
+import CopperLivePrice from "@/components/Home/CopperLivePrice";
 import CopperTradingviewChart from "@/components/Home/CopperTradingviewChart";
 import StayAhead from "@/components/Home/StayAhead";
 import PressReleaseNews from "@/components/Home/PressReleaseNews";
@@ -97,7 +97,7 @@ const home = () => {
         </div>
         {/* right  */}
         <div className="w-full md:w-[26%] space-y-20">
-          <PlatinumLivePrice />
+          <CopperLivePrice />
           {/* <CopperTradingviewChart /> */}
           <MostFollowed />
           <PopularTools />

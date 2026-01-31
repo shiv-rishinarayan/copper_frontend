@@ -1,12 +1,8 @@
 import React from "react";
-import Link from "next/link";
 import Hero from "@/components/Home/Hero";
-import LatestNews from "@/components/Home/LatestNews";
 import StockNews from "@/components/Home/StockNews";
 import Navbar from "@/components/Navbar";
 import PopularIntradayReturn from "@/components/Home/MostFollowed";
-import PlatinumLivePrice from "@/components/Home/PlatinumLivePrice";
-import CopperTradingviewChart from "@/components/Home/CopperTradingviewChart";
 import StayAhead from "@/components/Home/StayAhead";
 import PressReleaseNews from "@/components/Home/PressReleaseNews";
 import PopularTools from "@/components/Home/PopularTools";
@@ -17,11 +13,11 @@ import Footer from "@/components/Footer";
 import TVCopper from "@/components/Home/TVCopper";
 import TVCopperETF from "@/components/Home/TVCopperETF";
 import PlainNews from "@/components/Home/PlainNews";
-import HomeInsiderTransactionTable from "@/components/Home/HomeInsiderTransactionTable";
 import ChartIridium from "@/components/Home/ChartIridium";
 import ChartRhodium from "@/components/Home/ChartRhodium";
 import ChartRuthenium from "@/components/Home/ChartRuthenium";
-import HomeCopperPrice from "@/components/Home/HomeCopperPrice";
+import DirectCopperPrice from "@/components/Home/DirectCopperPrice";
+import DirectHomeCopperPrice from "@/components/Home/DirectHomeCopperPrice";
 import SEO from "@/components/SEO";
 import StocksMarquee from "@/components/Home/StocksMarquee";
 
@@ -82,7 +78,7 @@ const home = () => {
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1 mt-14 md:mt-0">
               Prices
             </h1>
-            <HomeCopperPrice />
+            <DirectHomeCopperPrice />
           </div>
           <PlainNews />
         </div>
@@ -113,7 +109,7 @@ const home = () => {
         </div>
         {/* right  */}
         <div className="w-full lg:w-[26%] space-y-20">
-          <PlatinumLivePrice />
+          <DirectCopperPrice />
           {/* <CopperTradingviewChart /> */}
           <PopularIntradayReturn />
           <PopularTools />
