@@ -79,11 +79,11 @@ const Substacks = () => {
 
   if (loading) {
     return (
-      <div className="border border-black/10 rounded-lg pt-3 pl-3 pb-2 pr-3">
+      <div className="border border-black/10 rounded-lg pt-3 pb-1 pl-3 pr-3 ">
         <h2 className="flex items-center text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-1 mb-3">
           Copper Substacks
         </h2>
-        <div className="flex flex-col gap-11">
+        <div className="flex flex-col gap-7">
           <div className="flex justify-center items-center h-32">
             <div className="flex flex-col gap-2 flex-grow">
               <p className="text-xs font-semibold text-accent mb-1">Substack</p>
@@ -152,7 +152,7 @@ const Substacks = () => {
   }
 
   return (
-    <div className="border border-black/10 rounded-lg pt-3 pl-3 pb-2 pr-3 ">
+    <div className="border border-black/10 rounded-lg pt-3 pl-3 pr-3 ">
       <h2 className="flex items-center text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-1 mb-3">
         Copper Substacks
       </h2>
@@ -162,7 +162,7 @@ const Substacks = () => {
             key={post.id}
             href={post.url}
             target="_blank"
-            className="flex items-start justify-between space-x-4 pb-4 cursor-pointer group border-b border-gray-100 last:border-b-0"
+            className="flex items-start justify-between space-x-4 pb-1 cursor-pointer group border-b border-gray-100 last:border-b-0"
           >
             <div className="flex flex-col flex-grow">
               <p className="text-xs font-semibold text-accent mb-1">Substack</p>

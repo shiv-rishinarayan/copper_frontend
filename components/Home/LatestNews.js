@@ -382,7 +382,7 @@
 // export default LatestNews;
 
 import React, { useState, useEffect } from "react";
-import Loader from "../Loader";
+// import Loader from "../Loader";
 import { GENERAL_NEWS } from "@/src/api/copperAPI";
 
 // Updated: 2026-02-15 - Using ONLY general news endpoint

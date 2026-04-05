@@ -235,7 +235,9 @@ const MostFollowed = () => {
           throw new Error("Failed to fetch data");
         }
         const data = await response.json();
-        setStockData(data.slice(0, 10)); // Limit to 10-12 stocks
+        console.log("most folloerwr", data.data);
+        console.log("data ye ", data?.data?.most_watched);
+        setStockData(data?.data?.most_watched?.slice(0, 10)); // Limit to 10-12 stocks
       } catch (err) {
         setError(err.message);
       } finally {
@@ -249,7 +251,7 @@ const MostFollowed = () => {
   const checkSubpageExists = async (stockTicker) => {
     try {
       const response = await axios.get(
-        `${COPPER_STOCK_DETAIL}?stock_ticker=${stockTicker}`
+        `${COPPER_STOCK_DETAIL}?stock_ticker=${stockTicker}`,
       );
       return response.data.exists ?? true;
     } catch (error) {
@@ -275,8 +277,47 @@ const MostFollowed = () => {
     setErrorMessage("");
   };
 
+  if (loading) {
+    return (
+      <div className="border border-black/10 rounded-lg pt-3 pl-3 pb-2 pr-3">
+        <table className="w-full text-left text-sm font-sans">
+          <thead>
+            <tr>
+              <th className="pb-2 text-xs font-medium text-black1/60">
+                COMPANY
+              </th>
+              <th className="pb-2 text-xs font-medium text-black1/60 text-right">
+                PRICE
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {Array.from({ length: 10 }).map((_, index) => (
+              <tr key={index} className="border-b border-gray-200">
+                {/* Company column */}
+                <td className="py-3">
+                  <div className="h-4 w-16 bg-gray-200 rounded animate-pulse mb-1" />
+                  <div className="h-3.5 w-28 bg-gray-100 rounded animate-pulse" />
+                </td>
+
+                <td className="py-2 text-right flex flex-col items-end">
+                  <div className="h-4 w-14 bg-gray-200 rounded animate-pulse mb-1" />
+                  <div className="h-3.5 w-10 bg-gray-100 rounded animate-pulse" />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <div className="mt-2 text-left">
+          <div className="h-3.5 w-20 bg-gray-200 rounded animate-pulse" />
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="w-full">
+    <div className="border border-black/10 rounded-lg pt-3 pl-3 pb-2 pr-3">
       {isModalOpen && (
         <div
           className="fixed inset-0 flex items-center justify-center bg-black/50 z-50 transition-colors"
@@ -316,7 +357,7 @@ const MostFollowed = () => {
             {stockData
               .sort(
                 (a, b) =>
-                  (b.intraday_percentage || 0) - (a.intraday_percentage || 0)
+                  (b.intraday_percentage || 0) - (a.intraday_percentage || 0),
               ) // Sort by intraday percentage
               .map((stock) => (
                 <tr
@@ -333,7 +374,9 @@ const MostFollowed = () => {
                     <div className="text-gray-500">{stock.name || "N/A"}</div>
                   </td>
                   <td className="py-2 text-right">
-                    <div>${parseFloat(stock.current_price || 0).toFixed(2)}</div>
+                    <div>
+                      ${parseFloat(stock.current_price || 0).toFixed(2)}
+                    </div>
                     <div
                       className={`${
                         parseFloat(stock.intraday_percentage || 0) < 0

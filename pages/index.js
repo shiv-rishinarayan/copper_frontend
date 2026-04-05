@@ -19,6 +19,7 @@ import HomeInsiderTransactions from "@/components/Home/HomeInsiderTransactions";
 import SEO from "@/components/SEO";
 import StocksMarquee from "@/components/Home/StocksMarquee";
 import MostFollowedStocksTable from "@/components/Home/MostFollowedStocksTable";
+import CopperTradingviewChart from "@/components/Home/CopperTradingviewChart";
 
 const home = () => {
   return (
@@ -39,7 +40,7 @@ const home = () => {
 
       {/* part1 */}
 
-      <div className="flex flex-col lg:flex-row justify-between gap-6 px-3 md:px-10 lg:px-12 py-8 mb-8">
+      <div className="flex flex-col lg:flex-row justify-between gap-6 px-3 md:px-10 lg:px-12 ">
         {/* 1  */}
         <div className="w-full flex flex-col gap-6 space-y-6">
           <div className="flex flex-col md:flex-row gap-6 mr-5">
@@ -67,7 +68,6 @@ const home = () => {
             <LatestNews />
           </div>
         </div>
-
         {/* 2  */}
         <div className="w-full lg:w-[24%] flex flex-col space-y-6">
           <div className="border border-black/10 rounded-lg pt-3 pl-3 pb-2 pr-3 ">
@@ -79,40 +79,37 @@ const home = () => {
             </h1>
             <TVCopper />
           </div>
-
           <Substacks />
-
           <DailyNewsletterAd />
         </div>
       </div>
 
       {/* part2  */}
-      {/* <div className="flex flex-col lg:flex-row justify-between gap-6 px-3 md:px-10 lg:px-12 py-8 mb-8"> */}
       <div className="px-3 md:px-10 lg:px-12">
         {/* left  */}
         <div className="w-full flex flex-col space-y-12">
           <div className="border border-white/10"></div>
-          <div className="flex flex-col md:flex-row justify-between gap-14">
-            <PressReleaseNews />
-            <div className="flex flex-col gap-4 ">
+          <div className="grid grid-cols-1 md:grid-cols-9 gap-8">
+            <div className="md:col-span-6">
+              <PressReleaseNews />
+            </div>
+            <div className="md:col-span-3 flex flex-col gap-4 ">
               <PopularTools />
               <DailyNewsletterAd />
             </div>
           </div>
 
           <div className="flex flex-col w-full gap-6">
-            <StockNews />
+            <div className="grid grid-cols-1 md:grid-cols-9 gap-8">
+              <div className="md:col-span-6">
+                <StockNews />
+              </div>
+              <div className="md:col-span-3">
+                <PopularIntradayReturn />
+              </div>
+            </div>
             <MostPopularNews />
           </div>
-        </div>
-        {/* right  */}
-        <div className="w-full lg:w-[26%] space-y-12">
-          {/* <CopperTradingviewChart /> */}
-
-          {/* REVIEW: */}
-          {/* <PopularIntradayReturn /> */}
-
-          {/* <Substacks /> */}
         </div>
       </div>
 

@@ -199,18 +199,68 @@ const StockNews = () => {
 
   if (loading) {
     return (
-      <div>
+      <div className="border border-black/10 rounded-lg pt-3 pl-3 pr-3">
         <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
           Copper Stock News
         </h1>
-        <div className="text-center py-8">Loading stock news...</div>
+
+        <div className="grid grid-cols-1 md:grid-cols-8 gap-6 gap-x-8">
+          <div className="col-span-4">
+            <div className="w-full h-52 bg-gray-200 rounded-lg animate-pulse" />
+
+            <div className="pt-8">
+              <div className="flex gap-x-3 mb-2">
+                <div className="h-5 w-14 bg-gray-200 rounded-sm animate-pulse" />
+                <div className="h-5 w-24 bg-gray-100 rounded-sm animate-pulse" />
+              </div>
+
+              <div className="space-y-2 mb-2">
+                <div className="h-5 w-full bg-gray-200 rounded animate-pulse" />
+                <div className="h-5 w-4/5 bg-gray-200 rounded animate-pulse" />
+              </div>
+
+              <div className="space-y-1.5 mb-2">
+                <div className="h-3.5 w-full bg-gray-100 rounded animate-pulse" />
+                <div className="h-3.5 w-3/4 bg-gray-100 rounded animate-pulse" />
+              </div>
+
+              <div className="flex items-center gap-x-2">
+                <div className="h-3.5 w-20 bg-gray-100 rounded animate-pulse" />
+                <div className="h-3.5 w-px bg-gray-200" />
+                <div className="h-3.5 w-24 bg-gray-100 rounded animate-pulse" />
+              </div>
+            </div>
+          </div>
+
+          <div className="col-span-4 space-y-2">
+            {Array.from({ length: 5 }).map((_, index) => (
+              <div
+                key={index}
+                className="flex items-center overflow-hidden border-b border-black/10 pb-[22px]"
+              >
+                <div className="flex-1">
+                  <div className="mb-2">
+                    <div className="h-5 w-14 bg-gray-200 rounded-sm animate-pulse" />
+                  </div>
+
+                  <div className="space-y-1.5 mb-1">
+                    <div className="h-4 w-full bg-gray-200 rounded animate-pulse" />
+                    <div className="h-4 w-3/4 bg-gray-200 rounded animate-pulse" />
+                  </div>
+
+                  <div className="h-3 w-32 bg-gray-100 rounded animate-pulse mb-1" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div>
+      <div className="border border-black/10 rounded-lg pt-3 pl-3 pr-3">
         <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
           Copper Stock News
         </h1>
@@ -242,23 +292,23 @@ const StockNews = () => {
   const remainingNews = validNewsData.slice(1, 5);
 
   return (
-    <div className="border border-black/10 rounded-lg pt-3 pl-3 pb-2 pr-3">
+    <div className="border border-black/10 rounded-lg pt-3 pl-3 pr-3">
       <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
         Copper Stock News
       </h1>
 
-      <div className="flex flex-col md:flex-row gap-16">
+      <div className="grid grid-cols-1 md:grid-cols-8 gap-6 gap-x-8">
         {/* Featured News Section */}
         {featuredNews && (
-          <div className="col-span-5">
+          <div className="col-span-4">
             <a href={featuredNews.url} target="_blank" className="block">
               <div className="overflow-hidden group cursor-pointer">
                 <img
                   src={featuredNews.image_url || "/no-image.png"}
                   alt={featuredNews.title}
-                  className="w-full h-[300px] object-cover rounded-md"
+                  className="w-full h-full object-cover rounded-lg"
                 />
-                <div className="pt-4">
+                <div className="pt-8">
                   <div className="mb-2">
                     <div className="flex gap-x-3">
                       <span className="bg-accent text-[11px] rounded-sm text-white px-2 py-1">
@@ -298,13 +348,13 @@ const StockNews = () => {
 
         {/* Remaining News Section */}
         {remainingNews.length > 0 && (
-          <div className=" space-y-3">
+          <div className="col-span-4 space-y-3">
             {remainingNews.map((news, index) => (
               <a
                 href={news.url}
                 target="_blank"
                 key={news.id || index}
-                className="flex items-center overflow-hidden group cursor-pointer border-b border-black/10 pb-2"
+                className="flex items-center overflow-hidden group cursor-pointer border-b border-black/10 pb-[22px]"
               >
                 <div className="flex-1">
                   <div className="mb-2">
@@ -316,8 +366,8 @@ const StockNews = () => {
                   </div>
 
                   <h3 className="text-[15px] leading-6 mb-1 font-medium group-hover:underline">
-                    {news.title?.length > 105
-                      ? `${news.title.slice(0, 105)}...`
+                    {news.title?.length > 90
+                      ? `${news.title.slice(0, 90)}...`
                       : news.title}
                   </h3>
 
