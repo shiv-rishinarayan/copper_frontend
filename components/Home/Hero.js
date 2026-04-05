@@ -34,7 +34,7 @@ const Hero = () => {
       <div className="absolute inset-0">
         <video
           ref={videoRef}
-          src="/HeroBG.mp4"
+          src="/copper.mp4"
           autoPlay
           loop
           muted

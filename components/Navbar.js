@@ -15,7 +15,7 @@
 
 //   const navLinks = [
 //     { name: "Home", path: "/" },
-//     { name: "News", path: "/news" },
+//     { name: "News", path: "/news" },f
 //     { name: "Copper Investments", path: "/investments" },
 //     { name: "Community", path: "/community" },
 //     { name: "Videos", path: "/videos" },
@@ -215,7 +215,7 @@ const Navbar = () => {
           alt="Logo"
           width={50}
           height={50}
-          className="cursor-pointer scale-[1.9] xl:ml-7"
+          className="cursor-pointer ml-3 scale-[1.9] xl:ml-7"
           onClick={() => navigateTo("/")}
         />
 
@@ -245,7 +245,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Buttons (Visible after xl) */}
-        {isLoggedIn ? (
+        {/* {isLoggedIn ? (
           <button
             className="text-2xl hidden xl:block text-primary py-3 hover:text-accent/90"
             onClick={() => navigateTo("/dashboard")}
@@ -259,7 +259,7 @@ const Navbar = () => {
           >
             Login
           </button>
-        )}
+        )} */}
 
         {/* Mobile Menu Toggle (Hidden after xl) */}
         <div className="xl:hidden">
@@ -297,7 +297,7 @@ const Navbar = () => {
                 {name}
               </button>
             ))}
-            {isLoggedIn ? (
+            {/* {isLoggedIn ? (
               <button
                 className="bg-accent text-white px-5 py-2 rounded-sm hover:bg-accent/90"
                 onClick={() => navigateTo("/dashboard")}
@@ -311,7 +311,7 @@ const Navbar = () => {
               >
                 Login
               </button>
-            )}
+            )} */}
           </motion.div>
         </>
       )}

@@ -14,10 +14,10 @@ const CopperLivePrice = () => {
           throw new Error("Failed to fetch data");
         }
         const data = await response.json();
-        
+
         // Find the Copper data from the response
-        const copperInfo = data.find((item) => 
-          item.metal_name === "Copper" || item.pgm_name === "Copper"
+        const copperInfo = data.find(
+          (item) => item.metal_name === "Copper" || item.pgm_name === "Copper",
         );
         setCopperData(copperInfo);
       } catch (error) {
@@ -34,9 +34,7 @@ const CopperLivePrice = () => {
   if (loading) {
     return (
       <div className="text-center">
-        <h2 className="flex text-[21px] md:text-[16px] lg:text-[21px] cambay font-bold text-black1/80 capitalize border-b border-black1/20 pb-2 mb-6 lg:mb-4">
-          Live Copper Price
-        </h2>
+        <h2 className="flex text-[21px] md:text-[16px] lg:text-[21px] cambay font-bold text-black1/80 capitalize border-b border-black1/20 pb-2 mb-6 lg:mb-4"></h2>
         <div className="flex justify-center items-center h-32">
           <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-800"></div>
           <span className="ml-3 text-gray-800 font-semibold">Loading...</span>
@@ -48,9 +46,7 @@ const CopperLivePrice = () => {
   if (error) {
     return (
       <div className="text-center">
-        <h2 className="flex text-[21px] md:text-[16px] lg:text-[21px] cambay font-bold text-black1/80 capitalize border-b border-black1/20 pb-2 mb-6 lg:mb-4">
-          Live Copper Price
-        </h2>
+        <h2 className="flex text-[21px] md:text-[16px] lg:text-[21px] cambay font-bold text-black1/80 capitalize border-b border-black1/20 pb-2 mb-6 lg:mb-4"></h2>
         <div className="text-center py-8 text-red-500">
           Error loading copper price: {error}
         </div>
@@ -61,9 +57,7 @@ const CopperLivePrice = () => {
   if (!copperData) {
     return (
       <div className="text-center">
-        <h2 className="flex text-[21px] md:text-[16px] lg:text-[21px] cambay font-bold text-black1/80 capitalize border-b border-black1/20 pb-2 mb-6 lg:mb-4">
-          Live Copper Price
-        </h2>
+        <h2 className="flex text-[21px] md:text-[16px] lg:text-[21px] cambay font-bold text-black1/80 capitalize border-b border-black1/20 pb-2 mb-6 lg:mb-4"></h2>
         <div className="text-center py-8 text-gray-500">
           No copper price data available
         </div>
@@ -73,18 +67,18 @@ const CopperLivePrice = () => {
 
   const copperSpotPrice = parseFloat(copperData.price || 0).toFixed(2);
   const change = parseFloat(copperData.price_change || 0).toFixed(2);
-  const changePercentage = parseFloat(copperData.price_change_percent || 0).toFixed(2);
+  const changePercentage = parseFloat(
+    copperData.price_change_percent || 0,
+  ).toFixed(2);
 
   return (
     <div className="text-center">
-      <h2 className="flex text-[21px] md:text-[16px] lg:text-[21px] cambay font-bold text-black1/80 capitalize border-b border-black1/20 pb-2 mb-6 lg:mb-4">
-        Live Copper Price
-      </h2>
+      <h2 className="flex text-[21px] md:text-[16px] lg:text-[21px] cambay font-bold text-black1/80 capitalize border-b border-black1/20 pb-2 mb-6 lg:mb-4"></h2>
 
       <div className="bg-accent/30 p-3 md:p-2 lg:p-3 py-4 w-full border border-accent/30 rounded-md flex justify-between items-center">
         <div className="h-8 md:h-6 lg:h-8">
           <img
-            className="w-16 md:w-12 lg:w-28 h-16 md:h-6 lg:h-10 sm:h-10 sm:w-28"
+            className="w-16 md:w-12 lg:w-28 h-10 md:h-6 lg:h-10 sm:h-10 sm:w-28"
             src="/logo.jpg"
             alt="Copper Tracker Logo"
           />
@@ -121,7 +115,9 @@ const CopperLivePrice = () => {
             <li className="w-[33%]">
               <p
                 className={`${
-                  parseFloat(changePercentage) >= 0 ? "text-green-600" : "text-red-500"
+                  parseFloat(changePercentage) >= 0
+                    ? "text-green-600"
+                    : "text-red-500"
                 }`}
               >
                 {parseFloat(changePercentage) >= 0

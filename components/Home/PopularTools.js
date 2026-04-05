@@ -3,7 +3,7 @@ import { BsArrowUpRight } from "react-icons/bs";
 
 const PopularTools = () => {
   return (
-    <div>
+    <div className="border border-black/10 rounded-lg pt-3 pl-3 pb-2 pr-3">
       {/* heading  */}
       <div className="flex justify-between border-b border-black1/20 pb-2 mb-4">
         <h2 className="flex items-center text-[21px] font-bold cambay capitalize ">

@@ -394,16 +394,16 @@ const LatestNews = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        console.log('Fetching latest news from:', GENERAL_NEWS);
+        console.log("Fetching latest news from:", GENERAL_NEWS);
         const response = await fetch(GENERAL_NEWS);
-        
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         const data = await response.json();
-        console.log('Latest news data:', data);
-        
+        console.log("Latest news data:", data);
+
         if (!data || data.length === 0) {
           console.log("No news available");
           setNewsData([]);
@@ -422,7 +422,7 @@ const LatestNews = () => {
         setNewsData(processedData);
         setLoading(false);
       } catch (err) {
-        console.error('Error fetching latest news:', err);
+        console.error("Error fetching latest news:", err);
         setError(err.message);
         setNewsData([]);
         setLoading(false);
@@ -448,12 +448,46 @@ const LatestNews = () => {
 
   if (loading) {
     return (
-      <div>
+      <div className="border border-black/10 rounded-xl pl-5 mr-3 pb-2 pt-4">
         <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
           Latest Copper News
         </h1>
-        <div className="flex justify-center items-center h-32">
-          <Loader />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {/* Left Side: Main News with Image */}
+          <div className="flex flex-col gap-5 ">
+            <div className="w-full h-64 bg-zinc-400 animate-pulse rounded-lg"></div>
+            <div className="flex flex-col gap-2">
+              <div className="w-12 h-4 bg-black/40 animate-pulse rounded-sm"></div>
+              <div className="w-64 h-4 bg-black/40 animate-pulse rounded-sm"></div>
+              <div className="w-16 h-4 bg-black/40 animate-pulse rounded-sm"></div>
+            </div>
+          </div>
+
+          {/* Right Side: Three Vertical News with Images */}
+          <div className="space-y-4">
+            <div className="flex gap-4">
+              <div className="w-24 h-24 bg-black/50 animate-pulse rounded-lg"></div>
+              <div className="flex flex-col gap-3 ">
+                <div className="w-24 bg-black/30 animate-pulse h-5 rounded-lg"></div>
+                <div className="w-16 bg-black/50 animate-pulse h-3 rounded-lg"></div>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-24 h-24 bg-black/50 animate-pulse rounded-lg"></div>
+              <div className="flex flex-col gap-3 ">
+                <div className="w-24 bg-black/30 animate-pulse h-5 rounded-lg"></div>
+                <div className="w-16 bg-black/50 animate-pulse h-3 rounded-lg"></div>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-24 h-24 bg-black/50 animate-pulse rounded-lg"></div>
+              <div className="flex flex-col gap-3 ">
+                <div className="w-24 bg-black/30 animate-pulse h-5 rounded-lg"></div>
+                <div className="w-16 bg-black/50 animate-pulse h-3 rounded-lg"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -462,7 +496,7 @@ const LatestNews = () => {
   if (error) {
     return (
       <div>
-        <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
+        <h1 className="text-[21px] border border-black/10 rounded-xl p-3 mr-2 cambay font-bold mb-5 border-b pb-2">
           Latest Copper News
         </h1>
         <div className="flex justify-center items-center h-32 text-red-500">
@@ -486,12 +520,12 @@ const LatestNews = () => {
   }
 
   return (
-    <div>
+    <div className="border border-black/10 rounded-xl pl-5 mr-3 pb-2 pt-4">
       <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
         Latest Copper News
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Left Side: Main News with Image */}
         <div>
           {newsData[0] && (
@@ -508,7 +542,7 @@ const LatestNews = () => {
                   className="w-full h-64 object-cover mb-2 rounded-md"
                 />
               )}
-              
+
               {/* Source or Ticker Badge */}
               {(newsData[0].source || newsData[0].ticker) && (
                 <div className="mb-2">
@@ -517,27 +551,27 @@ const LatestNews = () => {
                   </span>
                 </div>
               )}
-              
+
               <h2 className="text-lg font-semibold text-primary mb-1 hover:underline">
                 {newsData[0].title}
               </h2>
-              
+
               {/* Summary or Content */}
               {(newsData[0].summary || newsData[0].content) && (
                 <p className="text-[14px] text-gray-600 mb-2 line-clamp-2">
-                  {(newsData[0].summary || newsData[0].content).length > 150 
+                  {(newsData[0].summary || newsData[0].content).length > 150
                     ? `${(newsData[0].summary || newsData[0].content).substring(0, 150)}...`
-                    : (newsData[0].summary || newsData[0].content)}
+                    : newsData[0].summary || newsData[0].content}
                 </p>
               )}
-              
+
               {/* Company Name (for stock news) */}
               {newsData[0].company_name && (
                 <p className="text-[13px] text-gray-600 mb-1">
                   {newsData[0].company_name}
                 </p>
               )}
-              
+
               <p className="text-gray-500 text-sm">
                 {formatDate(newsData[0].date)}
               </p>
@@ -571,18 +605,18 @@ const LatestNews = () => {
                     </span>
                   </div>
                 )}
-                
+
                 <h3 className="text-sm font-medium text-primary line-clamp-2 text-left hover:underline">
                   {news.title}
                 </h3>
-                
+
                 {/* Company Name (for stock news) */}
                 {news.company_name && (
                   <p className="text-[11px] text-gray-600 mt-1">
                     {news.company_name}
                   </p>
                 )}
-                
+
                 <p className="text-gray-500 text-xs mt-2">
                   {formatDate(news.date)}
                 </p>

@@ -49,8 +49,8 @@ const home = () => {
               <h1 className="text-[21px] cambay font-bold">
                 Recent Canadian Company Insider Transactions
               </h1>
-              <a 
-                href="/investments" 
+              <a
+                href="/investments"
                 className="text-sm text-accent hover:text-accent/80 transition-colors"
               >
                 view all

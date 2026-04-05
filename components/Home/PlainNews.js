@@ -218,7 +218,7 @@ import { PRESS_RELEASE } from "@/src/api/copperAPI";
 import Loader from "../Loader";
 
 const PlainNews = () => {
-  const [newsData, setNewsData] = useState([]);
+  const [ newsData, setNewsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 

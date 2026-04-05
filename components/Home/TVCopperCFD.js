@@ -13,7 +13,7 @@ function CopperCFDTradingViewWidget() {
     script.innerHTML = `
         {
           "width": "100%",
-          "height": "250",
+          "height": "255",
           "symbol": "CAPITALCOM:COPPER",
           "interval": "D",
           "timezone": "Etc/UTC",
@@ -32,7 +32,7 @@ function CopperCFDTradingViewWidget() {
   }, []);
 
   return (
-    <div className="tradingview-widget-container" ref={container}>
+    <div className="tradingview-widget-container rounded-xl" ref={container}>
       <div className="tradingview-widget-container__widget"></div>
     </div>
   );

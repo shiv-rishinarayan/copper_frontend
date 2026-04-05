@@ -144,16 +144,16 @@ const StockNews = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        console.log('Fetching stock news from:', STOCK_NEWS);
+        console.log("Fetching stock news from:", STOCK_NEWS);
         const response = await fetch(STOCK_NEWS);
-        
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         const data = await response.json();
-        console.log('Stock news data:', data);
-        
+        console.log("Stock news data:", data);
+
         // Process the data to add today's date for missing dates
         const processedData = Array.isArray(data)
           ? data.map((news) => ({
@@ -242,12 +242,12 @@ const StockNews = () => {
   const remainingNews = validNewsData.slice(1, 5);
 
   return (
-    <div>
+    <div className="border border-black/10 rounded-lg pt-3 pl-3 pb-2 pr-3">
       <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
         Copper Stock News
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-9 gap-6">
+      <div className="flex flex-col md:flex-row gap-16">
         {/* Featured News Section */}
         {featuredNews && (
           <div className="col-span-5">
@@ -256,7 +256,7 @@ const StockNews = () => {
                 <img
                   src={featuredNews.image_url || "/no-image.png"}
                   alt={featuredNews.title}
-                  className="w-full h-[300px] object-cover rounded-sm"
+                  className="w-full h-[300px] object-cover rounded-md"
                 />
                 <div className="pt-4">
                   <div className="mb-2">
@@ -275,20 +275,20 @@ const StockNews = () => {
                   <h3 className="text-[18px] font-medium leading-6 mb-2 group-hover:underline">
                     {featuredNews.title}
                   </h3>
-                  
+
                   {/* Summary */}
                   {featuredNews.summary && (
                     <p className="text-[14px] text-gray-600 mb-2 line-clamp-2">
-                      {featuredNews.summary.length > 150 
+                      {featuredNews.summary.length > 150
                         ? `${featuredNews.summary.substring(0, 150)}...`
                         : featuredNews.summary}
                     </p>
                   )}
-                  
+
                   <div className="text-[14px] text-gray-500 space-x-2">
                     <span>{formatDate(featuredNews.date)}</span>
                     <span>|</span>
-                    <span>{featuredNews.provider || 'Unknown'}</span>
+                    <span>{featuredNews.provider || "Unknown"}</span>
                   </div>
                 </div>
               </div>
@@ -298,7 +298,7 @@ const StockNews = () => {
 
         {/* Remaining News Section */}
         {remainingNews.length > 0 && (
-          <div className="col-span-4 space-y-3">
+          <div className=" space-y-3">
             {remainingNews.map((news, index) => (
               <a
                 href={news.url}
@@ -316,18 +316,18 @@ const StockNews = () => {
                   </div>
 
                   <h3 className="text-[15px] leading-6 mb-1 font-medium group-hover:underline">
-                    {news.title?.length > 90
-                      ? `${news.title.slice(0, 90)}...`
+                    {news.title?.length > 105
+                      ? `${news.title.slice(0, 105)}...`
                       : news.title}
                   </h3>
-                  
+
                   {/* Company name for smaller news */}
                   {news.company_name && (
                     <p className="text-[12px] text-gray-600 mb-1">
                       {news.company_name}
                     </p>
                   )}
-                  
+
                   <div className="text-[12px] text-gray-500">
                     {formatDate(news.date)}
                   </div>

@@ -9,17 +9,17 @@ const DailyNewsletterAd = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-accent to-accent/50 rounded-lg p-8">
+    <div className="bg-gradient-to-b from-accent to-accent/50 rounded-lg px-8 pt-4 pb-4">
       {/* Heading Section */}
-      <h2 className="text-white text-3xl font-semibold cambay">
+      <h2 className="text-white text-2xl font-semibold cambay">
         Receive our <span className="text-white">FREE</span>
       </h2>
-      <h2 className="text-white text-3xl font-bold cambay">
+      <h2 className="text-white text-2xl font-bold cambay">
         Weekly Newsletter.
       </h2>
 
       {/* Button Section */}
-      <div className="mt-6">
+      <div className="mt-3">
         <button
           onClick={handleSubscribe}
           className="w-full text-sm bg-white hover:bg-white/80 text-black font-bold py-[10px] rounded transition-colors duration-200"

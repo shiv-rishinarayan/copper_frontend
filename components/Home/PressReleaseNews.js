@@ -12,19 +12,19 @@ const PressRelease = () => {
   useEffect(() => {
     const fetchPressReleases = async () => {
       try {
-        console.log('Fetching press releases from:', PRESS_RELEASE);
+        console.log("Fetching press releases from:", PRESS_RELEASE);
         const res = await fetch(PRESS_RELEASE);
-        
+
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
-        
+
         const data = await res.json();
-        console.log('Press releases data:', data);
+        console.log("Press releases data:", data);
         setPressReleases(Array.isArray(data) ? data : []);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching press releases:', error);
+        console.error("Error fetching press releases:", error);
         setError(error.message);
         setPressReleases([]);
         setLoading(false);
@@ -41,7 +41,7 @@ const PressRelease = () => {
 
   // Format date function
   const formatDate = (dateString) => {
-    if (!dateString) return '';
+    if (!dateString) return "";
     try {
       return new Date(dateString).toLocaleDateString("en-US", {
         year: "numeric",
@@ -50,17 +50,44 @@ const PressRelease = () => {
       });
     } catch (error) {
       console.warn("Invalid date format:", dateString);
-      return '';
+      return "";
     }
   };
 
   if (loading) {
     return (
-      <div>
+      <div className="border border-black/10 rounded-lg pt-3 pl-3 pb-2 pr-3 w-full">
+        {/* Heading */}
         <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
           Copper Company Press Release
         </h1>
-        <div className="text-center py-8">Loading press releases...</div>
+
+        {/* Press Release Layout */}
+        <div className="">
+          {/* Vertical List of Press Releases */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 gap-x-16 gap-y-16">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => {
+              return (
+                <div className="flex overflow-hidden group cursor-pointer border-b border-black/10 pb-4 rounded-md">
+                  <div className="flex-1">
+                    {/* Ticker Badge */}
+                    <div className="bg-zinc-300 animate-pulse w-10 h-3  text-white mb-2 rounded-md"></div>
+
+                    {/* Title */}
+                    <h3 className="bg-zinc-300 w-96 h-5 animate-pulse mb-2 rounded-md"></h3>
+
+                    {/* Company Name */}
+
+                    <p className="bg-zinc-300 animate-pulse w-44 h-3 mb-2 rounded-md"></p>
+
+                    {/* Date */}
+                    <div className="bg-zinc-300 animate-pulse w-9 h-3 rounded-md"></div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     );
   }
@@ -92,16 +119,16 @@ const PressRelease = () => {
   }
 
   return (
-    <div>
+    <div className="border border-black/10 rounded-lg pt-3 pl-3 pb-2 pr-3">
       {/* Heading */}
       <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
         Copper Company Press Release
       </h1>
 
       {/* Press Release Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+      <div className="">
         {/* Vertical List of Press Releases */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 gap-x-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 gap-x-16">
           {pressReleases.slice(0, 8).map((release) => (
             <div
               key={release.id}
@@ -117,21 +144,21 @@ const PressRelease = () => {
                     </span>
                   </div>
                 )}
-                
+
                 {/* Title */}
                 <h3 className="text-[15px] leading-6 mb-1 font-medium group-hover:underline">
                   {release.title && release.title.length > 120
                     ? `${release.title.substring(0, 120)}...`
-                    : release.title || 'No title available'}
+                    : release.title || "No title available"}
                 </h3>
-                
+
                 {/* Company Name */}
                 {release.company_name && (
                   <p className="text-[13px] text-gray-600 mb-1">
                     {release.company_name}
                   </p>
                 )}
-                
+
                 {/* Date */}
                 <div className="text-[12px] text-gray-500">
                   {formatDate(release.date || release.created_at)}

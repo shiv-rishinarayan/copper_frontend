@@ -138,14 +138,14 @@ const DPricePremium = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-14">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-14 ">
         {charts.map((chart) => (
           <div
             key={chart.id}
             onClick={() => handleNavigation(chart.path)}
-            className="block cursor-pointer"
+            className="block cursor-pointer "
           >
-            <div className="-ml-2 w-full h-[200px] md:h-[300px] flex items-center justify-center">
+            <div className="-ml-2 w-full h-[200px] md:h-[300px] flex items-center justify-center ">
               {/* <img
                 src={chart.image}
                 alt={`Chart ${chart.id}`}
