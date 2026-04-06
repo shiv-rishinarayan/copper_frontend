@@ -173,7 +173,7 @@ const Navbar = () => {
   const router = useRouter();
   const userData = GetUserData();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   const navLinks = [
@@ -198,7 +198,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    setIsLoggedIn(!!userData?.email);
+    // setIsLoggedIn(!!userData?.email);
     setIsLoading(false);
   }, [userData]);
 

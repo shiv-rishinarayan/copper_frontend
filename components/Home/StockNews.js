@@ -292,7 +292,7 @@ const StockNews = () => {
   const remainingNews = validNewsData.slice(1, 5);
 
   return (
-    <div className="border border-black/10 rounded-lg pt-3 pl-3 pr-3">
+    <div className="border border-black/10 rounded-lg pt-3 pl-3 pr-3 pb-7">
       <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
         Copper Stock News
       </h1>

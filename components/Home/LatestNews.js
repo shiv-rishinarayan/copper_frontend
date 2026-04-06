@@ -520,7 +520,7 @@ const LatestNews = () => {
   }
 
   return (
-    <div className="border border-black/10 rounded-xl pl-5 mr-3 pb-2 pt-4">
+    <div className="border border-black/10 rounded-xl pl-5 mr-3 pb-14 pt-4">
       <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
         Latest Copper News
       </h1>
