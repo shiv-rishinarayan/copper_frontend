@@ -19,7 +19,6 @@ import HomeInsiderTransactions from "@/components/Home/HomeInsiderTransactions";
 import SEO from "@/components/SEO";
 import StocksMarquee from "@/components/Home/StocksMarquee";
 import MostFollowedStocksTable from "@/components/Home/MostFollowedStocksTable";
-import CopperTradingviewChart from "@/components/Home/CopperTradingviewChart";
 
 const home = () => {
   return (
@@ -42,7 +41,7 @@ const home = () => {
 
       <div className="flex flex-col lg:flex-row justify-between gap-6 px-3 md:px-10 lg:px-12 ">
         {/* 1  */}
-        <div className="w-full flex flex-col gap-6 space-y-6">
+        <div className="w-full flex flex-col gap-6 ">
           <div className="flex flex-col md:flex-row gap-6 mr-5">
             {/* graph  */}
             <div className="w-full border border-black/10 rounded-lg pt-3 pl-3 pb-2 pr-3 ">
@@ -64,7 +63,6 @@ const home = () => {
             <HomeInsiderTransactions />
           </div>
           <div>
-            {" "}
             <LatestNews />
           </div>
         </div>

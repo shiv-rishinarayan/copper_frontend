@@ -15,7 +15,7 @@
 
 //   const navLinks = [
 //     { name: "Home", path: "/" },
-//     { name: "News", path: "/news" },f
+//     { name: "News", path: "/news" },
 //     { name: "Copper Investments", path: "/investments" },
 //     { name: "Community", path: "/community" },
 //     { name: "Videos", path: "/videos" },

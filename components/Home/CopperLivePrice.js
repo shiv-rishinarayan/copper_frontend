@@ -73,7 +73,10 @@ const CopperLivePrice = () => {
 
   return (
     <div className="text-center">
-      <h2 className="flex text-[21px] md:text-[16px] lg:text-[21px] cambay font-bold text-black1/80 capitalize border-b border-black1/20 pb-2 mb-6 lg:mb-4"></h2>
+      <h2 className="flex text-[21px] md:text-[16px] lg:text-[21px] cambay font-bold text-black1/80 capitalize border-b border-black1/20 pb-2 mb-6 lg:mb-4">
+        {" "}
+        Live Copper Price
+      </h2>
 
       <div className="bg-accent/30 p-3 md:p-2 lg:p-3 py-4 w-full border border-accent/30 rounded-md flex justify-between items-center">
         <div className="h-8 md:h-6 lg:h-8">
