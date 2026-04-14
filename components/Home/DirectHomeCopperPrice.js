@@ -97,11 +97,15 @@ const DirectHomeCopperPrice = () => {
   };
 
   const renderRow = (metalData) => (
-    <tr className="text-md  hover:bg-accent/10" key={metalData.metal_name}>
-      <td className="border-t pr-24 py-3 font-sm">{metalData.metal_name}</td>
-      <td className="border-t pl-24 py-4">${formatValue(metalData.price)}</td>
+    <tr className="text-md hover:bg-accent/10" key={metalData.metal_name}>
+      <td className="border-t 2xl:pr-24 py-3 font-sm">
+        {metalData.metal_name}
+      </td>
+      <td className="border-t 2xl:pl-24 py-4">
+        ${formatValue(metalData.price)}
+      </td>
       <td
-        className={`border-t pl-24 py-3 ${getChangeClass(
+        className={`border-t 2xl:pl-24 py-3 ${getChangeClass(
           parseFloat(metalData.price_change),
         )}`}
       >
@@ -112,7 +116,7 @@ const DirectHomeCopperPrice = () => {
             : `$0.0000`}
       </td>
       <td
-        className={`border-t pl-24 py-3 ${getChangeClass(
+        className={`border-t 2xl:pl-24 py-3 ${getChangeClass(
           parseFloat(metalData.price_change_percent),
         )}`}
       >
@@ -178,9 +182,9 @@ const DirectHomeCopperPrice = () => {
         <thead className="text-left">
           <tr className="text-black/60">
             <th className="border-t py-2">Metal</th>
-            <th className="border-t px-[94px] py-2">Price (USD/lb)</th>
-            <th className="border-t px-24 py-2">Change</th>
-            <th className="border-t px-[87px] py-2">% Change</th>
+            <th className="border-t 2xl:px-[94px] py-2">Price (USD/lb)</th>
+            <th className="border-t 2xl:px-24 py-2">Change</th>
+            <th className="border-t 2xl:px-[87px] py-2">% Change</th>
           </tr>
         </thead>
         <tbody>

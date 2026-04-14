@@ -39,36 +39,42 @@ const home = () => {
 
       {/* part1 */}
 
-      <div className="flex flex-col lg:flex-row justify-between gap-6 px-3 md:px-10 lg:px-12 ">
+      <div className="flex flex-col lg:flex-row justify-between gap-6 px-3  xl:px-3  2xl:px-12 ">
         {/* 1  */}
-        <div className="w-full flex flex-col gap-6 ">
-          <div className="flex flex-col md:flex-row gap-6 mr-5">
+        <div className="bg-red-00 w-full lg:w-[76%] flex flex-col gap-6 md:gap-9 2xl:gap-6 ">
+          {/* 1 */}
+          <div className="grid grid-cols-1 md:grid-cols-9 gap-5 ">
             {/* graph  */}
-            <div className="w-full border border-black/10 rounded-lg pt-3 pl-3 pb-2 pr-3 ">
+            <div className="md:col-span-4 xl:col-span-3 w-full  border border-black/10 rounded-lg pt-3 pl-3 pb-2 pr-3 ">
               <h1 className="text-[21px] font-bold mb-2 pb-1">
                 Copper Price Chart
               </h1>
               <TVCopperCFD />
             </div>
             {/* table  */}
-            <div className="bg-white border border-black/10 rounded-lg pt-3 pl-3 pb-2">
+            <div className="md:col-span-5 xl:col-span-6 bg-white border border-black/10 rounded-lg pt-3 pl-3 pb-2">
               <h1 className="text-[21px] cambay font-bold mb-2">Prices</h1>
               <DirectHomeCopperPrice />
             </div>
           </div>
-          <div className="border border-black/10 rounded-xl p-3 mr-2">
+
+          {/* 2 */}
+          <div className="flex flex-col w-full border border-black/10 rounded-xl p-3 ">
             <h1 className="text-[21px] cambay font-bold mb-2  pb-1">
               Recent Activities
             </h1>
             <HomeInsiderTransactions />
           </div>
+
+          {/* 3 */}
           <div>
             <LatestNews />
           </div>
         </div>
+
         {/* 2  */}
         <div className="w-full lg:w-[24%] flex flex-col space-y-6">
-          <div className="border border-black/10 rounded-lg pt-3 pl-3 pb-2 pr-3 ">
+          <div className="border border-black/10 rounded-lg pt-3 pl-3 pb-2 pr-1">
             <DirectCopperPrice />
           </div>
           <div className="border border-black/10 rounded-lg pt-3 pl-3 pb-2 pr-3 ">
@@ -83,7 +89,7 @@ const home = () => {
       </div>
 
       {/* part2  */}
-      <div className="px-3 md:px-10 lg:px-12">
+      <div className="px-3 xl:px-3  2xl:px-12">
         {/* left  */}
         <div className="w-full flex flex-col space-y-12">
           <div className="border border-white/10"></div>
@@ -93,7 +99,10 @@ const home = () => {
             </div>
             <div className="md:col-span-3 flex flex-col gap-4 ">
               <PopularTools />
-              <DailyNewsletterAd />
+              {/* // CHECK: */}
+              <div className="hidden xl:block">
+                <DailyNewsletterAd />
+              </div>
             </div>
           </div>
 

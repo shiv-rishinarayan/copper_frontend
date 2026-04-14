@@ -42,7 +42,7 @@ const MostPopularNews = () => {
 
         <div className="border-black/10 rounded-lg pl-3 pb-2 pr-3">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-5">
-            {Array.from({ length: 6 }).map((_, index) => (
+            {Array.from({ length: 8 }).map((_, index) => (
               <div
                 key={index}
                 className="flex items-center w-full border-b border-gray-300 pb-7"

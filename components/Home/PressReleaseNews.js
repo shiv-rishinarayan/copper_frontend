@@ -65,10 +65,13 @@ const PressRelease = () => {
         {/* Press Release Layout */}
         <div className="">
           {/* Vertical List of Press Releases */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-7 gap-x-16 gap-y-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-7 gap-x-16 gap-y-20 2xl:gap-y-[71px]">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => {
               return (
-                <div key={i} className="flex overflow-hidden group cursor-pointer border-b border-black/10 pb-4 rounded-md">
+                <div
+                  key={i}
+                  className="flex overflow-hidden group cursor-pointer border-b border-black/10 pb-4 rounded-md"
+                >
                   <div className="flex-1">
                     {/* Ticker Badge */}
                     <div className="bg-zinc-300 animate-pulse w-10 h-3  text-white mb-2 rounded-md"></div>
@@ -128,7 +131,7 @@ const PressRelease = () => {
       {/* Press Release Layout */}
       <div className="">
         {/* Vertical List of Press Releases */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-7 gap-x-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-5 2xl:gap-7 gap-x-16">
           {pressReleases.slice(0, 8).map((release) => (
             <div
               key={release.id}

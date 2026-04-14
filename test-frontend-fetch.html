@@ -1,41 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
+  <head>
     <title>Test General News API</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Testing General News API</h1>
     <button onclick="testAPI()">Test API</button>
     <div id="result"></div>
 
     <script>
-        async function testAPI() {
-            const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = 'Loading...';
-            
-            try {
-                console.log('Fetching from /api/general-news');
-                const response = await fetch('/api/general-news');
-                console.log('Response status:', response.status);
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                
-                const data = await response.json();
-                console.log('Data received:', data);
-                
-                resultDiv.innerHTML = `
+      async function testAPI() {
+        const resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = "Loading...";
+
+        try {
+          console.log("Fetching from /api/general-news");
+          const response = await fetch("/api/general-news");
+          console.log("Response status:", response.status);
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const data = await response.json();
+          console.log("Data received:", data);
+
+          resultDiv.innerHTML = `
                     <h2>Success!</h2>
                     <p>Received ${data.length} records</p>
                     <h3>First Record:</h3>
                     <pre>${JSON.stringify(data[0], null, 2)}</pre>
                 `;
-            } catch (error) {
-                console.error('Error:', error);
-                resultDiv.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
-            }
+        } catch (error) {
+          console.error("Error:", error);
+          resultDiv.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
         }
+      }
     </script>
-</body>
+  </body>
 </html>

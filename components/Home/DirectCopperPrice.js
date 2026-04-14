@@ -60,17 +60,18 @@ const DirectCopperPrice = () => {
         <h2 className="flex text-[21px] md:text-[16px] lg:text-[21px] cambay font-bold text-black1/80 capitalize border-b border-black1/20 pb-2 mb-6 lg:mb-4">
           Live Copper Price
         </h2>
-        <div className="bg-accent/30 p-3 md:p-2 lg:p-3 py-4 w-full border border-accent/30 rounded-md flex justify-between items-center">
-          <div className="h-8 md:h-6 lg:h-8">
+
+        <div className="bg-accent/30 p-3 md:p-2 lg:p-3 py-4 w-full border border-accent/30 rounded-md flex gap-2 items-center">
+          <div className="h-8 md:h-8 lg:h-8">
             <img
-              className="w-28 md:w-6 lg:w-28 h-9 md:h-6 lg:h-10 sm:h-10 sm:w-28"
+              className="w-28 md:w-28 lg:w-28 h-10 md:h-8 lg:h-8 2xl:h-10 sm:h-10 sm:w-28"
               src="/logo.jpg"
               alt="Copper Tracker Logo"
             />
           </div>
 
           <div className="w-[60%] md:w-[70%] pr-1">
-            <ul className="flex items-center gap-x-5 md:gap-x-3 lg:gap-x-5 text-md md:text-[10px] lg:text-sm">
+            <ul className="flex items-center gap-x-5 md:gap-x-3 lg:gap-x-3 text-sm md:text-lg xl:text-sm md:text-[10px] lg:text-sm">
               <li className="w-[33%] text-black1/80 font-medium">Price</li>
               <li className="w-[33%] text-black1/80 font-medium">Change</li>
               <li className="w-[33%] text-black1/80 font-medium">%Change</li>
@@ -78,9 +79,9 @@ const DirectCopperPrice = () => {
           </div>
         </div>
 
-        <div className="mt-1 bg-accent/30 p-3 md:p-2 lg:p-3 py-4 w-full border border-accent/30 rounded-md flex justify-between items-center">
+        <div className="mt-1 bg-accent/30 p-3 md:p-2 lg:p-3 py-4 w-full border border-accent/30 rounded-md flex gap-2 items-center">
           <div>
-            <h3 className="text-xs md:text-[9px] lg:text-sm font-bold text-green">
+            <h3 className="text-xs md:text-lg xl:text-xs xl:text-left 2xl:text-sm 2xl:text-center font-bold text-green">
               Copper Spot Price
             </h3>
           </div>
@@ -88,22 +89,22 @@ const DirectCopperPrice = () => {
           <div className="w-[60%] md:w-[70%]">
             <ul className="flex items-center gap-x-5 md:gap-x-3 lg:gap-x-5 text-xs md:text-[9px] lg:text-sm font-semibold text-green">
               <li className="w-[33%]">
-                <p className="w-12 h-5 bg-black/30 animate-pulse rounded-lg"></p>
+                <p className="w-9 h-5 bg-zinc-200 animate-pulse rounded-lg"></p>
               </li>
               <li className="w-[33%]">
-                <p className="w-12 h-5 bg-black/30 animate-pulse rounded-lg"></p>
+                <p className="w-12 h-5 bg-zinc-200 animate-pulse rounded-lg"></p>
               </li>
               <li className="w-[33%]">
-                <p className="w-12 h-5 bg-black/30 animate-pulse rounded-lg"></p>
+                <p className="w-12 h-5 bg-zinc-200 animate-pulse rounded-lg"></p>
               </li>
             </ul>
           </div>
         </div>
         <div className="mt-2 text-start">
-          <p className="text-xs min-w-25 h-5 text-gray-600 bg-black/30 animate-pulse rounded-lg"></p>
-          <p className="text-xs text-orange-600 mt-1 bg-black/30 animate-pulse rounded-lg"></p>
+          <p className="text-xs w-24 h-5 text-gray-600 bg-zinc-200 animate-pulse rounded-lg"></p>
+          <p className="text-xs text-orange-600 mt-1 bg-zinc-200 animate-pulse rounded-lg"></p>
 
-          <p className="text-xs text-red-500 mt-1 bg-black/30 animate-pulse rounded-lg "></p>
+          <p className="text-xs text-red-500 mt-1 bg-zinc-200 animate-pulse rounded-lg "></p>
 
           <p className="font-medium text-date text-sm md:text-xs lg:text-sm">
             <a
@@ -146,17 +147,17 @@ const DirectCopperPrice = () => {
         Live Copper Price
       </h2>
 
-      <div className="bg-accent/30 p-3 md:p-2 lg:p-3 py-4 w-full border border-accent/30 rounded-md flex justify-between items-center">
-        <div className="h-8 md:h-6 lg:h-8">
+      <div className="bg-accent/30 p-3 md:p-2 lg:p-3 py-4 w-full border border-accent/30 rounded-md flex gap-2 items-center">
+        <div className="h-8 md:h-12 lg:h-8">
           <img
-            className="w-28 md:w-12 lg:w-28 h-10 md:h-6 lg:h-10 sm:h-10 sm:w-28"
+            className="w-28 md:w-36 xl:w-28 h-10 md:h-12 xl:h-8 2xl:h-10 sm:h-10 sm:w-28"
             src="/logo.jpg"
             alt="Copper Tracker Logo"
           />
         </div>
 
         <div className="w-[60%] md:w-[70%] pr-1">
-          <ul className="flex items-center gap-x-5 md:gap-x-3 lg:gap-x-5 text-sm md:text-[10px] lg:text-sm">
+          <ul className="flex items-center gap-x-5 md:gap-x-3 lg:gap-x-3 text-sm md:text-lg xl:text-sm md:text-[10px] lg:text-sm">
             <li className="w-[33%] text-black1/80 font-medium">Price</li>
             <li className="w-[33%] text-black1/80 font-medium">Change</li>
             <li className="w-[33%] text-black1/80 font-medium">%Change</li>
@@ -164,15 +165,15 @@ const DirectCopperPrice = () => {
         </div>
       </div>
 
-      <div className="mt-1 bg-accent/30 p-3 md:p-2 lg:p-3 py-4 w-full border border-accent/30 rounded-md flex justify-between items-center">
+      <div className="mt-1 bg-accent/30 p-3 md:p-2 lg:p-3 py-4 w-full border border-accent/30 rounded-md flex gap-2 items-center">
         <div>
-          <h3 className="text-xs md:text-[9px] lg:text-sm font-bold text-green">
+          <h3 className="text-xs md:text-lg xl:text-xs xl:text-left 2xl:text-sm 2xl:text-center font-bold text-green">
             Copper Spot Price
           </h3>
         </div>
 
         <div className="w-[60%] md:w-[70%]">
-          <ul className="flex items-center gap-x-5 md:gap-x-3 lg:gap-x-5 text-xs md:text-[9px] lg:text-sm font-semibold text-green">
+          <ul className="flex items-center gap-x-5 md:gap-x-3 lg:gap-x-3 text-xs md:text-lg lg:text-sm font-semibold text-green">
             <li className="w-[33%]">
               <p>${price}</p>
             </li>

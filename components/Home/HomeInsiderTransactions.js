@@ -65,7 +65,7 @@ const HomeInsiderTransactions = () => {
     //   </div>
     // );
     return (
-      <div className="overflow-auto md:overflow-visible border border-black/10 rounded-xl custom-scrollbar-hidden">
+      <div className="overflow-auto md:overflow-scroll 2xl:overflow-visible border border-black/10 rounded-xl custom-scrollbar-hidden">
         <table className="table-auto w-full border-collapse text-md ">
           <thead className="">
             <tr className="text-black/60">
@@ -128,9 +128,9 @@ const HomeInsiderTransactions = () => {
   }
 
   return (
-    <div className="overflow-auto md:overflow-visible custom-scrollbar-hidden">
+    <div className="overflow-auto md:overflow-scroll 2xl:overflow-visible custom-scrollbar-hidden">
       <table className="table-auto w-full border-collapse text-md ">
-        <thead className="text-left">
+        <thead className="text-left ">
           <tr className="text-black/60">
             <th className="border-t px-10 py-2">Country</th>
             <th className="border-t px-10 py-2">Company</th>

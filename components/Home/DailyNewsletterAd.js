@@ -9,12 +9,12 @@ const DailyNewsletterAd = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-accent to-accent/50 rounded-lg px-8 pt-4 pb-4">
+    <div className="bg-gradient-to-b from-accent to-accent/50 rounded-lg px-8 pt-4 pb-4 xl:py-2 2xl:py-4">
       {/* Heading Section */}
-      <h2 className="text-white text-2xl font-semibold cambay">
-        Receive our <span className="text-white">FREE</span>
+      <h2 className="text-white text-2xl xl:text-xl 2xl:text-2xl  font-semibold cambay">
+        Receive our <span className="text-white xl:text-xl">FREE</span>
       </h2>
-      <h2 className="text-white text-2xl font-bold cambay">
+      <h2 className="text-white text-2xl xl:text-xl 2xl:text-2xl font-bold cambay">
         Weekly Newsletter.
       </h2>
 

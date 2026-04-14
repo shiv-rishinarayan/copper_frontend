@@ -133,7 +133,7 @@
 // export default StockNews;
 
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import { STOCK_NEWS } from "@/src/api/copperAPI";
 
 const StockNews = () => {
@@ -236,7 +236,7 @@ const StockNews = () => {
             {Array.from({ length: 5 }).map((_, index) => (
               <div
                 key={index}
-                className="flex items-center overflow-hidden border-b border-black/10 pb-[22px]"
+                className="flex items-center overflow-hidden border-b border-black/10 pb-[22px] md:pb-[4px] "
               >
                 <div className="flex-1">
                   <div className="mb-2">
@@ -246,6 +246,7 @@ const StockNews = () => {
                   <div className="space-y-1.5 mb-1">
                     <div className="h-4 w-full bg-gray-200 rounded animate-pulse" />
                     <div className="h-4 w-3/4 bg-gray-200 rounded animate-pulse" />
+                    <div className="h-3 w-3/4 bg-gray-200 rounded animate-pulse" />
                   </div>
 
                   <div className="h-3 w-32 bg-gray-100 rounded animate-pulse mb-1" />
@@ -354,7 +355,7 @@ const StockNews = () => {
                 href={news.url}
                 target="_blank"
                 key={news.id || index}
-                className="flex items-center overflow-hidden group cursor-pointer border-b border-black/10 pb-[22px]"
+                className="flex items-center overflow-hidden group cursor-pointer border-b border-black/10 pb-[22px] md:pb-[4px] 2xl:pb-[22px]"
               >
                 <div className="flex-1">
                   <div className="mb-2">

@@ -81,14 +81,14 @@ const CopperLivePrice = () => {
       <div className="bg-accent/30 p-3 md:p-2 lg:p-3 py-4 w-full border border-accent/30 rounded-md flex justify-between items-center">
         <div className="h-8 md:h-6 lg:h-8">
           <img
-            className="w-16 md:w-12 lg:w-28 h-10 md:h-6 lg:h-10 sm:h-10 sm:w-28"
+            className="w-16 md:w-10 2xl:w-26 h-10 md:h-6 lg:h-10 sm:h-10 sm:w-28"
             src="/logo.jpg"
             alt="Copper Tracker Logo"
           />
         </div>
 
         <div className="w-[60%] md:w-[70%] pr-1">
-          <ul className="flex items-center gap-x-5 md:gap-x-3 lg:gap-x-5 text-xs md:text-[10px] lg:text-sm">
+          <ul className="flex items-center gap-x-5 md:gap-x-3 lg:gap-x-3 xl:gap-x-3 2xl-gap-5 text-xs md:text-[10px] lg:text-xs">
             <li className="w-[33%] text-black1/80 font-medium">Price</li>
             <li className="w-[33%] text-black1/80 font-medium">Change</li>
             <li className="w-[33%] text-black1/80 font-medium">% Change</li>

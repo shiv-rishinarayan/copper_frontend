@@ -458,33 +458,39 @@ const LatestNews = () => {
           <div className="flex flex-col gap-5 ">
             <div className="w-full h-64 bg-zinc-400 animate-pulse rounded-lg"></div>
             <div className="flex flex-col gap-2">
-              <div className="w-12 h-4 bg-black/40 animate-pulse rounded-sm"></div>
-              <div className="w-64 h-4 bg-black/40 animate-pulse rounded-sm"></div>
-              <div className="w-16 h-4 bg-black/40 animate-pulse rounded-sm"></div>
+              <div className="w-12 h-4 bg-zinc-200 animate-pulse rounded-sm"></div>
+              <div className="w-64 h-4 bg-zinc-200 animate-pulse rounded-sm"></div>
+              <div className="w-16 h-4 bg-zinc-200 animate-pulse rounded-sm"></div>
             </div>
           </div>
 
           {/* Right Side: Three Vertical News with Images */}
-          <div className="space-y-4">
+          <div className="space-y-4 xl:space-y-8 2xl:space-y-7">
             <div className="flex gap-4">
-              <div className="w-24 h-24 bg-black/50 animate-pulse rounded-lg"></div>
+              <div className="w-24 h-24 bg-zinc-200 animate-pulse rounded-lg"></div>
               <div className="flex flex-col gap-3 ">
-                <div className="w-24 bg-black/30 animate-pulse h-5 rounded-lg"></div>
-                <div className="w-16 bg-black/50 animate-pulse h-3 rounded-lg"></div>
+                <div className="w-10 bg-zinc-200 animate-pulse h-5 rounded-lg"></div>
+                <div className="w-72 bg-zinc-200 animate-pulse h-5 rounded-lg"></div>
+                <div className="w-56 bg-zinc-200 animate-pulse h-3 rounded-lg"></div>
+                <div className="w-4 bg-zinc-200 animate-pulse h-3 rounded-lg"></div>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="w-24 h-24 bg-black/50 animate-pulse rounded-lg"></div>
+              <div className="w-24 h-24 bg-zinc-200 animate-pulse rounded-lg"></div>
               <div className="flex flex-col gap-3 ">
-                <div className="w-24 bg-black/30 animate-pulse h-5 rounded-lg"></div>
-                <div className="w-16 bg-black/50 animate-pulse h-3 rounded-lg"></div>
+                <div className="w-10 bg-zinc-200 animate-pulse h-5 rounded-lg"></div>
+                <div className="w-72 bg-zinc-200 animate-pulse h-5 rounded-lg"></div>
+                <div className="w-56 bg-zinc-200 animate-pulse h-3 rounded-lg"></div>
+                <div className="w-4 bg-zinc-200 animate-pulse h-3 rounded-lg"></div>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="w-24 h-24 bg-black/50 animate-pulse rounded-lg"></div>
+              <div className="w-24 h-24 bg-zinc-200 animate-pulse rounded-lg"></div>
               <div className="flex flex-col gap-3 ">
-                <div className="w-24 bg-black/30 animate-pulse h-5 rounded-lg"></div>
-                <div className="w-16 bg-black/50 animate-pulse h-3 rounded-lg"></div>
+                <div className="w-10 bg-zinc-200 animate-pulse h-5 rounded-lg"></div>
+                <div className="w-72 bg-zinc-200 animate-pulse h-5 rounded-lg"></div>
+                <div className="w-56 bg-zinc-200 animate-pulse h-3 rounded-lg"></div>
+                <div className="w-4 bg-zinc-200 animate-pulse h-3 rounded-lg"></div>
               </div>
             </div>
           </div>
@@ -520,7 +526,7 @@ const LatestNews = () => {
   }
 
   return (
-    <div className="border border-black/10 rounded-xl pl-5 mr-3 pb-14 pt-4">
+    <div className="border border-black/10 rounded-xl pl-5 md:pb-7 2xl:pb-3 pt-4">
       <h1 className="text-[21px] cambay font-bold mb-5 border-b border-black/10 pb-2">
         Latest Copper News
       </h1>

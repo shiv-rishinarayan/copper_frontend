@@ -83,40 +83,40 @@ const Substacks = () => {
         <h2 className="flex items-center text-[19px] md:text-[21px] font-bold cambay border-b border-gray-300 pb-1 mb-3">
           Copper Substacks
         </h2>
-        <div className="flex flex-col gap-7">
+        <div className="flex flex-col gap-7 md:gap-8 2xl:gap-3">
           <div className="flex justify-center items-center h-32">
             <div className="flex flex-col gap-2 flex-grow">
               <p className="text-xs font-semibold text-accent mb-1">Substack</p>
-              <h3 className="text-md bg-black/40 w-40 h-6 animate-pulse"></h3>
-              <p className="text-sm bg-black/40 w-44 h-12 animate-pulse"></p>
-              <span className="text-xs bg-black/40 w-10 h-2 animate-pulse"></span>
+              <h3 className="text-md bg-black/40 w-40 h-6 animate-pulse rounded-md"></h3>
+              <p className="text-sm bg-black/40 w-44 md:w-3/4 h-12 animate-pulse rounded-md"></p>
+              <span className="text-xs bg-black/40 w-10 h-2 animate-pulse rounded-md"></span>
             </div>
             <span className="ml-3 text-gray-800 w-20 h-16 bg-black/40 animate-pulse rounded-lg"></span>
           </div>
           <div className="flex justify-center items-center h-32">
             <div className="flex flex-col gap-2 flex-grow">
               <p className="text-xs font-semibold text-accent mb-1">Substack</p>
-              <h3 className="text-md bg-black/40 w-40 h-6 animate-pulse"></h3>
-              <p className="text-sm bg-black/40 w-44 h-12 animate-pulse"></p>
-              <span className="text-xs bg-black/40 w-10 h-2 animate-pulse"></span>
+              <h3 className="text-md bg-black/40 w-40 h-6 animate-pulse rounded-md"></h3>
+              <p className="text-sm bg-black/40 w-44 md:w-3/4 h-12 animate-pulse rounded-md"></p>
+              <span className="text-xs bg-black/40 w-10 h-2 animate-pulse rounded-md"></span>
             </div>
             <span className="ml-3 text-gray-800 w-20 h-16 bg-black/40 animate-pulse rounded-lg"></span>
           </div>
           <div className="flex justify-center items-center h-32">
             <div className="flex flex-col gap-2 flex-grow">
               <p className="text-xs font-semibold text-accent mb-1">Substack</p>
-              <h3 className="text-md bg-black/40 w-40 h-6 animate-pulse"></h3>
-              <p className="text-sm bg-black/40 w-44 h-12 animate-pulse"></p>
-              <span className="text-xs bg-black/40 w-10 h-2 animate-pulse"></span>
+              <h3 className="text-md bg-black/40 w-40 h-6 animate-pulse rounded-md"></h3>
+              <p className="text-sm bg-black/40 w-44 md:w-3/4 h-12 animate-pulse rounded-md"></p>
+              <span className="text-xs bg-black/40 w-10 h-2 animate-pulse rounded-md"></span>
             </div>
             <span className="ml-3 text-gray-800 w-20 h-16 bg-black/40 animate-pulse rounded-lg"></span>
           </div>
           <div className="flex justify-center items-center h-32">
             <div className="flex flex-col gap-2 flex-grow">
               <p className="text-xs font-semibold text-accent mb-1">Substack</p>
-              <h3 className="text-md bg-black/40 w-40 h-6 animate-pulse"></h3>
-              <p className="text-sm bg-black/40 w-44 h-12 animate-pulse"></p>
-              <span className="text-xs bg-black/40 w-10 h-2 animate-pulse"></span>
+              <h3 className="text-md bg-black/40 w-40 h-6 animate-pulse rounded-md"></h3>
+              <p className="text-sm bg-black/40 w-44 md:w-3/4 xl:w-44 h-12 animate-pulse rounded-md"></p>
+              <span className="text-xs bg-black/40 w-10 h-2 animate-pulse rounded-md"></span>
             </div>
             <span className="ml-3 text-gray-800 w-20 h-16 bg-black/40 animate-pulse rounded-lg"></span>
           </div>
@@ -172,7 +172,7 @@ const Substacks = () => {
               </h3>
 
               {post.content && (
-                <p className="text-sm text-gray-600 mt-1 line-clamp-2">
+                <p className="text-sm xl:text-xs 2xl:text-sm text-gray-600 mt-1 line-clamp-2">
                   {post.content}
                 </p>
               )}

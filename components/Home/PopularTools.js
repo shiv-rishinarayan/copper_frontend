@@ -6,7 +6,7 @@ const PopularTools = () => {
     <div className="border border-black/10 rounded-lg pt-3 pl-3 pb-2 pr-3">
       {/* heading  */}
       <div className="flex justify-between border-b border-black1/20 pb-2 mb-4">
-        <h2 className="flex items-center text-[21px] font-bold cambay capitalize ">
+        <h2 className="flex items-center text-[21px] md:text-[18px] xl:text-[21px] font-bold cambay capitalize ">
           Popular Tools
         </h2>
 
@@ -19,7 +19,7 @@ const PopularTools = () => {
       </div>
 
       {/* cards  */}
-      <div className="flex flex-col gap-y-3">
+      <div className="flex flex-col gap-y-3 md:gap-y-0 xl:gap-y-3">
         {/* c 1  */}
         <a href="/investments?tab=stock-screener">
           <div className="w-full bg-gray-100 p-4 py-7 border border-gray-300 rounded-sm relative group hover:bg-accent/15 hover:scale-[1.02] transition-all duration-200">
