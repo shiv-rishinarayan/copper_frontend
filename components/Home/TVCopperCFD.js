@@ -25,7 +25,7 @@ function CopperCFDTradingViewWidget() {
           "allow_symbol_change": false,
           "save_image": false,
           "calendar": false,
-          "hide_volume": true,lassName="border border-black/10 rounded-lg pt-3 pl-3 pb-2 pr-3 ">
+          "hide_volume": true className="border border-black/10 rounded-lg pt-3 pl-3 pb-2 pr-3 ">
             <h1 className="text-[21px] cambay font-bold mb-3 border-b border-black/10 pb-1">
               Copper Futures
             </h1>

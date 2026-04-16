@@ -9,6 +9,12 @@ import Footer from "@/components/Footer";
 import DSupply from "@/components/Data/DSupply";
 import DWPICSupply from "@/components/Data/DWPICSupply";
 import SEO from "@/components/SEO";
+import SubNav from "@/components/Data/SubNav";
+import LivePrices from "@/components/Data/LivePrices";
+import Inventory from "@/components/Data/Inventory";
+import Treatment from "@/components/Data/Treatment";
+import MacroIndicators from "@/components/Data/MacroIndicators";
+import Minesupply from "@/components/Data/MineSupply";
 
 const Data = () => {
   const { query } = useRouter();
@@ -24,8 +30,14 @@ const Data = () => {
       />
       <Navbar />
       <DataHero />
-      {/* tabs  */}
-      <div>
+      <SubNav />
+      <LivePrices />
+      <Inventory />
+      <Treatment />
+      <MacroIndicators /> 
+      <Minesupply />
+
+      {/* <div>
         <TabsSection />
         <div className="mt-6">
           {currentTab === "priceandpremiums" && <DPricePremium />}
@@ -33,7 +45,7 @@ const Data = () => {
           {currentTab === "supply" && <DSupply />}
           {currentTab === "wpicsupply" && <DWPICSupply />}
         </div>
-      </div>
+      </div> */}
 
       <div className="mt-24">
         <Footer />

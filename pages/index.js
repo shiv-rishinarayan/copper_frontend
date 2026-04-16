@@ -41,7 +41,7 @@ const home = () => {
 
       <div className="flex flex-col lg:flex-row justify-between gap-6 px-3  xl:px-3  2xl:px-12 ">
         {/* 1  */}
-        <div className="bg-red-00 w-full lg:w-[76%] flex flex-col gap-6 md:gap-9 2xl:gap-6 ">
+        <div className="w-full lg:w-[76%] flex flex-col gap-6 md:gap-9 2xl:gap-6 ">
           {/* 1 */}
           <div className="grid grid-cols-1 md:grid-cols-9 gap-5 ">
             {/* graph  */}
