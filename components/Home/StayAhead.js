@@ -73,15 +73,14 @@ const StayAhead = () => {
               Stay ahead with real-time Copper news, price and analysis
             </h1>
             <p className="text-sm text-white/80 font-medium mb-4 sm:mb-8">
-              Sign up for Copper Tracker's to gain access to Copper Tracker's full
-              suite of research tools
+              See the latest Copper data
             </p>
           </div>
           <Link
-            href="/auth/signup"
+            href="/data"
             className="bg-white hover:bg-white/90 lg:bg-white lg:hover:bg-white/90 text-center text-accent font-bold py-2.5 sm:py-3 px-4 sm:px-6 rounded w-full text-sm"
           >
-            SUBSCRIBE TODAY
+            LATEST DATA
           </Link>
         </div>
 

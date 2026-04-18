@@ -20,52 +20,10 @@ const GlobalStyles = () => (
 );
 
 const DataHero = () => {
-  const cards = [
-    {
-      label: "COMEX (HG) $/lb",
-      val: "$5.80",
-      c: "dn",
-      txt: "▼ −$0.06 -1.1%",
-      s: "Apr 13, 2026 · 9:05 am ET",
-      color: styles.tokens.cuL,
-    },
-    {
-      label: "LME 3-month $/t",
-      val: "$12,780",
-      c: "dn",
-      txt: "▼ −$118 -0.9%",
-      s: "ATH: $14,580/t · Jan 29, 2026",
-    },
-    {
-      label: "COMEX stocks",
-      val: "503k t",
-      c: "up",
-      txt: "▲ All-time high",
-      s: "Up from <100k a year ago",
-      color: "#f59e0b",
-    },
-    {
-      label: "LME stocks",
-      val: "68k t",
-      c: "dn",
-      txt: "▼ 8-year low",
-      s: "Down from 256k — Jan 2025",
-      color: "#f44336",
-    },
-    {
-      label: "TC/RC (benchmark)",
-      val: "$0/t",
-      c: "dn",
-      txt: "▼ Concentrate scarce",
-      s: "Was $80/t in 2022",
-      color: "#f44336",
-    },
-  ];
-
   return (
     <>
       <GlobalStyles />
-      <section className="mt-14" style={styles.hero}>
+      <section style={styles.hero} className="">
         <div style={styles.heroBefore} />
         <div style={{ ...styles.w, ...styles.heroInner }} className="w-res">
           <p style={styles.hEye}>Copper market data — Updated April 13, 2026</p>
@@ -86,14 +44,42 @@ const DataHero = () => {
           </div>
 
           <div style={styles.hpg} className="hpg-res">
-            {cards.map((item, i) => (
-              <div key={i} style={styles.hpc}>
-                <p style={styles.hpcL}>{item.label}</p>
-                <p style={{ ...styles.hpcV, color: item.color }}>{item.val}</p>
-                <p style={{ ...styles.hpcC, ...styles[item.c] }}>{item.txt}</p>
-                <p style={styles.hpcS}>{item.s}</p>
-              </div>
-            ))}
+            <div style={styles.hpc}>
+              <p style={styles.hpcL}>COMEX (HG) $/lb</p>
+              <p style={{ ...styles.hpcV, color: styles.tokens.cuL }}>$5.80</p>
+              <p style={{ ...styles.hpcC, ...styles.dn }}>▼ −$0.06 -1.1%</p>
+              <p style={styles.hpcS}>Apr 13, 2026 · 9:05 am ET</p>
+            </div>
+
+            <div style={styles.hpc}>
+              <p style={styles.hpcL}>LME 3-month $/t</p>
+              <p style={styles.hpcV}>$12,780</p>
+              <p style={{ ...styles.hpcC, ...styles.dn }}>▼ −$118 -0.9%</p>
+              <p style={styles.hpcS}>ATH: $14,580/t · Jan 29, 2026</p>
+            </div>
+
+            <div style={styles.hpc}>
+              <p style={styles.hpcL}>COMEX stocks</p>
+              <p style={{ ...styles.hpcV, color: "#f59e0b" }}>503k t</p>
+              <p style={{ ...styles.hpcC, ...styles.up }}>▲ All-time high</p>
+              <p style={styles.hpcS}>Up from &lt;100k a year ago</p>
+            </div>
+
+            <div style={styles.hpc}>
+              <p style={styles.hpcL}>LME stocks</p>
+              <p style={{ ...styles.hpcV, color: "#f44336" }}>68k t</p>
+              <p style={{ ...styles.hpcC, ...styles.dn }}>▼ 8-year low</p>
+              <p style={styles.hpcS}>Down from 256k — Jan 2025</p>
+            </div>
+
+            <div style={styles.hpc}>
+              <p style={styles.hpcL}>TC/RC (benchmark)</p>
+              <p style={{ ...styles.hpcV, color: "#f44336" }}>$0/t</p>
+              <p style={{ ...styles.hpcC, ...styles.dn }}>
+                ▼ Concentrate scarce
+              </p>
+              <p style={styles.hpcS}>Was $80/t in 2022</p>
+            </div>
           </div>
         </div>
       </section>

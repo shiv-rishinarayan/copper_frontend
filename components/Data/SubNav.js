@@ -1,5 +1,6 @@
 import React from "react";
 import * as styles from "./styles";
+import Link from "next/link";
 
 const GlobalStyles = () => (
   <style>{`
@@ -40,17 +41,15 @@ const SubNav = () => {
           {navItems.map((item) => (
             <button
               key={item.id}
+              onClick={() => {
+                document.getElementById(item.id)?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }}
               style={{
                 ...styles.sn,
                 ...(item.active ? styles.snOn : {}),
-              }}
-              onMouseEnter={(e) => {
-                if (!item.active)
-                  Object.assign(e.currentTarget.style, styles.snHover);
-              }}
-              onMouseLeave={(e) => {
-                if (!item.active)
-                  Object.assign(e.currentTarget.style, styles.sn);
               }}
             >
               {item.name}

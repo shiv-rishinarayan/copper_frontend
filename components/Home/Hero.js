@@ -55,7 +55,7 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
         >
-          Stay ahead with real-time{" "}
+        ad with real-time{" "}
           {/* <span className="text-accent">Platinum news, price And analysis</span> */}
           <span
             className="text-accent"

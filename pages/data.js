@@ -2,19 +2,25 @@ import Navbar from "@/components/Navbar";
 import React from "react";
 import { useRouter } from "next/router";
 import DataHero from "@/components/Data/DataHero";
-import DPricePremium from "@/components/Data/DPricePremium";
-import DDemandDatabase from "@/components/Data/DDemandDatabase";
-import TabsSection from "@/components/Data/TabSection";
 import Footer from "@/components/Footer";
-import DSupply from "@/components/Data/DSupply";
-import DWPICSupply from "@/components/Data/DWPICSupply";
 import SEO from "@/components/SEO";
 import SubNav from "@/components/Data/SubNav";
-import LivePrices from "@/components/Data/LivePrices";
-import Inventory from "@/components/Data/Inventory";
-import Treatment from "@/components/Data/Treatment";
-import MacroIndicators from "@/components/Data/MacroIndicators";
-import Minesupply from "@/components/Data/MineSupply";
+import PriceSection from "@/components/Data/PriceSection";
+import InventorySection from "@/components/Data/InventorySection";
+import MacroSection from "@/components/Data/MacroSection";
+import SupplySection from "@/components/Data/SupplySection";
+import DemandSection from "@/components/Data/DemandSection";
+import HistoryTable from "@/components/Data/HistoryTable";
+import CopperPricing from "@/components/Data/CopperPricing";
+import ScrapCopperPrice from "@/components/Data/ScrapCopperPrice";
+import TCRC from "@/components/Data/TCRC";
+import PriceForecastSection from "@/components/Data/CopperPriceForcast";
+import DeficitOutlookSection from "@/components/Data/DeficitOutlookSection";
+import StocksSection from "@/components/Data/CopperMiningStocksSection";
+import CopperCalculator from "@/components/Data/CopperCalculator";
+import FAQSection from "@/components/Data/FAQ";
+import TickerTape from "@/components/Data/TickerTape";
+import Breadcrumbs from "@/components/Data/BreadCrumb";
 
 const Data = () => {
   const { query } = useRouter();
@@ -29,14 +35,25 @@ const Data = () => {
         canonicalUrl="https://musical-panda-75f15d.netlify.app/data"
       />
       <Navbar />
+      <Breadcrumbs />
+      <TickerTape />
       <DataHero />
       <SubNav />
-      <LivePrices />
-      <Inventory />
-      <Treatment />
-      <MacroIndicators /> 
-      <Minesupply />
-
+      <PriceSection />
+      <InventorySection />
+      <TCRC />
+      <MacroSection />
+      <SupplySection />
+      <DemandSection />
+      <HistoryTable />
+      <CopperPricing />
+      <ScrapCopperPrice />
+      <PriceForecastSection />
+      <DeficitOutlookSection />
+      <StocksSection />
+      <CopperCalculator />
+      <FAQSection />
+      {/* tabs  */}
       {/* <div>
         <TabsSection />
         <div className="mt-6">

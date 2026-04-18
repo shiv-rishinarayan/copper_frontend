@@ -1,5 +1,8 @@
 import React from "react";
 import * as styles from "./styles";
+import MineProdChart from "./Charts/MineProductionChart";
+import OreGradeChart from "./Charts/OreGradeChart";
+import ExploChart from "./Charts/ExploChart";
 
 const GlobalStyles = () => (
   <style>{`
@@ -15,7 +18,7 @@ const GlobalStyles = () => (
   `}</style>
 );
 
-const Minesupply = () => {
+const SupplySection = () => {
   const countryData = [
     {
       flag: "🇨🇱",
@@ -137,15 +140,8 @@ const Minesupply = () => {
                 </div>
                 <span style={styles.bCu}>2024 data</span>
               </div>
-              <canvas
-                id="mineProdChart"
-                height="220"
-                style={{
-                  width: "100%",
-                  background: "rgba(26,26,46,0.02)",
-                  borderRadius: "8px",
-                }}
-              ></canvas>
+        
+              <MineProdChart />
               <p style={styles.csrc}>
                 Source: USGS 2025 · ICSG annual reports · Free public download
               </p>
@@ -223,22 +219,21 @@ const Minesupply = () => {
                   </p>
                 </div>
               </div>
-              <canvas
-                id="oreGradeChart"
-                height="160"
-                style={{
-                  width: "100%",
-                  background: "rgba(26,26,46,0.02)",
-                  borderRadius: "8px",
-                }}
-              ></canvas>
+            
+              <OreGradeChart />
               <div style={{ ...styles.ins, ...styles.ib, marginTop: "12px" }}>
-                <div style={styles.ii}>⚠️</div>
+                <div style={styles.ii}>&#x26A0;</div>
                 <p style={{ ...styles.ix, fontSize: "11px" }}>
-                  Moving more ore per tonne of copper means higher energy,
-                  water, and labour costs. This inflation is baked in.
+                  As mines mature, they dig into lower-grade rock. Moving more
+                  ore per tonne of copper means higher energy, water, and labour
+                  costs. This cost inflation is baked in regardless of
+                  what&rsquo;s built next.
                 </p>
               </div>
+              <p style={styles.csrc}>
+                Source: S&amp;P Global &middot; CRU Group &middot; Average head
+                grade data &middot; Annual
+              </p>
             </div>
 
             <div style={styles.cb}>
@@ -253,22 +248,37 @@ const Minesupply = () => {
               </div>
               <div style={{ padding: "8px 0" }}>
                 <div style={styles.tlWrap}>
+                  <div style={styles.tlLine} />
                   <div style={styles.tlItem}>
                     <div style={styles.tlDot}></div>
-                    <p style={styles.tlYr}>
-                      Years 0-5 — Discovery & Exploration
+                    <p style={styles.tlYr}>Years 0 — Discovery & Exploration</p>
+                    <p style={{ ...styles.tlTxt, fontSize: "12px" }}>
+                      Geophysical survey, first drilling
                     </p>
                   </div>
                   <div style={styles.tlItem}>
                     <div style={styles.tlDot}></div>
-                    <p style={styles.tlYr}>
-                      Years 5-10 — Permitting & Community
+                    <p style={styles.tlYr}>Years 1-5 — Exploration</p>
+                    <p style={{ ...styles.tlTxt, fontSize: "12px" }}>
+                      Resource definition drilling; feasibility study;
+                      environmental impact assessment
                     </p>
                   </div>
                   <div style={styles.tlItem}>
                     <div style={styles.tlDot}></div>
-                    <p style={styles.tlYr}>
-                      Years 10-17 — Construction ($3–20bn)
+                    <p style={styles.tlYr}>Years 5–10 — Permitting</p>
+                    <p style={{ ...styles.tlTxt, fontSize: "12px" }}>
+                      Community consultation; government approvals; financing.
+                      Chile/Peru add 3–7 years. Cobre Panama: permitted in 2023,
+                      shut 3 months later by court order.
+                    </p>
+                  </div>
+                  <div style={styles.tlItem}>
+                    <div style={styles.tlDot}></div>
+                    <p style={styles.tlYr}>Years 10–17 — Construction</p>
+                    <p style={{ ...styles.tlTxt, fontSize: "12px" }}>
+                      Capital deployment ($3–20bn), civil works, mill
+                      construction, tailings facility .
                     </p>
                   </div>
                   <div style={styles.tlItem}>
@@ -277,6 +287,11 @@ const Minesupply = () => {
                     ></div>
                     <p style={{ ...styles.tlYr, color: styles.tokens.grn }}>
                       Year 15+ — First Copper
+                    </p>
+                    <p style={{ ...styles.tlTxt, fontSize: "12px" }}>
+                      Mine ramp-up to full capacity. Any copper needed before
+                      2035 must come from existing deposits already in
+                      development.
                     </p>
                   </div>
                 </div>
@@ -289,26 +304,28 @@ const Minesupply = () => {
                   <p style={styles.cl}>BloombergNEF · IEA · Structural gap</p>
                   <p style={styles.ct}>Exploration Spending</p>
                   <p style={styles.cm}>
-                    Capital for copper exploration fell 45% since 2013 peak
+                    Capital for new copper exploration peaked in 2013 at $26bn;
+                    fell to $14bn by 2022
                   </p>
                 </div>
               </div>
-              <canvas
-                id="exploChart"
-                height="160"
-                style={{
-                  width: "100%",
-                  background: "rgba(26,26,46,0.02)",
-                  borderRadius: "8px",
-                }}
-              ></canvas>
+          
+              <ExploChart />
               <div style={{ ...styles.ins, ...styles.ib, marginTop: "12px" }}>
                 <div style={styles.ii}>📉</div>
                 <p style={{ ...styles.ix, fontSize: "11px" }}>
-                  A decade of underinvestment means the 2030s pipeline is thin.
-                  Relief is years away.
+                  A decade of underinvestment means the project pipeline for the
+                  2030s is thin. Without major new projects receiving
+                  construction approval by 2027, production cannot respond to
+                  the deficit the IEA projects. High copper prices today are
+                  creating incentives, but the 15-year lag means relief is years
+                  away.
                 </p>
               </div>
+              <p style={styles.csrc}>
+                Source: S&amp;P Global Market Intelligence exploration trends
+                &middot; Annual &middot; Public research
+              </p>
             </div>
           </div>
         </div>
@@ -317,4 +334,4 @@ const Minesupply = () => {
   );
 };
 
-export default Minesupply;
+export default SupplySection;

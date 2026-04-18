@@ -1,5 +1,7 @@
 import React from "react";
 import * as styles from "./styles";
+import InventoryChart from "./Charts/InventoryChart";
+import RegEligChart from "./Charts/RegEligChart";
 
 const GlobalStyles = () => (
   <style>{`
@@ -18,7 +20,7 @@ const GlobalStyles = () => (
   `}</style>
 );
 
-const Inventory = () => {
+const InventorySection = () => {
   const invStats = [
     {
       label: "COMEX stocks",
@@ -178,18 +180,11 @@ const Inventory = () => {
                   Tariff distortion
                 </span>
               </div>
-              <canvas
-                id="inventoryChart"
-                height="220"
-                style={{
-                  width: "100%",
-                  background: "rgba(255,255,255,0.02)",
-                  borderRadius: "8px",
-                }}
-              ></canvas>
+              <InventoryChart />
               <p style={{ ...styles.csrc, ...styles.csrcDark }}>
-                Source: CME Group daily warehouse report + LME daily stock
-                report
+                Source: CME Group daily warehouse report
+                (cmegroup.com/delivery_reports) + LME daily stock report · Free
+                public downloads · Updated each business day
               </p>
             </div>
 
@@ -207,15 +202,7 @@ const Inventory = () => {
                   </p>
                 </div>
               </div>
-              <canvas
-                id="regEligChart"
-                height="220"
-                style={{
-                  width: "100%",
-                  background: "rgba(255,255,255,0.02)",
-                  borderRadius: "8px",
-                }}
-              ></canvas>
+              <RegEligChart />
               <p style={{ ...styles.csrc, ...styles.csrcDark }}>
                 Source: CME Group COMEX daily copper warehouse report
               </p>
@@ -341,4 +328,4 @@ const Inventory = () => {
   );
 };
 
-export default Inventory;
+export default InventorySection;

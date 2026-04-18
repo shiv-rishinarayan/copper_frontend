@@ -1,5 +1,8 @@
 import React from "react";
 import * as styles from "./styles";
+import DrCopperChart from "./Charts/PMIOverlayChart";
+import CuAuChart from "./Charts/CopperGoldRatioChart";
+import ComexPremChart from "./Charts/ComexPremChart";
 
 const GlobalStyles = () => (
   <style>{`
@@ -19,7 +22,7 @@ const GlobalStyles = () => (
   `}</style>
 );
 
-const MacroIndicators = () => {
+const MacroSection = () => {
   const macroStats = [
     {
       label: "Global PMI (Mfg)",
@@ -89,15 +92,8 @@ const MacroIndicators = () => {
                   </p>
                 </div>
               </div>
-              <canvas
-                id="drCopperChart"
-                height="220"
-                style={{
-                  width: "100%",
-                  background: "rgba(26,26,46,0.02)",
-                  borderRadius: "8px",
-                }}
-              ></canvas>
+         
+              <DrCopperChart />
               <div style={styles.ib}>
                 <div style={styles.ii}>🏥</div>
                 <div>
@@ -130,15 +126,8 @@ const MacroIndicators = () => {
                   </p>
                 </div>
               </div>
-              <canvas
-                id="cuAuChart"
-                height="220"
-                style={{
-                  width: "100%",
-                  background: "rgba(26,26,46,0.02)",
-                  borderRadius: "8px",
-                }}
-              ></canvas>
+              
+              <CuAuChart />
               <div style={styles.ib}>
                 <div style={styles.ii}>📈</div>
                 <div>
@@ -176,15 +165,9 @@ const MacroIndicators = () => {
                 Watch this closely
               </span>
             </div>
-            <canvas
-              id="comexPremChart"
-              height="150"
-              style={{
-                width: "100%",
-                background: "rgba(26,26,46,0.02)",
-                borderRadius: "8px",
-              }}
-            ></canvas>
+          
+
+            <ComexPremChart />
             <div style={{ ...styles.ins, ...styles.iw }}>
               <div style={styles.ii}>⚠️</div>
               <div>
@@ -207,4 +190,4 @@ const MacroIndicators = () => {
   );
 };
 
-export default MacroIndicators;
+export default MacroSection;
