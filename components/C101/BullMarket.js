@@ -84,7 +84,7 @@ export default function BullMarket() {
       </p>
 
       <div style={style.calloutWarn}>
-        <div class="callout-icon">&#x26A0;</div>
+        <div className="callout-icon">&#x26A0;</div>
         <div>
           <p style={style.calloutTitle}>June 30, 2026: the binary</p>
           <p style={style.calloutText}>

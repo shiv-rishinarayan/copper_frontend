@@ -1,9 +1,9 @@
 import React from "react";
 import Footer2 from "./Footer2";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
 const Footer = () => {
-  const router = useRouter();
+  // const router = useRouter();
   return (
     <footer className="relative w-full h-fit bg-gray-900">
       {/* Footer Content */}

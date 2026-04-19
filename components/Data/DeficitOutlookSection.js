@@ -68,7 +68,7 @@ const DeficitOutlookSection = () => {
               <BalanceChart />
 
               <div style={{ ...styles.ins, ...styles.ib, marginTop: "12px" }}>
-                <div class="ii">&#x26A0;</div>
+                <div className="ii">&#x26A0;</div>
                 <div>
                   <p style={styles.ix}>
                     <strong>The market balance paradox:</strong> ICSG estimates
@@ -220,7 +220,7 @@ const DeficitOutlookSection = () => {
                 </table>
               </div>
               <div style={{ ...styles.ins, ...styles.ib, marginTop: "14px" }}>
-                <div class="ii">&#x26A0;</div>
+                <div className="ii">&#x26A0;</div>
                 <div>
                   <p style={styles.ix}>
                     Forecasts are widely dispersed because the near-term is

@@ -240,7 +240,7 @@ const PriceForecastSection = () => {
               gap: "14px",
             }}
           >
-            <h2 class="stitle">Copper Price Forecast 2026&ndash;2027</h2>
+            <h2 className="stitle">Copper Price Forecast 2026&ndash;2027</h2>
             <div>
               <p
                 style={{

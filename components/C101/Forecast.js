@@ -140,7 +140,7 @@ export default function Forecast() {
       </div>
 
       <div style={style.calloutWarn}>
-        <div class="callout-icon">&#x26A0;</div>
+        <div className="callout-icon">&#x26A0;</div>
         <div>
           <p style={style.calloutTitle}>The Dr. Copper Paradox</p>
           <p style={style.calloutText}>

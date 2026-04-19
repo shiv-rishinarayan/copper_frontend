@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import * as styles from "./styles";
-import Link from "next/link";
 
 const GlobalStyles = () => (
   <style>{`
