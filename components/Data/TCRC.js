@@ -89,6 +89,7 @@ const TCRC = () => {
               </div>
               <div style={{ padding: "4px 0" }}>
                 <div style={styles.tlWrap}>
+                  <div style={styles.tlLine} />
                   {timeline.map((item, i) => (
                     <div key={i} style={styles.tlItem}>
                       <div

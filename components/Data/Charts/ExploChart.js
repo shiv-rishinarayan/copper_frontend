@@ -21,14 +21,7 @@ ChartJS.register(
 );
 
 const CU = "#B87333";
-const CUL = "rgba(184,115,51,.8)";
-const CUT = "rgba(184,115,51,.15)";
-const GRN = "#4CAF50";
-const RED = "#F44336";
-const BLU = "rgba(30,58,95,.8)";
-const AMB = "#F59E0B";
 const W = { color: "rgba(26,26,46,.06)" };
-const WD = { color: "rgba(255,255,255,.07)" };
 const FONT = { family: "'DM Mono', monospace", size: 10 };
 const yrs = [
   "2010",

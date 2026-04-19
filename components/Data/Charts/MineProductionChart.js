@@ -56,19 +56,20 @@ const data = {
 
 const options = {
   responsive: true,
+  maintainAspectRatio: false,
   cutout: "55%",
   plugins: {
     legend: {
       display: true,
-      position: "right",
-      labels: { boxWidth: 8, font: { size: 10 }, padding: 16 },
+      position: "bottom",
+      labels: { boxWidth: 8, font: { size: 10 }, padding: 8 },
     },
   },
 };
 
 export default function MineProdChart() {
   return (
-    <div className="relative w-full h-48 md:h-64 xl:h-[540px]">
+    <div className="relative w-full h-72 md:h-64 xl:h-[540px]">
       <Doughnut data={data} options={options} />
     </div>
   );

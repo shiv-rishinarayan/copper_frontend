@@ -1,4 +1,4 @@
-import { Bar, Doughnut } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   PointElement,
@@ -42,7 +42,7 @@ const data = {
 
 const options = {
   responsive: true,
-  maintainAspectRatio: false,
+  maintainAspectRatio: false, 
   scales: {
     x: { grid: { display: false } },
     y: {

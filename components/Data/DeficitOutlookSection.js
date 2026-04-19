@@ -37,10 +37,10 @@ const DeficitOutlookSection = () => {
             today.
           </p>
 
-          <div style={{ ...styles.g2, ...styles.gap }} className="g2-res">
-            <div style={styles.cb}>
-              <div style={styles.ch}>
-                <div>
+          <div className="grid grid-cols-1 lg:grid-cols-10 gap-4 gap-x-4">
+            <div className="lg:col-span-5">
+              <div className="grid grid-cols-9 p-1">
+                <div className="col-span-4 lg:col-span-6">
                   <p style={styles.cl}>
                     ICSG · BloombergNEF · IEA · Cochilco · Annual
                   </p>
@@ -53,6 +53,7 @@ const DeficitOutlookSection = () => {
                   </p>
                 </div>
                 <span
+                  className="col-span-5 lg:col-span-3 max-h-8 text-center text-xs"
                   style={{
                     ...styles.bdg,
                     background: "rgba(184, 115, 51, 0.1)",
@@ -87,7 +88,7 @@ const DeficitOutlookSection = () => {
               </p>
             </div>
 
-            <div style={styles.cb}>
+            <div className="lg:col-span-5" style={styles.cb}>
               <div style={styles.ch}>
                 <div>
                   <p style={styles.cl}>

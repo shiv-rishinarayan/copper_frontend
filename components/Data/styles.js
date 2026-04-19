@@ -142,9 +142,7 @@ export const w = {
 
 export const g2 = {
   display: "grid",
-
   gridTemplateColumns: "1fr 1fr",
-
   gap: "18px",
 };
 

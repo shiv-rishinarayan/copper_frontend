@@ -23,15 +23,7 @@ const CopperCalculator = () => {
           standard units. Price runs client-side &mdash; no data sent anywhere.
         </p>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "20px",
-            maxWidth: "900px",
-          }}
-        >
-          {/* VALUE CALCULATOR */}
+        <div className="flex flex-col gap-5">
           <div
             style={{
               background: s.tokens.cuBg,
@@ -152,7 +144,6 @@ const CopperCalculator = () => {
             </div>
           </div>
 
-          {/* UNIT CONVERTER */}
           <div
             style={{
               background: s.tokens.white,

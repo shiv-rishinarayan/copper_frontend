@@ -123,8 +123,8 @@ const SupplySection = () => {
             structural problems that high prices cannot quickly fix.
           </p>
 
-          <div style={{ ...styles.g2, ...styles.gap }} className="g2-res">
-            <div style={styles.cb}>
+          <div className="g2-res grid grid-cols-1 lg:grid-cols-10 gap-4 gap-x-4">
+            <div className="lg:col-span-5" style={styles.cb}>
               <div style={styles.ch}>
                 <div>
                   <p style={styles.cl}>
@@ -140,14 +140,14 @@ const SupplySection = () => {
                 </div>
                 <span style={styles.bCu}>2024 data</span>
               </div>
-        
+
               <MineProdChart />
               <p style={styles.csrc}>
                 Source: USGS 2025 · ICSG annual reports · Free public download
               </p>
             </div>
 
-            <div style={styles.cb}>
+            <div className="overflow-scroll lg:col-span-5" style={styles.cb}>
               <div style={styles.ch}>
                 <div>
                   <p style={styles.cl}>USGS · S&P Global · Annual</p>
@@ -219,7 +219,7 @@ const SupplySection = () => {
                   </p>
                 </div>
               </div>
-            
+
               <OreGradeChart />
               <div style={{ ...styles.ins, ...styles.ib, marginTop: "12px" }}>
                 <div style={styles.ii}>&#x26A0;</div>
@@ -309,7 +309,7 @@ const SupplySection = () => {
                   </p>
                 </div>
               </div>
-          
+
               <ExploChart />
               <div style={{ ...styles.ins, ...styles.ib, marginTop: "12px" }}>
                 <div style={styles.ii}>📉</div>
