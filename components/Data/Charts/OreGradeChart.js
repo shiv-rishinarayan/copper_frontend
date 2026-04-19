@@ -60,6 +60,9 @@ const options = {
     },
   },
   plugins: {
+    legend: {
+      display: false,
+    },
     tooltip: {
       callbacks: {
         label: (ctx) => "Avg ore grade: " + ctx.raw.toFixed(2) + "%",

@@ -7,6 +7,7 @@ import {
   CategoryScale,
   Filler,
   Tooltip,
+  Legend,
   // Legend,
 } from "chart.js";
 
@@ -56,6 +57,9 @@ const options = {
     y: { grid: W, ticks: { callback: (v) => "$" + v + "/t" } },
   },
   plugins: {
+    legend: {
+      display: false,
+    },
     tooltip: {
       callbacks: {
         label: (ctx) =>

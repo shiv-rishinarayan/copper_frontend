@@ -97,7 +97,7 @@ const InventorySection = () => {
         <div style={styles.w} className="w-res">
           <p style={{ ...styles.slbl, ...styles.slblDark }}>
             Section B · Exchange inventories
-          </p>
+          </p>  
           <h2 style={{ ...styles.stitle, ...styles.stitleDark }}>
             The Inventory Paradox: COMEX vs LME vs SHFE
           </h2>

@@ -7,7 +7,6 @@ import {
   CategoryScale,
   Filler,
   Tooltip,
-  Legend,
 } from "chart.js";
 
 ChartJS.register(
@@ -17,7 +16,6 @@ ChartJS.register(
   CategoryScale,
   Filler,
   Tooltip,
-  Legend,
 );
 
 const CU = "#B87333";
@@ -28,7 +26,6 @@ const RED = "#F44336";
 const BLU = "rgba(30,58,95,.8)";
 const AMB = "#F59E0B";
 const W = { color: "rgba(26,26,46,.06)" };
-const WD = { color: "rgba(255,255,255,.07)" };
 const FONT = { family: "'DM Mono', monospace", size: 10 };
 
 const yrs = [
@@ -96,6 +93,9 @@ const options = {
     },
   },
   plugins: {
+    legend: {
+      display: false,
+    },
     tooltip: {
       callbacks: {
         label: (ctx) => "$" + ctx.raw.toLocaleString() + "/t",

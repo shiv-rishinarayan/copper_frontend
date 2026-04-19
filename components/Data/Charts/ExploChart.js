@@ -74,6 +74,9 @@ const options = {
     },
   },
   plugins: {
+    legend: {
+      display: false,
+    },
     tooltip: {
       callbacks: {
         label: (ctx) => "Exploration: $" + ctx.raw.toFixed(1) + "bn",

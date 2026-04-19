@@ -55,6 +55,9 @@ const options = {
     },
   },
   plugins: {
+    legend: {
+      display: false,
+    },
     tooltip: {
       callbacks: {
         label: (ctx) => "COMEX premium: $" + ctx.raw.toLocaleString() + "/t",

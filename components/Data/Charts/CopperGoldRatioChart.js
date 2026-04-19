@@ -71,6 +71,9 @@ const options = {
     },
   },
   plugins: {
+    legend: {
+      display: false,
+    },
     tooltip: {
       callbacks: { label: (ctx) => "Cu/Au: " + ctx.raw.toFixed(5) },
     },
